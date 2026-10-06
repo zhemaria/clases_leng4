@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<!-- Lección 1.3 · Artes del Lenguaje Nivel 4 · GEDparaHispanos
+     José M. Fernández, ABE/ASE Math Master Teacher, Harry S. Truman College — City Colleges of Chicago
+     Licencia CC BY-NC-SA 4.0 · https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es -->
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lección 1.3 · Raya, paréntesis, punto y coma y ortografía académica</title>
+<meta name="author" content="José M. Fernández, ABE/ASE Math Master Teacher, Harry S. Truman College — City Colleges of Chicago">
+<meta name="license" content="CC BY-NC-SA 4.0">
+<link rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es">
+<style>
+  :root{
+    --cp:#b91c1c;--cp-claro:#fee2e2;--cp-oscuro:#7f1d1d;
+    --acento:#ff8c42;--texto:#1a2332;--fondo:#fafbfc;
+    --gris:#555;--gris-claro:#eef1f4;
+    --exito:#2e7d32;--error:#c62828;
+  }
+  *{box-sizing:border-box}
+  body{font-family:'Poppins','Segoe UI',Arial,sans-serif;line-height:1.7;color:var(--texto);background:var(--fondo);max-width:960px;margin:0 auto;padding:24px 18px}
+  h1{color:var(--cp-oscuro);border-bottom:4px solid var(--cp);padding-bottom:14px;font-size:1.85rem;margin-bottom:8px}
+  .subtitulo{color:var(--gris);font-style:italic;margin-top:0;margin-bottom:24px;font-size:1.05rem}
+  h2{color:var(--cp-oscuro);border-left:6px solid var(--cp);padding-left:14px;margin-top:32px;font-size:1.4rem}
+  h3{color:var(--cp-oscuro);margin-top:24px;font-size:1.15rem}
+  .caja-objetivos{background:var(--cp-claro);border-left:6px solid var(--cp);padding:18px 22px;border-radius:8px;margin:18px 0 28px 0}
+  .caja-objetivos h2{margin-top:0;color:var(--cp-oscuro);border-left:none;padding-left:0;font-size:1.2rem}
+  .caja-tiempo{display:inline-block;background:var(--acento);color:#1a2332;padding:4px 12px;border-radius:14px;font-size:0.85rem;font-weight:600;margin-left:10px;vertical-align:middle}
+  details{background:#fff;border:1px solid #d6dde4;border-radius:10px;margin:14px 0;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,0.04)}
+  details[open]{border-color:var(--cp);box-shadow:0 3px 10px rgba(185,28,28,0.12)}
+  summary{cursor:pointer;padding:16px 20px;font-weight:600;color:var(--cp-oscuro);background:var(--gris-claro);list-style:none;user-select:none;font-size:1.05rem}
+  summary::-webkit-details-marker{display:none}
+  summary::before{content:'▶';display:inline-block;margin-right:10px;color:var(--cp);transition:transform 0.25s;font-size:0.85rem}
+  details[open] summary::before{transform:rotate(90deg)}
+  details[open] summary{background:var(--cp-claro);border-bottom:2px solid var(--cp)}
+  .contenido-detalle{padding:18px 22px}
+  .tip{background:#fffbe6;border-left:5px solid #f4c430;padding:12px 18px;border-radius:6px;margin:14px 0}
+  .tip strong{color:#6b5400}
+  .botones{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:14px 0}
+  .btn{padding:10px 22px;border:none;border-radius:8px;font-weight:600;cursor:pointer;font-family:inherit;font-size:0.95rem;transition:background 0.2s}
+  .btn-primario{background:var(--cp);color:#fff}
+  .btn-primario:hover{background:var(--cp-oscuro)}
+  .btn-secundario{background:var(--gris-claro);color:var(--texto)}
+  .btn-secundario:hover{background:#d6dde4}
+  .btn[aria-pressed="true"]{background:var(--cp-oscuro);color:#fff}
+  ul.lista-bonita{list-style:none;padding-left:0}
+  ul.lista-bonita li{padding:8px 0 8px 30px;position:relative}
+  ul.lista-bonita li::before{content:'➜';position:absolute;left:0;color:var(--cp);font-weight:700}
+  .palabra-clave{background:linear-gradient(transparent 60%,#ffeb3b 60%);padding:0 4px;font-weight:600}
+  .ej{font-family:Georgia,serif;font-size:1.08rem}
+  .sub{font-weight:700;border-bottom:3px solid var(--cp-oscuro)}
+  table.tabla{width:100%;border-collapse:collapse;margin:16px 0;background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,0.06)}
+  table.tabla th{background:var(--cp-oscuro);color:#fff;padding:10px 12px;text-align:left}
+  table.tabla td{padding:10px 12px;border-bottom:1px solid var(--gris-claro);vertical-align:top}
+  table.tabla tr:last-child td{border-bottom:none}
+  .actividad{background:#fff;border:2px solid var(--acento);border-radius:10px;padding:16px 20px;margin:14px 0}
+  .actividad h4{color:#8a3d0c;margin-top:0}
+  .badge{display:inline-block;padding:3px 10px;border-radius:12px;font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-right:6px}
+  .badge-lectura{background:#e3f2fd;color:#0d47a1}
+  /* Clasificadores */
+  .clasificador{background:#fff;border:2px solid var(--cp);border-radius:12px;padding:14px 18px;margin:18px 0}
+  .item{border:2px solid var(--gris-claro);border-radius:8px;padding:10px 14px;margin:8px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+  .item-pal{font-family:Georgia,serif;font-size:1.12rem;color:var(--texto);display:flex;align-items:center;gap:10px}
+  .item-ops{display:flex;gap:8px;flex-wrap:wrap}
+  .item-fb{flex-basis:100%;font-size:.95rem}
+  .item-fb:empty{display:none}
+  .btn-op{padding:7px 14px;border:2px solid var(--cp-oscuro);background:#fff;color:var(--cp-oscuro);border-radius:8px;cursor:pointer;font-weight:600;font-family:inherit;font-size:.92rem}
+  .btn-op:hover:not(:disabled){background:var(--cp-claro)}
+  .btn-op.correcta{background:#d4edda;border-color:var(--exito);color:#155724}
+  .btn-op.correcta::before{content:'✓ '}
+  .btn-op.incorrecta{background:#f8d7da;border-color:var(--error);color:#721c24;text-decoration:line-through}
+  .btn-op.incorrecta::before{content:'✗ '}
+  .btn-op:disabled{cursor:default}
+  .apilado .item{flex-direction:column;align-items:stretch}
+  .apilado .item-ops{flex-direction:column}
+  .apilado .btn-op{text-align:left;font-weight:400}
+  .apilado .item-pal{font-family:'Segoe UI',Arial,sans-serif;font-size:1rem;font-weight:600;display:block}
+  .puntaje{text-align:center;margin-top:12px;font-weight:600;color:var(--cp-oscuro)}
+  /* Lectura con marcas: color + borde distinto + etiqueta escrita */
+  .texto-lectura{background:#fff;border:2px solid var(--gris-claro);border-radius:8px;padding:18px 22px;margin:14px 0;font-family:Georgia,serif;font-size:1.12rem;line-height:2.1}
+  .texto-lectura p{margin:0 0 10px}
+  .num-p{display:inline-block;background:var(--cp-oscuro);color:#fff;border-radius:50%;width:1.6em;height:1.6em;text-align:center;line-height:1.6em;font-size:.8rem;font-family:'Segoe UI',Arial,sans-serif;margin-right:6px;vertical-align:middle}
+  .m-sus{background:#e3f2fd;color:#0d3c78;border-bottom:3px solid #0d3c78}
+  .m-adj{background:#fff3e0;color:#6b3300;border-bottom:3px dashed #8a4b00}
+  .m-adv{background:#e8f5e9;color:#1b5e20;border-bottom:3px dotted #1b5e20}
+  .etq{font-weight:700;font-size:.78em;font-family:'Segoe UI',Arial,sans-serif;white-space:nowrap}
+  .oculta-marcas .m-sus,.oculta-marcas .m-adj,.oculta-marcas .m-adv{background:none;color:inherit;border:none}
+  .oculta-marcas .etq{display:none}
+  .leyenda-marcas{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0;font-size:.92rem}
+  .leyenda-marcas span{padding:2px 8px}
+  /* Índice */
+  .indice{background:#fff;border:1px solid #d6dde4;border-left:6px solid var(--cp);border-radius:10px;padding:16px 20px;margin:22px 0}
+  .indice h2{font-size:1.1rem;margin:0 0 8px;border:none;padding:0}
+  .indice ol{margin:0;padding-left:1.4em}
+  .indice li{margin:4px 0}
+  .indice a{color:var(--cp-oscuro)}
+  .abrir-cerrar{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0 0}
+  .volver-indice{position:fixed;right:18px;bottom:18px;z-index:60;background:var(--cp-oscuro);color:#fff;border-radius:999px;padding:10px 16px;font-weight:700;font-size:.92rem;text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,.28)}
+  .volver-indice:hover{background:var(--cp);color:#fff}
+  a:focus-visible,summary:focus-visible,button:focus-visible,textarea:focus-visible{outline:3px solid #b35316;outline-offset:2px}
+  .sr-solo{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+  .enlace-practica{display:block;background:#fff;border:2px solid var(--cp);border-radius:10px;padding:14px 18px;margin:16px 0;text-decoration:none;color:var(--cp-oscuro);font-weight:600}
+  .enlace-practica:hover{background:var(--cp-claro)}
+  .enlace-practica span{display:block;font-weight:400;color:var(--texto);font-size:.95rem}
+  .aviso-voz{font-size:.9rem;color:#5c3900;background:#fff3cd;border-radius:6px;padding:6px 10px;display:none}
+  .aviso-voz.visible{display:block}
+  /* Quiz */
+  .qz-intro{background:var(--cp-claro);border-radius:10px;padding:14px 18px;margin:0 0 14px}
+  .qz-intro h4{margin:0 0 6px;color:var(--cp-oscuro)}
+  .qz-preg{background:#fff;border:2px solid var(--gris-claro);border-radius:10px;padding:14px 18px;margin:12px 0}
+  .qz-enun{font-weight:600;margin:0 0 10px}
+  .qz-num{display:inline-block;background:var(--cp-oscuro);color:#fff;border-radius:12px;padding:1px 10px;font-size:.8rem;margin-right:8px}
+  .qz-ops{display:flex;flex-direction:column;gap:8px}
+  .qz-op{text-align:left;background:#fff;border:2px solid #c9d2db;border-radius:8px;padding:10px 14px;font-family:inherit;font-size:1rem;cursor:pointer;color:var(--texto)}
+  .qz-op:hover:not(:disabled){border-color:var(--cp)}
+  .qz-op.elegida{background:var(--cp-claro);border-color:var(--cp-oscuro);color:var(--cp-oscuro);box-shadow:0 0 0 3px #fff,0 0 0 5px var(--cp)}
+  .qz-op.correcta{background:#d4edda;border-color:#2e7d32;color:#155724}
+  .qz-op.correcta::before{content:'✓ '}
+  .qz-op.incorrecta{background:#f8d7da;border-color:#c62828;color:#721c24}
+  .qz-op.incorrecta::before{content:'✗ '}
+  .qz-op:disabled{cursor:default}
+  .qz-resultado{display:none;margin:16px 0;padding:16px;border-radius:10px;text-align:center;font-weight:600}
+  .qz-resultado.visible{display:block}
+  .qz-repaso{margin:10px 0 0;padding:8px 12px;background:#fff3cd;border-radius:6px;color:#3d2600;font-size:.95rem}
+  .qz-repaso a{color:var(--cp-oscuro);font-weight:700}
+  /* Taller de escritura */
+  .taller{background:#fff;border:2px solid var(--cp);border-radius:12px;padding:14px;margin:14px 0}
+  .tl-etq{display:block;font-weight:700;color:var(--cp-oscuro);margin-bottom:6px}
+  .tl-txt{width:100%;box-sizing:border-box;font:inherit;font-size:1.05rem;line-height:1.7;padding:10px 12px;border:2px solid #9aa9b7;border-radius:8px;resize:vertical;min-height:200px}
+  .tl-txt:focus{outline:3px solid var(--cp);outline-offset:1px;border-color:var(--cp-oscuro)}
+  .tl-cuenta{font-size:.92rem;color:#333;margin:6px 0}
+  .tl-conect{font-size:.95rem;margin:4px 0 8px}
+  .tl-chip{display:inline-block;background:var(--cp-claro);color:var(--cp-oscuro);border:1px solid var(--cp);border-radius:12px;padding:1px 10px;margin:2px 2px;font-weight:700}
+  .tl-aviso{min-height:1.4em;font-weight:700;color:var(--cp-oscuro)}
+  .tl-lista{border:2px dashed var(--cp);border-radius:10px;padding:8px 14px;margin-top:10px}
+  .tl-lista legend{font-weight:700;color:var(--cp-oscuro);padding:0 6px}
+  .tl-lista label{display:flex;gap:10px;align-items:flex-start;padding:6px 0;cursor:pointer}
+  .tl-lista input{width:22px;height:22px;flex-shrink:0;margin-top:2px;accent-color:var(--cp-oscuro)}
+  .tl-listo{font-weight:700;color:var(--cp-oscuro);margin:6px 0 0}
+  .rubrica{font-size:.92rem}
+  .rubrica td,.rubrica th{vertical-align:top}
+  @media(max-width:640px){
+    .rubrica thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+    .rubrica,.rubrica tbody,.rubrica tr,.rubrica th,.rubrica td{display:block;width:auto}
+    .rubrica tr{border:2px solid var(--cp);border-radius:10px;margin:0 0 10px;overflow:hidden}
+    .rubrica tbody th{background:var(--cp-oscuro);color:#fff;border:none}
+    .rubrica td{border:none;border-top:1px solid #d5dde3}
+    .rubrica td::before{content:attr(data-et);display:block;font-weight:700;color:var(--cp-oscuro)}
+  }
+  footer.pie{margin-top:40px;padding-top:18px;border-top:2px solid var(--gris-claro);text-align:center;color:#555;font-size:.9rem}
+  footer.pie p{margin:4px 0}
+  footer.pie a{color:var(--cp-oscuro)}
+  @media print{.indice,.volver-indice,.abrir-cerrar{display:none}}
+  @media (prefers-reduced-motion:reduce){summary::before{transition:none}}
+  .m-ra{background:#e3f2fd;color:#0d3c78;border-bottom:3px solid #0d3c78}
+  .m-pa{background:#fff3e0;color:#6b3300;border-bottom:3px dashed #8a4b00}
+  .m-pc{background:#e8f5e9;color:#1b5e20;border-bottom:3px dotted #1b5e20}
+  .m-or{background:#f3e5f5;color:#4a1460;border-bottom:4px double #4a1460}
+  .oculta-marcas .m-ra,.oculta-marcas .m-pa,.oculta-marcas .m-pc,.oculta-marcas .m-or{background:none;color:inherit;border:none}
+  .signo{font-family:Georgia,serif;font-size:1.3rem;font-weight:700;color:var(--cp-oscuro);padding:0 4px}
+  .hueco{display:inline-block;min-width:2.2em;border-bottom:2px solid var(--cp-oscuro);text-align:center;font-weight:700}
+</style>
+</head>
+<body>
+<h1>Lección 1.3 · Raya, paréntesis, punto y coma y ortografía académica</h1>
+<p class="subtitulo">Artes del Lenguaje · Nivel 4 · Tema 1: Sintaxis compleja y control experto de convenciones · Unas 2 horas, a tu ritmo</p>
+
+<div class="caja-objetivos">
+  <h2>🎯 Objetivos de la lección</h2>
+  <ul class="lista-bonita" style="margin:0">
+    <li>Usar la <strong>raya</strong> (—) y los <strong>paréntesis</strong> para los incisos y distinguir la raya del <strong>guion</strong> (-).</li>
+    <li>Puntuar <strong>enumeraciones complejas</strong> con punto y coma.</li>
+    <li>Aplicar la <strong>ortografía académica</strong>: prefijos, tildes, siglas, abreviaturas, símbolos y números, según la <em>Ortografía</em> de la RAE.</li>
+  </ul>
+  <p style="margin:8px 0 0;font-size:.92rem">Estándares: 5–6.W.CS.2 · SLO Language 1–3</p>
+</div>
+
+<nav class="indice" id="indice" aria-labelledby="indice-titulo">
+  <h2 id="indice-titulo">Contenido de la lección</h2>
+  <ol>
+    <li><a href="#s-1-incisos">Tres maneras de abrir un inciso</a></li>
+    <li><a href="#s-2-raya">La raya y el guion</a></li>
+    <li><a href="#s-3-parentesis">Los paréntesis</a></li>
+    <li><a href="#s-4-series">El punto y coma en las series complejas</a></li>
+    <li><a href="#s-5-ortografia">Ortografía académica</a></li>
+    <li><a href="#s-6-modelo">Texto modelo: el informe del programa</a></li>
+    <li><a href="#s-7-taller">Taller: puntúa con precisión</a></li>
+    <li><a href="#s-tarea">Tarea</a></li>
+    <li><a href="#s-quiz">Quiz de la lección</a></li>
+    <li><a href="#s-cierre">Cierre</a></li>
+  </ol>
+  <div class="abrir-cerrar">
+    <button type="button" class="btn btn-secundario" id="abrir-todo">Abrir todo</button>
+    <button type="button" class="btn btn-secundario" id="cerrar-todo">Cerrar todo</button>
+  </div>
+</nav>
+
+<h2>📚 Para empezar</h2>
+<p>En el Nivel 3 aprendiste los dos puntos, el punto y coma, las comillas y la cursiva. En esta lección llegas a la puntuación de los textos académicos y técnicos: la que se usa en informes, en artículos y en el ensayo del GED. Son detalles pequeños, pero un lector atento los nota enseguida, y dan a tu escritura un aspecto profesional.</p>
+<p class="aviso-voz" id="aviso-voz" role="status">Tu navegador no tiene una voz en español disponible, así que los botones 🔊 no sonarán.</p>
+
+<details open id="s-1-incisos">
+<summary>1. Tres maneras de abrir un inciso <span class="caja-tiempo">10 min</span></summary>
+<div class="contenido-detalle">
+<p>Un <span class="palabra-clave">inciso</span> es una información que se mete en medio de la oración para aclarar o comentar algo. Si lo quitas, la oración sigue completa. Hay tres signos para encerrarlo, según <strong>cuánto quieras separarlo</strong> del resto:</p>
+<table class="tabla">
+  <caption class="sr-solo">Comas, rayas y paréntesis para los incisos, de menor a mayor separación</caption>
+  <thead><tr><th scope="col">Signo</th><th scope="col">Grado de separación</th><th scope="col">Ejemplo</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Comas</strong></td><td>Poca: el inciso está muy unido a la oración.</td><td class="ej">Mi abuela, que nació en Ponce, vive con nosotros.</td></tr>
+    <tr><td><strong>Rayas</strong> <span class="signo" aria-hidden="true">—</span></td><td>Más: el inciso destaca, como si hicieras una pausa para comentarlo.</td><td class="ej">Mi abuela —que nació en Ponce— vive con nosotros.</td></tr>
+    <tr><td><strong>Paréntesis</strong> <span class="signo" aria-hidden="true">( )</span></td><td>Mucha: un dato aparte, una aclaración que casi no pertenece a la oración.</td><td class="ej">Mi abuela (nacida en Ponce en 1940) vive con nosotros.</td></tr>
+  </tbody>
+</table>
+<div class="tip"><strong>💡 Las tres son correctas:</strong> la elección es de estilo. Lo que no puedes hacer es mezclarlas: si abres con raya, cierras con raya; si abres con paréntesis, cierras con paréntesis.</div>
+</div>
+</details>
+
+<details id="s-2-raya">
+<summary>2. La raya y el guion <span class="caja-tiempo">20 min</span></summary>
+<div class="contenido-detalle">
+<p>Son signos distintos. La <strong>raya</strong> (—) es larga; el <strong>guion</strong> (-) es corto. En inglés a la raya la llaman <em>em dash</em> o «guion largo», pero en español se llama <strong>raya</strong>.</p>
+<table class="tabla">
+  <caption class="sr-solo">Usos de la raya y del guion con ejemplos</caption>
+  <thead><tr><th scope="col">Signo</th><th scope="col">Para qué sirve</th><th scope="col">Ejemplo</th></tr></thead>
+  <tbody>
+    <tr><td rowspan="2"><strong>Raya</strong> —</td><td>Encerrar un inciso. Se abre y se cierra, también al final de la oración.</td><td class="ej">El tren llegó tarde —como siempre—.</td></tr>
+    <tr><td>Marcar quién habla en un diálogo (en español no se usan comillas para el diálogo).</td><td class="ej">—¿Vienes mañana? —preguntó Ana.<br>—Sí, a las ocho.</td></tr>
+    <tr><td rowspan="3"><strong>Guion</strong> -</td><td>Unir palabras compuestas.</td><td class="ej">franco-mexicano · teórico-práctico</td></tr>
+    <tr><td>Indicar un intervalo de números.</td><td class="ej">la Primera Guerra Mundial (1914-1918) · págs. 20-25</td></tr>
+    <tr><td>Cortar una palabra al final de la línea, por sílabas.</td><td class="ej">compu-<br>tadora</td></tr>
+  </tbody>
+</table>
+<div class="tip"><strong>⚠️ Dónde van los otros signos:</strong> la coma, el punto o el punto y coma van <strong>después</strong> de la raya de cierre, nunca antes: «Llegó tarde —como siempre—, así que perdió el turno». La raya de apertura va pegada a la primera palabra del inciso y la de cierre, a la última.</div>
+<div class="tip"><strong>⌨️ Cómo escribir la raya:</strong> en Windows, mantén pulsada la tecla <kbd>Alt</kbd> y escribe <kbd>0151</kbd> en el teclado numérico. En Mac, <kbd>Opción</kbd> + <kbd>Mayúsculas</kbd> + <kbd>-</kbd>. En el celular, deja pulsado el guion y elige la raya. Muchos procesadores de texto la ponen solos al escribir dos guiones seguidos.</div>
+<div class="clasificador" id="clasif-signo"></div>
+<div class="puntaje" id="puntaje-signo" role="status" aria-live="polite"></div>
+<a class="enlace-practica" href="https://zhemaria.github.io/gramatica/n4-l1-3.html#guion-raya" target="_blank" rel="noopener noreferrer">➖ Practica más: ¿guion o raya?
+  <span>Oraciones con un hueco para decidir qué signo corresponde. Se abre en una pestaña nueva.</span></a>
+</div>
+</details>
+
+<details id="s-3-parentesis">
+<summary>3. Los paréntesis <span class="caja-tiempo">10 min</span></summary>
+<div class="contenido-detalle">
+<p>Los paréntesis encierran datos que el lector puede saltar sin perder el hilo:</p>
+<ul class="lista-bonita">
+  <li><strong>Siglas</strong> la primera vez que aparecen: <span class="ej">la Organización Mundial de la Salud (OMS)</span>.</li>
+  <li><strong>Fechas, lugares o cifras</strong> aclaratorias: <span class="ej">Benito Juárez (1806-1872) fue presidente de México</span>.</li>
+  <li><strong>Traducciones o equivalencias:</strong> <span class="ej">el Departamento de Trabajo (Department of Labor)</span>.</li>
+  <li><strong>Remisiones</strong> dentro de un texto: <span class="ej">(ver la tabla 2)</span>.</li>
+</ul>
+<div class="tip"><strong>⚠️ El punto, ¿dentro o fuera?</strong> Si el paréntesis está dentro de una oración, el punto va <strong>fuera</strong>: «El programa empezó en 2019 (en plena primavera).» Si todo lo que está entre paréntesis es una oración independiente, el punto va <strong>dentro</strong>: «(Los datos son del último censo.)»</div>
+<div class="clasificador apilado" id="clasif-puntua"></div>
+<div class="puntaje" id="puntaje-puntua" role="status" aria-live="polite"></div>
+<a class="enlace-practica" href="https://zhemaria.github.io/gramatica/n4-l1-3.html#raya-parentesis" target="_blank" rel="noopener noreferrer">( ) Practica más: rayas y paréntesis bien puestos
+  <span>Elige la versión bien puntuada de cada oración. Se abre en una pestaña nueva.</span></a>
+</div>
+</details>
+
+<details id="s-4-series">
+<summary>4. El punto y coma en las series complejas <span class="caja-tiempo">15 min</span></summary>
+<div class="contenido-detalle">
+<p>En una enumeración simple, los elementos se separan con comas. Pero si cada elemento <strong>ya lleva comas dentro</strong>, las comas no alcanzan para separarlos: se usa el <span class="palabra-clave">punto y coma</span> entre un elemento y otro.</p>
+<p class="ej" style="background:#fff5f5;border-left:6px solid #b91c1c;padding:8px 12px;border-radius:6px">✖️ En la reunión estaban Ana, la directora, Luis, el contador, y Carmen, la secretaria.</p>
+<p style="font-size:.95rem">¿Son tres personas o seis? Con tantas comas no se sabe.</p>
+<p class="ej" style="background:#f1f8f1;border-left:6px solid #2e7d32;padding:8px 12px;border-radius:6px">✔️ En la reunión estaban Ana, la directora; Luis, el contador; y Carmen, la secretaria.</p>
+<p style="font-size:.95rem">Ante el último elemento, la RAE admite coma o punto y coma antes de la <em>y</em>: «Luis, el contador, y Carmen…» o «Luis, el contador; y Carmen…». Elige una y úsala en todo el texto.</p>
+<div class="tip"><strong>💡 La coma que sustituye a un verbo:</strong> en las series con punto y coma es frecuente no repetir el verbo y poner una coma en su lugar: «El 65 % eran padres de familia; el 20 %, trabajadores de noche; y el 15 %, jubilados». La coma ocupa el lugar de «eran».</div>
+<div class="clasificador apilado" id="clasif-series"></div>
+<div class="puntaje" id="puntaje-series" role="status" aria-live="polite"></div>
+<a class="enlace-practica" href="https://zhemaria.github.io/gramatica/n4-l1-3.html#series" target="_blank" rel="noopener noreferrer">📋 Practica más: series con punto y coma
+  <span>Enumeraciones complejas para elegir la puntuación que las deja claras. Se abre en una pestaña nueva.</span></a>
+<div class="tip"><strong>📘 ¿Necesitas repasar?</strong> El punto y coma ante conectores (<em>sin embargo, por lo tanto</em>) está en la <a href="https://zhemaria.github.io/clases_leng3/clase_2-1.html" target="_blank" rel="noopener noreferrer" style="color:var(--cp-oscuro);font-weight:700">Lección 2.1 del Nivel 3</a>. Se abre en una pestaña nueva.</div>
+</div>
+</details>
+
+<details id="s-5-ortografia">
+<summary>5. Ortografía académica <span class="caja-tiempo">25 min</span></summary>
+<div class="contenido-detalle">
+<p>Estas normas vienen de la <em>Ortografía de la lengua española</em> de la Real Academia Española (RAE, 2010) y son las que se aplican hoy en los textos académicos.</p>
+<table class="tabla">
+  <caption class="sr-solo">Normas de ortografía académica con ejemplos correctos e incorrectos</caption>
+  <thead><tr><th scope="col">Norma</th><th scope="col">✔️ Así</th><th scope="col">✖️ No así</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Prefijos</strong> unidos a la palabra</td><td>exministro · posguerra · antivirus · supermercado</td><td>ex-ministro · ex ministro · anti virus</td></tr>
+    <tr><td><strong>Prefijo separado</strong> si afecta a varias palabras</td><td>ex primer ministro · pro derechos humanos</td><td>exprimer ministro</td></tr>
+    <tr><td><strong>Prefijo con guion</strong> ante mayúscula o número</td><td>anti-OTAN · sub-21</td><td>antiOTAN · sub21</td></tr>
+    <tr><td><strong>Monosílabos</strong> sin tilde</td><td>fue · fui · dio · vio · guion</td><td>fué · dió · vió · guión</td></tr>
+    <tr><td><strong>Tilde diacrítica</strong> para distinguir palabras iguales</td><td>tú (pronombre) / tu (posesivo) · él / el · sí / si · más / mas · sé / se</td><td>«Tu sabes que si.» → «Tú sabes que sí.»</td></tr>
+    <tr><td><strong><em>Solo</em> y los demostrativos</strong> (este, ese, aquel)</td><td>Solo vino uno. · Este es el mío.</td><td>Sólo vino uno. · Éste es el mío.</td></tr>
+    <tr><td><strong>Siglas:</strong> en mayúsculas, sin puntos y sin <em>s</em> en plural</td><td>las ONG · los DVD · la OMS</td><td>las ONGs · los D.V.D.</td></tr>
+    <tr><td><strong>Abreviaturas:</strong> con punto; el plural se marca en la abreviatura</td><td>Sr. · Dra. · pág. / págs. · etc.</td><td>Dra · pags</td></tr>
+    <tr><td><strong>Símbolos:</strong> sin punto, sin plural y separados del número</td><td>10 km · 5 kg · 90 min · 25 %</td><td>10 kms. · 5kg · 25%</td></tr>
+    <tr><td><strong>Extranjerismos y latinismos</strong> sin adaptar: en cursiva</td><td><em>software</em> · <em>marketing</em> · <em>grosso modo</em> · <em>curriculum vitae</em></td><td>«software» entre comillas · grosso modo en redonda</td></tr>
+  </tbody>
+</table>
+<div class="tip"><strong>⚠️ Sobre <em>solo</em>:</strong> la norma es escribirlo sin tilde, igual que <em>este</em>, <em>ese</em> y <em>aquel</em>. La RAE solo admite la tilde cuando quien escribe ve un riesgo real de confusión, y casi siempre basta con reordenar la oración.</div>
+<div class="tip"><strong>🔢 Los números:</strong> en Estados Unidos y en México verás la coma para los millares y el punto para los decimales (17,000 · 3.5). La RAE recomienda el punto decimal y separar los millares con un espacio (17 000), sin punto ni coma. Lo importante en tus textos es usar un solo sistema de principio a fin. En estas lecciones usamos el de Estados Unidos, que es el que verás en tus documentos.</div>
+<div class="clasificador apilado" id="clasif-orto"></div>
+<div class="puntaje" id="puntaje-orto" role="status" aria-live="polite"></div>
+<a class="enlace-practica" href="https://zhemaria.github.io/gramatica/n4-l1-3.html#ortografia" target="_blank" rel="noopener noreferrer">✍️ Practica más: ortografía académica
+  <span>Prefijos, tildes, siglas, abreviaturas y símbolos: elige la forma correcta. Se abre en una pestaña nueva.</span></a>
+</div>
+</details>
+
+<details id="s-6-modelo">
+<summary>6. Texto modelo: el informe del programa <span class="caja-tiempo">15 min</span></summary>
+<div class="contenido-detalle">
+<div class="actividad">
+  <h4><span class="badge badge-lectura">Lectura de justificación</span> Individual · explica cada signo</h4>
+  <p style="margin:0">Lee el informe. Por cada signo o forma especial, pregúntate por qué está ahí. Después pulsa el botón para ver las marcas y compara tus razones.</p>
+</div>
+<div class="leyenda-marcas" aria-label="Leyenda de las marcas">
+  <span class="m-ra">Raya (subrayado continuo)</span><span class="m-pa">Paréntesis (rayas)</span><span class="m-pc">Serie con punto y coma (puntos)</span><span class="m-or">Ortografía académica (doble)</span>
+</div>
+<div class="texto-lectura oculta-marcas" id="lectura">
+  <h3 style="margin-top:0">Informe del Programa de Lectura para Adultos, otoño de 2026</h3>
+  <p><span class="num-p" aria-hidden="true">1</span>El Programa de Lectura para Adultos <span class="m-pa">(PLA)<span class="etq"> [paréntesis: sigla]</span></span> atendió este otoño a 120 participantes <span class="m-ra">—la cifra más alta desde su fundación—<span class="etq"> [raya: inciso]</span></span> en tres sedes: <span class="m-pc">la biblioteca central, en el centro; la escuela Benito Juárez, en el sur; y la parroquia de San José, en el oeste<span class="etq"> [serie con punto y coma]</span></span>.</p>
+  <p><span class="num-p" aria-hidden="true">2</span><span class="m-pc">El <span class="m-or">65 %</span> de los participantes eran madres y padres de familia; el 20 %, trabajadores de turno nocturno; y el 15 %, jubilados<span class="etq"> [serie con punto y coma; la coma sustituye a «eran»]</span></span>. Las clases <span class="m-pa">(dos por semana, de <span class="m-or">90 min</span> cada una)<span class="etq"> [paréntesis: dato aclaratorio]</span></span> se dieron en español y en inglés.</p>
+  <p><span class="num-p" aria-hidden="true">3</span>Tres <span class="m-or">exalumnos<span class="etq"> [prefijo unido]</span></span> del programa <span class="m-ra">—hoy voluntarios—<span class="etq"> [raya: inciso]</span></span> ayudaron a preparar el material. Según la coordinadora, la <span class="m-or">Dra.<span class="etq"> [abreviatura]</span></span> Elena Ruiz, el próximo semestre se abrirá un taller de lectura en voz alta para niños de 6 a 10 años <span class="m-pa">(<span class="m-or">págs. 4-6</span> del anexo)<span class="etq"> [paréntesis: remisión; guion de intervalo]</span></span>.</p>
+  <p><span class="num-p" aria-hidden="true">4</span>Los resultados se presentarán ante <span class="m-or">las ONG<span class="etq"> [plural de sigla]</span></span> que financian el programa; sin embargo, el informe completo <span class="m-or">solo<span class="etq"> [sin tilde]</span></span> estará disponible en línea.</p>
+  <p style="font-size:.9rem;margin-bottom:0"><em>Informe escrito para esta lección; el programa, las personas y las cifras son inventados.</em></p>
+</div>
+<div class="botones" style="justify-content:flex-start">
+  <button type="button" class="btn btn-secundario" id="leer-lectura">🔊 Escuchar el texto</button>
+  <button type="button" class="btn btn-secundario" id="ver-partes" aria-pressed="false">Mostrar las marcas</button>
+</div>
+<div class="clasificador apilado" id="clasif-modelo"></div>
+<div class="puntaje" id="puntaje-modelo" role="status" aria-live="polite"></div>
+</div>
+</details>
+
+<details id="s-7-taller">
+<summary>7. Taller: puntúa con precisión <span class="caja-tiempo">20 min</span></summary>
+<div class="contenido-detalle">
+<p><strong>Parte A · Corrige.</strong> Copia este párrafo en el cuadro y corrígelo. Tiene nueve errores de puntuación y de ortografía académica.</p>
+<p class="ej" style="background:#fff;border:2px dashed var(--cp);border-radius:8px;padding:10px 14px">La Asociación de Inquilinos, AI, se reunió el martes, asistieron María, la presidenta, Jorge, el tesorero, y dos vecinos nuevos. El ex-presidente - que no pudo ir - envió una carta. Se habló de las reparaciones del edificio, el 40% de los apartamentos tiene goteras, y de las cuotas de las ONGs que nos apoyan. Sólo se aprobó una propuesta.</p>
+<p><strong>Parte B · Escribe.</strong> Añade un párrafo propio de 3 a 4 oraciones sobre una reunión de tu trabajo, tu escuela o tu comunidad, con una raya o un paréntesis, una serie con punto y coma y al menos una sigla o un símbolo.</p>
+<div class="taller" id="taller-13"></div>
+<div class="tip"><strong>🔎 Para comprobar la Parte A</strong> (ábrela cuando termines): <button type="button" class="btn btn-secundario" id="ver-solucion" aria-expanded="false" aria-controls="solucion">Ver la versión corregida</button></div>
+<div id="solucion" hidden>
+<p class="ej" style="background:#f1f8f1;border-left:6px solid #2e7d32;border-radius:6px;padding:10px 14px">La Asociación de Inquilinos (AI) se reunió el martes; asistieron María, la presidenta; Jorge, el tesorero; y dos vecinos nuevos. El expresidente —que no pudo ir— envió una carta. Se habló de las reparaciones del edificio (el 40 % de los apartamentos tiene goteras) y de las cuotas de las ONG que nos apoyan. Solo se aprobó una propuesta.</p>
+<p style="font-size:.93rem">Los nueve cambios: (1) sigla entre paréntesis · (2) punto y coma para separar las dos oraciones · (3) punto y coma en la serie · (4) <em>expresidente</em> unido · (5) rayas en lugar de guiones · (6) paréntesis para el dato aclaratorio · (7) espacio ante % · (8) <em>las ONG</em> sin <em>s</em> · (9) <em>solo</em> sin tilde.</p>
+</div>
+<h3>Lista de cotejo: así se evaluará tu trabajo</h3>
+<table class="tabla">
+  <caption class="sr-solo">Lista de cotejo de la puntuación y la ortografía académica</caption>
+  <thead><tr><th scope="col">Criterio</th><th scope="col">Lo cumples si…</th></tr></thead>
+  <tbody>
+    <tr><td>✓ Raya y paréntesis</td><td>Abres y cierras con el mismo signo y pones la coma o el punto después del cierre.</td></tr>
+    <tr><td>✓ Punto y coma en series</td><td>Separas con punto y coma los elementos que ya llevan comas dentro.</td></tr>
+    <tr><td>✓ Ortografía avanzada</td><td>Prefijos, siglas, abreviaturas, símbolos y tildes siguen la norma.</td></tr>
+    <tr><td>✓ Precisión en un texto académico</td><td>Corregiste los nueve errores de la Parte A.</td></tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details id="s-tarea">
+<summary>8. Tarea <span class="caja-tiempo">30 min</span></summary>
+<div class="contenido-detalle">
+<ul class="lista-bonita">
+  <li><strong>Termina el taller</strong> y revísalo con la lista de cotejo.</li>
+  <li><strong>Busca un artículo de periódico</strong> en español. Copia en tu cuaderno una oración con rayas o paréntesis y una con punto y coma, y explica por qué el autor usó cada signo.</li>
+  <li><strong>Practica la raya</strong> en tu computadora o en tu celular hasta que puedas escribirla sin buscar las instrucciones.</li>
+</ul>
+</div>
+</details>
+
+<details id="s-quiz">
+<summary>9. Quiz de la lección <span class="caja-tiempo">20 min</span></summary>
+<div class="contenido-detalle">
+<div class="qz-intro">
+  <h4>✅ Quiz · 12 preguntas · puedes repetirlo las veces que quieras</h4>
+  <p style="margin:0">Varias preguntas se refieren al informe de la sección 6. Elige una respuesta en cada pregunta y, al final, pulsa <strong>Ver mi resultado</strong>. La meta es acertar al menos <strong>10 de 12</strong>.</p>
+</div>
+<div id="qz-cuerpo"></div>
+<div class="botones">
+  <button type="button" class="btn btn-primario" id="qz-calificar">Ver mi resultado</button>
+  <button type="button" class="btn btn-secundario" id="qz-reintentar" style="display:none">Intentar de nuevo</button>
+</div>
+<div class="qz-resultado" id="qz-resultado" role="status" aria-live="polite"></div>
+</div>
+</details>
+
+<details id="s-cierre">
+<summary>10. Cierre <span class="caja-tiempo">5 min</span></summary>
+<div class="contenido-detalle">
+<h3>Lo que aprendiste en esta lección</h3>
+<ul class="lista-bonita">
+  <li>Un inciso se encierra entre comas, rayas o paréntesis, según cuánto se quiera separar.</li>
+  <li>La raya (—) sirve para incisos y diálogos; el guion (-), para compuestos, intervalos y cortes de palabra.</li>
+  <li>Las series cuyos elementos llevan comas se separan con punto y coma.</li>
+  <li>Prefijos unidos, siglas sin <em>s</em>, símbolos sin punto y <em>solo</em> sin tilde son la norma académica actual.</li>
+</ul>
+<div class="caja-objetivos" style="background:#fff3e0;border-left-color:var(--acento)">
+  <h2 style="color:#8a3d0c;border:none;padding:0;margin-top:0;font-size:1.2rem">✅ Antes de irte, revísate</h2>
+  <ul class="lista-bonita">
+    <li>¿Qué diferencia hay entre «1914-1918» y «—como siempre—»?</li>
+    <li>¿Por qué el informe usa punto y coma en la lista de las tres sedes?</li>
+    <li>¿Cómo se escribe el plural de la sigla ONG?</li>
+  </ul>
+</div>
+<div class="tip"><strong>🎉 Terminaste el Tema 1.</strong> Ya controlas la sintaxis compleja, el paralelismo y la puntuación académica.</div>
+<div class="tip"><strong>➡️ Sigue con la próxima lección:</strong> <a href="https://zhemaria.github.io/clases_leng4/clase_2-1.html" style="color:var(--cp-oscuro);font-weight:700">Lección 2.1 · Contexto, etimología y diccionarios especializados</a>.</div>
+<p style="font-size:.9rem"><strong>Fuente de las normas:</strong> Real Academia Española y Asociación de Academias de la Lengua Española, <em>Ortografía de la lengua española</em> (2010), y <em>Diccionario panhispánico de dudas</em>, consultables gratis en rae.es.</p>
+</div>
+</details>
+
+<footer class="pie">
+  <p><strong>GEDparaHispanos · Artes del Lenguaje · Nivel 4: Dominio del GED y Escritura Argumentativa · Tema 1 · Lección 1.3</strong></p>
+  <p>José M. Fernández, ABE/ASE Math Master Teacher, Harry S. Truman College — City Colleges of Chicago</p>
+  <p>© 2026. Esta obra está licenciada bajo <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es" rel="license noopener noreferrer" target="_blank">Creative Commons Reconocimiento-NoComercial-CompartirIgual 4.0 Internacional (CC BY-NC-SA 4.0)</a>.</p>
+</footer>
+<a class="volver-indice" href="#indice" aria-label="Volver al contenido de la lección"><span aria-hidden="true">↑</span> Índice</a>
+
+<script>
+
+/* ===== Voz: todas las lecturas pasan por hablar(), para poder cambiarla después por audio grabado ===== */
+(function(){
+  var voz=null, hay=('speechSynthesis' in window);
+  function elegir(){
+    if(!hay)return;
+    var vs=speechSynthesis.getVoices().filter(function(v){return /^es/i.test(v.lang);});
+    var pref=['es-US','es-MX','es-419','es-CO','es-AR','es-CL','es-PE'];
+    voz=null;
+    for(var i=0;i<pref.length&&!voz;i++){voz=vs.find(function(v){return v.lang.replace('_','-').toLowerCase()===pref[i].toLowerCase();})||null;}
+    if(!voz)voz=vs.find(function(v){return !/es[-_]ES/i.test(v.lang);})||vs[0]||null;
+  }
+  function aviso(){var a=document.getElementById('aviso-voz');if(a)a.classList.add('visible');}
+  function frase(t,vel){var u=new SpeechSynthesisUtterance(t);u.lang=voz?voz.lang:'es-US';if(voz)u.voice=voz;u.rate=vel||0.9;return u;}
+  if(hay){elegir(); speechSynthesis.onvoiceschanged=elegir;}
+  window.hablar=function(texto,vel,fin){
+    if(!hay||!texto){aviso();return;}
+    speechSynthesis.cancel();
+    /* Se lee por oraciones: algunos navegadores cortan las lecturas largas */
+    var partes=texto.replace(/\s+/g,' ').match(/[^.!?…]+[.!?…]+[»"”)]*\s*|[^.!?…]+$/g)||[texto];
+    partes.forEach(function(t,i){var u=frase(t.trim(),vel); if(fin&&i===partes.length-1)u.onend=fin; speechSynthesis.speak(u);});
+  };
+  window.callar=function(){if(hay)speechSynthesis.cancel();};
+  if(!hay)document.addEventListener('DOMContentLoaded',aviso);
+})();
+
+/* ===== Clasificador: cada elemento con sus botones; al acertar muestra una nota =====
+   Las opciones propias de cada elemento se barajan; las opciones comunes conservan su orden */
+function orden(it,ops){
+  var o=ops.map(function(_,j){return j;});
+  if(it.ops&&!it.fijo){for(var k=o.length-1;k>0;k--){var r=Math.floor(Math.random()*(k+1)),t=o[k];o[k]=o[r];o[r]=t;}}
+  return o;
+}
+function clasificador(idCaja,idPuntaje,items,opciones,conAudio){
+  var caja=document.getElementById(idCaja), pun=document.getElementById(idPuntaje), bien=0, hechas={};
+  function marcador(){pun.textContent=bien===items.length?(items.length===1?'🎉 ¡Muy bien!':'🎉 ¡Muy bien! Acertaste las '+bien+'.'):(items.length===1?'':'Aciertos: '+bien+' / '+items.length);}
+  items.forEach(function(it,i){
+    var d=document.createElement('div'); d.className='item'; d.setAttribute('role','group'); d.setAttribute('aria-label',it.p.replace(/<[^>]+>/g,''));
+    var ops=it.ops||opciones;
+    d.innerHTML='<span class="item-pal">'+it.p+(conAudio?' <button type="button" class="oir" aria-label="Escuchar">🔊</button>':'')+'</span>'+
+      '<span class="item-ops">'+orden(it,ops).map(function(j){return '<button type="button" class="btn-op" data-j="'+j+'">'+ops[j]+'</button>';}).join('')+'</span>'+
+      '<span class="item-fb" aria-live="polite"></span>';
+    caja.appendChild(d);
+    if(conAudio)d.querySelector('.oir').addEventListener('click',function(){hablar(it.a||it.p.replace(/<[^>]+>/g,''),0.85);});
+    var fb=d.querySelector('.item-fb');
+    d.querySelectorAll('.btn-op').forEach(function(b){
+      b.addEventListener('click',function(){
+        if(hechas[i])return;
+        if(+b.getAttribute('data-j')===it.c){
+          b.classList.add('correcta'); hechas[i]=true; bien++;
+          d.querySelectorAll('.btn-op').forEach(function(x){x.disabled=true;});
+          fb.innerHTML='✓ '+(it.n||'Correcto.'); marcador();
+        }else{
+          b.classList.add('incorrecta'); b.disabled=true;
+          fb.innerHTML='Todavía no. '+(it.pista||'Vuelve a mirar la regla e intenta otra vez.');
+        }
+      });
+    });
+  });
+  marcador();
+}
+
+/* ===== Quiz de la lección ===== */
+function iniciarQuiz(P,cfg){
+  var META=cfg.meta, N=P.length, cuerpo=document.getElementById('qz-cuerpo'), elegidas={};
+  P.forEach(function(p,i){
+    var d=document.createElement('div');
+    d.className='qz-preg'; d.setAttribute('role','group'); d.setAttribute('aria-labelledby','qz-e'+i);
+    var h='<p class="qz-enun" id="qz-e'+i+'"><span class="qz-num">'+(i+1)+'</span>'+p.t+'</p><div class="qz-ops">';
+    var orden=p.o.map(function(_,j){return j;});
+    if(!p.fijo){for(var k=orden.length-1;k>0;k--){var r=Math.floor(Math.random()*(k+1)),t=orden[k];orden[k]=orden[r];orden[r]=t;}}
+    orden.forEach(function(j){h+='<button type="button" class="qz-op" data-i="'+i+'" data-j="'+j+'" aria-pressed="false">'+p.o[j]+'</button>';});
+    d.innerHTML=h+'</div>'; cuerpo.appendChild(d);
+  });
+  cuerpo.addEventListener('click',function(ev){
+    var b=ev.target.closest('.qz-op'); if(!b||b.disabled)return;
+    var i=b.getAttribute('data-i');
+    cuerpo.querySelectorAll('.qz-op[data-i="'+i+'"]').forEach(function(x){x.classList.remove('elegida');x.setAttribute('aria-pressed','false');});
+    b.classList.add('elegida'); b.setAttribute('aria-pressed','true'); elegidas[i]=+b.getAttribute('data-j');
+  });
+  var res=document.getElementById('qz-resultado');
+  document.getElementById('qz-calificar').addEventListener('click',function(){
+    var bien=0;
+    P.forEach(function(p,i){
+      cuerpo.querySelectorAll('.qz-op[data-i="'+i+'"]').forEach(function(x){
+        var j=+x.getAttribute('data-j'); x.disabled=true; x.classList.remove('elegida');
+        if(j===p.c)x.classList.add('correcta'); else if(elegidas[i]===j)x.classList.add('incorrecta');
+      });
+      if(elegidas[i]===p.c)bien++;
+      else if(p.r){var nota=document.createElement('p');nota.className='qz-repaso';nota.innerHTML='📘 Para repasar: '+p.r;cuerpo.children[i].appendChild(nota);}
+    });
+    var msg,fondo,color;
+    if(bien>=META){msg='¡Excelente! '+bien+' de '+N+'. '+cfg.bien;fondo='#d4edda';color='#155724';}
+    else if(bien>=Math.ceil(N*0.6)){msg='Buen trabajo: '+bien+' de '+N+'. Repasa las preguntas marcadas con ✗ y vuelve a intentarlo.';fondo='#fff3cd';color='#5c3900';}
+    else{msg='Llevas '+bien+' de '+N+'. '+cfg.repaso;fondo='#f8d7da';color='#721c24';}
+    res.textContent=msg; res.style.background=fondo; res.style.color=color; res.classList.add('visible');
+    this.style.display='none'; document.getElementById('qz-reintentar').style.display='inline-block';
+    res.scrollIntoView({behavior:'smooth',block:'center'});
+  });
+  document.getElementById('qz-reintentar').addEventListener('click',function(){
+    cuerpo.querySelectorAll('.qz-op').forEach(function(x){x.disabled=false;x.classList.remove('correcta','incorrecta','elegida');x.setAttribute('aria-pressed','false');});
+    cuerpo.querySelectorAll('.qz-repaso').forEach(function(n){n.remove();});
+    elegidas={}; res.classList.remove('visible'); res.textContent='';
+    this.style.display='none'; document.getElementById('qz-calificar').style.display='inline-block';
+    cuerpo.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+}
+
+/* ===== Navegación: el índice y la dirección (#ancla) abren su sección ===== */
+document.addEventListener('DOMContentLoaded',function(){
+  function abrir(id){
+    var el=id&&document.getElementById(id); if(!el)return;
+    var d=el.tagName==='DETAILS'?el:el.closest('details');
+    if(d){d.open=true; el.scrollIntoView({behavior:'smooth',block:'start'});}
+  }
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(){abrir(a.getAttribute('href').slice(1));});});
+  document.getElementById('abrir-todo').addEventListener('click',function(){document.querySelectorAll('details').forEach(function(d){d.open=true;});});
+  document.getElementById('cerrar-todo').addEventListener('click',function(){document.querySelectorAll('details').forEach(function(d){d.open=false;});});
+  window.addEventListener('hashchange',function(){abrir(decodeURIComponent(location.hash.slice(1)));});
+  abrir(decodeURIComponent(location.hash.slice(1)));
+});
+
+/* ===== Taller de escritura =====
+   El borrador se guarda en este navegador (si el navegador lo permite). */
+function tallerEscritura(id,o){
+  var caja=document.getElementById(id), k='gph-borrador-'+o.clave;
+  var h='<label class="tl-etq" for="'+id+'-txt">'+(o.etiqueta||'Escribe aquí tu texto')+'</label>'+
+    '<textarea class="tl-txt" id="'+id+'-txt" rows="10" spellcheck="true" lang="es"'+(o.guia?' placeholder="'+o.guia.replace(/"/g,'&quot;')+'"':'')+'></textarea>'+
+    '<div class="tl-cuenta" id="'+id+'-cuenta" aria-live="polite"></div>';
+  if(o.conectores)h+='<div class="tl-conect" id="'+id+'-con" aria-live="polite"></div>';
+  h+='<div class="botones" style="justify-content:flex-start">'+
+    '<button type="button" class="btn btn-secundario" id="'+id+'-oir">🔊 Escuchar mi texto</button>'+
+    '<button type="button" class="btn btn-secundario" id="'+id+'-copiar">📋 Copiar mi texto</button>'+
+    '<button type="button" class="btn btn-secundario" id="'+id+'-borrar">🗑️ Borrar</button></div>'+
+    '<div class="tl-aviso" id="'+id+'-aviso" role="status" aria-live="polite"></div>';
+  if(o.lista){
+    h+='<fieldset class="tl-lista"><legend>✅ Revisa tu texto antes de darlo por terminado</legend>'+
+      o.lista.map(function(t,i){return '<label><input type="checkbox" id="'+id+'-c'+i+'"> '+t+'</label>';}).join('')+
+      '<p class="tl-listo" id="'+id+'-listo" aria-live="polite"></p></fieldset>';
+  }
+  caja.innerHTML=h;
+  var ta=document.getElementById(id+'-txt'), cu=document.getElementById(id+'-cuenta'), co=document.getElementById(id+'-con'), av=document.getElementById(id+'-aviso');
+  try{var g=localStorage.getItem(k); if(g)ta.value=g;}catch(e){}
+  function avisar(t){av.textContent=t; clearTimeout(avisar.t); avisar.t=setTimeout(function(){av.textContent='';},4000);}
+  function medir(){var t=ta.value.trim();return {t:t,pal:t?t.split(/\s+/).length:0,ora:(t.match(/[^.!?…]+[.!?…]+/g)||[]).length};}
+  function contar(){
+    var x=medir(), m=o.meta||{}, s='Palabras: '+x.pal+(m.palabras?' (meta: '+m.palabras+' o más)':'')+' · Oraciones: '+x.ora+(m.oraciones?' (meta: '+m.oraciones+' o más)':'');
+    if(m.oraciones&&x.ora>=m.oraciones&&(!m.palabras||x.pal>=m.palabras))s+=' · 🎯 ¡Llegaste a la meta de extensión!';
+    cu.textContent=s;
+    if(co){
+      var low=' '+x.t.toLowerCase().replace(/[.,;:¡!¿?«»"()—]/g,' ')+' ', us=o.conectores.filter(function(c){return low.indexOf(' '+c.toLowerCase()+' ')>=0;});
+      co.innerHTML=us.length?(o.titLista||'Conectores que usaste')+': '+us.map(function(c){return '<span class="tl-chip">'+c+'</span>';}).join(' '):(o.vacioLista||'Todavía no aparece ningún conector de la lista.');
+    }
+    try{localStorage.setItem(k,ta.value);}catch(e){}
+  }
+  ta.addEventListener('input',contar); contar();
+  document.getElementById(id+'-oir').addEventListener('click',function(){
+    if(!ta.value.trim()){avisar('Primero escribe algo para poder escucharlo.');return;}
+    hablar(ta.value,0.9);
+  });
+  document.getElementById(id+'-copiar').addEventListener('click',function(){
+    if(!ta.value.trim()){avisar('Todavía no hay texto para copiar.');return;}
+    function ok(){avisar('✓ Texto copiado. Ya puedes pegarlo en un correo o en un documento.');}
+    if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(ta.value).then(ok,function(){ta.select();document.execCommand('copy');ok();});
+    else{ta.select();document.execCommand('copy');ok();}
+  });
+  var borrarListo=false;
+  document.getElementById(id+'-borrar').addEventListener('click',function(){
+    if(!borrarListo){borrarListo=true;avisar('¿Seguro? Pulsa «Borrar» otra vez para borrar todo el texto.');setTimeout(function(){borrarListo=false;},4000);return;}
+    borrarListo=false; ta.value=''; contar(); avisar('Texto borrado.'); ta.focus();
+  });
+  if(o.lista){
+    var cbs=caja.querySelectorAll('.tl-lista input'), li=document.getElementById(id+'-listo');
+    function rev(){var n=Array.prototype.filter.call(cbs,function(c){return c.checked;}).length, x=medir(), m=o.meta||{}, corto=(m.oraciones&&x.ora<m.oraciones)||(m.palabras&&x.pal<m.palabras);
+      li.textContent=n<cbs.length?'Revisado: '+n+' de '+cbs.length:(corto?'Marcaste toda la lista, pero tu texto todavía no llega a la meta de extensión. Añade algo más.':'🎉 ¡Todo revisado! Tu párrafo está listo.');}
+    ta.addEventListener('input',rev);
+    cbs.forEach(function(c){c.addEventListener('change',rev);}); rev();
+  }
+}
+/* Rúbricas: cada celda recibe el nombre de su nivel para mostrarlo en el celular */
+document.querySelectorAll('table.rubrica').forEach(function(t){
+  var cab=Array.prototype.map.call(t.querySelectorAll('thead th'),function(th){return th.textContent;});
+  t.querySelectorAll('tbody tr').forEach(function(tr){Array.prototype.forEach.call(tr.children,function(c,i){if(c.tagName==='TD')c.setAttribute('data-et',cab[i]);});});
+});
+
+
+/* ===== Texto modelo ===== */
+(function(){
+  var t=document.getElementById('lectura'), v=document.getElementById('ver-partes');
+  document.getElementById('leer-lectura').addEventListener('click',function(){
+    var c=t.cloneNode(true); c.querySelectorAll('.etq,.num-p').forEach(function(e){e.remove();}); hablar(c.textContent.trim(),0.9);});
+  v.addEventListener('click',function(){var on=!t.classList.toggle('oculta-marcas');v.setAttribute('aria-pressed',on?'true':'false');v.textContent=on?'Ocultar las marcas':'Mostrar las marcas';});
+  var bs=document.getElementById('ver-solucion'), so=document.getElementById('solucion');
+  bs.addEventListener('click',function(){var ab=so.hidden; so.hidden=!ab; bs.setAttribute('aria-expanded',ab?'true':'false'); bs.textContent=ab?'Ocultar la versión corregida':'Ver la versión corregida';});
+})();
+
+/* ===== Ejercicios de la lección ===== */
+var H='<span class="hueco">?</span>';
+clasificador('clasif-signo','puntaje-signo',[
+  {p:'La guerra duró cuatro años (1914'+H+'1918).',c:0,n:'Intervalo de números: guion.'},
+  {p:'Mi tío '+H+'que es mecánico'+H+' me arregló el carro.',c:1,n:'Inciso: rayas de apertura y cierre.'},
+  {p:'Es un curso teórico'+H+'práctico.',c:0,n:'Palabra compuesta: guion.'},
+  {p:H+'¿A qué hora sales? '+H+'preguntó mi hermana.',c:1,n:'Diálogo: raya para quien habla y para el narrador.'},
+  {p:'Lee las páginas 12'+H+'15 para mañana.',c:0,n:'Intervalo: guion.'},
+  {p:'El resultado fue el esperado '+H+'o casi'+H+'.',c:1,n:'Inciso al final: la raya de cierre se escribe antes del punto.'}
+],['Guion (-)','Raya (—)'],false);
+
+clasificador('clasif-puntua','puntaje-puntua',[
+  {p:'¿Cuál está bien puntuada?',ops:['Llegó tarde —como siempre—, así que perdió el turno.','Llegó tarde —como siempre,— así que perdió el turno.','Llegó tarde —como siempre así que perdió el turno.'],c:0,n:'La coma va después de la raya de cierre, y la raya se cierra.'},
+  {p:'¿Cuál está bien puntuada?',ops:['La reunión será en la biblioteca (segundo piso).','La reunión será en la biblioteca (segundo piso.)','La reunión será en la biblioteca. (segundo piso)'],c:0,n:'El paréntesis está dentro de la oración: el punto va fuera.'},
+  {p:'¿Cuál está bien escrita?',ops:['El Servicio de Impuestos Internos (IRS) envió la carta.','El Servicio de Impuestos Internos, (IRS), envió la carta.','El Servicio de Impuestos Internos —IRS) envió la carta.'],c:0,n:'Sigla entre paréntesis, sin comas y con el mismo signo para abrir y cerrar.'},
+  {p:'¿Cuál es un diálogo bien puntuado?',ops:['—Ya terminé —dijo Luis.','"Ya terminé" —dijo Luis.','—Ya terminé— dijo Luis.'],c:0,n:'Raya al empezar la intervención y raya antes del narrador; el punto al final.'}
+],null,false);
+
+clasificador('clasif-series','puntaje-series',[
+  {p:'¿Cuál está bien puntuada?',ops:['Viajaron a Monterrey, en México; a Ponce, en Puerto Rico; y a Cali, en Colombia.','Viajaron a Monterrey, en México, a Ponce, en Puerto Rico, y a Cali, en Colombia.','Viajaron a Monterrey; en México, a Ponce; en Puerto Rico y a Cali; en Colombia.'],c:0,n:'Cada elemento lleva una coma dentro: se separan con punto y coma.'},
+  {p:'¿Cuál está bien puntuada?',ops:['Ana trae el pan; Luis, las bebidas; y Rosa, el postre.','Ana trae el pan, Luis, las bebidas, y Rosa, el postre.','Ana trae el pan; Luis las bebidas; y Rosa el postre.'],c:0,n:'Punto y coma entre elementos; coma en lugar del verbo «trae».'},
+  {p:'¿En cuál basta con comas?',ops:['Compré arroz, frijoles, cebolla y ajo.','Compré arroz; frijoles; cebolla; y ajo.','Compré arroz, del bueno; frijoles; y ajo, el morado.'],c:0,n:'Si los elementos no llevan comas dentro, basta la coma.'}
+],null,false);
+
+clasificador('clasif-orto','puntaje-orto',[
+  {p:'¿Cuál es correcta?',ops:['exministro','ex-ministro','ex ministro'],c:0,n:'El prefijo se une a una sola palabra.'},
+  {p:'¿Cuál es correcta?',ops:['ex primer ministro','exprimer ministro','ex-primer ministro'],c:0,n:'El prefijo afecta a dos palabras: va separado.'},
+  {p:'¿Cuál es correcta?',ops:['las ONG','las ONGs','las O.N.G.'],c:0,n:'Las siglas no llevan puntos ni s de plural.'},
+  {p:'¿Cuál es correcta?',ops:['25 %','25%','25 %.'],c:0,n:'El símbolo se separa con un espacio del número.'},
+  {p:'¿Cuál es correcta?',ops:['Le dio el guion de la obra.','Le dió el guión de la obra.','Le dio el guión de la obra.'],c:0,n:'«Dio» y «guion» son monosílabos: sin tilde.'},
+  {p:'¿Cuál es correcta?',ops:['Tú sabes que sí.','Tu sabes que si.','Tú sabes que si.'],c:0,n:'Tú (pronombre) y sí (afirmación) llevan tilde diacrítica.'}
+],null,false);
+
+clasificador('clasif-modelo','puntaje-modelo',[
+  {p:'¿Por qué el informe pone «(PLA)» entre paréntesis?',ops:['Es la sigla del programa la primera vez que aparece','Es una información que el autor quiere destacar','Es una cita textual de la coordinadora'],c:0,n:'Las siglas se presentan entre paréntesis la primera vez.'},
+  {p:'¿Por qué hay punto y coma en la lista de las tres sedes?',ops:['Cada sede lleva una coma dentro («…, en el sur»)','Porque la lista tiene exactamente tres elementos','Para separar dos oraciones completas distintas'],c:0,n:'Sin punto y coma no se sabría dónde termina cada sede.'},
+  {p:'En «el 20 %, trabajadores de turno nocturno», ¿qué hace la coma?',ops:['Sustituye al verbo «eran»','Separa una sigla de su significado','Abre un inciso que se cierra más adelante'],c:0,n:'Es la coma que ocupa el lugar del verbo que no se repite.'},
+  {p:'¿Qué indica el guion en «págs. 4-6»?',ops:['Un intervalo de páginas','Un inciso dentro de la oración','Una palabra compuesta'],c:0,n:'De la página 4 a la 6.'}
+],null,false);
+
+tallerEscritura('taller-13',{clave:'n4-1-3',etiqueta:'Parte A corregida y Parte B (tu párrafo)',
+  guia:'Pega aquí el párrafo de la Parte A con tus correcciones y, debajo, escribe tu propio párrafo.',
+  meta:{oraciones:7,palabras:110},
+  lista:['Las rayas y los paréntesis se abren y se cierran con el mismo signo.','La coma o el punto van después de la raya o del paréntesis de cierre.','Separé con punto y coma los elementos de las series que llevan comas dentro.','Los prefijos van unidos (o separados si afectan a varias palabras).','Las siglas no llevan s; los símbolos van separados del número y sin punto.','Revisé las tildes: monosílabos sin tilde, tilde diacrítica y «solo» sin tilde.']});
+
+iniciarQuiz([
+  {t:'¿Qué signo encierra un inciso con <strong>más separación</strong> que las comas, pero menos que los paréntesis?',o:['La raya','El guion','El punto y coma'],c:0,r:'<a href="#s-1-incisos">Sección 1</a>'},
+  {t:'¿Cuál es la raya?',o:['—','-','_'],c:0,r:'<a href="#s-2-raya">Sección 2</a>'},
+  {t:'¿Qué signo se usa en «la Guerra Civil (1861__1865)»?',o:['Guion','Raya','Punto y coma'],c:0,r:'<a href="#s-2-raya">Sección 2</a>'},
+  {t:'¿Cuál está bien puntuada?',o:['Mi vecina —la del tercer piso— me ayudó.','Mi vecina —la del tercer piso, me ayudó.','Mi vecina - la del tercer piso - me ayudó.'],c:0,r:'<a href="#s-2-raya">Sección 2</a>'},
+  {t:'¿Dónde va el punto en «El taller es gratis (incluye el material)»?',o:['Después del paréntesis de cierre','Antes del paréntesis de cierre','No lleva punto al final'],c:0,r:'<a href="#s-3-parentesis">Sección 3</a>'},
+  {t:'¿Cuándo se usa el punto y coma en una enumeración?',o:['Cuando los elementos ya llevan comas dentro','Siempre que la lista tenga más de tres elementos','Cuando la enumeración termina la oración'],c:0,r:'<a href="#s-4-series">Sección 4</a>'},
+  {t:'¿Cuál está bien puntuada?',o:['Llegaron Juan, el chofer; Ana, la guía; y Pablo, el cocinero.','Llegaron Juan, el chofer, Ana, la guía, y Pablo, el cocinero.','Llegaron Juan; el chofer, Ana; la guía, y Pablo; el cocinero.'],c:0,r:'<a href="#s-4-series">Sección 4</a>'},
+  {t:'¿Cuál es correcta?',o:['posguerra','post-guerra','pos guerra'],c:0,r:'<a href="#s-5-ortografia">Sección 5</a>'},
+  {t:'Según la norma actual, ¿cómo se escribe el demostrativo en «___ es el mío»?',o:['Este, sin tilde','Éste, con tilde','Esté, con tilde final'],c:0,r:'<a href="#s-5-ortografia">Sección 5</a>'},
+  {t:'¿Cuál es correcta?',o:['Caminé 5 km.','Caminé 5 kms.','Caminé 5km.'],c:0,r:'<a href="#s-5-ortografia">Sección 5</a>'},
+  {t:'En el informe, ¿qué norma explica «exalumnos»?',o:['El prefijo va unido a la palabra','El prefijo va separado de la palabra','El prefijo va con guion ante mayúscula'],c:0,r:'<a href="#s-6-modelo">Sección 6</a>'},
+  {t:'En el informe, ¿por qué «Dra.» lleva punto?',o:['Es una abreviatura','Es un símbolo','Es una sigla'],c:0,r:'<a href="#s-6-modelo">Sección 6</a>'}
+],{meta:10,
+   bien:'Ya puntúas como en un texto académico. Terminaste el Tema 1: sigue con la Lección 2.1.',
+   repaso:'Vuelve a las secciones 2, 4 y 5 y repite el quiz: con práctica sale.'});
+</script>
+</body>
+</html>

@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<!-- Lección 7.1 · Artes del Lenguaje Nivel 4 · GEDparaHispanos
+     José M. Fernández, ABE/ASE Math Master Teacher, Harry S. Truman College — City Colleges of Chicago
+     Licencia CC BY-NC-SA 4.0 · https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es -->
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lección 7.1 · Ensayo argumentativo: afirmación, contrargumento y refutación</title>
+<meta name="author" content="José M. Fernández, ABE/ASE Math Master Teacher, Harry S. Truman College — City Colleges of Chicago">
+<meta name="license" content="CC BY-NC-SA 4.0">
+<link rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es">
+<style>
+  :root{
+    --cp:#b91c1c;--cp-claro:#fee2e2;--cp-oscuro:#7f1d1d;
+    --acento:#ff8c42;--texto:#1a2332;--fondo:#fafbfc;
+    --gris:#555;--gris-claro:#eef1f4;
+    --exito:#2e7d32;--error:#c62828;
+  }
+  *{box-sizing:border-box}
+  body{font-family:'Poppins','Segoe UI',Arial,sans-serif;line-height:1.7;color:var(--texto);background:var(--fondo);max-width:960px;margin:0 auto;padding:24px 18px}
+  h1{color:var(--cp-oscuro);border-bottom:4px solid var(--cp);padding-bottom:14px;font-size:1.85rem;margin-bottom:8px}
+  .subtitulo{color:var(--gris);font-style:italic;margin-top:0;margin-bottom:24px;font-size:1.05rem}
+  h2{color:var(--cp-oscuro);border-left:6px solid var(--cp);padding-left:14px;margin-top:32px;font-size:1.4rem}
+  h3{color:var(--cp-oscuro);margin-top:24px;font-size:1.15rem}
+  .caja-objetivos{background:var(--cp-claro);border-left:6px solid var(--cp);padding:18px 22px;border-radius:8px;margin:18px 0 28px 0}
+  .caja-objetivos h2{margin-top:0;color:var(--cp-oscuro);border-left:none;padding-left:0;font-size:1.2rem}
+  .caja-tiempo{display:inline-block;background:var(--acento);color:#1a2332;padding:4px 12px;border-radius:14px;font-size:0.85rem;font-weight:600;margin-left:10px;vertical-align:middle}
+  details{background:#fff;border:1px solid #d6dde4;border-radius:10px;margin:14px 0;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,0.04)}
+  details[open]{border-color:var(--cp);box-shadow:0 3px 10px rgba(185,28,28,0.12)}
+  summary{cursor:pointer;padding:16px 20px;font-weight:600;color:var(--cp-oscuro);background:var(--gris-claro);list-style:none;user-select:none;font-size:1.05rem}
+  summary::-webkit-details-marker{display:none}
+  summary::before{content:'▶';display:inline-block;margin-right:10px;color:var(--cp);transition:transform 0.25s;font-size:0.85rem}
+  details[open] summary::before{transform:rotate(90deg)}
+  details[open] summary{background:var(--cp-claro);border-bottom:2px solid var(--cp)}
+  .contenido-detalle{padding:18px 22px}
+  .tip{background:#fffbe6;border-left:5px solid #f4c430;padding:12px 18px;border-radius:6px;margin:14px 0}
+  .tip strong{color:#6b5400}
+  .botones{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:14px 0}
+  .btn{padding:10px 22px;border:none;border-radius:8px;font-weight:600;cursor:pointer;font-family:inherit;font-size:0.95rem;transition:background 0.2s}
+  .btn-primario{background:var(--cp);color:#fff}
+  .btn-primario:hover{background:var(--cp-oscuro)}
+  .btn-secundario{background:var(--gris-claro);color:var(--texto)}
+  .btn-secundario:hover{background:#d6dde4}
+  .btn[aria-pressed="true"]{background:var(--cp-oscuro);color:#fff}
+  ul.lista-bonita{list-style:none;padding-left:0}
+  ul.lista-bonita li{padding:8px 0 8px 30px;position:relative}
+  ul.lista-bonita li::before{content:'➜';position:absolute;left:0;color:var(--cp);font-weight:700}
+  .palabra-clave{background:linear-gradient(transparent 60%,#ffeb3b 60%);padding:0 4px;font-weight:600}
+  .ej{font-family:Georgia,serif;font-size:1.08rem}
+  .sub{font-weight:700;border-bottom:3px solid var(--cp-oscuro)}
+  table.tabla{width:100%;border-collapse:collapse;margin:16px 0;background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,0.06)}
+  table.tabla th{background:var(--cp-oscuro);color:#fff;padding:10px 12px;text-align:left}
+  table.tabla td{padding:10px 12px;border-bottom:1px solid var(--gris-claro);vertical-align:top}
+  table.tabla tr:last-child td{border-bottom:none}
+  .actividad{background:#fff;border:2px solid var(--acento);border-radius:10px;padding:16px 20px;margin:14px 0}
+  .actividad h4{color:#8a3d0c;margin-top:0}
+  .badge{display:inline-block;padding:3px 10px;border-radius:12px;font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-right:6px}
+  .badge-lectura{background:#e3f2fd;color:#0d47a1}
+  /* Clasificadores */
+  .clasificador{background:#fff;border:2px solid var(--cp);border-radius:12px;padding:14px 18px;margin:18px 0}
+  .item{border:2px solid var(--gris-claro);border-radius:8px;padding:10px 14px;margin:8px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+  .item-pal{font-family:Georgia,serif;font-size:1.12rem;color:var(--texto);display:flex;align-items:center;gap:10px}
+  .item-ops{display:flex;gap:8px;flex-wrap:wrap}
+  .item-fb{flex-basis:100%;font-size:.95rem}
+  .item-fb:empty{display:none}
+  .btn-op{padding:7px 14px;border:2px solid var(--cp-oscuro);background:#fff;color:var(--cp-oscuro);border-radius:8px;cursor:pointer;font-weight:600;font-family:inherit;font-size:.92rem}
+  .btn-op:hover:not(:disabled){background:var(--cp-claro)}
+  .btn-op.correcta{background:#d4edda;border-color:var(--exito);color:#155724}
+  .btn-op.correcta::before{content:'✓ '}
+  .btn-op.incorrecta{background:#f8d7da;border-color:var(--error);color:#721c24;text-decoration:line-through}
+  .btn-op.incorrecta::before{content:'✗ '}
+  .btn-op:disabled{cursor:default}
+  .apilado .item{flex-direction:column;align-items:stretch}
+  .apilado .item-ops{flex-direction:column}
+  .apilado .btn-op{text-align:left;font-weight:400}
+  .apilado .item-pal{font-family:'Segoe UI',Arial,sans-serif;font-size:1rem;font-weight:600;display:block}
+  .puntaje{text-align:center;margin-top:12px;font-weight:600;color:var(--cp-oscuro)}
+  /* Lectura con marcas: color + borde distinto + etiqueta escrita */
+  .texto-lectura{background:#fff;border:2px solid var(--gris-claro);border-radius:8px;padding:18px 22px;margin:14px 0;font-family:Georgia,serif;font-size:1.12rem;line-height:2.1}
+  .texto-lectura p{margin:0 0 10px}
+  .num-p{display:inline-block;background:var(--cp-oscuro);color:#fff;border-radius:50%;width:1.6em;height:1.6em;text-align:center;line-height:1.6em;font-size:.8rem;font-family:'Segoe UI',Arial,sans-serif;margin-right:6px;vertical-align:middle}
+  .m-sus{background:#e3f2fd;color:#0d3c78;border-bottom:3px solid #0d3c78}
+  .m-adj{background:#fff3e0;color:#6b3300;border-bottom:3px dashed #8a4b00}
+  .m-adv{background:#e8f5e9;color:#1b5e20;border-bottom:3px dotted #1b5e20}
+  .etq{font-weight:700;font-size:.78em;font-family:'Segoe UI',Arial,sans-serif;white-space:nowrap}
+  .oculta-marcas .m-sus,.oculta-marcas .m-adj,.oculta-marcas .m-adv{background:none;color:inherit;border:none}
+  .oculta-marcas .etq{display:none}
+  .leyenda-marcas{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0;font-size:.92rem}
+  .leyenda-marcas span{padding:2px 8px}
+  /* Índice */
+  .indice{background:#fff;border:1px solid #d6dde4;border-left:6px solid var(--cp);border-radius:10px;padding:16px 20px;margin:22px 0}
+  .indice h2{font-size:1.1rem;margin:0 0 8px;border:none;padding:0}
+  .indice ol{margin:0;padding-left:1.4em}
+  .indice li{margin:4px 0}
+  .indice a{color:var(--cp-oscuro)}
+  .abrir-cerrar{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0 0}
+  .volver-indice{position:fixed;right:18px;bottom:18px;z-index:60;background:var(--cp-oscuro);color:#fff;border-radius:999px;padding:10px 16px;font-weight:700;font-size:.92rem;text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,.28)}
+  .volver-indice:hover{background:var(--cp);color:#fff}
+  a:focus-visible,summary:focus-visible,button:focus-visible,textarea:focus-visible{outline:3px solid #b35316;outline-offset:2px}
+  .sr-solo{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+  .enlace-practica{display:block;background:#fff;border:2px solid var(--cp);border-radius:10px;padding:14px 18px;margin:16px 0;text-decoration:none;color:var(--cp-oscuro);font-weight:600}
+  .enlace-practica:hover{background:var(--cp-claro)}
+  .enlace-practica span{display:block;font-weight:400;color:var(--texto);font-size:.95rem}
+  .aviso-voz{font-size:.9rem;color:#5c3900;background:#fff3cd;border-radius:6px;padding:6px 10px;display:none}
+  .aviso-voz.visible{display:block}
+  /* Quiz */
+  .qz-intro{background:var(--cp-claro);border-radius:10px;padding:14px 18px;margin:0 0 14px}
+  .qz-intro h4{margin:0 0 6px;color:var(--cp-oscuro)}
+  .qz-preg{background:#fff;border:2px solid var(--gris-claro);border-radius:10px;padding:14px 18px;margin:12px 0}
+  .qz-enun{font-weight:600;margin:0 0 10px}
+  .qz-num{display:inline-block;background:var(--cp-oscuro);color:#fff;border-radius:12px;padding:1px 10px;font-size:.8rem;margin-right:8px}
+  .qz-ops{display:flex;flex-direction:column;gap:8px}
+  .qz-op{text-align:left;background:#fff;border:2px solid #c9d2db;border-radius:8px;padding:10px 14px;font-family:inherit;font-size:1rem;cursor:pointer;color:var(--texto)}
+  .qz-op:hover:not(:disabled){border-color:var(--cp)}
+  .qz-op.elegida{background:var(--cp-claro);border-color:var(--cp-oscuro);color:var(--cp-oscuro);box-shadow:0 0 0 3px #fff,0 0 0 5px var(--cp)}
+  .qz-op.correcta{background:#d4edda;border-color:#2e7d32;color:#155724}
+  .qz-op.correcta::before{content:'✓ '}
+  .qz-op.incorrecta{background:#f8d7da;border-color:#c62828;color:#721c24}
+  .qz-op.incorrecta::before{content:'✗ '}
+  .qz-op:disabled{cursor:default}
+  .qz-resultado{display:none;margin:16px 0;padding:16px;border-radius:10px;text-align:center;font-weight:600}
+  .qz-resultado.visible{display:block}
+  .qz-repaso{margin:10px 0 0;padding:8px 12px;background:#fff3cd;border-radius:6px;color:#3d2600;font-size:.95rem}
+  .qz-repaso a{color:var(--cp-oscuro);font-weight:700}
+  /* Taller de escritura */
+  .taller{background:#fff;border:2px solid var(--cp);border-radius:12px;padding:14px;margin:14px 0}
+  .tl-etq{display:block;font-weight:700;color:var(--cp-oscuro);margin-bottom:6px}
+  .tl-txt{width:100%;box-sizing:border-box;font:inherit;font-size:1.05rem;line-height:1.7;padding:10px 12px;border:2px solid #9aa9b7;border-radius:8px;resize:vertical;min-height:200px}
+  .tl-txt:focus{outline:3px solid var(--cp);outline-offset:1px;border-color:var(--cp-oscuro)}
+  .tl-cuenta{font-size:.92rem;color:#333;margin:6px 0}
+  .tl-conect{font-size:.95rem;margin:4px 0 8px}
+  .tl-chip{display:inline-block;background:var(--cp-claro);color:var(--cp-oscuro);border:1px solid var(--cp);border-radius:12px;padding:1px 10px;margin:2px 2px;font-weight:700}
+  .tl-aviso{min-height:1.4em;font-weight:700;color:var(--cp-oscuro)}
+  .tl-lista{border:2px dashed var(--cp);border-radius:10px;padding:8px 14px;margin-top:10px}
+  .tl-lista legend{font-weight:700;color:var(--cp-oscuro);padding:0 6px}
+  .tl-lista label{display:flex;gap:10px;align-items:flex-start;padding:6px 0;cursor:pointer}
+  .tl-lista input{width:22px;height:22px;flex-shrink:0;margin-top:2px;accent-color:var(--cp-oscuro)}
+  .tl-listo{font-weight:700;color:var(--cp-oscuro);margin:6px 0 0}
+  .rubrica{font-size:.92rem}
+  .rubrica td,.rubrica th{vertical-align:top}
+  @media(max-width:640px){
+    .rubrica thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+    .rubrica,.rubrica tbody,.rubrica tr,.rubrica th,.rubrica td{display:block;width:auto}
+    .rubrica tr{border:2px solid var(--cp);border-radius:10px;margin:0 0 10px;overflow:hidden}
+    .rubrica tbody th{background:var(--cp-oscuro);color:#fff;border:none}
+    .rubrica td{border:none;border-top:1px solid #d5dde3}
+    .rubrica td::before{content:attr(data-et);display:block;font-weight:700;color:var(--cp-oscuro)}
+  }
+  footer.pie{margin-top:40px;padding-top:18px;border-top:2px solid var(--gris-claro);text-align:center;color:#555;font-size:.9rem}
+  footer.pie p{margin:4px 0}
+  footer.pie a{color:var(--cp-oscuro)}
+  @media print{.indice,.volver-indice,.abrir-cerrar{display:none}}
+  @media (prefers-reduced-motion:reduce){summary::before{transition:none}}
+  .m-af{background:#e3f2fd;color:#0d3c78;border-bottom:3px solid #0d3c78}
+  .m-ra{background:#e8f5e9;color:#1b5e20;border-bottom:3px dotted #1b5e20}
+  .m-ca{background:#fff3e0;color:#6b3300;border-bottom:3px dashed #8a4b00}
+  .m-re{background:#f3e5f5;color:#4a1460;border-bottom:4px double #4a1460}
+  .m-tr{font-weight:700;outline:2px solid #7f1d1d;outline-offset:1px;border-radius:3px}
+  .oculta-marcas .m-af,.oculta-marcas .m-ra,.oculta-marcas .m-ca,.oculta-marcas .m-re{background:none;color:inherit;border:none}
+  .oculta-marcas .m-tr{font-weight:inherit;outline:none}
+  .esquema{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin:12px 0}
+  .esquema div{background:#fff;border:2px solid var(--cp);border-radius:10px;padding:10px 12px}
+  .esquema strong{display:block;color:var(--cp-oscuro)}
+  .formula{background:#fff;border:2px dashed var(--cp);border-radius:10px;padding:10px 16px;margin:10px 0;font-family:Georgia,serif}
+  .crono{background:#fff;border:2px solid var(--cp-oscuro);border-radius:12px;padding:12px 16px;margin:14px 0}
+  .crono-t,.crono-plan{margin:0 0 8px}
+  .crono-plan{font-size:.93rem;color:#333}
+  .crono-fila{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+  .crono-reloj{font-family:'Courier New',monospace;font-size:2rem;font-weight:700;color:var(--cp-oscuro);background:var(--cp-claro);border-radius:8px;padding:2px 14px;min-width:6ch;text-align:center}
+  .crono-reloj.crono-poco{background:#fff3cd;color:#5c3900;outline:3px dashed #8a5a00}
+  .crono-reloj.crono-fin{background:#1a2332;color:#fff}
+  .crono-barra{height:8px;background:var(--gris-claro);border-radius:4px;margin:10px 0 4px;overflow:hidden}
+  .crono-barra span{display:block;height:100%;width:0;background:var(--cp)}
+  .crono-aviso{min-height:1.4em;font-weight:700;color:var(--cp-oscuro);margin:4px 0 0}
+</style>
+</head>
+<body>
+<h1>Lección 7.1 · Ensayo argumentativo: afirmación, contrargumento y refutación</h1>
+<p class="subtitulo">Artes del Lenguaje · Nivel 4 · Tema 7: Escritura argumentativa y disciplinar · Unas 2 horas, a tu ritmo</p>
+
+<div class="caja-objetivos">
+  <h2>🎯 Objetivos de la lección</h2>
+  <ul class="lista-bonita" style="margin:0">
+    <li>Escribir un ensayo argumentativo con una <strong>afirmación precisa</strong> y razones apoyadas en evidencia.</li>
+    <li><strong>Anticipar un contrargumento</strong> y <strong>refutarlo</strong> con razonamiento válido.</li>
+    <li>Mantener un <strong>tono objetivo</strong> y organizar el ensayo con <strong>transiciones</strong>.</li>
+  </ul>
+  <p style="margin:8px 0 0;font-size:.92rem">Estándares: 5–6.W.TT.1 · WHST.9-10.1 · WHST.11-12.1</p>
+</div>
+
+<nav class="indice" id="indice" aria-labelledby="indice-titulo">
+  <h2 id="indice-titulo">Contenido de la lección</h2>
+  <ol>
+    <li><a href="#s-1-esquema">El esquema del ensayo argumentativo</a></li>
+    <li><a href="#s-2-afirmacion">Una afirmación precisa</a></li>
+    <li><a href="#s-3-modelo">Ensayo modelo: una biblioteca sin multas</a></li>
+    <li><a href="#s-4-refutar">Anticipar y refutar el contrargumento</a></li>
+    <li><a href="#s-5-tono">Razonamiento válido y tono objetivo</a></li>
+    <li><a href="#s-6-taller">Taller: escribe tu ensayo</a></li>
+    <li><a href="#s-tarea">Tarea</a></li>
+    <li><a href="#s-quiz">Quiz de la lección</a></li>
+    <li><a href="#s-cierre">Cierre</a></li>
+  </ol>
+  <div class="abrir-cerrar">
+    <button type="button" class="btn btn-secundario" id="abrir-todo">Abrir todo</button>
+    <button type="button" class="btn btn-secundario" id="cerrar-todo">Cerrar todo</button>
+  </div>
+</nav>
+
+<h2>📚 Para empezar</h2>
+<p>En el Nivel 3 escribiste un texto argumentado de un párrafo largo, con tesis, razones y una objeción respondida. Ahora das el salto al <strong>ensayo completo</strong>, de cuatro o cinco párrafos. Es la habilidad que pide la Respuesta Extendida del GED: allí no escribirás tu opinión sobre un tema, sino que analizarás dos textos; pero para juzgar bien un argumento ajeno, primero hay que saber construir uno propio. Todo lo que aprendiste en los temas 4 y 5 (apelaciones, falacias, evidencia suficiente) se usa aquí al revés: ahora el que convence eres tú.</p>
+<p class="aviso-voz" id="aviso-voz" role="status">Tu navegador no tiene una voz en español disponible, así que los botones 🔊 no sonarán.</p>
+
+<details open id="s-1-esquema">
+<summary>1. El esquema del ensayo argumentativo <span class="caja-tiempo">10 min</span></summary>
+<div class="contenido-detalle">
+<div class="esquema" aria-label="Partes del ensayo argumentativo">
+  <div><strong>1 · Introducción</strong>Presenta el tema con un dato o una situación, y termina con tu <em>afirmación</em>.</div>
+  <div><strong>2 y 3 · Desarrollo</strong>Un párrafo por razón. Cada razón, con su <em>evidencia</em> y una explicación de por qué la apoya.</div>
+  <div><strong>4 · Contrargumento</strong>La mejor objeción de quien piensa distinto, presentada con justicia, y tu <em>refutación</em>.</div>
+  <div><strong>5 · Conclusión</strong>Recoge las razones, reafirma la postura y, si conviene, propone qué hacer.</div>
+</div>
+<div class="tip"><strong>📘 ¿Necesitas repasar?</strong> El texto argumentado del Nivel 3 está en la <a href="https://zhemaria.github.io/clases_leng3/clase_7-1.html" target="_blank" rel="noopener noreferrer" style="color:var(--cp-oscuro);font-weight:700">Lección 7.1 del Nivel 3</a>; las falacias, en la <a href="https://zhemaria.github.io/clases_leng4/clase_5-1.html" target="_blank" rel="noopener noreferrer" style="color:var(--cp-oscuro);font-weight:700">Lección 5.1</a> de este nivel. Se abren en una pestaña nueva.</div>
+</div>
+</details>
+
+<details id="s-2-afirmacion">
+<summary>2. Una afirmación precisa <span class="caja-tiempo">15 min</span></summary>
+<div class="contenido-detalle">
+<p>La <span class="palabra-clave">afirmación</span> (o tesis) es la postura que defiende todo el ensayo. Una buena afirmación cumple cuatro condiciones:</p>
+<table class="tabla">
+  <caption class="sr-solo">Condiciones de una afirmación precisa con ejemplos débiles y mejorados</caption>
+  <thead><tr><th scope="col">Condición</th><th scope="col">✖️ Débil</th><th scope="col">✔️ Precisa</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Es discutible:</strong> alguien razonable podría opinar lo contrario.</td><td>Las bibliotecas prestan libros.</td><td>Las bibliotecas públicas deberían eliminar las multas por devolución tardía.</td></tr>
+    <tr><td><strong>Es concreta:</strong> dice qué, quién y, si hace falta, cuándo.</td><td>Hay que mejorar las bibliotecas.</td><td>Las bibliotecas públicas de Illinois deberían dejar de cobrar multas este año.</td></tr>
+    <tr><td><strong>Se puede defender con evidencia</strong>, no solo con gustos.</td><td>Las bibliotecas son aburridas.</td><td>Las multas alejan de la biblioteca a las familias de menos ingresos.</td></tr>
+    <tr><td><strong>Anuncia las razones</strong> (en el Nivel 4, es lo recomendable).</td><td>Las multas deberían eliminarse.</td><td>Las multas deberían eliminarse, porque alejan a quienes más necesitan la biblioteca y no consiguen que los libros vuelvan.</td></tr>
+  </tbody>
+</table>
+<div class="clasificador apilado" id="clasif-afirm"></div>
+<div class="puntaje" id="puntaje-afirm" role="status" aria-live="polite"></div>
+<a class="enlace-practica" href="https://zhemaria.github.io/gramatica/n4-l7-1.html#afirmacion" target="_blank" rel="noopener noreferrer">🎯 Practica más: la afirmación precisa
+  <span>Elige la afirmación discutible, concreta y defendible. Se abre en una pestaña nueva.</span></a>
+</div>
+</details>
+
+<details id="s-3-modelo">
+<summary>3. Ensayo modelo: una biblioteca sin multas <span class="caja-tiempo">25 min</span></summary>
+<div class="contenido-detalle">
+<div class="actividad">
+  <h4><span class="badge badge-lectura">Lectura de modelo argumentativo</span> Individual · encuentra cada parte</h4>
+  <p style="margin:0">Lee el ensayo y busca la afirmación, las dos razones, el contrargumento, la refutación y las transiciones. Después pulsa el botón para ver las partes marcadas.</p>
+</div>
+<div class="leyenda-marcas" aria-label="Leyenda de las marcas">
+  <span class="m-af">Afirmación (continuo)</span><span class="m-ra">Razones y evidencia (puntos)</span><span class="m-ca">Contrargumento (rayas)</span><span class="m-re">Refutación (doble)</span><span class="m-tr">Transiciones (recuadro)</span>
+</div>
+<div class="texto-lectura oculta-marcas" id="lectura">
+  <h3 style="margin-top:0">Una biblioteca sin multas es una biblioteca para todos</h3>
+  <p><span class="num-p" aria-hidden="true">1</span>Durante décadas, devolver tarde un libro de la biblioteca costaba unos centavos al día. Parece poco, pero para muchas familias esas multas se acumulaban hasta convertirse en una deuda que les cerraba la puerta. <span class="m-af">Las bibliotecas públicas deberían eliminar las multas por devolución tardía, porque alejan a quienes más necesitan la biblioteca y no consiguen que los libros vuelvan.<span class="etq"> [afirmación]</span></span></p>
+  <p><span class="num-p" aria-hidden="true">2</span><span class="m-tr">En primer lugar</span>, <span class="m-ra">las multas pesan sobre todo en quienes tienen menos. Una familia con ingresos estables paga la multa y sigue usando la biblioteca; una familia que no puede pagarla deja de ir, y con ella se van las computadoras, los libros y las clases gratuitas. Cuando Chicago eliminó las multas el 1 de octubre de 2019 —la primera gran ciudad del país en hacerlo—, la alcaldía presentó la medida como una forma de quitar barreras a los jóvenes y a las familias de bajos ingresos.<span class="etq"> [razón 1 y evidencia]</span></span></p>
+  <p><span class="num-p" aria-hidden="true">3</span><span class="m-tr">Además</span>, <span class="m-ra">las multas no logran su propósito. Según la comisionada de las bibliotecas de Chicago, Andrea Telli, la devolución de libros aumentó un 240 % después de eliminar las multas y perdonar las deudas anteriores. Muchos usuarios contaron que no volvían a la biblioteca porque debían multas. <span class="m-tr">Es decir</span>, la multa no hacía que los libros regresaran: los retenía.<span class="etq"> [razón 2 y evidencia]</span></span></p>
+  <p><span class="num-p" aria-hidden="true">4</span><span class="m-ca"><span class="m-tr">Es cierto que</span> algunos temen que, sin multas, la gente se quede con los libros sin plazo, y que la biblioteca pierda el dinero que recaudaba.<span class="etq"> [contrargumento]</span></span> <span class="m-re"><span class="m-tr">Sin embargo</span>, la experiencia de Chicago muestra lo contrario en lo que más importa: los libros volvieron. Una multa que aleja al usuario y además retiene el libro no protege la colección, sino que la vacía. <span class="m-tr">Por otra parte</span>, una biblioteca pública no existe para recaudar, sino para prestar.<span class="etq"> [refutación]</span></span></p>
+  <p><span class="num-p" aria-hidden="true">5</span><span class="m-tr">En resumen</span>, las multas castigan a las familias que más necesitan la biblioteca y no cumplen la función de recuperar los libros. <span class="m-tr">Por eso</span>, las bibliotecas que todavía las cobran deberían seguir el ejemplo de Chicago.</p>
+  <p style="font-size:.9rem;margin-bottom:0"><em>Ensayo escrito para esta lección con datos comprobados (ver las fuentes en el cierre).</em></p>
+</div>
+<div class="botones" style="justify-content:flex-start">
+  <button type="button" class="btn btn-secundario" id="leer-lectura">🔊 Escuchar el ensayo</button>
+  <button type="button" class="btn btn-secundario" id="ver-partes" aria-pressed="false">Mostrar las partes</button>
+</div>
+<div class="clasificador apilado" id="clasif-modelo"></div>
+<div class="puntaje" id="puntaje-modelo" role="status" aria-live="polite"></div>
+</div>
+</details>
+
+<details id="s-4-refutar">
+<summary>4. Anticipar y refutar el contrargumento <span class="caja-tiempo">20 min</span></summary>
+<div class="contenido-detalle">
+<p>Un ensayo que ignora a quien piensa distinto parece débil o poco honrado. Para anticiparlo, pregúntate: <strong>¿qué me diría la persona más razonable que no está de acuerdo conmigo?</strong> Preséntalo con justicia (sin hacer un «hombre de paja», Lección 5.1) y después respóndelo de una de estas tres maneras:</p>
+<table class="tabla">
+  <caption class="sr-solo">Tres maneras de refutar un contrargumento con ejemplos</caption>
+  <thead><tr><th scope="col">Estrategia</th><th scope="col">Qué hace</th><th scope="col">Ejemplo</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Mostrar evidencia contraria</strong></td><td>Los datos dicen otra cosa.</td><td>«Se teme que no devuelvan los libros; sin embargo, las devoluciones aumentaron un 240 %.»</td></tr>
+    <tr><td><strong>Mostrar que pesa menos</strong></td><td>La objeción es cierta, pero menos importante que tus razones.</td><td>«Es verdad que se pierde lo recaudado, pero la función de la biblioteca es prestar, no recaudar.»</td></tr>
+    <tr><td><strong>Conceder y proponer</strong></td><td>Aceptas parte de la objeción y ofreces una solución.</td><td>«Es razonable cobrar un libro que nunca se devuelve; por eso propongo eliminar las multas por retraso, no por pérdida.»</td></tr>
+  </tbody>
+</table>
+<p class="formula">Es cierto que <strong>[contrargumento justo]</strong>. Sin embargo, <strong>[refutación con evidencia o razonamiento]</strong>. Por eso, <strong>[vuelta a tu afirmación]</strong>.</p>
+<div class="clasificador apilado" id="clasif-refuta"></div>
+<div class="puntaje" id="puntaje-refuta" role="status" aria-live="polite"></div>
+<a class="enlace-practica" href="https://zhemaria.github.io/gramatica/n4-l7-1.html#refutacion" target="_blank" rel="noopener noreferrer">🛡️ Practica más: la refutación válida
+  <span>Contrargumentos con varias respuestas: elige la que refuta de verdad. Se abre en una pestaña nueva.</span></a>
+<div class="tip"><strong>👨‍👩‍👧 Si tienes con quién practicar:</strong> «Anticipa la objeción». Uno dice una afirmación; el otro le responde con el mejor contrargumento que se le ocurra. El primero tiene un minuto para refutarlo con la fórmula.</div>
+</div>
+</details>
+
+<details id="s-5-tono">
+<summary>5. Razonamiento válido y tono objetivo <span class="caja-tiempo">15 min</span></summary>
+<div class="contenido-detalle">
+<p>Convence más quien suena justo. Revisa tu ensayo con estas dos listas:</p>
+<table class="tabla">
+  <caption class="sr-solo">Rasgos de un tono objetivo frente a un tono subjetivo y de razonamiento válido frente a falaz</caption>
+  <thead><tr><th scope="col">✖️ Evita</th><th scope="col">✔️ Prefiere</th></tr></thead>
+  <tbody>
+    <tr><td>«Yo creo que…», «en mi opinión…» en cada párrafo</td><td>La afirmación directa: «Las multas deberían eliminarse».</td></tr>
+    <tr><td>Insultos y palabras cargadas: «una medida absurda», «los que defienden las multas no piensan»</td><td>Palabras neutras y precisas (Lección 2.3).</td></tr>
+    <tr><td>Exageraciones: «todos», «nunca», «una catástrofe»</td><td>Cifras y matices: «muchas familias», «aumentó un 240 %».</td></tr>
+    <tr><td>Falacias: generalizar de un caso, atacar a la persona, falso dilema</td><td>Razones con evidencia suficiente que se siguen de verdad (Lección 5.1).</td></tr>
+    <tr><td>Solo emoción</td><td>Lógica y credibilidad, con la emoción justa (Lección 4.3).</td></tr>
+  </tbody>
+</table>
+<h3>Transiciones para argumentar</h3>
+<table class="tabla">
+  <caption class="sr-solo">Transiciones útiles en el ensayo argumentativo según su función</caption>
+  <thead><tr><th scope="col">Para…</th><th scope="col">Transiciones</th></tr></thead>
+  <tbody>
+    <tr><td>Ordenar las razones</td><td><em>en primer lugar, además, por otra parte, por último</em></td></tr>
+    <tr><td>Presentar el contrargumento</td><td><em>es cierto que, algunos sostienen que, se podría objetar que</em></td></tr>
+    <tr><td>Refutar</td><td><em>sin embargo, no obstante, aun así, pero</em></td></tr>
+    <tr><td>Explicar la evidencia</td><td><em>es decir, esto muestra que, lo cual indica que</em></td></tr>
+    <tr><td>Concluir</td><td><em>en resumen, por eso, en conclusión, por todo lo anterior</em></td></tr>
+  </tbody>
+</table>
+<div class="clasificador apilado" id="clasif-tono"></div>
+<div class="puntaje" id="puntaje-tono" role="status" aria-live="polite"></div>
+<a class="enlace-practica" href="https://zhemaria.github.io/gramatica/n4-l7-1.html#valido" target="_blank" rel="noopener noreferrer">⚖️ Practica más: razonamiento válido y tono objetivo
+  <span>Oraciones de ensayos para decidir si razonan bien y si su tono es objetivo. Se abre en una pestaña nueva.</span></a>
+</div>
+</details>
+
+<details id="s-6-taller">
+<summary>6. Taller: escribe tu ensayo <span class="caja-tiempo">45 min</span></summary>
+<div class="contenido-detalle">
+<p><strong>Elige un tema</strong> (o propón uno tuyo) y escribe un ensayo de <strong>4 o 5 párrafos</strong> con el esquema de la sección 1:</p>
+<ul class="lista-bonita">
+  <li>¿Debería ser gratuito el transporte público para los estudiantes de educación para adultos?</li>
+  <li>¿Deberían las empresas permitir trabajar desde casa al menos un día por semana?</li>
+  <li>¿Debería enseñarse educación financiera como materia obligatoria en la escuela secundaria?</li>
+  <li>¿Deberían las bibliotecas abrir los domingos? (puedes usar la carta de la Lección 4.3)</li>
+</ul>
+<p>Si no tienes datos reales, usa ejemplos concretos y razonamientos válidos; no inventes cifras. Antes de escribir, dedica unos minutos a planificar: afirmación, dos razones con su evidencia y el contrargumento más fuerte.</p>
+<div class="crono" id="crono-71"></div>
+<div class="taller" id="taller-71"></div>
+<h3>Rúbrica: así se evaluará tu ensayo</h3>
+<table class="tabla rubrica">
+  <caption class="sr-solo">Rúbrica del ensayo argumentativo: cinco criterios en cuatro niveles</caption>
+  <thead><tr><th scope="col">Criterio</th><th scope="col">4 · Excelente</th><th scope="col">3 · Bien</th><th scope="col">2 · En camino</th><th scope="col">1 · Inicial</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">Afirmación precisa</th><td>Discutible, concreta y anuncia las razones</td><td>Discutible y concreta</td><td>Vaga o casi un hecho</td><td>Sin afirmación clara</td></tr>
+    <tr><th scope="row">Desarrollo con razones válidas</th><td>Dos razones con evidencia suficiente y explicada</td><td>Dos razones, una con poca evidencia</td><td>Razones sin evidencia</td><td>Opiniones sueltas</td></tr>
+    <tr><th scope="row">Contrargumento abordado y refutado</th><td>Objeción justa y refutación convincente</td><td>Objeción y refutación débil</td><td>Menciona la objeción sin responderla</td><td>Ignora la objeción</td></tr>
+    <tr><th scope="row">Tono objetivo</th><td>Neutro, preciso, sin falacias ni exageraciones</td><td>Alguna palabra cargada</td><td>Varias exageraciones o una falacia</td><td>Tono agresivo o solo emocional</td></tr>
+    <tr><th scope="row">Organización con transiciones</th><td>Párrafos claros y transiciones variadas</td><td>Párrafos claros, transiciones repetidas</td><td>Ideas mezcladas entre párrafos</td><td>Sin párrafos ni transiciones</td></tr>
+  </tbody>
+</table>
+<p style="font-size:.92rem">Total: 20 puntos.</p>
+</div>
+</details>
+
+<details id="s-tarea">
+<summary>7. Tarea <span class="caja-tiempo">30 min</span></summary>
+<div class="contenido-detalle">
+<ul class="lista-bonita">
+  <li><strong>Termina tu ensayo</strong> y revísalo con la lista y la rúbrica. Léelo en voz alta con el botón 🔊.</li>
+  <li><strong>Busca el mejor contrargumento:</strong> pídele a alguien de tu familia o de tu trabajo que te diga por qué no está de acuerdo con tu afirmación. Si su objeción es mejor que la que escribiste, cámbiala.</li>
+  <li><strong>Practica con tiempo:</strong> otro día, escribe un ensayo sobre otro tema de la lista usando el cronómetro de 45 minutos.</li>
+</ul>
+</div>
+</details>
+
+<details id="s-quiz">
+<summary>8. Quiz de la lección <span class="caja-tiempo">20 min</span></summary>
+<div class="contenido-detalle">
+<div class="qz-intro">
+  <h4>✅ Quiz · 12 preguntas · puedes repetirlo las veces que quieras</h4>
+  <p style="margin:0">Varias preguntas se refieren al ensayo modelo de la sección 3. Elige una respuesta en cada pregunta y, al final, pulsa <strong>Ver mi resultado</strong>. La meta es acertar al menos <strong>10 de 12</strong>.</p>
+</div>
+<div id="qz-cuerpo"></div>
+<div class="botones">
+  <button type="button" class="btn btn-primario" id="qz-calificar">Ver mi resultado</button>
+  <button type="button" class="btn btn-secundario" id="qz-reintentar" style="display:none">Intentar de nuevo</button>
+</div>
+<div class="qz-resultado" id="qz-resultado" role="status" aria-live="polite"></div>
+</div>
+</details>
+
+<details id="s-cierre">
+<summary>9. Cierre <span class="caja-tiempo">5 min</span></summary>
+<div class="contenido-detalle">
+<h3>Lo que aprendiste en esta lección</h3>
+<ul class="lista-bonita">
+  <li>El ensayo argumentativo tiene introducción con afirmación, desarrollo con razones y evidencia, contrargumento con refutación y conclusión.</li>
+  <li>Una afirmación precisa es discutible, concreta, defendible con evidencia y anuncia las razones.</li>
+  <li>El contrargumento se presenta con justicia y se refuta con evidencia contraria, mostrando que pesa menos o concediendo y proponiendo.</li>
+  <li>El tono objetivo evita las palabras cargadas, las exageraciones y las falacias; las transiciones guían al lector.</li>
+</ul>
+<div class="caja-objetivos" style="background:#fff3e0;border-left-color:var(--acento)">
+  <h2 style="color:#8a3d0c;border:none;padding:0;margin-top:0;font-size:1.2rem">✅ Antes de irte, revísate</h2>
+  <ul class="lista-bonita">
+    <li>¿Cuál es la afirmación del ensayo modelo y qué razones anuncia?</li>
+    <li>¿Qué estrategia de refutación usa el párrafo 4?</li>
+    <li>¿Por qué «los que defienden las multas no piensan» rompe el tono objetivo?</li>
+  </ul>
+</div>
+<div class="tip"><strong>➡️ Sigue con la próxima lección:</strong> <a href="https://zhemaria.github.io/clases_leng4/clase_7-2.html" style="color:var(--cp-oscuro);font-weight:700">Lección 7.2 · Texto explicativo complejo con análisis</a>.</div>
+<p style="font-size:.9rem"><strong>Fuentes del ensayo modelo:</strong> NBC Chicago, «Book Returns Surge 240% After Chicago Eliminates Fines» (noviembre de 2019): fecha de la medida (1 de octubre de 2019), primera gran ciudad en hacerlo, perdón de las deudas, el aumento del 240 % según la comisionada Andrea Telli ante el Concejo Municipal y el propósito de quitar barreras a los jóvenes y a las familias de bajos ingresos.</p>
+</div>
+</details>
+
+<footer class="pie">
+  <p><strong>GEDparaHispanos · Artes del Lenguaje · Nivel 4: Dominio del GED y Escritura Argumentativa · Tema 7 · Lección 7.1</strong></p>
+  <p>José M. Fernández, ABE/ASE Math Master Teacher, Harry S. Truman College — City Colleges of Chicago</p>
+  <p>© 2026. Esta obra está licenciada bajo <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es" rel="license noopener noreferrer" target="_blank">Creative Commons Reconocimiento-NoComercial-CompartirIgual 4.0 Internacional (CC BY-NC-SA 4.0)</a>.</p>
+</footer>
+<a class="volver-indice" href="#indice" aria-label="Volver al contenido de la lección"><span aria-hidden="true">↑</span> Índice</a>
+
+<script>
+
+/* ===== Voz: todas las lecturas pasan por hablar(), para poder cambiarla después por audio grabado ===== */
+(function(){
+  var voz=null, hay=('speechSynthesis' in window);
+  function elegir(){
+    if(!hay)return;
+    var vs=speechSynthesis.getVoices().filter(function(v){return /^es/i.test(v.lang);});
+    var pref=['es-US','es-MX','es-419','es-CO','es-AR','es-CL','es-PE'];
+    voz=null;
+    for(var i=0;i<pref.length&&!voz;i++){voz=vs.find(function(v){return v.lang.replace('_','-').toLowerCase()===pref[i].toLowerCase();})||null;}
+    if(!voz)voz=vs.find(function(v){return !/es[-_]ES/i.test(v.lang);})||vs[0]||null;
+  }
+  function aviso(){var a=document.getElementById('aviso-voz');if(a)a.classList.add('visible');}
+  function frase(t,vel){var u=new SpeechSynthesisUtterance(t);u.lang=voz?voz.lang:'es-US';if(voz)u.voice=voz;u.rate=vel||0.9;return u;}
+  if(hay){elegir(); speechSynthesis.onvoiceschanged=elegir;}
+  window.hablar=function(texto,vel,fin){
+    if(!hay||!texto){aviso();return;}
+    speechSynthesis.cancel();
+    /* Se lee por oraciones: algunos navegadores cortan las lecturas largas */
+    var partes=texto.replace(/\s+/g,' ').match(/[^.!?…]+[.!?…]+[»"”)]*\s*|[^.!?…]+$/g)||[texto];
+    partes.forEach(function(t,i){var u=frase(t.trim(),vel); if(fin&&i===partes.length-1)u.onend=fin; speechSynthesis.speak(u);});
+  };
+  window.callar=function(){if(hay)speechSynthesis.cancel();};
+  if(!hay)document.addEventListener('DOMContentLoaded',aviso);
+})();
+
+/* ===== Clasificador: cada elemento con sus botones; al acertar muestra una nota =====
+   Las opciones propias de cada elemento se barajan; las opciones comunes conservan su orden */
+function orden(it,ops){
+  var o=ops.map(function(_,j){return j;});
+  if(it.ops&&!it.fijo){for(var k=o.length-1;k>0;k--){var r=Math.floor(Math.random()*(k+1)),t=o[k];o[k]=o[r];o[r]=t;}}
+  return o;
+}
+function clasificador(idCaja,idPuntaje,items,opciones,conAudio){
+  var caja=document.getElementById(idCaja), pun=document.getElementById(idPuntaje), bien=0, hechas={};
+  function marcador(){pun.textContent=bien===items.length?(items.length===1?'🎉 ¡Muy bien!':'🎉 ¡Muy bien! Acertaste las '+bien+'.'):(items.length===1?'':'Aciertos: '+bien+' / '+items.length);}
+  items.forEach(function(it,i){
+    var d=document.createElement('div'); d.className='item'; d.setAttribute('role','group'); d.setAttribute('aria-label',it.p.replace(/<[^>]+>/g,''));
+    var ops=it.ops||opciones;
+    d.innerHTML='<span class="item-pal">'+it.p+(conAudio?' <button type="button" class="oir" aria-label="Escuchar">🔊</button>':'')+'</span>'+
+      '<span class="item-ops">'+orden(it,ops).map(function(j){return '<button type="button" class="btn-op" data-j="'+j+'">'+ops[j]+'</button>';}).join('')+'</span>'+
+      '<span class="item-fb" aria-live="polite"></span>';
+    caja.appendChild(d);
+    if(conAudio)d.querySelector('.oir').addEventListener('click',function(){hablar(it.a||it.p.replace(/<[^>]+>/g,''),0.85);});
+    var fb=d.querySelector('.item-fb');
+    d.querySelectorAll('.btn-op').forEach(function(b){
+      b.addEventListener('click',function(){
+        if(hechas[i])return;
+        if(+b.getAttribute('data-j')===it.c){
+          b.classList.add('correcta'); hechas[i]=true; bien++;
+          d.querySelectorAll('.btn-op').forEach(function(x){x.disabled=true;});
+          fb.innerHTML='✓ '+(it.n||'Correcto.'); marcador();
+        }else{
+          b.classList.add('incorrecta'); b.disabled=true;
+          fb.innerHTML='Todavía no. '+(it.pista||'Vuelve a mirar la regla e intenta otra vez.');
+        }
+      });
+    });
+  });
+  marcador();
+}
+
+/* ===== Quiz de la lección ===== */
+function iniciarQuiz(P,cfg){
+  var META=cfg.meta, N=P.length, cuerpo=document.getElementById('qz-cuerpo'), elegidas={};
+  P.forEach(function(p,i){
+    var d=document.createElement('div');
+    d.className='qz-preg'; d.setAttribute('role','group'); d.setAttribute('aria-labelledby','qz-e'+i);
+    var h='<p class="qz-enun" id="qz-e'+i+'"><span class="qz-num">'+(i+1)+'</span>'+p.t+'</p><div class="qz-ops">';
+    var orden=p.o.map(function(_,j){return j;});
+    if(!p.fijo){for(var k=orden.length-1;k>0;k--){var r=Math.floor(Math.random()*(k+1)),t=orden[k];orden[k]=orden[r];orden[r]=t;}}
+    orden.forEach(function(j){h+='<button type="button" class="qz-op" data-i="'+i+'" data-j="'+j+'" aria-pressed="false">'+p.o[j]+'</button>';});
+    d.innerHTML=h+'</div>'; cuerpo.appendChild(d);
+  });
+  cuerpo.addEventListener('click',function(ev){
+    var b=ev.target.closest('.qz-op'); if(!b||b.disabled)return;
+    var i=b.getAttribute('data-i');
+    cuerpo.querySelectorAll('.qz-op[data-i="'+i+'"]').forEach(function(x){x.classList.remove('elegida');x.setAttribute('aria-pressed','false');});
+    b.classList.add('elegida'); b.setAttribute('aria-pressed','true'); elegidas[i]=+b.getAttribute('data-j');
+  });
+  var res=document.getElementById('qz-resultado');
+  document.getElementById('qz-calificar').addEventListener('click',function(){
+    var bien=0;
+    P.forEach(function(p,i){
+      cuerpo.querySelectorAll('.qz-op[data-i="'+i+'"]').forEach(function(x){
+        var j=+x.getAttribute('data-j'); x.disabled=true; x.classList.remove('elegida');
+        if(j===p.c)x.classList.add('correcta'); else if(elegidas[i]===j)x.classList.add('incorrecta');
+      });
+      if(elegidas[i]===p.c)bien++;
+      else if(p.r){var nota=document.createElement('p');nota.className='qz-repaso';nota.innerHTML='📘 Para repasar: '+p.r;cuerpo.children[i].appendChild(nota);}
+    });
+    var msg,fondo,color;
+    if(bien>=META){msg='¡Excelente! '+bien+' de '+N+'. '+cfg.bien;fondo='#d4edda';color='#155724';}
+    else if(bien>=Math.ceil(N*0.6)){msg='Buen trabajo: '+bien+' de '+N+'. Repasa las preguntas marcadas con ✗ y vuelve a intentarlo.';fondo='#fff3cd';color='#5c3900';}
+    else{msg='Llevas '+bien+' de '+N+'. '+cfg.repaso;fondo='#f8d7da';color='#721c24';}
+    res.textContent=msg; res.style.background=fondo; res.style.color=color; res.classList.add('visible');
+    this.style.display='none'; document.getElementById('qz-reintentar').style.display='inline-block';
+    res.scrollIntoView({behavior:'smooth',block:'center'});
+  });
+  document.getElementById('qz-reintentar').addEventListener('click',function(){
+    cuerpo.querySelectorAll('.qz-op').forEach(function(x){x.disabled=false;x.classList.remove('correcta','incorrecta','elegida');x.setAttribute('aria-pressed','false');});
+    cuerpo.querySelectorAll('.qz-repaso').forEach(function(n){n.remove();});
+    elegidas={}; res.classList.remove('visible'); res.textContent='';
+    this.style.display='none'; document.getElementById('qz-calificar').style.display='inline-block';
+    cuerpo.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+}
+
+/* ===== Navegación: el índice y la dirección (#ancla) abren su sección ===== */
+document.addEventListener('DOMContentLoaded',function(){
+  function abrir(id){
+    var el=id&&document.getElementById(id); if(!el)return;
+    var d=el.tagName==='DETAILS'?el:el.closest('details');
+    if(d){d.open=true; el.scrollIntoView({behavior:'smooth',block:'start'});}
+  }
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(){abrir(a.getAttribute('href').slice(1));});});
+  document.getElementById('abrir-todo').addEventListener('click',function(){document.querySelectorAll('details').forEach(function(d){d.open=true;});});
+  document.getElementById('cerrar-todo').addEventListener('click',function(){document.querySelectorAll('details').forEach(function(d){d.open=false;});});
+  window.addEventListener('hashchange',function(){abrir(decodeURIComponent(location.hash.slice(1)));});
+  abrir(decodeURIComponent(location.hash.slice(1)));
+});
+
+/* ===== Taller de escritura =====
+   El borrador se guarda en este navegador (si el navegador lo permite). */
+function tallerEscritura(id,o){
+  var caja=document.getElementById(id), k='gph-borrador-'+o.clave;
+  var h='<label class="tl-etq" for="'+id+'-txt">'+(o.etiqueta||'Escribe aquí tu texto')+'</label>'+
+    '<textarea class="tl-txt" id="'+id+'-txt" rows="10" spellcheck="true" lang="es"'+(o.guia?' placeholder="'+o.guia.replace(/"/g,'&quot;')+'"':'')+'></textarea>'+
+    '<div class="tl-cuenta" id="'+id+'-cuenta" aria-live="polite"></div>';
+  if(o.conectores)h+='<div class="tl-conect" id="'+id+'-con" aria-live="polite"></div>';
+  h+='<div class="botones" style="justify-content:flex-start">'+
+    '<button type="button" class="btn btn-secundario" id="'+id+'-oir">🔊 Escuchar mi texto</button>'+
+    '<button type="button" class="btn btn-secundario" id="'+id+'-copiar">📋 Copiar mi texto</button>'+
+    '<button type="button" class="btn btn-secundario" id="'+id+'-borrar">🗑️ Borrar</button></div>'+
+    '<div class="tl-aviso" id="'+id+'-aviso" role="status" aria-live="polite"></div>';
+  if(o.lista){
+    h+='<fieldset class="tl-lista"><legend>✅ Revisa tu texto antes de darlo por terminado</legend>'+
+      o.lista.map(function(t,i){return '<label><input type="checkbox" id="'+id+'-c'+i+'"> '+t+'</label>';}).join('')+
+      '<p class="tl-listo" id="'+id+'-listo" aria-live="polite"></p></fieldset>';
+  }
+  caja.innerHTML=h;
+  var ta=document.getElementById(id+'-txt'), cu=document.getElementById(id+'-cuenta'), co=document.getElementById(id+'-con'), av=document.getElementById(id+'-aviso');
+  try{var g=localStorage.getItem(k); if(g)ta.value=g;}catch(e){}
+  function avisar(t){av.textContent=t; clearTimeout(avisar.t); avisar.t=setTimeout(function(){av.textContent='';},4000);}
+  function medir(){var t=ta.value.trim();return {t:t,pal:t?t.split(/\s+/).length:0,ora:(t.match(/[^.!?…]+[.!?…]+/g)||[]).length};}
+  function contar(){
+    var x=medir(), m=o.meta||{}, s='Palabras: '+x.pal+(m.palabras?' (meta: '+m.palabras+' o más)':'')+' · Oraciones: '+x.ora+(m.oraciones?' (meta: '+m.oraciones+' o más)':'');
+    if(m.oraciones&&x.ora>=m.oraciones&&(!m.palabras||x.pal>=m.palabras))s+=' · 🎯 ¡Llegaste a la meta de extensión!';
+    cu.textContent=s;
+    if(co){
+      var low=' '+x.t.toLowerCase().replace(/[.,;:¡!¿?«»"()—]/g,' ')+' ', us=o.conectores.filter(function(c){return low.indexOf(' '+c.toLowerCase()+' ')>=0;});
+      co.innerHTML=us.length?(o.titLista||'Conectores que usaste')+': '+us.map(function(c){return '<span class="tl-chip">'+c+'</span>';}).join(' '):(o.vacioLista||'Todavía no aparece ningún conector de la lista.');
+    }
+    try{localStorage.setItem(k,ta.value);}catch(e){}
+  }
+  ta.addEventListener('input',contar); contar();
+  document.getElementById(id+'-oir').addEventListener('click',function(){
+    if(!ta.value.trim()){avisar('Primero escribe algo para poder escucharlo.');return;}
+    hablar(ta.value,0.9);
+  });
+  document.getElementById(id+'-copiar').addEventListener('click',function(){
+    if(!ta.value.trim()){avisar('Todavía no hay texto para copiar.');return;}
+    function ok(){avisar('✓ Texto copiado. Ya puedes pegarlo en un correo o en un documento.');}
+    if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(ta.value).then(ok,function(){ta.select();document.execCommand('copy');ok();});
+    else{ta.select();document.execCommand('copy');ok();}
+  });
+  var borrarListo=false;
+  document.getElementById(id+'-borrar').addEventListener('click',function(){
+    if(!borrarListo){borrarListo=true;avisar('¿Seguro? Pulsa «Borrar» otra vez para borrar todo el texto.');setTimeout(function(){borrarListo=false;},4000);return;}
+    borrarListo=false; ta.value=''; contar(); avisar('Texto borrado.'); ta.focus();
+  });
+  if(o.lista){
+    var cbs=caja.querySelectorAll('.tl-lista input'), li=document.getElementById(id+'-listo');
+    function rev(){var n=Array.prototype.filter.call(cbs,function(c){return c.checked;}).length, x=medir(), m=o.meta||{}, corto=(m.oraciones&&x.ora<m.oraciones)||(m.palabras&&x.pal<m.palabras);
+      li.textContent=n<cbs.length?'Revisado: '+n+' de '+cbs.length:(corto?'Marcaste toda la lista, pero tu texto todavía no llega a la meta de extensión. Añade algo más.':'🎉 ¡Todo revisado! Tu párrafo está listo.');}
+    ta.addEventListener('input',rev);
+    cbs.forEach(function(c){c.addEventListener('change',rev);}); rev();
+  }
+}
+/* Rúbricas: cada celda recibe el nombre de su nivel para mostrarlo en el celular */
+document.querySelectorAll('table.rubrica').forEach(function(t){
+  var cab=Array.prototype.map.call(t.querySelectorAll('thead th'),function(th){return th.textContent;});
+  t.querySelectorAll('tbody tr').forEach(function(tr){Array.prototype.forEach.call(tr.children,function(c,i){if(c.tagName==='TD')c.setAttribute('data-et',cab[i]);});});
+});
+
+
+/* ===== Cronómetro opcional para ensayar con el tiempo del examen =====
+   Los avisos los da la página (nunca cuadros del navegador). La cuenta visible no se anuncia cada segundo;
+   solo se anuncian los momentos clave en una zona de estado. */
+function cronometro(id,minutos,etapas){
+  var caja=document.getElementById(id); if(!caja)return;
+  var total=minutos*60, resta=total, t=null;
+  caja.innerHTML='<p class="crono-t">⏱️ <strong>Cronómetro opcional:</strong> '+minutos+' minutos, como la Respuesta Extendida del GED. Úsalo si quieres practicar con el tiempo del examen.</p>'+
+    (etapas?'<p class="crono-plan">'+etapas+'</p>':'')+
+    '<div class="crono-fila"><span class="crono-reloj" role="timer" aria-live="off" aria-label="Tiempo restante">'+fmt(resta)+'</span>'+
+    '<button type="button" class="btn btn-primario crono-ini">▶ Empezar</button>'+
+    '<button type="button" class="btn btn-secundario crono-rei">↺ Reiniciar</button></div>'+
+    '<div class="crono-barra" aria-hidden="true"><span></span></div>'+
+    '<p class="crono-aviso" role="status" aria-live="polite"></p>';
+  var reloj=caja.querySelector('.crono-reloj'), ini=caja.querySelector('.crono-ini'), rei=caja.querySelector('.crono-rei'),
+      barra=caja.querySelector('.crono-barra span'), aviso=caja.querySelector('.crono-aviso'), rei2=false;
+  function fmt(s){var m=Math.floor(s/60), x=s%60; return (m<10?'0':'')+m+':'+(x<10?'0':'')+x;}
+  function pinta(){reloj.textContent=fmt(resta); barra.style.width=(100*(total-resta)/total)+'%';
+    reloj.classList.toggle('crono-poco',resta<=300&&resta>0); reloj.classList.toggle('crono-fin',resta===0);}
+  var hitos={};
+  hitos[Math.round(total*2/3)]='Quedan '+Math.round(minutos*2/3)+' minutos. Si todavía estás planificando, empieza a escribir ya.';
+  hitos[Math.round(total/3)]='Quedan '+Math.round(minutos/3)+' minutos. Asegúrate de tener ya el contrargumento y empieza a cerrar.';
+  hitos[300]='Quedan 5 minutos: termina la conclusión y deja tiempo para revisar.';
+  function tic(){
+    resta--; pinta();
+    if(hitos[resta])aviso.textContent=hitos[resta];
+    if(resta<=0){clearInterval(t); t=null; ini.textContent='▶ Empezar'; ini.disabled=true;
+      aviso.textContent='⏰ Se acabó el tiempo. En el examen tendrías que entregar ahora. Puedes seguir escribiendo para terminar tu práctica.';}
+  }
+  ini.addEventListener('click',function(){
+    if(t){clearInterval(t); t=null; ini.textContent='▶ Seguir'; aviso.textContent='Cronómetro en pausa.';}
+    else{t=setInterval(tic,1000); ini.textContent='⏸ Pausar'; aviso.textContent='Cronómetro en marcha. ¡Adelante!';}
+  });
+  rei.addEventListener('click',function(){
+    if(resta<total&&resta>0&&!rei2){rei2=true; aviso.textContent='¿Seguro? Pulsa «Reiniciar» otra vez para volver a '+minutos+' minutos.'; setTimeout(function(){rei2=false;},4000); return;}
+    rei2=false; if(t){clearInterval(t); t=null;} resta=total; ini.disabled=false; ini.textContent='▶ Empezar'; aviso.textContent='Cronómetro en '+minutos+' minutos.'; pinta();
+  });
+  pinta();
+}
+
+cronometro('crono-71',45,'<strong>Reparto sugerido:</strong> 5 a 10 minutos para planificar, 25 a 30 para escribir y 5 a 10 para revisar.');
+
+/* ===== Texto modelo ===== */
+(function(){
+  var t=document.getElementById('lectura'), v=document.getElementById('ver-partes');
+  document.getElementById('leer-lectura').addEventListener('click',function(){
+    var c=t.cloneNode(true); c.querySelectorAll('.etq,.num-p').forEach(function(e){e.remove();}); hablar(c.textContent.trim(),0.9);});
+  v.addEventListener('click',function(){var on=!t.classList.toggle('oculta-marcas');v.setAttribute('aria-pressed',on?'true':'false');v.textContent=on?'Ocultar las partes':'Mostrar las partes';});
+})();
+
+/* ===== Ejercicios de la lección ===== */
+clasificador('clasif-afirm','puntaje-afirm',[
+  {p:'¿Cuál es una afirmación <strong>discutible</strong>?',ops:['Chicago debería ampliar el horario del tren de noche','Chicago tiene un sistema de trenes con varias líneas','Los trenes de Chicago circulan sobre rieles'],c:0,n:'Las otras dos son hechos que nadie discute.'},
+  {p:'¿Cuál es la afirmación más <strong>concreta</strong>?',ops:['Las clínicas del condado deberían abrir los sábados por la mañana','Hay que mejorar el sistema de salud de alguna forma','La salud es muy importante para todas las personas'],c:0,n:'Dice qué, quién y cuándo.'},
+  {p:'¿Cuál se puede <strong>defender con evidencia</strong> y no solo con gustos?',ops:['Los cursos en línea permiten estudiar a quienes trabajan de noche','Los cursos en línea son más bonitos que los presenciales','Los cursos en línea me caen mejor que los otros cursos'],c:0,n:'Las otras dos son preferencias personales.'},
+  {p:'¿Cuál <strong>anuncia las razones</strong>?',ops:['El transporte debería ser gratis para estudiantes, porque ahorra dinero y aumenta la asistencia','El transporte debería ser gratis para los estudiantes de todo el condado de Cook','El transporte para los estudiantes adultos es un tema muy interesante y actual'],c:0,n:'Incluye el «porque» con dos razones.'}
+],null,false);
+
+clasificador('clasif-modelo','puntaje-modelo',[
+  {p:'¿Dónde está la afirmación del ensayo?',ops:['Al final del párrafo 1','Al principio del párrafo 3','En la última oración del ensayo'],c:0,n:'Después de presentar la situación.'},
+  {p:'¿Qué evidencia apoya la razón 2?',ops:['El aumento del 240 % en la devolución de libros','La fecha en que Chicago eliminó las multas','Que una familia con ingresos estables paga la multa'],c:0,n:'Muestra que las multas no lograban que los libros volvieran.'},
+  {p:'¿Qué expresión introduce el contrargumento?',ops:['«Es cierto que»','«En primer lugar»','«En resumen»'],c:0,n:'Transición de concesión.'},
+  {p:'«Es decir, la multa no hacía que los libros regresaran: los retenía.» ¿Qué hace esta oración?',ops:['Explica qué significa la evidencia para la razón','Presenta un nuevo contrargumento al lector','Resume todo el ensayo en una sola idea'],c:0,n:'La evidencia sola no basta: hay que explicarla.'}
+],null,false);
+
+clasificador('clasif-refuta','puntaje-refuta',[
+  {p:'Contrargumento: «Sin multas, la gente no devolverá los libros». ¿Qué refutación muestra evidencia contraria?',ops:['Sin embargo, en Chicago las devoluciones aumentaron un 240 % sin multas','Sin embargo, quienes dicen eso no conocen las bibliotecas','Sin embargo, los libros no son tan importantes como parece'],c:0,n:'La segunda es un ataque a la persona; la tercera no responde.'},
+  {p:'Contrargumento: «La biblioteca pierde ingresos». ¿Qué refutación muestra que pesa menos?',ops:['Es cierto, pero la función de la biblioteca es prestar, no recaudar','Es falso, porque las bibliotecas no necesitan ningún dinero','Eso solo lo dicen quienes quieren cerrar las bibliotecas'],c:0,n:'Acepta el dato y pone en primer lugar el propósito.'},
+  {p:'Contrargumento: «Hay libros que nunca vuelven». ¿Qué respuesta concede y propone?',ops:['Es razonable cobrar los libros perdidos; por eso propongo eliminar solo las multas por retraso','Eso nunca pasa en ninguna biblioteca del país, así que no hay que preocuparse','Si alguien pierde un libro, es su problema y no el de la biblioteca ni el nuestro'],c:0,n:'Acepta parte y ofrece una solución.'}
+],null,false);
+
+clasificador('clasif-tono','puntaje-tono',[
+  {p:'¿Qué oración mantiene un tono objetivo?',ops:['Las multas alejan a muchas familias de bajos ingresos','Las multas son una idea absurda de burócratas sin corazón','Cualquiera con dos dedos de frente sabe que las multas sobran'],c:0,n:'Las otras usan palabras cargadas y ataques.'},
+  {p:'¿Qué oración contiene una falacia?',ops:['O eliminamos las multas, o las bibliotecas desaparecerán','Las devoluciones aumentaron tras eliminar las multas','Muchas bibliotecas grandes han eliminado las multas'],c:0,n:'Falso dilema.'},
+  {p:'¿Qué transición conviene para empezar a refutar?',ops:['Sin embargo','En primer lugar','Por ejemplo'],c:0,n:'Marca el contraste con el contrargumento.'},
+  {p:'¿Cuál evita la exageración?',ops:['Muchas familias dejaron de ir a la biblioteca por las multas','Nadie en todo el país va a la biblioteca por culpa de las multas','Las multas son la peor catástrofe de la historia de la cultura'],c:0,n:'«Muchas» es preciso; «nadie» y «la peor catástrofe» exageran.'}
+],null,false);
+
+tallerEscritura('taller-71',{clave:'n4-7-1',etiqueta:'Tu ensayo argumentativo (4 o 5 párrafos)',
+  guia:'Introducción: situación o dato… Afirmación: … porque … y … // En primer lugar, … Por ejemplo, … Es decir, … // Además, … // Es cierto que … Sin embargo, … // En resumen, … Por eso, …',
+  meta:{oraciones:14,palabras:280},
+  conectores:['en primer lugar','además','por otra parte','por ejemplo','es decir','esto muestra que','es cierto que','sin embargo','no obstante','en resumen','por eso','en conclusión'],
+  titLista:'Transiciones que usaste',
+  vacioLista:'Todavía no aparece ninguna transición de la lista (en primer lugar, es cierto que, sin embargo, en resumen…).',
+  lista:['Mi afirmación es discutible, concreta y anuncia las razones.','Cada razón tiene evidencia y explico por qué la apoya.','Presento el mejor contrargumento con justicia.','Lo refuto con evidencia, mostrando que pesa menos o concediendo y proponiendo.','Mi tono es objetivo: sin insultos, exageraciones ni falacias.','Cada párrafo tiene una función y uso transiciones variadas.']});
+
+iniciarQuiz([
+  {t:'¿En qué parte del ensayo suele ir la afirmación?',o:['Al final de la introducción','En medio de la conclusión','Dentro del contrargumento'],c:0,r:'<a href="#s-1-esquema">Sección 1</a>'},
+  {t:'¿Qué hace el párrafo del contrargumento?',o:['Presenta la mejor objeción y la refuta','Repite las razones con otras palabras','Cuenta una historia personal del autor'],c:0,r:'<a href="#s-1-esquema">Sección 1</a>'},
+  {t:'¿Cuál es una afirmación precisa?',o:['Las empresas deberían permitir trabajar desde casa un día por semana','El trabajo desde casa es un tema del que se habla mucho','Muchas personas trabajan desde casa hoy en día'],c:0,r:'<a href="#s-2-afirmacion">Sección 2</a>'},
+  {t:'«Las bibliotecas prestan libros» no sirve como afirmación porque…',o:['no es discutible: es un hecho','es demasiado larga para un ensayo','usa palabras demasiado difíciles'],c:0,r:'<a href="#s-2-afirmacion">Sección 2</a>'},
+  {t:'Según el ensayo modelo, ¿cuándo eliminó Chicago las multas?',o:['El 1 de octubre de 2019','El 1 de enero de 2020','El 4 de julio de 2019'],c:0,r:'<a href="#s-3-modelo">Sección 3</a>'},
+  {t:'¿Qué razón da el ensayo en el párrafo 2?',o:['Las multas pesan sobre todo en quienes tienen menos','Las multas son difíciles de calcular para los empleados','Las multas cambian cada año de precio en cada sucursal'],c:0,r:'<a href="#s-3-modelo">Sección 3</a>'},
+  {t:'¿Quién informó del aumento del 240 % en las devoluciones?',o:['La comisionada de las bibliotecas, Andrea Telli','Un estudio de una universidad de Nueva York','Un grupo de usuarios en las redes sociales'],c:0,r:'<a href="#s-3-modelo">Sección 3</a>'},
+  {t:'Responder «Eso solo lo dicen los que odian las bibliotecas» a un contrargumento es…',o:['un ataque a la persona, no una refutación','una refutación con evidencia contraria','una forma de conceder y proponer'],c:0,r:'<a href="#s-4-refutar">Sección 4</a>'},
+  {t:'Aceptar parte de la objeción y ofrecer una solución es la estrategia de…',o:['conceder y proponer','mostrar evidencia contraria','mostrar que pesa menos'],c:0,r:'<a href="#s-4-refutar">Sección 4</a>'},
+  {t:'¿Qué oración tiene un tono objetivo?',o:['El horario actual impide que muchos trabajadores usen la clínica','El horario actual es una vergüenza que solo un tonto aprobaría','Todo el mundo sabe que el horario de la clínica es pésimo'],c:0,r:'<a href="#s-5-tono">Sección 5</a>'},
+  {t:'¿Qué transición sirve para concluir?',o:['en resumen','es cierto que','en primer lugar'],c:0,r:'<a href="#s-5-tono">Sección 5</a>'},
+  {t:'¿Qué conviene hacer si no tienes datos reales para una razón?',o:['Usar ejemplos concretos y razonar bien, sin inventar cifras','Inventar una cifra que suene convincente y redondearla','Quitar esa razón y dejar solo la afirmación del ensayo'],c:0,r:'<a href="#s-6-taller">Sección 6</a>'}
+],{meta:10,
+   bien:'Ya sabes construir un ensayo argumentativo completo. Sigue con la Lección 7.2.',
+   repaso:'Vuelve a las secciones 2, 4 y 5 y repite el quiz: con práctica sale.'});
+</script>
+</body>
+</html>

@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<!-- Lección 6.2 · Artes del Lenguaje Nivel 4 · GEDparaHispanos
+     José M. Fernández, ABE/ASE Math Master Teacher, Harry S. Truman College — City Colleges of Chicago
+     Licencia CC BY-NC-SA 4.0 · https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es -->
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lección 6.2 · Hipótesis, datos y conclusiones</title>
+<meta name="author" content="José M. Fernández, ABE/ASE Math Master Teacher, Harry S. Truman College — City Colleges of Chicago">
+<meta name="license" content="CC BY-NC-SA 4.0">
+<link rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es">
+<style>
+  :root{
+    --cp:#b91c1c;--cp-claro:#fee2e2;--cp-oscuro:#7f1d1d;
+    --acento:#ff8c42;--texto:#1a2332;--fondo:#fafbfc;
+    --gris:#555;--gris-claro:#eef1f4;
+    --exito:#2e7d32;--error:#c62828;
+  }
+  *{box-sizing:border-box}
+  body{font-family:'Poppins','Segoe UI',Arial,sans-serif;line-height:1.7;color:var(--texto);background:var(--fondo);max-width:960px;margin:0 auto;padding:24px 18px}
+  h1{color:var(--cp-oscuro);border-bottom:4px solid var(--cp);padding-bottom:14px;font-size:1.85rem;margin-bottom:8px}
+  .subtitulo{color:var(--gris);font-style:italic;margin-top:0;margin-bottom:24px;font-size:1.05rem}
+  h2{color:var(--cp-oscuro);border-left:6px solid var(--cp);padding-left:14px;margin-top:32px;font-size:1.4rem}
+  h3{color:var(--cp-oscuro);margin-top:24px;font-size:1.15rem}
+  .caja-objetivos{background:var(--cp-claro);border-left:6px solid var(--cp);padding:18px 22px;border-radius:8px;margin:18px 0 28px 0}
+  .caja-objetivos h2{margin-top:0;color:var(--cp-oscuro);border-left:none;padding-left:0;font-size:1.2rem}
+  .caja-tiempo{display:inline-block;background:var(--acento);color:#1a2332;padding:4px 12px;border-radius:14px;font-size:0.85rem;font-weight:600;margin-left:10px;vertical-align:middle}
+  details{background:#fff;border:1px solid #d6dde4;border-radius:10px;margin:14px 0;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,0.04)}
+  details[open]{border-color:var(--cp);box-shadow:0 3px 10px rgba(185,28,28,0.12)}
+  summary{cursor:pointer;padding:16px 20px;font-weight:600;color:var(--cp-oscuro);background:var(--gris-claro);list-style:none;user-select:none;font-size:1.05rem}
+  summary::-webkit-details-marker{display:none}
+  summary::before{content:'▶';display:inline-block;margin-right:10px;color:var(--cp);transition:transform 0.25s;font-size:0.85rem}
+  details[open] summary::before{transform:rotate(90deg)}
+  details[open] summary{background:var(--cp-claro);border-bottom:2px solid var(--cp)}
+  .contenido-detalle{padding:18px 22px}
+  .tip{background:#fffbe6;border-left:5px solid #f4c430;padding:12px 18px;border-radius:6px;margin:14px 0}
+  .tip strong{color:#6b5400}
+  .botones{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:14px 0}
+  .btn{padding:10px 22px;border:none;border-radius:8px;font-weight:600;cursor:pointer;font-family:inherit;font-size:0.95rem;transition:background 0.2s}
+  .btn-primario{background:var(--cp);color:#fff}
+  .btn-primario:hover{background:var(--cp-oscuro)}
+  .btn-secundario{background:var(--gris-claro);color:var(--texto)}
+  .btn-secundario:hover{background:#d6dde4}
+  .btn[aria-pressed="true"]{background:var(--cp-oscuro);color:#fff}
+  ul.lista-bonita{list-style:none;padding-left:0}
+  ul.lista-bonita li{padding:8px 0 8px 30px;position:relative}
+  ul.lista-bonita li::before{content:'➜';position:absolute;left:0;color:var(--cp);font-weight:700}
+  .palabra-clave{background:linear-gradient(transparent 60%,#ffeb3b 60%);padding:0 4px;font-weight:600}
+  .ej{font-family:Georgia,serif;font-size:1.08rem}
+  .sub{font-weight:700;border-bottom:3px solid var(--cp-oscuro)}
+  table.tabla{width:100%;border-collapse:collapse;margin:16px 0;background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,0.06)}
+  table.tabla th{background:var(--cp-oscuro);color:#fff;padding:10px 12px;text-align:left}
+  table.tabla td{padding:10px 12px;border-bottom:1px solid var(--gris-claro);vertical-align:top}
+  table.tabla tr:last-child td{border-bottom:none}
+  .actividad{background:#fff;border:2px solid var(--acento);border-radius:10px;padding:16px 20px;margin:14px 0}
+  .actividad h4{color:#8a3d0c;margin-top:0}
+  .badge{display:inline-block;padding:3px 10px;border-radius:12px;font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-right:6px}
+  .badge-lectura{background:#e3f2fd;color:#0d47a1}
+  /* Clasificadores */
+  .clasificador{background:#fff;border:2px solid var(--cp);border-radius:12px;padding:14px 18px;margin:18px 0}
+  .item{border:2px solid var(--gris-claro);border-radius:8px;padding:10px 14px;margin:8px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+  .item-pal{font-family:Georgia,serif;font-size:1.12rem;color:var(--texto);display:flex;align-items:center;gap:10px}
+  .item-ops{display:flex;gap:8px;flex-wrap:wrap}
+  .item-fb{flex-basis:100%;font-size:.95rem}
+  .item-fb:empty{display:none}
+  .btn-op{padding:7px 14px;border:2px solid var(--cp-oscuro);background:#fff;color:var(--cp-oscuro);border-radius:8px;cursor:pointer;font-weight:600;font-family:inherit;font-size:.92rem}
+  .btn-op:hover:not(:disabled){background:var(--cp-claro)}
+  .btn-op.correcta{background:#d4edda;border-color:var(--exito);color:#155724}
+  .btn-op.correcta::before{content:'✓ '}
+  .btn-op.incorrecta{background:#f8d7da;border-color:var(--error);color:#721c24;text-decoration:line-through}
+  .btn-op.incorrecta::before{content:'✗ '}
+  .btn-op:disabled{cursor:default}
+  .apilado .item{flex-direction:column;align-items:stretch}
+  .apilado .item-ops{flex-direction:column}
+  .apilado .btn-op{text-align:left;font-weight:400}
+  .apilado .item-pal{font-family:'Segoe UI',Arial,sans-serif;font-size:1rem;font-weight:600;display:block}
+  .puntaje{text-align:center;margin-top:12px;font-weight:600;color:var(--cp-oscuro)}
+  /* Lectura con marcas: color + borde distinto + etiqueta escrita */
+  .texto-lectura{background:#fff;border:2px solid var(--gris-claro);border-radius:8px;padding:18px 22px;margin:14px 0;font-family:Georgia,serif;font-size:1.12rem;line-height:2.1}
+  .texto-lectura p{margin:0 0 10px}
+  .num-p{display:inline-block;background:var(--cp-oscuro);color:#fff;border-radius:50%;width:1.6em;height:1.6em;text-align:center;line-height:1.6em;font-size:.8rem;font-family:'Segoe UI',Arial,sans-serif;margin-right:6px;vertical-align:middle}
+  .m-sus{background:#e3f2fd;color:#0d3c78;border-bottom:3px solid #0d3c78}
+  .m-adj{background:#fff3e0;color:#6b3300;border-bottom:3px dashed #8a4b00}
+  .m-adv{background:#e8f5e9;color:#1b5e20;border-bottom:3px dotted #1b5e20}
+  .etq{font-weight:700;font-size:.78em;font-family:'Segoe UI',Arial,sans-serif;white-space:nowrap}
+  .oculta-marcas .m-sus,.oculta-marcas .m-adj,.oculta-marcas .m-adv{background:none;color:inherit;border:none}
+  .oculta-marcas .etq{display:none}
+  .leyenda-marcas{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0;font-size:.92rem}
+  .leyenda-marcas span{padding:2px 8px}
+  /* Índice */
+  .indice{background:#fff;border:1px solid #d6dde4;border-left:6px solid var(--cp);border-radius:10px;padding:16px 20px;margin:22px 0}
+  .indice h2{font-size:1.1rem;margin:0 0 8px;border:none;padding:0}
+  .indice ol{margin:0;padding-left:1.4em}
+  .indice li{margin:4px 0}
+  .indice a{color:var(--cp-oscuro)}
+  .abrir-cerrar{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0 0}
+  .volver-indice{position:fixed;right:18px;bottom:18px;z-index:60;background:var(--cp-oscuro);color:#fff;border-radius:999px;padding:10px 16px;font-weight:700;font-size:.92rem;text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,.28)}
+  .volver-indice:hover{background:var(--cp);color:#fff}
+  a:focus-visible,summary:focus-visible,button:focus-visible,textarea:focus-visible{outline:3px solid #b35316;outline-offset:2px}
+  .sr-solo{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+  .enlace-practica{display:block;background:#fff;border:2px solid var(--cp);border-radius:10px;padding:14px 18px;margin:16px 0;text-decoration:none;color:var(--cp-oscuro);font-weight:600}
+  .enlace-practica:hover{background:var(--cp-claro)}
+  .enlace-practica span{display:block;font-weight:400;color:var(--texto);font-size:.95rem}
+  .aviso-voz{font-size:.9rem;color:#5c3900;background:#fff3cd;border-radius:6px;padding:6px 10px;display:none}
+  .aviso-voz.visible{display:block}
+  /* Quiz */
+  .qz-intro{background:var(--cp-claro);border-radius:10px;padding:14px 18px;margin:0 0 14px}
+  .qz-intro h4{margin:0 0 6px;color:var(--cp-oscuro)}
+  .qz-preg{background:#fff;border:2px solid var(--gris-claro);border-radius:10px;padding:14px 18px;margin:12px 0}
+  .qz-enun{font-weight:600;margin:0 0 10px}
+  .qz-num{display:inline-block;background:var(--cp-oscuro);color:#fff;border-radius:12px;padding:1px 10px;font-size:.8rem;margin-right:8px}
+  .qz-ops{display:flex;flex-direction:column;gap:8px}
+  .qz-op{text-align:left;background:#fff;border:2px solid #c9d2db;border-radius:8px;padding:10px 14px;font-family:inherit;font-size:1rem;cursor:pointer;color:var(--texto)}
+  .qz-op:hover:not(:disabled){border-color:var(--cp)}
+  .qz-op.elegida{background:var(--cp-claro);border-color:var(--cp-oscuro);color:var(--cp-oscuro);box-shadow:0 0 0 3px #fff,0 0 0 5px var(--cp)}
+  .qz-op.correcta{background:#d4edda;border-color:#2e7d32;color:#155724}
+  .qz-op.correcta::before{content:'✓ '}
+  .qz-op.incorrecta{background:#f8d7da;border-color:#c62828;color:#721c24}
+  .qz-op.incorrecta::before{content:'✗ '}
+  .qz-op:disabled{cursor:default}
+  .qz-resultado{display:none;margin:16px 0;padding:16px;border-radius:10px;text-align:center;font-weight:600}
+  .qz-resultado.visible{display:block}
+  .qz-repaso{margin:10px 0 0;padding:8px 12px;background:#fff3cd;border-radius:6px;color:#3d2600;font-size:.95rem}
+  .qz-repaso a{color:var(--cp-oscuro);font-weight:700}
+  /* Taller de escritura */
+  .taller{background:#fff;border:2px solid var(--cp);border-radius:12px;padding:14px;margin:14px 0}
+  .tl-etq{display:block;font-weight:700;color:var(--cp-oscuro);margin-bottom:6px}
+  .tl-txt{width:100%;box-sizing:border-box;font:inherit;font-size:1.05rem;line-height:1.7;padding:10px 12px;border:2px solid #9aa9b7;border-radius:8px;resize:vertical;min-height:200px}
+  .tl-txt:focus{outline:3px solid var(--cp);outline-offset:1px;border-color:var(--cp-oscuro)}
+  .tl-cuenta{font-size:.92rem;color:#333;margin:6px 0}
+  .tl-conect{font-size:.95rem;margin:4px 0 8px}
+  .tl-chip{display:inline-block;background:var(--cp-claro);color:var(--cp-oscuro);border:1px solid var(--cp);border-radius:12px;padding:1px 10px;margin:2px 2px;font-weight:700}
+  .tl-aviso{min-height:1.4em;font-weight:700;color:var(--cp-oscuro)}
+  .tl-lista{border:2px dashed var(--cp);border-radius:10px;padding:8px 14px;margin-top:10px}
+  .tl-lista legend{font-weight:700;color:var(--cp-oscuro);padding:0 6px}
+  .tl-lista label{display:flex;gap:10px;align-items:flex-start;padding:6px 0;cursor:pointer}
+  .tl-lista input{width:22px;height:22px;flex-shrink:0;margin-top:2px;accent-color:var(--cp-oscuro)}
+  .tl-listo{font-weight:700;color:var(--cp-oscuro);margin:6px 0 0}
+  .rubrica{font-size:.92rem}
+  .rubrica td,.rubrica th{vertical-align:top}
+  @media(max-width:640px){
+    .rubrica thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+    .rubrica,.rubrica tbody,.rubrica tr,.rubrica th,.rubrica td{display:block;width:auto}
+    .rubrica tr{border:2px solid var(--cp);border-radius:10px;margin:0 0 10px;overflow:hidden}
+    .rubrica tbody th{background:var(--cp-oscuro);color:#fff;border:none}
+    .rubrica td{border:none;border-top:1px solid #d5dde3}
+    .rubrica td::before{content:attr(data-et);display:block;font-weight:700;color:var(--cp-oscuro)}
+  }
+  footer.pie{margin-top:40px;padding-top:18px;border-top:2px solid var(--gris-claro);text-align:center;color:#555;font-size:.9rem}
+  footer.pie p{margin:4px 0}
+  footer.pie a{color:var(--cp-oscuro)}
+  @media print{.indice,.volver-indice,.abrir-cerrar{display:none}}
+  @media (prefers-reduced-motion:reduce){summary::before{transition:none}}
+  .graf svg{width:100%;height:auto;display:block}
+  .graf svg [tabindex]:focus{outline:3px solid #b35316}
+  .leyenda-graf{display:flex;flex-wrap:wrap;gap:14px;font-size:.92rem;margin:4px 0 6px}
+  .leyenda-graf span{display:inline-flex;align-items:center;gap:6px}
+  .ver-tabla{margin-top:8px}
+  .ver-tabla summary{padding:8px 12px;font-size:.95rem}
+  .fuente{background:#fff;border:2px solid var(--gris-claro);border-left:8px solid var(--cp-oscuro);border-radius:8px;padding:12px 18px;margin:14px 0}
+  .formula{background:#fff;border:2px dashed var(--cp);border-radius:10px;padding:10px 16px;margin:10px 0;font-family:Georgia,serif}
+  .cadena{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:12px 0}
+  .cadena span{background:var(--cp-claro);color:var(--cp-oscuro);border-radius:14px;padding:4px 12px;font-weight:700}
+  .cadena span.flecha{background:none;color:#555;padding:0}
+  .fotos{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:12px 0}
+  .fotos figure{margin:0;background:#fff;border:1px solid #d6dde4;border-radius:8px;padding:8px}
+  .fotos img{width:100%;height:auto;border-radius:6px;display:block}
+  .fotos figcaption{font-size:.88rem;color:#333;margin-top:6px}
+  .parte-concl{background:#fff;border:2px solid var(--gris-claro);border-radius:8px;padding:10px 14px;margin:8px 0}
+  .parte-concl strong{color:var(--cp-oscuro)}
+  .veredicto{display:inline-block;border-radius:10px;padding:1px 10px;font-size:.85rem;font-weight:700;margin-left:6px}
+  .v-si{background:#d4edda;color:#155724;border:2px solid #2e7d32}
+  .v-par{background:#fff3cd;color:#5c3900;border:2px dashed #8a5a00}
+</style>
+</head>
+<body>
+<h1>Lección 6.2 · Hipótesis, datos y conclusiones</h1>
+<p class="subtitulo">Artes del Lenguaje · Nivel 4 · Tema 6: Análisis cuantitativo y científico en las materias · Unas 2 horas, a tu ritmo</p>
+
+<div class="caja-objetivos">
+  <h2>🎯 Objetivos de la lección</h2>
+  <ul class="lista-bonita" style="margin:0">
+    <li><strong>Relacionar</strong> la hipótesis, los datos y la conclusión de un informe científico.</li>
+    <li><strong>Juzgar</strong> si los datos respaldan una conclusión, parte por parte.</li>
+    <li><strong>Detectar</strong> conclusiones no sustentadas y reconocer los límites de un experimento.</li>
+  </ul>
+  <p style="margin:8px 0 0;font-size:.92rem">Estándares: RST.11-12.8 · RST.9-10.7</p>
+</div>
+
+<nav class="indice" id="indice" aria-labelledby="indice-titulo">
+  <h2 id="indice-titulo">Contenido de la lección</h2>
+  <ol>
+    <li><a href="#s-1-cadena">La cadena de un experimento</a></li>
+    <li><a href="#s-2-informe">El informe del experimento de la luz</a></li>
+    <li><a href="#s-3-hipotesis">¿Se confirmó la hipótesis?</a></li>
+    <li><a href="#s-4-respaldo">¿Los datos respaldan la conclusión?</a></li>
+    <li><a href="#s-5-no-sustentadas">Conclusiones que no se sostienen</a></li>
+    <li><a href="#s-6-limites">Los límites de un experimento</a></li>
+    <li><a href="#s-7-taller">Taller: evalúa la conclusión</a></li>
+    <li><a href="#s-tarea">Tarea</a></li>
+    <li><a href="#s-quiz">Quiz de la lección</a></li>
+    <li><a href="#s-cierre">Cierre</a></li>
+  </ol>
+  <div class="abrir-cerrar">
+    <button type="button" class="btn btn-secundario" id="abrir-todo">Abrir todo</button>
+    <button type="button" class="btn btn-secundario" id="cerrar-todo">Cerrar todo</button>
+  </div>
+</nav>
+
+<h2>📚 Para empezar</h2>
+<p>En la Lección 6.1 tradujiste los datos del experimento de la luz a una gráfica y a un texto. Ahora vas a hacer lo que hace un científico al leer el trabajo de otro: preguntarse si <strong>la conclusión se sostiene con los datos</strong>. En la prueba de Ciencias del GED y en Artes del Lenguaje hay preguntas que piden exactamente eso: ¿qué conclusión respaldan los datos?, ¿cuál va demasiado lejos?, ¿qué habría que hacer para estar más seguros? Y como el experimento lo hizo el profesor de este curso, puedes ver las fotos, la bitácora completa y el procedimiento.</p>
+<p class="aviso-voz" id="aviso-voz" role="status">Tu navegador no tiene una voz en español disponible, así que los botones 🔊 no sonarán.</p>
+
+<details open id="s-1-cadena">
+<summary>1. La cadena de un experimento <span class="caja-tiempo">15 min</span></summary>
+<div class="contenido-detalle">
+<div class="cadena" aria-label="Pasos de un experimento: pregunta, hipótesis, diseño con variables, datos y conclusión"><span>Pregunta</span><span class="flecha" aria-hidden="true">→</span><span>Hipótesis</span><span class="flecha" aria-hidden="true">→</span><span>Diseño y variables</span><span class="flecha" aria-hidden="true">→</span><span>Datos</span><span class="flecha" aria-hidden="true">→</span><span>Conclusión</span></div>
+<table class="tabla">
+  <caption class="sr-solo">Elementos de un experimento con su definición y su ejemplo en el experimento de la luz</caption>
+  <thead><tr><th scope="col">Elemento</th><th scope="col">Qué es</th><th scope="col">En el experimento de la luz</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Pregunta</strong></td><td>Lo que se quiere averiguar.</td><td>¿Cómo afecta la cantidad de luz al crecimiento de una planta de frijol?</td></tr>
+    <tr><td><strong>Hipótesis</strong></td><td>Una respuesta posible que se pueda comprobar. Suele escribirse: <em>Si…, entonces…, porque…</em></td><td>Ver la sección 3.</td></tr>
+    <tr><td><strong>Variable independiente</strong></td><td>Lo que el investigador cambia a propósito.</td><td>La luz: plena, poca, ninguna.</td></tr>
+    <tr><td><strong>Variable dependiente</strong></td><td>Lo que se mide para ver el efecto.</td><td>La altura, el número de hojas, el color y el aspecto del tallo.</td></tr>
+    <tr><td><strong>Variables controladas</strong></td><td>Lo que se mantiene igual para que la comparación sea justa.</td><td>El tipo de semilla, el remojo, las macetas, el sustrato, los 60 ml de agua cada dos días.</td></tr>
+    <tr><td><strong>Conclusión</strong></td><td>Lo que el investigador afirma a partir de los datos.</td><td>Ver la sección 2.</td></tr>
+  </tbody>
+</table>
+<div class="tip"><strong>📘 ¿Necesitas repasar?</strong> El procedimiento del experimento, paso a paso, está en la <a href="https://zhemaria.github.io/clases_leng3/clase_6-3.html" target="_blank" rel="noopener noreferrer" style="color:var(--cp-oscuro);font-weight:700">Lección 6.3 del Nivel 3</a>. Se abre en una pestaña nueva.</div>
+<div class="clasificador" id="clasif-variables"></div>
+<div class="puntaje" id="puntaje-variables" role="status" aria-live="polite"></div>
+</div>
+</details>
+
+<details id="s-2-informe">
+<summary>2. El informe del experimento de la luz <span class="caja-tiempo">20 min</span></summary>
+<div class="contenido-detalle">
+<div class="actividad">
+  <h4><span class="badge badge-lectura">Lectura evaluativa</span> Individual · coteja la conclusión con los datos</h4>
+  <p style="margin:0">Lee los resultados y la conclusión. Antes de seguir, escribe en tu cuaderno: ¿hay algún dato que <em>no</em> encaje con la conclusión?</p>
+</div>
+<div class="fuente">
+  <p style="margin:0 0 6px"><strong>Método.</strong> Nueve semillas de frijol remojadas 12 horas, tres por maceta, en tres macetas iguales con el mismo sustrato. Las macetas estuvieron juntas hasta que brotaron las plantas. El día 0 se midieron los brotes y se separaron: A junto a una ventana (luz plena), B en un rincón (poca luz) y C dentro de una caja cerrada en un clóset (oscuridad). Todas recibieron 60 ml de agua cada dos días. Se midió la altura promedio de cada maceta y se anotaron el número de hojas y el color.</p>
+</div>
+<div class="fuente graf" id="graf-exp"></div>
+<table class="tabla">
+  <caption>Resultados del último día (día 21)</caption>
+  <thead><tr><th scope="col">Maceta</th><th scope="col">Altura promedio</th><th scope="col">Hojas</th><th scope="col">Aspecto</th></tr></thead>
+  <tbody>
+    <tr><td><strong>A · luz plena</strong></td><td>10.2 cm</td><td>12 a 14</td><td>Tallos gruesos, hojas grandes, verde oscuro.</td></tr>
+    <tr><td><strong>B · poca luz</strong></td><td>14.5 cm</td><td>6 a 8</td><td>Tallo largo y delgado, inclinado hacia la luz; hojas pequeñas, verde claro.</td></tr>
+    <tr><td><strong>C · oscuridad</strong></td><td>18.8 cm</td><td>2, muy pequeñas</td><td>La más alta, pero no se sostiene sola; color blanco o amarillo. Desde el día 8, una planta se dobló por su peso.</td></tr>
+  </tbody>
+</table>
+<div class="fotos">
+  <figure><img src="https://zhemaria.github.io/clases_leng3/foto_dia0.png" alt="Fotografía del experimento: medición de los brotes con una regla el día 0." loading="lazy"><figcaption>Día 0: medición de los brotes antes de separar las macetas.</figcaption></figure>
+  <figure><img src="https://zhemaria.github.io/clases_leng3/foto_luces.jpg" alt="Fotografía del experimento: las tres macetas a mitad del proceso, para comparar su crecimiento." loading="lazy"><figcaption>A mitad del experimento.</figcaption></figure>
+  <figure><img src="https://zhemaria.github.io/clases_leng3/foto_final.jpg" alt="Fotografía del experimento: comparación final de las tres macetas con una regla de medición." loading="lazy"><figcaption>Comparación final con regla.</figcaption></figure>
+</div>
+<div class="fuente">
+  <p style="margin:0"><strong>Conclusión del investigador:</strong> «La falta de luz provoca que la planta crezca rápidamente buscando el sol, pero debilita su estructura y le impide producir clorofila.»</p>
+</div>
+<p style="font-size:.9rem">Datos, fotografías y conclusión: José M. Fernández, <a href="https://zhemaria.github.io/clases_leng3/tabla_experimento_luz.html" target="_blank" rel="noopener noreferrer" style="color:var(--cp-oscuro);font-weight:700">bitácora del experimento</a> (2026). Se abre en una pestaña nueva.</p>
+<div class="clasificador apilado" id="clasif-informe"></div>
+<div class="puntaje" id="puntaje-informe" role="status" aria-live="polite"></div>
+</div>
+</details>
+
+<details id="s-3-hipotesis">
+<summary>3. ¿Se confirmó la hipótesis? <span class="caja-tiempo">15 min</span></summary>
+<div class="contenido-detalle">
+<p>Imagina que, antes de empezar, alguien escribió esta hipótesis. Es la que se le ocurre a la mayoría de la gente:</p>
+<p class="formula"><strong>Hipótesis:</strong> Si una planta de frijol recibe menos luz, entonces crecerá menos, porque necesita la luz para fabricar su alimento.</p>
+<p style="font-size:.9rem"><em>Hipótesis escrita para esta lección, como ejemplo.</em></p>
+<p>Ahora, cotéjala con los datos. La planta con menos luz (C) fue la <strong>más alta</strong>: 18.8 cm, frente a 10.2 cm de la de luz plena. Si «crecer» significa «ganar altura», la hipótesis <strong>no se confirmó</strong>: los datos dicen lo contrario.</p>
+<p>Pero mira el resto de los datos: la C tenía solo 2 hojas diminutas, no era verde y no se sostenía. La A, la más baja, tenía hasta 14 hojas grandes y tallos gruesos. Si «crecer» significa «desarrollarse sana», la hipótesis sí apunta en la dirección correcta.</p>
+<div class="tip"><strong>💡 Dos lecciones de una vez.</strong> (1) <strong>Una hipótesis que no se confirma no es un fracaso:</strong> es un resultado, y a veces el más interesante. (2) <strong>Importa cómo se mide:</strong> la palabra «crecer» era ambigua. Una buena hipótesis dice exactamente qué se va a medir: «tendrá menos altura», «tendrá menos hojas», «será menos verde».</div>
+<div class="clasificador apilado" id="clasif-hipotesis"></div>
+<div class="puntaje" id="puntaje-hipotesis" role="status" aria-live="polite"></div>
+<a class="enlace-practica" href="https://zhemaria.github.io/gramatica/n4-l6-2.html#hipotesis" target="_blank" rel="noopener noreferrer">🧪 Practica más: hipótesis y variables
+  <span>Experimentos breves para identificar la hipótesis y las variables, y ver si los datos la confirman. Se abre en una pestaña nueva.</span></a>
+</div>
+</details>
+
+<details id="s-4-respaldo">
+<summary>4. ¿Los datos respaldan la conclusión? <span class="caja-tiempo">20 min</span></summary>
+<div class="contenido-detalle">
+<p>Una conclusión suele tener varias partes. Hay que evaluarlas <strong>una por una</strong>, porque unas pueden estar muy bien respaldadas y otras menos. Para cada parte, pregúntate: <strong>¿qué dato lo muestra? ¿Se midió o se observó? ¿Es un dato o una explicación?</strong></p>
+<div class="parte-concl"><strong>«La falta de luz provoca que la planta crezca rápidamente…»</strong> <span class="veredicto v-si">Respaldada</span><br>Datos medidos: el día 6 la C ya medía 8.5 cm, frente a 3.4 cm de la A; al final, 18.8 frente a 10.2. Las tres macetas recibieron la misma agua y el mismo sustrato, así que la diferencia de luz es la explicación más probable.</div>
+<div class="parte-concl"><strong>«…buscando el sol…»</strong> <span class="veredicto v-par">Es una explicación</span><br>No se midió: es una interpretación de por qué crece. Concuerda con lo que se observó (la planta de B se inclinó hacia la ventana desde el día 10) y con lo que explica la biología (la Lección 6.3 lo amplía), pero es una explicación, no un dato.</div>
+<div class="parte-concl"><strong>«…pero debilita su estructura…»</strong> <span class="veredicto v-si">Respaldada por observación</span><br>Observaciones: tallo delgado, una planta que se dobla por su peso el día 8, plantas que no se sostienen solas. Están anotadas en la bitácora y se ven en las fotos, aunque el grosor del tallo no se midió con números.</div>
+<div class="parte-concl"><strong>«…y le impide producir clorofila.»</strong> <span class="veredicto v-par">Inferida</span><br>La clorofila es lo que da el color verde a las plantas. No se midió directamente: se infiere del color blanco y amarillo de las plantas de C. Es una inferencia razonable, pero un laboratorio la confirmaría con un análisis.</div>
+<div class="tip"><strong>💡 La pregunta clave:</strong> ¿la conclusión dice <em>más</em> de lo que los datos permiten? La del investigador se queda bastante cerca de sus datos: habla de «la planta» en estas condiciones y une lo medido (altura) con lo observado (tallo, color). Para el GED, esa es la habilidad: separar lo medido, lo observado y lo interpretado.</div>
+<div class="clasificador apilado" id="clasif-respaldo"></div>
+<div class="puntaje" id="puntaje-respaldo" role="status" aria-live="polite"></div>
+<a class="enlace-practica" href="https://zhemaria.github.io/gramatica/n4-l6-2.html#respaldo" target="_blank" rel="noopener noreferrer">⚖️ Practica más: ¿los datos lo respaldan?
+  <span>Datos breves y una conclusión para juzgar si se sostiene. Se abre en una pestaña nueva.</span></a>
+</div>
+</details>
+
+<details id="s-5-no-sustentadas">
+<summary>5. Conclusiones que no se sostienen <span class="caja-tiempo">15 min</span></summary>
+<div class="contenido-detalle">
+<p>Estas conclusiones, escritas para la lección, parecen salir del mismo experimento, pero <strong>no están sustentadas</strong>. Fíjate en el error de cada una:</p>
+<table class="tabla">
+  <caption class="sr-solo">Conclusiones no sustentadas sobre el experimento y el error que cometen</caption>
+  <thead><tr><th scope="col">Conclusión</th><th scope="col">Error</th></tr></thead>
+  <tbody>
+    <tr><td>«Todas las plantas crecen más en la oscuridad.»</td><td><strong>Generaliza de más:</strong> solo se probó el frijol, con tres semillas por maceta.</td></tr>
+    <tr><td>«La oscuridad es buena para las plantas, porque crecen más.»</td><td><strong>Ignora datos en contra:</strong> las hojas, el color y el tallo muestran lo contrario.</td></tr>
+    <tr><td>«Las plantas de C se debilitaron por falta de agua.»</td><td><strong>Lo contradice el diseño:</strong> las tres recibieron la misma agua.</td></tr>
+    <tr><td>«Con más días, la planta de C llegaría al metro de altura.»</td><td><strong>Extrapola sin base:</strong> los datos muestran que la C frenaba: del día 0 al 10 ganó 12.2 cm, pero del día 14 al 20 solo 1.9 cm, y el día 20 estaba «casi sin vida».</td></tr>
+    <tr><td>«La luz solo afecta a la altura.»</td><td><strong>Se queda con un solo dato:</strong> la luz cambió también las hojas, el color y la firmeza.</td></tr>
+  </tbody>
+</table>
+<div class="clasificador apilado" id="clasif-nosust"></div>
+<div class="puntaje" id="puntaje-nosust" role="status" aria-live="polite"></div>
+<a class="enlace-practica" href="https://zhemaria.github.io/gramatica/n4-l6-2.html#conclusion" target="_blank" rel="noopener noreferrer">🚫 Practica más: la conclusión no sustentada
+  <span>Elige la conclusión que los datos sí respaldan o descubre la que va demasiado lejos. Se abre en una pestaña nueva.</span></a>
+</div>
+</details>
+
+<details id="s-6-limites">
+<summary>6. Los límites de un experimento <span class="caja-tiempo">15 min</span></summary>
+<div class="contenido-detalle">
+<p>Todo experimento tiene límites, también los de los laboratorios más grandes. Reconocerlos no le quita valor: dice <strong>cuánta confianza</strong> podemos tener en la conclusión y <strong>cómo mejorarlo</strong>. Un lector crítico siempre los busca.</p>
+<table class="tabla">
+  <caption class="sr-solo">Límites del experimento de la luz y cómo se podrían superar</caption>
+  <thead><tr><th scope="col">Límite</th><th scope="col">Por qué importa</th><th scope="col">Cómo mejorarlo</th></tr></thead>
+  <tbody>
+    <tr><td>Tres semillas por maceta y una sola vez</td><td>Con pocos casos, una planta rara cambia mucho el promedio.</td><td>Más semillas y repetir el experimento.</td></tr>
+    <tr><td>La luz no se midió con un aparato</td><td>«Poca luz» depende del rincón y del día.</td><td>Medir la luz con un luxómetro o una aplicación del celular.</td></tr>
+    <tr><td>El clóset y la caja pueden tener otra temperatura o humedad</td><td>Podría haber una segunda variable además de la luz.</td><td>Medir la temperatura en los tres lugares.</td></tr>
+    <tr><td>El día 0 las plantas de C ya eran un poco más altas y pálidas</td><td>Había una pequeña diferencia antes de empezar.</td><td>Repartir las plántulas al azar entre las macetas.</td></tr>
+    <tr><td>Solo hay promedios</td><td>No sabemos cuánto variaban las tres plantas de cada maceta.</td><td>Anotar también la altura de cada planta.</td></tr>
+  </tbody>
+</table>
+<div class="tip"><strong>💡 Límite no es error.</strong> Estos límites no anulan la conclusión, porque las diferencias entre las macetas son grandes y coinciden con lo que la biología explica. Pero si las diferencias hubieran sido pequeñas (por ejemplo, 10.2 frente a 10.8 cm), con tres semillas no podríamos concluir nada.</div>
+<div class="tip"><strong>👨‍👩‍👧 Si tienes con quién practicar:</strong> «¿Los datos lo respaldan?». Uno propone una conclusión sobre el experimento (correcta o exagerada) y el otro tiene que responder con un dato de la bitácora a favor o en contra.</div>
+</div>
+</details>
+
+<details id="s-7-taller">
+<summary>7. Taller: evalúa la conclusión <span class="caja-tiempo">25 min</span></summary>
+<div class="contenido-detalle">
+<p>Escribe un párrafo de <strong>5 a 7 oraciones</strong> que evalúe la conclusión del investigador. Debe:</p>
+<ol>
+  <li>relacionar la <strong>hipótesis</strong> de la sección 3 con los <strong>datos</strong>: ¿se confirmó?;</li>
+  <li>juzgar <strong>al menos dos partes</strong> de la conclusión con datos concretos (cifras u observaciones);</li>
+  <li>señalar <strong>un límite</strong> del experimento y cómo se podría mejorar.</li>
+</ol>
+<div class="taller" id="taller-62"></div>
+<h3>Rúbrica: así se evaluará tu evaluación</h3>
+<table class="tabla rubrica">
+  <caption class="sr-solo">Rúbrica de la evaluación científica: tres criterios en cuatro niveles</caption>
+  <thead><tr><th scope="col">Criterio</th><th scope="col">4 · Excelente</th><th scope="col">3 · Bien</th><th scope="col">2 · En camino</th><th scope="col">1 · Inicial</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">Relaciona hipótesis, datos y conclusión</th><td>Explica si la hipótesis se confirmó, con datos, y cómo llega el investigador a su conclusión</td><td>Relaciona dos de los tres elementos</td><td>Los menciona por separado</td><td>Los confunde</td></tr>
+    <tr><th scope="row">Juzga si los datos respaldan la conclusión</th><td>Evalúa parte por parte, distinguiendo lo medido, lo observado y lo interpretado</td><td>Evalúa la conclusión con datos, sin separar sus partes</td><td>Opina sin datos</td><td>No la evalúa</td></tr>
+    <tr><th scope="row">Detecta conclusiones no sustentadas</th><td>Señala lo que no se sostiene o un límite, y propone cómo mejorarlo</td><td>Señala un límite sin propuesta</td><td>Límite vago («faltan datos»)</td><td>No ve ninguno</td></tr>
+  </tbody>
+</table>
+<p style="font-size:.92rem">Total: 12 puntos.</p>
+</div>
+</details>
+
+<details id="s-tarea">
+<summary>8. Tarea <span class="caja-tiempo">30 min</span></summary>
+<div class="contenido-detalle">
+<ul class="lista-bonita">
+  <li><strong>Termina tu evaluación</strong> del taller y revísala con la rúbrica.</li>
+  <li><strong>Reescribe la hipótesis</strong> de la sección 3 para que diga exactamente qué se medirá. Escribe dos versiones: una sobre la altura y otra sobre las hojas.</li>
+  <li><strong>Diseña una mejora:</strong> en cinco oraciones, explica cómo repetirías el experimento para tener más confianza en la conclusión.</li>
+</ul>
+</div>
+</details>
+
+<details id="s-quiz">
+<summary>9. Quiz de la lección <span class="caja-tiempo">20 min</span></summary>
+<div class="contenido-detalle">
+<div class="qz-intro">
+  <h4>✅ Quiz · 12 preguntas · puedes repetirlo las veces que quieras</h4>
+  <p style="margin:0">Las preguntas se refieren al experimento de la luz. Elige una respuesta en cada pregunta y, al final, pulsa <strong>Ver mi resultado</strong>. La meta es acertar al menos <strong>10 de 12</strong>.</p>
+</div>
+<div id="qz-cuerpo"></div>
+<div class="botones">
+  <button type="button" class="btn btn-primario" id="qz-calificar">Ver mi resultado</button>
+  <button type="button" class="btn btn-secundario" id="qz-reintentar" style="display:none">Intentar de nuevo</button>
+</div>
+<div class="qz-resultado" id="qz-resultado" role="status" aria-live="polite"></div>
+</div>
+</details>
+
+<details id="s-cierre">
+<summary>10. Cierre <span class="caja-tiempo">5 min</span></summary>
+<div class="contenido-detalle">
+<h3>Lo que aprendiste en esta lección</h3>
+<ul class="lista-bonita">
+  <li>Un experimento va de la pregunta a la hipótesis, el diseño con sus variables, los datos y la conclusión.</li>
+  <li>Una hipótesis que no se confirma es un resultado; una buena hipótesis dice exactamente qué se medirá.</li>
+  <li>Una conclusión se evalúa parte por parte: lo medido, lo observado y lo interpretado.</li>
+  <li>Las conclusiones no sustentadas generalizan de más, ignoran datos en contra, contradicen el diseño o extrapolan sin base; los límites dicen cuánta confianza tener.</li>
+</ul>
+<div class="caja-objetivos" style="background:#fff3e0;border-left-color:var(--acento)">
+  <h2 style="color:#8a3d0c;border:none;padding:0;margin-top:0;font-size:1.2rem">✅ Antes de irte, revísate</h2>
+  <ul class="lista-bonita">
+    <li>¿Por qué la hipótesis «crecerá menos» no se confirmó en la altura?</li>
+    <li>¿Qué parte de la conclusión es una explicación y no un dato?</li>
+    <li>¿Por qué «todas las plantas crecen más en la oscuridad» no se sostiene?</li>
+  </ul>
+</div>
+<div class="tip"><strong>➡️ Sigue con la próxima lección:</strong> <a href="https://zhemaria.github.io/clases_leng4/clase_6-3.html" style="color:var(--cp-oscuro);font-weight:700">Lección 6.3 · Sintetizar fuentes científicas diversas</a>.</div>
+<p style="font-size:.9rem"><strong>Fuente:</strong> José M. Fernández, <a href="https://zhemaria.github.io/clases_leng3/tabla_experimento_luz.html" target="_blank" rel="noopener noreferrer" style="color:var(--cp-oscuro)">Bitácora del experimento «Efecto de la luz en la germinación y crecimiento»</a> (2026): procedimiento, mediciones, fotografías y conclusión. La hipótesis de la sección 3 y las conclusiones de la sección 5 fueron escritas para esta lección.</p>
+</div>
+</details>
+
+<footer class="pie">
+  <p><strong>GEDparaHispanos · Artes del Lenguaje · Nivel 4: Dominio del GED y Escritura Argumentativa · Tema 6 · Lección 6.2</strong></p>
+  <p>José M. Fernández, ABE/ASE Math Master Teacher, Harry S. Truman College — City Colleges of Chicago</p>
+  <p>© 2026. Esta obra está licenciada bajo <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es" rel="license noopener noreferrer" target="_blank">Creative Commons Reconocimiento-NoComercial-CompartirIgual 4.0 Internacional (CC BY-NC-SA 4.0)</a>.</p>
+</footer>
+<a class="volver-indice" href="#indice" aria-label="Volver al contenido de la lección"><span aria-hidden="true">↑</span> Índice</a>
+
+<script>
+
+/* ===== Voz: todas las lecturas pasan por hablar(), para poder cambiarla después por audio grabado ===== */
+(function(){
+  var voz=null, hay=('speechSynthesis' in window);
+  function elegir(){
+    if(!hay)return;
+    var vs=speechSynthesis.getVoices().filter(function(v){return /^es/i.test(v.lang);});
+    var pref=['es-US','es-MX','es-419','es-CO','es-AR','es-CL','es-PE'];
+    voz=null;
+    for(var i=0;i<pref.length&&!voz;i++){voz=vs.find(function(v){return v.lang.replace('_','-').toLowerCase()===pref[i].toLowerCase();})||null;}
+    if(!voz)voz=vs.find(function(v){return !/es[-_]ES/i.test(v.lang);})||vs[0]||null;
+  }
+  function aviso(){var a=document.getElementById('aviso-voz');if(a)a.classList.add('visible');}
+  function frase(t,vel){var u=new SpeechSynthesisUtterance(t);u.lang=voz?voz.lang:'es-US';if(voz)u.voice=voz;u.rate=vel||0.9;return u;}
+  if(hay){elegir(); speechSynthesis.onvoiceschanged=elegir;}
+  window.hablar=function(texto,vel,fin){
+    if(!hay||!texto){aviso();return;}
+    speechSynthesis.cancel();
+    /* Se lee por oraciones: algunos navegadores cortan las lecturas largas */
+    var partes=texto.replace(/\s+/g,' ').match(/[^.!?…]+[.!?…]+[»"”)]*\s*|[^.!?…]+$/g)||[texto];
+    partes.forEach(function(t,i){var u=frase(t.trim(),vel); if(fin&&i===partes.length-1)u.onend=fin; speechSynthesis.speak(u);});
+  };
+  window.callar=function(){if(hay)speechSynthesis.cancel();};
+  if(!hay)document.addEventListener('DOMContentLoaded',aviso);
+})();
+
+/* ===== Clasificador: cada elemento con sus botones; al acertar muestra una nota =====
+   Las opciones propias de cada elemento se barajan; las opciones comunes conservan su orden */
+function orden(it,ops){
+  var o=ops.map(function(_,j){return j;});
+  if(it.ops&&!it.fijo){for(var k=o.length-1;k>0;k--){var r=Math.floor(Math.random()*(k+1)),t=o[k];o[k]=o[r];o[r]=t;}}
+  return o;
+}
+function clasificador(idCaja,idPuntaje,items,opciones,conAudio){
+  var caja=document.getElementById(idCaja), pun=document.getElementById(idPuntaje), bien=0, hechas={};
+  function marcador(){pun.textContent=bien===items.length?(items.length===1?'🎉 ¡Muy bien!':'🎉 ¡Muy bien! Acertaste las '+bien+'.'):(items.length===1?'':'Aciertos: '+bien+' / '+items.length);}
+  items.forEach(function(it,i){
+    var d=document.createElement('div'); d.className='item'; d.setAttribute('role','group'); d.setAttribute('aria-label',it.p.replace(/<[^>]+>/g,''));
+    var ops=it.ops||opciones;
+    d.innerHTML='<span class="item-pal">'+it.p+(conAudio?' <button type="button" class="oir" aria-label="Escuchar">🔊</button>':'')+'</span>'+
+      '<span class="item-ops">'+orden(it,ops).map(function(j){return '<button type="button" class="btn-op" data-j="'+j+'">'+ops[j]+'</button>';}).join('')+'</span>'+
+      '<span class="item-fb" aria-live="polite"></span>';
+    caja.appendChild(d);
+    if(conAudio)d.querySelector('.oir').addEventListener('click',function(){hablar(it.a||it.p.replace(/<[^>]+>/g,''),0.85);});
+    var fb=d.querySelector('.item-fb');
+    d.querySelectorAll('.btn-op').forEach(function(b){
+      b.addEventListener('click',function(){
+        if(hechas[i])return;
+        if(+b.getAttribute('data-j')===it.c){
+          b.classList.add('correcta'); hechas[i]=true; bien++;
+          d.querySelectorAll('.btn-op').forEach(function(x){x.disabled=true;});
+          fb.innerHTML='✓ '+(it.n||'Correcto.'); marcador();
+        }else{
+          b.classList.add('incorrecta'); b.disabled=true;
+          fb.innerHTML='Todavía no. '+(it.pista||'Vuelve a mirar la regla e intenta otra vez.');
+        }
+      });
+    });
+  });
+  marcador();
+}
+
+/* ===== Quiz de la lección ===== */
+function iniciarQuiz(P,cfg){
+  var META=cfg.meta, N=P.length, cuerpo=document.getElementById('qz-cuerpo'), elegidas={};
+  P.forEach(function(p,i){
+    var d=document.createElement('div');
+    d.className='qz-preg'; d.setAttribute('role','group'); d.setAttribute('aria-labelledby','qz-e'+i);
+    var h='<p class="qz-enun" id="qz-e'+i+'"><span class="qz-num">'+(i+1)+'</span>'+p.t+'</p><div class="qz-ops">';
+    var orden=p.o.map(function(_,j){return j;});
+    if(!p.fijo){for(var k=orden.length-1;k>0;k--){var r=Math.floor(Math.random()*(k+1)),t=orden[k];orden[k]=orden[r];orden[r]=t;}}
+    orden.forEach(function(j){h+='<button type="button" class="qz-op" data-i="'+i+'" data-j="'+j+'" aria-pressed="false">'+p.o[j]+'</button>';});
+    d.innerHTML=h+'</div>'; cuerpo.appendChild(d);
+  });
+  cuerpo.addEventListener('click',function(ev){
+    var b=ev.target.closest('.qz-op'); if(!b||b.disabled)return;
+    var i=b.getAttribute('data-i');
+    cuerpo.querySelectorAll('.qz-op[data-i="'+i+'"]').forEach(function(x){x.classList.remove('elegida');x.setAttribute('aria-pressed','false');});
+    b.classList.add('elegida'); b.setAttribute('aria-pressed','true'); elegidas[i]=+b.getAttribute('data-j');
+  });
+  var res=document.getElementById('qz-resultado');
+  document.getElementById('qz-calificar').addEventListener('click',function(){
+    var bien=0;
+    P.forEach(function(p,i){
+      cuerpo.querySelectorAll('.qz-op[data-i="'+i+'"]').forEach(function(x){
+        var j=+x.getAttribute('data-j'); x.disabled=true; x.classList.remove('elegida');
+        if(j===p.c)x.classList.add('correcta'); else if(elegidas[i]===j)x.classList.add('incorrecta');
+      });
+      if(elegidas[i]===p.c)bien++;
+      else if(p.r){var nota=document.createElement('p');nota.className='qz-repaso';nota.innerHTML='📘 Para repasar: '+p.r;cuerpo.children[i].appendChild(nota);}
+    });
+    var msg,fondo,color;
+    if(bien>=META){msg='¡Excelente! '+bien+' de '+N+'. '+cfg.bien;fondo='#d4edda';color='#155724';}
+    else if(bien>=Math.ceil(N*0.6)){msg='Buen trabajo: '+bien+' de '+N+'. Repasa las preguntas marcadas con ✗ y vuelve a intentarlo.';fondo='#fff3cd';color='#5c3900';}
+    else{msg='Llevas '+bien+' de '+N+'. '+cfg.repaso;fondo='#f8d7da';color='#721c24';}
+    res.textContent=msg; res.style.background=fondo; res.style.color=color; res.classList.add('visible');
+    this.style.display='none'; document.getElementById('qz-reintentar').style.display='inline-block';
+    res.scrollIntoView({behavior:'smooth',block:'center'});
+  });
+  document.getElementById('qz-reintentar').addEventListener('click',function(){
+    cuerpo.querySelectorAll('.qz-op').forEach(function(x){x.disabled=false;x.classList.remove('correcta','incorrecta','elegida');x.setAttribute('aria-pressed','false');});
+    cuerpo.querySelectorAll('.qz-repaso').forEach(function(n){n.remove();});
+    elegidas={}; res.classList.remove('visible'); res.textContent='';
+    this.style.display='none'; document.getElementById('qz-calificar').style.display='inline-block';
+    cuerpo.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+}
+
+/* ===== Navegación: el índice y la dirección (#ancla) abren su sección ===== */
+document.addEventListener('DOMContentLoaded',function(){
+  function abrir(id){
+    var el=id&&document.getElementById(id); if(!el)return;
+    var d=el.tagName==='DETAILS'?el:el.closest('details');
+    if(d){d.open=true; el.scrollIntoView({behavior:'smooth',block:'start'});}
+  }
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(){abrir(a.getAttribute('href').slice(1));});});
+  document.getElementById('abrir-todo').addEventListener('click',function(){document.querySelectorAll('details').forEach(function(d){d.open=true;});});
+  document.getElementById('cerrar-todo').addEventListener('click',function(){document.querySelectorAll('details').forEach(function(d){d.open=false;});});
+  window.addEventListener('hashchange',function(){abrir(decodeURIComponent(location.hash.slice(1)));});
+  abrir(decodeURIComponent(location.hash.slice(1)));
+});
+
+/* ===== Taller de escritura =====
+   El borrador se guarda en este navegador (si el navegador lo permite). */
+function tallerEscritura(id,o){
+  var caja=document.getElementById(id), k='gph-borrador-'+o.clave;
+  var h='<label class="tl-etq" for="'+id+'-txt">'+(o.etiqueta||'Escribe aquí tu texto')+'</label>'+
+    '<textarea class="tl-txt" id="'+id+'-txt" rows="10" spellcheck="true" lang="es"'+(o.guia?' placeholder="'+o.guia.replace(/"/g,'&quot;')+'"':'')+'></textarea>'+
+    '<div class="tl-cuenta" id="'+id+'-cuenta" aria-live="polite"></div>';
+  if(o.conectores)h+='<div class="tl-conect" id="'+id+'-con" aria-live="polite"></div>';
+  h+='<div class="botones" style="justify-content:flex-start">'+
+    '<button type="button" class="btn btn-secundario" id="'+id+'-oir">🔊 Escuchar mi texto</button>'+
+    '<button type="button" class="btn btn-secundario" id="'+id+'-copiar">📋 Copiar mi texto</button>'+
+    '<button type="button" class="btn btn-secundario" id="'+id+'-borrar">🗑️ Borrar</button></div>'+
+    '<div class="tl-aviso" id="'+id+'-aviso" role="status" aria-live="polite"></div>';
+  if(o.lista){
+    h+='<fieldset class="tl-lista"><legend>✅ Revisa tu texto antes de darlo por terminado</legend>'+
+      o.lista.map(function(t,i){return '<label><input type="checkbox" id="'+id+'-c'+i+'"> '+t+'</label>';}).join('')+
+      '<p class="tl-listo" id="'+id+'-listo" aria-live="polite"></p></fieldset>';
+  }
+  caja.innerHTML=h;
+  var ta=document.getElementById(id+'-txt'), cu=document.getElementById(id+'-cuenta'), co=document.getElementById(id+'-con'), av=document.getElementById(id+'-aviso');
+  try{var g=localStorage.getItem(k); if(g)ta.value=g;}catch(e){}
+  function avisar(t){av.textContent=t; clearTimeout(avisar.t); avisar.t=setTimeout(function(){av.textContent='';},4000);}
+  function medir(){var t=ta.value.trim();return {t:t,pal:t?t.split(/\s+/).length:0,ora:(t.match(/[^.!?…]+[.!?…]+/g)||[]).length};}
+  function contar(){
+    var x=medir(), m=o.meta||{}, s='Palabras: '+x.pal+(m.palabras?' (meta: '+m.palabras+' o más)':'')+' · Oraciones: '+x.ora+(m.oraciones?' (meta: '+m.oraciones+' o más)':'');
+    if(m.oraciones&&x.ora>=m.oraciones&&(!m.palabras||x.pal>=m.palabras))s+=' · 🎯 ¡Llegaste a la meta de extensión!';
+    cu.textContent=s;
+    if(co){
+      var low=' '+x.t.toLowerCase().replace(/[.,;:¡!¿?«»"()—]/g,' ')+' ', us=o.conectores.filter(function(c){return low.indexOf(' '+c.toLowerCase()+' ')>=0;});
+      co.innerHTML=us.length?(o.titLista||'Conectores que usaste')+': '+us.map(function(c){return '<span class="tl-chip">'+c+'</span>';}).join(' '):(o.vacioLista||'Todavía no aparece ningún conector de la lista.');
+    }
+    try{localStorage.setItem(k,ta.value);}catch(e){}
+  }
+  ta.addEventListener('input',contar); contar();
+  document.getElementById(id+'-oir').addEventListener('click',function(){
+    if(!ta.value.trim()){avisar('Primero escribe algo para poder escucharlo.');return;}
+    hablar(ta.value,0.9);
+  });
+  document.getElementById(id+'-copiar').addEventListener('click',function(){
+    if(!ta.value.trim()){avisar('Todavía no hay texto para copiar.');return;}
+    function ok(){avisar('✓ Texto copiado. Ya puedes pegarlo en un correo o en un documento.');}
+    if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(ta.value).then(ok,function(){ta.select();document.execCommand('copy');ok();});
+    else{ta.select();document.execCommand('copy');ok();}
+  });
+  var borrarListo=false;
+  document.getElementById(id+'-borrar').addEventListener('click',function(){
+    if(!borrarListo){borrarListo=true;avisar('¿Seguro? Pulsa «Borrar» otra vez para borrar todo el texto.');setTimeout(function(){borrarListo=false;},4000);return;}
+    borrarListo=false; ta.value=''; contar(); avisar('Texto borrado.'); ta.focus();
+  });
+  if(o.lista){
+    var cbs=caja.querySelectorAll('.tl-lista input'), li=document.getElementById(id+'-listo');
+    function rev(){var n=Array.prototype.filter.call(cbs,function(c){return c.checked;}).length, x=medir(), m=o.meta||{}, corto=(m.oraciones&&x.ora<m.oraciones)||(m.palabras&&x.pal<m.palabras);
+      li.textContent=n<cbs.length?'Revisado: '+n+' de '+cbs.length:(corto?'Marcaste toda la lista, pero tu texto todavía no llega a la meta de extensión. Añade algo más.':'🎉 ¡Todo revisado! Tu párrafo está listo.');}
+    ta.addEventListener('input',rev);
+    cbs.forEach(function(c){c.addEventListener('change',rev);}); rev();
+  }
+}
+/* Rúbricas: cada celda recibe el nombre de su nivel para mostrarlo en el celular */
+document.querySelectorAll('table.rubrica').forEach(function(t){
+  var cab=Array.prototype.map.call(t.querySelectorAll('thead th'),function(th){return th.textContent;});
+  t.querySelectorAll('tbody tr').forEach(function(tr){Array.prototype.forEach.call(tr.children,function(c,i){if(c.tagName==='TD')c.setAttribute('data-et',cab[i]);});});
+});
+
+
+/* ===== Datos del experimento del profesor (bitácora «Efecto de la luz en la germinación y crecimiento», 2026) =====
+   Si cambian las mediciones, se corrigen SOLO aquí: la gráfica y la tabla se generan con estos números. */
+var EXP={
+  dias:[0,2,4,6,8,10,14,20,21],
+  series:[
+    {k:'A',nombre:'Maceta A · luz plena',corto:'A · Luz plena',color:'#2e7d32',trazo:'',marca:'triangulo',
+     alt:[1.2,1.8,2.5,3.4,4.5,5.8,7.5,9.5,10.2]},
+    {k:'B',nombre:'Maceta B · poca luz',corto:'B · Poca luz',color:'#9a6700',trazo:'8 5',marca:'cuadrado',
+     alt:[1.1,2.1,3.5,5.0,7.2,9.1,11.5,13.8,14.5]},
+    {k:'C',nombre:'Maceta C · oscuridad',corto:'C · Oscuridad',color:'#4a4a4a',trazo:'2 4',marca:'circulo',
+     alt:[1.3,2.8,5.2,8.5,11.0,13.5,16.2,18.1,18.8]}
+  ]
+};
+function fmtCm(v){return v.toFixed(1)+' cm';}
+function marcaSVG(tipo,x,y,r,color,extra){
+  if(tipo==='triangulo')return '<path d="M'+x+','+(y-r-1)+' L'+(x+r+1)+','+(y+r)+' L'+(x-r-1)+','+(y+r)+' Z" fill="'+color+'" stroke="#fff" stroke-width="1.5" '+(extra||'')+'/>';
+  if(tipo==='cuadrado')return '<rect x="'+(x-r)+'" y="'+(y-r)+'" width="'+(2*r)+'" height="'+(2*r)+'" fill="'+color+'" stroke="#fff" stroke-width="1.5" '+(extra||'')+'/>';
+  return '<circle cx="'+x+'" cy="'+y+'" r="'+r+'" fill="'+color+'" stroke="#fff" stroke-width="1.5" '+(extra||'')+'/>';
+}
+/* Gráfica de líneas accesible: eje desde cero, días a su distancia real, trazo y marcador distintos por serie,
+   etiquetas al final de cada línea, valor al pasar el cursor o con la tecla Tab, y tabla con los mismos datos. */
+function graficaExperimento(id,opc){
+  opc=opc||{};
+  var caja=document.getElementById(id); if(!caja)return;
+  var W=680,H=380,x0=56,x1=548,y0=320,y1=24,ymax=20;
+  function X(d){return x0+(d/21)*(x1-x0);}
+  function Y(v){return y0-(v/ymax)*(y0-y1);}
+  var tid=id+'-t',did=id+'-d';
+  var desc='Gráfica de líneas con la altura promedio, en centímetros, de las plantas de tres macetas durante 21 días. '+
+    EXP.series.map(function(s){return s.nombre+': de '+fmtCm(s.alt[0])+' el día 0 a '+fmtCm(s.alt[s.alt.length-1])+' el día 21';}).join('; ')+
+    '. Las tres crecen; la maceta en oscuridad es la que más sube y la de luz plena, la que menos.';
+  var h='<p style="font-weight:700;color:var(--cp-oscuro);margin:0 0 4px">'+(opc.titulo||'Altura promedio de las plantas de frijol según la luz (días 0 a 21)')+'</p>';
+  h+='<div class="leyenda-graf" aria-hidden="true">'+EXP.series.map(function(s){
+    return '<span><svg width="44" height="14" viewBox="0 0 44 14"><line x1="2" y1="7" x2="42" y2="7" stroke="'+s.color+'" stroke-width="3" stroke-dasharray="'+s.trazo+'" stroke-linecap="round"/>'+marcaSVG(s.marca,22,7,4,s.color)+'</svg>'+s.nombre+'</span>';}).join('')+'</div>';
+  var g='<svg class="graf-principal" viewBox="0 0 '+W+' '+H+'" role="img" aria-labelledby="'+tid+' '+did+'"><title id="'+tid+'">Altura promedio de las plantas según la luz</title><desc id="'+did+'">'+desc+'</desc>';
+  for(var v=0;v<=ymax;v+=5){g+='<line x1="'+x0+'" x2="'+x1+'" y1="'+Y(v)+'" y2="'+Y(v)+'" stroke="#d6dde4"/><text x="'+(x0-8)+'" y="'+(Y(v)+4)+'" text-anchor="end" font-size="12" fill="#333">'+v+'</text>';}
+  g+='<line x1="'+x0+'" x2="'+x1+'" y1="'+y0+'" y2="'+y0+'" stroke="#555"/>';
+  EXP.dias.forEach(function(d){g+='<line x1="'+X(d)+'" x2="'+X(d)+'" y1="'+y0+'" y2="'+(y0+5)+'" stroke="#555"/><text x="'+X(d)+'" y="'+(y0+19)+'" text-anchor="middle" font-size="12" fill="#333">'+d+'</text>';});
+  g+='<text x="'+((x0+x1)/2)+'" y="'+(y0+42)+'" text-anchor="middle" font-size="13" fill="#333">Días desde la separación de las macetas</text>';
+  g+='<text x="14" y="'+((y0+y1)/2)+'" transform="rotate(-90 14 '+((y0+y1)/2)+')" text-anchor="middle" font-size="13" fill="#333">Altura promedio (cm)</text>';
+  /* etiquetas finales sin solaparse */
+  var fin=EXP.series.map(function(s){return {s:s,y:Y(s.alt[s.alt.length-1])};}).sort(function(a,b){return a.y-b.y;});
+  for(var i=1;i<fin.length;i++){if(fin[i].y-fin[i-1].y<30)fin[i].y=fin[i-1].y+30;}
+  EXP.series.forEach(function(s){
+    var pts=EXP.dias.map(function(d,i){return X(d)+','+Y(s.alt[i]);}).join(' ');
+    g+='<polyline points="'+pts+'" fill="none" stroke="'+s.color+'" stroke-width="2.5" stroke-dasharray="'+s.trazo+'" stroke-linecap="round" stroke-linejoin="round"/>';
+  });
+  EXP.series.forEach(function(s){
+    EXP.dias.forEach(function(d,i){
+      var et=s.nombre+', día '+d+': '+fmtCm(s.alt[i]);
+      g+='<g class="pto" tabindex="0" role="img" aria-label="'+et+'" data-et="'+et+'" data-x="'+X(d)+'" data-y="'+Y(s.alt[i])+'">'+
+         '<circle cx="'+X(d)+'" cy="'+Y(s.alt[i])+'" r="11" fill="transparent"/>'+marcaSVG(s.marca,X(d),Y(s.alt[i]),4.5,s.color)+'<title>'+et+'</title></g>';
+    });
+    var f=fin.filter(function(o){return o.s===s;})[0];
+    g+='<text x="'+(x1+10)+'" y="'+(f.y+4)+'" font-size="13" font-weight="700" fill="'+s.color+'">'+s.corto+'</text>'+
+       '<text x="'+(x1+10)+'" y="'+(f.y+19)+'" font-size="12" fill="#333">'+fmtCm(s.alt[s.alt.length-1])+'</text>';
+  });
+  g+='<g class="tip-graf" style="display:none" pointer-events="none"><rect rx="6" ry="6" fill="#1a2332" opacity=".92"/><text fill="#fff" font-size="12.5" font-weight="600"></text></g>';
+  g+='</svg>';
+  h+=g;
+  h+='<details class="ver-tabla"><summary>Ver los datos de la gráfica en una tabla</summary><div class="contenido-detalle" style="padding:8px 12px"><table class="tabla"><caption class="sr-solo">Altura promedio en centímetros de las plantas de cada maceta, por día</caption><thead><tr><th scope="col">Día</th>'+
+     EXP.series.map(function(s){return '<th scope="col">'+s.nombre+'</th>';}).join('')+'</tr></thead><tbody>'+
+     EXP.dias.map(function(d,i){return '<tr><td>'+d+'</td>'+EXP.series.map(function(s){return '<td>'+fmtCm(s.alt[i])+'</td>';}).join('')+'</tr>';}).join('')+
+     '</tbody></table></div></details>';
+  caja.innerHTML=h;
+  var svg=caja.querySelector('svg.graf-principal'), tip=svg.querySelector('.tip-graf'), tr=tip.querySelector('rect'), tt=tip.querySelector('text');
+  function mostrar(p){
+    var x=+p.getAttribute('data-x'), y=+p.getAttribute('data-y'); tt.textContent=p.getAttribute('data-et');
+    var w=tt.textContent.length*6.6+16, tx=Math.min(Math.max(x-w/2,4),W-w-4), ty=y-38<4?y+14:y-38;
+    tr.setAttribute('x',tx);tr.setAttribute('y',ty);tr.setAttribute('width',w);tr.setAttribute('height',26);
+    tt.setAttribute('x',tx+8);tt.setAttribute('y',ty+17);tip.style.display='';
+  }
+  function ocultar(){tip.style.display='none';}
+  svg.querySelectorAll('.pto').forEach(function(p){
+    p.addEventListener('mouseenter',function(){mostrar(p);}); p.addEventListener('focus',function(){mostrar(p);});
+    p.addEventListener('mouseleave',ocultar); p.addEventListener('blur',ocultar);
+    p.addEventListener('touchstart',function(){mostrar(p);},{passive:true});
+  });
+}
+
+graficaExperimento('graf-exp');
+
+/* ===== Ejercicios de la lección ===== */
+clasificador('clasif-variables','puntaje-variables',[
+  {p:'La cantidad de luz que recibe cada maceta.',c:0,n:'Es lo que se cambia a propósito.'},
+  {p:'La altura de las plantas.',c:1,n:'Se mide para ver el efecto.'},
+  {p:'Los 60 ml de agua cada dos días.',c:2,n:'Igual en las tres macetas.'},
+  {p:'El color de las hojas.',c:1,n:'También se observa como efecto.'},
+  {p:'El tipo de sustrato.',c:2,n:'El mismo en las tres macetas.'},
+  {p:'El número de hojas.',c:1,n:'Otro efecto que se registró.'}
+],['Independiente','Dependiente','Controlada'],false);
+
+clasificador('clasif-informe','puntaje-informe',[
+  {p:'¿Qué maceta terminó con más hojas?',ops:['La A, con luz plena','La C, en oscuridad','La B, con poca luz'],c:0,n:'12 a 14 hojas.'},
+  {p:'¿Qué dato podría parecer, a primera vista, que NO encaja con «la luz es buena para la planta»?',ops:['Que la C, sin luz, fue la más alta','Que la A tuviera hojas verde oscuro','Que la B se inclinara hacia la ventana'],c:0,n:'Por eso no basta con mirar la altura.'},
+  {p:'¿Por qué es importante que las tres macetas recibieran la misma agua?',ops:['Para que la diferencia se deba a la luz y no al agua','Para que las plantas crecieran a la misma altura','Para que la caja del clóset no se mojara'],c:0,n:'Variable controlada.'},
+  {p:'¿Qué observación aparece en la bitácora sobre la maceta B desde el día 10?',ops:['Se inclina hacia la ventana','Se dobla por el peso','Deja de crecer por completo'],c:0,n:'Fototropismo: busca la luz.'}
+],null,false);
+
+clasificador('clasif-hipotesis','puntaje-hipotesis',[
+  {p:'Hipótesis: «Si recibe menos luz, crecerá menos». Si «crecer» es ganar altura, ¿qué dicen los datos?',ops:['No se confirma: la planta sin luz fue la más alta','Se confirma: la planta sin luz fue la más baja','No se puede saber: no se midió la altura'],c:0,n:'C: 18.8 cm; A: 10.2 cm.'},
+  {p:'¿Qué palabra hace ambigua la hipótesis?',ops:['«crecerá»','«luz»','«planta»'],c:0,n:'¿Altura, hojas, salud?'},
+  {p:'¿Cuál es una hipótesis mejor formulada?',ops:['Si el frijol recibe menos luz, entonces tendrá menos hojas el día 21','Las plantas son seres vivos que necesitan muchas cosas para crecer bien','La luz es muy importante para todo lo que vive en la naturaleza'],c:0,n:'Dice qué se medirá y cuándo.'},
+  {p:'Cuando los datos no confirman una hipótesis, el experimento…',ops:['sigue siendo útil: es un resultado','no sirve y hay que tirarlo','demuestra que el investigador se equivocó al medir'],c:0,n:'Una hipótesis refutada también enseña.'}
+],null,false);
+
+clasificador('clasif-respaldo','puntaje-respaldo',[
+  {p:'«Crece rápidamente.» ¿Qué dato lo respalda mejor?',ops:['El día 6 la C medía 8.5 cm y la A, 3.4 cm','Las plantas de C eran de color blanco','La maceta B se inclinó hacia la ventana desde el día 10'],c:0,n:'Altura medida.'},
+  {p:'«Buscando el sol» es…',ops:['una explicación, no un dato medido','una medición hecha con regla','un dato de la variable controlada'],c:0,n:'Interpreta el porqué.'},
+  {p:'«Le impide producir clorofila» se apoya en…',ops:['el color blanco y amarillo de las plantas','una medición de laboratorio de la clorofila','la altura final de 18.8 cm'],c:0,n:'Es una inferencia a partir del color.'},
+  {p:'«Debilita su estructura» se apoya en…',ops:['observaciones: tallo delgado y plantas que se doblan','una medición con regla del grosor de cada tallo','el número de días que duró el experimento'],c:0,n:'Observación cualitativa, no medida con números.'}
+],null,false);
+
+clasificador('clasif-nosust','puntaje-nosust',[
+  {p:'«Todas las plantas crecen más en la oscuridad.» ¿Qué error comete?',ops:['Generaliza de más: solo se probó el frijol','Lo contradice el diseño del experimento','Se queda solo con el dato de las hojas'],c:0,n:'Tres semillas de una especie.'},
+  {p:'«Las plantas de C se debilitaron por falta de agua.» ¿Qué error comete?',ops:['Lo contradice el diseño: todas recibieron 60 ml','Generaliza a todas las especies de plantas','Extrapola a un tiempo que no se midió'],c:0,n:'El agua fue una variable controlada.'},
+  {p:'«Con más días, la C llegaría al metro.» ¿Qué error comete?',ops:['Extrapola sin base: su crecimiento se estaba frenando','Ignora el color de las hojas de la planta','Lo contradice el tipo de sustrato'],c:0,n:'Del día 14 al 20 creció solo 1.9 cm, y estaba casi sin vida.'},
+  {p:'¿Qué conclusión SÍ respaldan los datos?',ops:['Sin luz, este frijol ganó altura pero no hojas sanas','La oscuridad es la mejor condición para que crezca el frijol','La luz no tiene ningún efecto en el crecimiento de las plantas'],c:0,n:'Se queda en lo que los datos muestran.'}
+],null,false);
+
+tallerEscritura('taller-62',{clave:'n4-6-2',etiqueta:'Tu evaluación de la conclusión (5 a 7 oraciones)',
+  guia:'La hipótesis de que … no se confirmó en la altura, porque … Sin embargo, … La parte de la conclusión que dice «…» está respaldada por … En cambio, «…» es una explicación / una inferencia … Un límite del experimento es …; se podría mejorar …',
+  meta:{oraciones:5,palabras:110},
+  conectores:['hipótesis','datos','conclusión','respaldada','se confirmó','medido','observado','inferencia','explicación','límite','cm'],
+  titLista:'Términos científicos que usaste',
+  vacioLista:'Todavía no aparecen términos científicos (hipótesis, datos, respaldada, inferencia, límite…).',
+  lista:['Digo si la hipótesis se confirmó, con un dato.','Juzgo al menos dos partes de la conclusión.','Uso cifras u observaciones concretas de la bitácora.','Distingo lo medido, lo observado y lo interpretado.','Señalo un límite y propongo cómo mejorarlo.','Escuché mi párrafo en voz alta y lo revisé.']});
+
+iniciarQuiz([
+  {t:'La variable que el investigador cambia a propósito es la…',o:['independiente','dependiente','controlada'],c:0,r:'<a href="#s-1-cadena">Sección 1</a>'},
+  {t:'En el experimento, ¿qué variable fue controlada?',o:['La cantidad de agua','La cantidad de luz','La altura de las plantas'],c:0,r:'<a href="#s-1-cadena">Sección 1</a>'},
+  {t:'¿Qué forma suele tener una hipótesis?',o:['Si…, entonces…, porque…','Primero…, después…, al final…','Por una parte…, por otra…'],c:0,r:'<a href="#s-1-cadena">Sección 1</a>'},
+  {t:'¿Dónde estaba la maceta C?',o:['En una caja cerrada dentro de un clóset','En un rincón de la habitación, lejos de la ventana','Junto a una ventana con mucha luz'],c:0,r:'<a href="#s-2-informe">Sección 2</a>'},
+  {t:'¿Cuántas hojas tenía la maceta C al final?',o:['2, muy pequeñas','6 a 8, pequeñas','12 a 14, grandes'],c:0,r:'<a href="#s-2-informe">Sección 2</a>'},
+  {t:'Si «crecer» significa ganar altura, la hipótesis «con menos luz crecerá menos»…',o:['no se confirmó','se confirmó por completo','no se pudo comprobar'],c:0,r:'<a href="#s-3-hipotesis">Sección 3</a>'},
+  {t:'¿Qué enseña el caso de la hipótesis de la sección 3?',o:['Que importa definir exactamente qué se va a medir','Que las hipótesis siempre se confirman','Que la altura es la única medida importante'],c:0,r:'<a href="#s-3-hipotesis">Sección 3</a>'},
+  {t:'¿Qué parte de la conclusión está respaldada por mediciones?',o:['«crezca rápidamente»','«buscando el sol»','«le impide producir clorofila»'],c:0,r:'<a href="#s-4-respaldo">Sección 4</a>'},
+  {t:'¿Cómo se sabe que a las plantas de C les faltaba clorofila?',o:['Se infiere de su color blanco y amarillo','Se midió con un aparato de laboratorio','Lo dice la variable controlada'],c:0,r:'<a href="#s-4-respaldo">Sección 4</a>'},
+  {t:'«La oscuridad es buena para las plantas, porque crecen más.» ¿Por qué no se sostiene?',o:['Ignora los datos de hojas, color y firmeza','Generaliza a todos los tipos de agua','Usa demasiados datos de la bitácora'],c:0,r:'<a href="#s-5-no-sustentadas">Sección 5</a>'},
+  {t:'¿Cuál es un límite del experimento?',o:['Solo había tres semillas por maceta y se hizo una vez','Se usó el mismo sustrato en las tres macetas','Las tres macetas recibieron la misma agua'],c:0,r:'<a href="#s-6-limites">Sección 6</a>'},
+  {t:'¿Cómo se podría mejorar el experimento?',o:['Con más semillas, repitiéndolo y midiendo la luz','Regando más la maceta C que las demás','Midiendo solo la altura y no las hojas'],c:0,r:'<a href="#s-6-limites">Sección 6</a>'}
+],{meta:10,
+   bien:'Ya sabes relacionar hipótesis, datos y conclusión, y juzgar si una conclusión se sostiene. Sigue con la Lección 6.3.',
+   repaso:'Vuelve a las secciones 3, 4 y 5 y repite el quiz: con práctica sale.'});
+</script>
+</body>
+</html>

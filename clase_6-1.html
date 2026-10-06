@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<!-- Lección 6.1 · Artes del Lenguaje Nivel 4 · GEDparaHispanos
+     José M. Fernández, ABE/ASE Math Master Teacher, Harry S. Truman College — City Colleges of Chicago
+     Licencia CC BY-NC-SA 4.0 · https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es -->
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lección 6.1 · Del texto a la gráfica y de la gráfica al texto</title>
+<meta name="author" content="José M. Fernández, ABE/ASE Math Master Teacher, Harry S. Truman College — City Colleges of Chicago">
+<meta name="license" content="CC BY-NC-SA 4.0">
+<link rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es">
+<style>
+  :root{
+    --cp:#b91c1c;--cp-claro:#fee2e2;--cp-oscuro:#7f1d1d;
+    --acento:#ff8c42;--texto:#1a2332;--fondo:#fafbfc;
+    --gris:#555;--gris-claro:#eef1f4;
+    --exito:#2e7d32;--error:#c62828;
+  }
+  *{box-sizing:border-box}
+  body{font-family:'Poppins','Segoe UI',Arial,sans-serif;line-height:1.7;color:var(--texto);background:var(--fondo);max-width:960px;margin:0 auto;padding:24px 18px}
+  h1{color:var(--cp-oscuro);border-bottom:4px solid var(--cp);padding-bottom:14px;font-size:1.85rem;margin-bottom:8px}
+  .subtitulo{color:var(--gris);font-style:italic;margin-top:0;margin-bottom:24px;font-size:1.05rem}
+  h2{color:var(--cp-oscuro);border-left:6px solid var(--cp);padding-left:14px;margin-top:32px;font-size:1.4rem}
+  h3{color:var(--cp-oscuro);margin-top:24px;font-size:1.15rem}
+  .caja-objetivos{background:var(--cp-claro);border-left:6px solid var(--cp);padding:18px 22px;border-radius:8px;margin:18px 0 28px 0}
+  .caja-objetivos h2{margin-top:0;color:var(--cp-oscuro);border-left:none;padding-left:0;font-size:1.2rem}
+  .caja-tiempo{display:inline-block;background:var(--acento);color:#1a2332;padding:4px 12px;border-radius:14px;font-size:0.85rem;font-weight:600;margin-left:10px;vertical-align:middle}
+  details{background:#fff;border:1px solid #d6dde4;border-radius:10px;margin:14px 0;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,0.04)}
+  details[open]{border-color:var(--cp);box-shadow:0 3px 10px rgba(185,28,28,0.12)}
+  summary{cursor:pointer;padding:16px 20px;font-weight:600;color:var(--cp-oscuro);background:var(--gris-claro);list-style:none;user-select:none;font-size:1.05rem}
+  summary::-webkit-details-marker{display:none}
+  summary::before{content:'▶';display:inline-block;margin-right:10px;color:var(--cp);transition:transform 0.25s;font-size:0.85rem}
+  details[open] summary::before{transform:rotate(90deg)}
+  details[open] summary{background:var(--cp-claro);border-bottom:2px solid var(--cp)}
+  .contenido-detalle{padding:18px 22px}
+  .tip{background:#fffbe6;border-left:5px solid #f4c430;padding:12px 18px;border-radius:6px;margin:14px 0}
+  .tip strong{color:#6b5400}
+  .botones{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:14px 0}
+  .btn{padding:10px 22px;border:none;border-radius:8px;font-weight:600;cursor:pointer;font-family:inherit;font-size:0.95rem;transition:background 0.2s}
+  .btn-primario{background:var(--cp);color:#fff}
+  .btn-primario:hover{background:var(--cp-oscuro)}
+  .btn-secundario{background:var(--gris-claro);color:var(--texto)}
+  .btn-secundario:hover{background:#d6dde4}
+  .btn[aria-pressed="true"]{background:var(--cp-oscuro);color:#fff}
+  ul.lista-bonita{list-style:none;padding-left:0}
+  ul.lista-bonita li{padding:8px 0 8px 30px;position:relative}
+  ul.lista-bonita li::before{content:'➜';position:absolute;left:0;color:var(--cp);font-weight:700}
+  .palabra-clave{background:linear-gradient(transparent 60%,#ffeb3b 60%);padding:0 4px;font-weight:600}
+  .ej{font-family:Georgia,serif;font-size:1.08rem}
+  .sub{font-weight:700;border-bottom:3px solid var(--cp-oscuro)}
+  table.tabla{width:100%;border-collapse:collapse;margin:16px 0;background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,0.06)}
+  table.tabla th{background:var(--cp-oscuro);color:#fff;padding:10px 12px;text-align:left}
+  table.tabla td{padding:10px 12px;border-bottom:1px solid var(--gris-claro);vertical-align:top}
+  table.tabla tr:last-child td{border-bottom:none}
+  .actividad{background:#fff;border:2px solid var(--acento);border-radius:10px;padding:16px 20px;margin:14px 0}
+  .actividad h4{color:#8a3d0c;margin-top:0}
+  .badge{display:inline-block;padding:3px 10px;border-radius:12px;font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-right:6px}
+  .badge-lectura{background:#e3f2fd;color:#0d47a1}
+  /* Clasificadores */
+  .clasificador{background:#fff;border:2px solid var(--cp);border-radius:12px;padding:14px 18px;margin:18px 0}
+  .item{border:2px solid var(--gris-claro);border-radius:8px;padding:10px 14px;margin:8px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+  .item-pal{font-family:Georgia,serif;font-size:1.12rem;color:var(--texto);display:flex;align-items:center;gap:10px}
+  .item-ops{display:flex;gap:8px;flex-wrap:wrap}
+  .item-fb{flex-basis:100%;font-size:.95rem}
+  .item-fb:empty{display:none}
+  .btn-op{padding:7px 14px;border:2px solid var(--cp-oscuro);background:#fff;color:var(--cp-oscuro);border-radius:8px;cursor:pointer;font-weight:600;font-family:inherit;font-size:.92rem}
+  .btn-op:hover:not(:disabled){background:var(--cp-claro)}
+  .btn-op.correcta{background:#d4edda;border-color:var(--exito);color:#155724}
+  .btn-op.correcta::before{content:'✓ '}
+  .btn-op.incorrecta{background:#f8d7da;border-color:var(--error);color:#721c24;text-decoration:line-through}
+  .btn-op.incorrecta::before{content:'✗ '}
+  .btn-op:disabled{cursor:default}
+  .apilado .item{flex-direction:column;align-items:stretch}
+  .apilado .item-ops{flex-direction:column}
+  .apilado .btn-op{text-align:left;font-weight:400}
+  .apilado .item-pal{font-family:'Segoe UI',Arial,sans-serif;font-size:1rem;font-weight:600;display:block}
+  .puntaje{text-align:center;margin-top:12px;font-weight:600;color:var(--cp-oscuro)}
+  /* Lectura con marcas: color + borde distinto + etiqueta escrita */
+  .texto-lectura{background:#fff;border:2px solid var(--gris-claro);border-radius:8px;padding:18px 22px;margin:14px 0;font-family:Georgia,serif;font-size:1.12rem;line-height:2.1}
+  .texto-lectura p{margin:0 0 10px}
+  .num-p{display:inline-block;background:var(--cp-oscuro);color:#fff;border-radius:50%;width:1.6em;height:1.6em;text-align:center;line-height:1.6em;font-size:.8rem;font-family:'Segoe UI',Arial,sans-serif;margin-right:6px;vertical-align:middle}
+  .m-sus{background:#e3f2fd;color:#0d3c78;border-bottom:3px solid #0d3c78}
+  .m-adj{background:#fff3e0;color:#6b3300;border-bottom:3px dashed #8a4b00}
+  .m-adv{background:#e8f5e9;color:#1b5e20;border-bottom:3px dotted #1b5e20}
+  .etq{font-weight:700;font-size:.78em;font-family:'Segoe UI',Arial,sans-serif;white-space:nowrap}
+  .oculta-marcas .m-sus,.oculta-marcas .m-adj,.oculta-marcas .m-adv{background:none;color:inherit;border:none}
+  .oculta-marcas .etq{display:none}
+  .leyenda-marcas{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0;font-size:.92rem}
+  .leyenda-marcas span{padding:2px 8px}
+  /* Índice */
+  .indice{background:#fff;border:1px solid #d6dde4;border-left:6px solid var(--cp);border-radius:10px;padding:16px 20px;margin:22px 0}
+  .indice h2{font-size:1.1rem;margin:0 0 8px;border:none;padding:0}
+  .indice ol{margin:0;padding-left:1.4em}
+  .indice li{margin:4px 0}
+  .indice a{color:var(--cp-oscuro)}
+  .abrir-cerrar{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0 0}
+  .volver-indice{position:fixed;right:18px;bottom:18px;z-index:60;background:var(--cp-oscuro);color:#fff;border-radius:999px;padding:10px 16px;font-weight:700;font-size:.92rem;text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,.28)}
+  .volver-indice:hover{background:var(--cp);color:#fff}
+  a:focus-visible,summary:focus-visible,button:focus-visible,textarea:focus-visible{outline:3px solid #b35316;outline-offset:2px}
+  .sr-solo{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+  .enlace-practica{display:block;background:#fff;border:2px solid var(--cp);border-radius:10px;padding:14px 18px;margin:16px 0;text-decoration:none;color:var(--cp-oscuro);font-weight:600}
+  .enlace-practica:hover{background:var(--cp-claro)}
+  .enlace-practica span{display:block;font-weight:400;color:var(--texto);font-size:.95rem}
+  .aviso-voz{font-size:.9rem;color:#5c3900;background:#fff3cd;border-radius:6px;padding:6px 10px;display:none}
+  .aviso-voz.visible{display:block}
+  /* Quiz */
+  .qz-intro{background:var(--cp-claro);border-radius:10px;padding:14px 18px;margin:0 0 14px}
+  .qz-intro h4{margin:0 0 6px;color:var(--cp-oscuro)}
+  .qz-preg{background:#fff;border:2px solid var(--gris-claro);border-radius:10px;padding:14px 18px;margin:12px 0}
+  .qz-enun{font-weight:600;margin:0 0 10px}
+  .qz-num{display:inline-block;background:var(--cp-oscuro);color:#fff;border-radius:12px;padding:1px 10px;font-size:.8rem;margin-right:8px}
+  .qz-ops{display:flex;flex-direction:column;gap:8px}
+  .qz-op{text-align:left;background:#fff;border:2px solid #c9d2db;border-radius:8px;padding:10px 14px;font-family:inherit;font-size:1rem;cursor:pointer;color:var(--texto)}
+  .qz-op:hover:not(:disabled){border-color:var(--cp)}
+  .qz-op.elegida{background:var(--cp-claro);border-color:var(--cp-oscuro);color:var(--cp-oscuro);box-shadow:0 0 0 3px #fff,0 0 0 5px var(--cp)}
+  .qz-op.correcta{background:#d4edda;border-color:#2e7d32;color:#155724}
+  .qz-op.correcta::before{content:'✓ '}
+  .qz-op.incorrecta{background:#f8d7da;border-color:#c62828;color:#721c24}
+  .qz-op.incorrecta::before{content:'✗ '}
+  .qz-op:disabled{cursor:default}
+  .qz-resultado{display:none;margin:16px 0;padding:16px;border-radius:10px;text-align:center;font-weight:600}
+  .qz-resultado.visible{display:block}
+  .qz-repaso{margin:10px 0 0;padding:8px 12px;background:#fff3cd;border-radius:6px;color:#3d2600;font-size:.95rem}
+  .qz-repaso a{color:var(--cp-oscuro);font-weight:700}
+  /* Taller de escritura */
+  .taller{background:#fff;border:2px solid var(--cp);border-radius:12px;padding:14px;margin:14px 0}
+  .tl-etq{display:block;font-weight:700;color:var(--cp-oscuro);margin-bottom:6px}
+  .tl-txt{width:100%;box-sizing:border-box;font:inherit;font-size:1.05rem;line-height:1.7;padding:10px 12px;border:2px solid #9aa9b7;border-radius:8px;resize:vertical;min-height:200px}
+  .tl-txt:focus{outline:3px solid var(--cp);outline-offset:1px;border-color:var(--cp-oscuro)}
+  .tl-cuenta{font-size:.92rem;color:#333;margin:6px 0}
+  .tl-conect{font-size:.95rem;margin:4px 0 8px}
+  .tl-chip{display:inline-block;background:var(--cp-claro);color:var(--cp-oscuro);border:1px solid var(--cp);border-radius:12px;padding:1px 10px;margin:2px 2px;font-weight:700}
+  .tl-aviso{min-height:1.4em;font-weight:700;color:var(--cp-oscuro)}
+  .tl-lista{border:2px dashed var(--cp);border-radius:10px;padding:8px 14px;margin-top:10px}
+  .tl-lista legend{font-weight:700;color:var(--cp-oscuro);padding:0 6px}
+  .tl-lista label{display:flex;gap:10px;align-items:flex-start;padding:6px 0;cursor:pointer}
+  .tl-lista input{width:22px;height:22px;flex-shrink:0;margin-top:2px;accent-color:var(--cp-oscuro)}
+  .tl-listo{font-weight:700;color:var(--cp-oscuro);margin:6px 0 0}
+  .rubrica{font-size:.92rem}
+  .rubrica td,.rubrica th{vertical-align:top}
+  @media(max-width:640px){
+    .rubrica thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+    .rubrica,.rubrica tbody,.rubrica tr,.rubrica th,.rubrica td{display:block;width:auto}
+    .rubrica tr{border:2px solid var(--cp);border-radius:10px;margin:0 0 10px;overflow:hidden}
+    .rubrica tbody th{background:var(--cp-oscuro);color:#fff;border:none}
+    .rubrica td{border:none;border-top:1px solid #d5dde3}
+    .rubrica td::before{content:attr(data-et);display:block;font-weight:700;color:var(--cp-oscuro)}
+  }
+  footer.pie{margin-top:40px;padding-top:18px;border-top:2px solid var(--gris-claro);text-align:center;color:#555;font-size:.9rem}
+  footer.pie p{margin:4px 0}
+  footer.pie a{color:var(--cp-oscuro)}
+  @media print{.indice,.volver-indice,.abrir-cerrar{display:none}}
+  @media (prefers-reduced-motion:reduce){summary::before{transition:none}}
+  .graf svg{width:100%;height:auto;display:block}
+  .graf svg [tabindex]:focus{outline:3px solid #b35316}
+  .leyenda-graf{display:flex;flex-wrap:wrap;gap:14px;font-size:.92rem;margin:4px 0 6px}
+  .leyenda-graf span{display:inline-flex;align-items:center;gap:6px}
+  .ver-tabla{margin-top:8px}
+  .ver-tabla summary{padding:8px 12px;font-size:.95rem}
+  .fuente{background:#fff;border:2px solid var(--gris-claro);border-left:8px solid var(--cp-oscuro);border-radius:8px;padding:12px 18px;margin:14px 0}
+  .formula{background:#fff;border:2px dashed var(--cp);border-radius:10px;padding:10px 16px;margin:10px 0;font-family:Georgia,serif}
+</style>
+</head>
+<body>
+<h1>Lección 6.1 · Del texto a la gráfica y de la gráfica al texto</h1>
+<p class="subtitulo">Artes del Lenguaje · Nivel 4 · Tema 6: Análisis cuantitativo y científico en las materias · Unas 2 horas, a tu ritmo</p>
+
+<div class="caja-objetivos">
+  <h2>🎯 Objetivos de la lección</h2>
+  <ul class="lista-bonita" style="margin:0">
+    <li><strong>Traducir</strong> información cuantitativa escrita en palabras a una tabla o una gráfica, eligiendo la representación adecuada.</li>
+    <li><strong>Traducir</strong> una gráfica a un texto preciso que describa tendencias, cambios y comparaciones.</li>
+    <li>Integrar los datos con el texto que los acompaña y <strong>detectar representaciones incorrectas</strong>.</li>
+  </ul>
+  <p style="margin:8px 0 0;font-size:.92rem">Estándares: RH.9-10.7 · RST.9-10.7 · RH.11-12.7 · RST.11-12.7</p>
+</div>
+
+<nav class="indice" id="indice" aria-labelledby="indice-titulo">
+  <h2 id="indice-titulo">Contenido de la lección</h2>
+  <ol>
+    <li><a href="#s-1-formas">La misma información, tres formas</a></li>
+    <li><a href="#s-2-informe">Texto modelo: el informe del experimento</a></li>
+    <li><a href="#s-3-a-grafica">Del texto a la tabla y a la gráfica</a></li>
+    <li><a href="#s-4-a-texto">De la gráfica al texto</a></li>
+    <li><a href="#s-5-errores">Gráficas que engañan</a></li>
+    <li><a href="#s-6-taller">Taller: traduce en los dos sentidos</a></li>
+    <li><a href="#s-tarea">Tarea</a></li>
+    <li><a href="#s-quiz">Quiz de la lección</a></li>
+    <li><a href="#s-cierre">Cierre</a></li>
+  </ol>
+  <div class="abrir-cerrar">
+    <button type="button" class="btn btn-secundario" id="abrir-todo">Abrir todo</button>
+    <button type="button" class="btn btn-secundario" id="cerrar-todo">Cerrar todo</button>
+  </div>
+</nav>
+
+<h2>📚 Para empezar</h2>
+<p>En el Nivel 3 aprendiste a leer gráficas de doble barra y de líneas múltiples. En este nivel das el paso siguiente: <strong>pasar de un formato a otro</strong>. Un informe dice los datos con palabras; tú los conviertes en una gráfica. Una gráfica muestra una tendencia; tú la describes con precisión. En las pruebas de Ciencias y de Estudios Sociales del GED, y también en Artes del Lenguaje, hay preguntas que piden exactamente eso. En este tema trabajamos con un experimento real: el que hizo el profesor con plantas de frijol en el Nivel 3.</p>
+<p class="aviso-voz" id="aviso-voz" role="status">Tu navegador no tiene una voz en español disponible, así que los botones 🔊 no sonarán.</p>
+
+<details open id="s-1-formas">
+<summary>1. La misma información, tres formas <span class="caja-tiempo">15 min</span></summary>
+<div class="contenido-detalle">
+<p>Antes de dibujar una gráfica, pregúntate <strong>qué quieres que se vea</strong>. Cada tipo responde a una pregunta distinta:</p>
+<table class="tabla">
+  <caption class="sr-solo">Qué representación elegir según la pregunta que se quiere responder</caption>
+  <thead><tr><th scope="col">Si quieres mostrar…</th><th scope="col">Usa…</th><th scope="col">Ejemplo</th></tr></thead>
+  <tbody>
+    <tr><td>Cómo cambia algo a lo largo del <strong>tiempo</strong></td><td><strong>Gráfica de líneas</strong></td><td>La altura de una planta día a día.</td></tr>
+    <tr><td>Una comparación entre <strong>categorías</strong></td><td><strong>Gráfica de barras</strong></td><td>La altura final de tres plantas.</td></tr>
+    <tr><td>Las <strong>partes de un todo</strong> (que suman 100 %)</td><td><strong>Gráfica circular</strong></td><td>Cómo se reparte un presupuesto.</td></tr>
+    <tr><td><strong>Cifras exactas</strong> para consultar</td><td><strong>Tabla</strong></td><td>Las mediciones de cada día.</td></tr>
+  </tbody>
+</table>
+<div class="tip"><strong>📘 ¿Necesitas repasar?</strong> Las gráficas complejas y las tablas de varias columnas están en la <a href="https://zhemaria.github.io/clases_leng3/clase_6-1.html" target="_blank" rel="noopener noreferrer" style="color:var(--cp-oscuro);font-weight:700">Lección 6.1 del Nivel 3</a>, y el procedimiento del experimento, en la <a href="https://zhemaria.github.io/clases_leng3/clase_6-3.html" target="_blank" rel="noopener noreferrer" style="color:var(--cp-oscuro);font-weight:700">Lección 6.3 del Nivel 3</a>. Se abren en una pestaña nueva.</div>
+<div class="clasificador apilado" id="clasif-forma"></div>
+<div class="puntaje" id="puntaje-forma" role="status" aria-live="polite"></div>
+</div>
+</details>
+
+<details id="s-2-informe">
+<summary>2. Texto modelo: el informe del experimento <span class="caja-tiempo">15 min</span></summary>
+<div class="contenido-detalle">
+<div class="actividad">
+  <h4><span class="badge badge-lectura">Lectura de traducción</span> Individual · subraya cada número</h4>
+  <p style="margin:0">Lee el informe. En tu cuaderno, haz una tabla con las cifras que encuentres antes de mirar la sección 3.</p>
+</div>
+<div class="texto-lectura" id="lectura">
+  <h3 style="margin-top:0">Informe: la luz y el crecimiento del frijol</h3>
+  <p><span class="num-p" aria-hidden="true">1</span>Se sembraron nueve semillas de frijol en tres macetas iguales, con el mismo sustrato y 60 ml de agua cada dos días. El día 0, ya germinadas, las plantas medían en promedio 1.2 cm en la maceta A, 1.1 cm en la B y 1.3 cm en la C. Ese día, la maceta A se colocó junto a una ventana (luz plena), la B en un rincón (poca luz) y la C dentro de una caja cerrada en un clóset (oscuridad).</p>
+  <p><span class="num-p" aria-hidden="true">2</span>Las tres plantas crecieron durante los 21 días, pero a ritmos muy distintos. Al final, las de la maceta C eran las más altas, con 18.8 cm de promedio; las de la B alcanzaron 14.5 cm y las de la A, 10.2 cm. Es decir, las plantas en oscuridad multiplicaron por diez su altura en solo diez días: de 1.3 cm el día 0 a 13.5 cm el día 10.</p>
+  <p><span class="num-p" aria-hidden="true">3</span>La altura no lo dice todo. Las plantas de la A terminaron con 12 a 14 hojas grandes, de color verde oscuro y tallos gruesos. Las de la C solo tenían 2 hojas muy pequeñas, eran de color blanco o amarillo y no podían sostenerse solas.</p>
+  <p style="font-size:.9rem;margin-bottom:0"><em>Informe escrito para esta lección con los datos de la bitácora del experimento del profesor José M. Fernández (2026).</em></p>
+</div>
+<div class="botones" style="justify-content:flex-start">
+  <button type="button" class="btn btn-secundario" id="leer-lectura">🔊 Escuchar el informe</button>
+</div>
+<div class="clasificador apilado" id="clasif-informe"></div>
+<div class="puntaje" id="puntaje-informe" role="status" aria-live="polite"></div>
+</div>
+</details>
+
+<details id="s-3-a-grafica">
+<summary>3. Del texto a la tabla y a la gráfica <span class="caja-tiempo">20 min</span></summary>
+<div class="contenido-detalle">
+<p>El informe da solo algunas cifras. La bitácora del experimento tiene todas las mediciones. Así se ven en una <strong>gráfica de líneas</strong>, la forma adecuada para mostrar un cambio a lo largo del tiempo:</p>
+<div class="fuente graf" id="graf-exp"></div>
+<p style="font-size:.88rem">Pasa el cursor o el dedo sobre cada punto para ver su valor, o usa la tecla Tab para recorrerlos. Las líneas se distinguen también por el trazo (continuo, de rayas y de puntos) y por la forma del marcador (triángulo, cuadrado y círculo). Debajo de la gráfica está la tabla con los mismos datos.</p>
+<div class="tip"><strong>💡 Los pasos para traducir un texto a una gráfica:</strong> (1) identifica qué se mide (altura) y respecto a qué (días); (2) haz la tabla con todas las cifras; (3) elige el tipo de gráfica según la pregunta; (4) pon título, ejes con unidades y una leyenda; (5) <strong>empieza el eje en cero</strong> para no exagerar las diferencias.</div>
+<div class="clasificador apilado" id="clasif-grafica"></div>
+<div class="puntaje" id="puntaje-grafica" role="status" aria-live="polite"></div>
+<a class="enlace-practica" href="https://zhemaria.github.io/gramatica/n4-l6-1.html#texto-grafica" target="_blank" rel="noopener noreferrer">📈 Practica más: del texto a la gráfica
+  <span>Datos en palabras para elegir la tabla o la gráfica que los representa. Se abre en una pestaña nueva.</span></a>
+</div>
+</details>
+
+<details id="s-4-a-texto">
+<summary>4. De la gráfica al texto <span class="caja-tiempo">20 min</span></summary>
+<div class="contenido-detalle">
+<p>Describir una gráfica no es repetir todos los números: es decir <strong>qué muestra</strong>, con los datos justos para probarlo. Una buena descripción tiene tres partes:</p>
+<p class="formula"><strong>1. Qué se mide:</strong> «La gráfica muestra la altura promedio de tres grupos de plantas durante 21 días.»<br><strong>2. La tendencia general:</strong> «Las tres crecen, pero a ritmos distintos.»<br><strong>3. Las comparaciones clave, con cifras:</strong> «Las plantas en oscuridad terminan con 18.8 cm, casi el doble que las de luz plena (10.2 cm).»</p>
+<table class="tabla">
+  <caption class="sr-solo">Verbos y expresiones precisos para describir datos</caption>
+  <thead><tr><th scope="col">Para decir…</th><th scope="col">Expresiones precisas</th></tr></thead>
+  <tbody>
+    <tr><td>Que algo sube</td><td><em>aumenta, crece, se duplica, se triplica, sube de… a…</em></td></tr>
+    <tr><td>Que algo baja</td><td><em>disminuye, cae, se reduce a la mitad, baja de… a…</em></td></tr>
+    <tr><td>Que no cambia</td><td><em>se mantiene, se estabiliza</em></td></tr>
+    <tr><td>Una comparación</td><td><em>supera a, es casi el doble de, la diferencia es de…</em></td></tr>
+    <tr><td>El ritmo</td><td><em>crece rápidamente al principio y después más despacio</em></td></tr>
+  </tbody>
+</table>
+<div class="tip"><strong>⚠️ No describas más de lo que muestra:</strong> la gráfica dice que las plantas en oscuridad crecieron más; <strong>no</strong> dice que estén más sanas. Para eso hacen falta otros datos (las hojas y el color, que están en la bitácora y en el informe).</div>
+<div class="clasificador apilado" id="clasif-texto"></div>
+<div class="puntaje" id="puntaje-texto" role="status" aria-live="polite"></div>
+<a class="enlace-practica" href="https://zhemaria.github.io/gramatica/n4-l6-1.html#grafica-texto" target="_blank" rel="noopener noreferrer">✍️ Practica más: de la gráfica al texto
+  <span>Gráficas y tablas para elegir la descripción más precisa. Se abre en una pestaña nueva.</span></a>
+</div>
+</details>
+
+<details id="s-5-errores">
+<summary>5. Gráficas que engañan <span class="caja-tiempo">15 min</span></summary>
+<div class="contenido-detalle">
+<p>Una gráfica puede tener todos los datos correctos y, aun así, dar una impresión falsa. Estos son los trucos más comunes:</p>
+<table class="tabla">
+  <caption class="sr-solo">Errores frecuentes en las gráficas y cómo detectarlos</caption>
+  <thead><tr><th scope="col">Error</th><th scope="col">Qué provoca</th><th scope="col">Cómo detectarlo</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Eje que no empieza en cero</strong></td><td>Exagera las diferencias: 10 frente a 11 parece el doble.</td><td>Mira el primer número del eje vertical.</td></tr>
+    <tr><td><strong>Intervalos desiguales</strong></td><td>Deforma la tendencia (por ejemplo, días 0, 2, 4 y 20 a la misma distancia).</td><td>Revisa que el eje horizontal avance de forma regular.</td></tr>
+    <tr><td><strong>Tipo de gráfica equivocado</strong></td><td>Una circular para datos que no suman 100 %, o líneas para categorías.</td><td>Pregúntate qué relación muestran los datos.</td></tr>
+    <tr><td><strong>Faltan el título, las unidades o la leyenda</strong></td><td>No se sabe qué se mide.</td><td>Busca qué mide cada eje y qué es cada línea.</td></tr>
+    <tr><td><strong>Datos seleccionados</strong></td><td>Se muestran solo los años que convienen.</td><td>Compara con la tabla completa.</td></tr>
+  </tbody>
+</table>
+<div class="tip"><strong>💡 En nuestra gráfica:</strong> el eje vertical empieza en cero, y los días se colocan a su distancia real (por eso hay un hueco entre el día 14 y el 20). Si los días 14, 20 y 21 estuvieran a la misma distancia que los primeros, parecería que el crecimiento final fue más rápido de lo que fue.</div>
+<div class="clasificador apilado" id="clasif-error"></div>
+<div class="puntaje" id="puntaje-error" role="status" aria-live="polite"></div>
+<a class="enlace-practica" href="https://zhemaria.github.io/gramatica/n4-l6-1.html#error" target="_blank" rel="noopener noreferrer">🚨 Practica más: detecta la representación incorrecta
+  <span>Gráficas descritas con un error para encontrarlo. Se abre en una pestaña nueva.</span></a>
+<div class="tip"><strong>👨‍👩‍👧 Si tienes con quién practicar:</strong> «Del texto a la gráfica». Uno lee en voz alta el párrafo 2 del informe; el otro dibuja en papel una gráfica de barras con las alturas finales. Después revisen juntos el título, los ejes y el cero.</div>
+</div>
+</details>
+
+<details id="s-6-taller">
+<summary>6. Taller: traduce en los dos sentidos <span class="caja-tiempo">25 min</span></summary>
+<div class="contenido-detalle">
+<p><strong>Parte A · Del texto a la tabla.</strong> Lee este texto, escrito para la lección con datos inventados, y escribe en el cuadro una tabla (puedes usar guiones y espacios) con sus cifras:</p>
+<p class="ej" style="background:#fff;border:2px dashed var(--cp);border-radius:8px;padding:10px 14px">En la biblioteca del barrio se prestaron 120 libros en enero, 150 en febrero y 90 en marzo, mes en que la biblioteca cerró dos semanas por reparaciones. En abril, ya reabierta, se prestaron 180.</p>
+<p><strong>Parte B · De la gráfica al texto.</strong> Debajo de tu tabla, describe la gráfica del experimento de la sección 3 en <strong>4 a 5 oraciones</strong>, con las tres partes de la sección 4 y al menos tres cifras.</p>
+<div class="taller" id="taller-61"></div>
+<h3>Rúbrica: así se evaluará tu trabajo</h3>
+<table class="tabla rubrica">
+  <caption class="sr-solo">Rúbrica de la traducción entre texto y representación visual: tres criterios en cuatro niveles</caption>
+  <thead><tr><th scope="col">Criterio</th><th scope="col">4 · Excelente</th><th scope="col">3 · Bien</th><th scope="col">2 · En camino</th><th scope="col">1 · Inicial</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">Traduce datos de texto a representación visual</th><td>Tabla completa, ordenada y con unidades; elige bien el tipo de gráfica</td><td>Tabla completa sin unidades</td><td>Faltan datos</td><td>No traduce</td></tr>
+    <tr><th scope="row">Traduce de visual a texto</th><td>Qué se mide, tendencia y comparaciones con cifras exactas</td><td>Falta una de las tres partes</td><td>Solo repite números</td><td>Descripción incorrecta</td></tr>
+    <tr><th scope="row">Integra los datos con la prosa</th><td>Explica el dato raro (marzo) con la información del texto</td><td>Lo menciona sin explicarlo</td><td>No lo ve</td><td>Contradice el texto</td></tr>
+  </tbody>
+</table>
+<p style="font-size:.92rem">Total: 12 puntos.</p>
+</div>
+</details>
+
+<details id="s-tarea">
+<summary>7. Tarea <span class="caja-tiempo">30 min</span></summary>
+<div class="contenido-detalle">
+<ul class="lista-bonita">
+  <li><strong>Termina el taller</strong> y revísalo con la rúbrica.</li>
+  <li><strong>Dibuja en papel</strong> una gráfica de barras con las alturas finales de las tres macetas. Ponle título, ejes con unidades y empieza en cero.</li>
+  <li><strong>Busca una gráfica</strong> en una noticia o un recibo (de la luz, del agua). Escribe en tres oraciones qué muestra y comprueba si tiene alguno de los errores de la sección 5.</li>
+</ul>
+</div>
+</details>
+
+<details id="s-quiz">
+<summary>8. Quiz de la lección <span class="caja-tiempo">20 min</span></summary>
+<div class="contenido-detalle">
+<div class="qz-intro">
+  <h4>✅ Quiz · 12 preguntas · puedes repetirlo las veces que quieras</h4>
+  <p style="margin:0">Varias preguntas se refieren al informe y a la gráfica del experimento. Elige una respuesta en cada pregunta y, al final, pulsa <strong>Ver mi resultado</strong>. La meta es acertar al menos <strong>10 de 12</strong>.</p>
+</div>
+<div id="qz-cuerpo"></div>
+<div class="botones">
+  <button type="button" class="btn btn-primario" id="qz-calificar">Ver mi resultado</button>
+  <button type="button" class="btn btn-secundario" id="qz-reintentar" style="display:none">Intentar de nuevo</button>
+</div>
+<div class="qz-resultado" id="qz-resultado" role="status" aria-live="polite"></div>
+</div>
+</details>
+
+<details id="s-cierre">
+<summary>9. Cierre <span class="caja-tiempo">5 min</span></summary>
+<div class="contenido-detalle">
+<h3>Lo que aprendiste en esta lección</h3>
+<ul class="lista-bonita">
+  <li>Líneas para el cambio en el tiempo; barras para comparar categorías; circular para partes de un todo; tabla para cifras exactas.</li>
+  <li>Para pasar del texto a la gráfica: qué se mide, la tabla completa, el tipo de gráfica, título, ejes, leyenda y el cero.</li>
+  <li>Para pasar de la gráfica al texto: qué se mide, la tendencia y las comparaciones clave con cifras, sin decir más de lo que muestra.</li>
+  <li>Un eje que no empieza en cero, intervalos desiguales o datos seleccionados pueden engañar.</li>
+</ul>
+<div class="caja-objetivos" style="background:#fff3e0;border-left-color:var(--acento)">
+  <h2 style="color:#8a3d0c;border:none;padding:0;margin-top:0;font-size:1.2rem">✅ Antes de irte, revísate</h2>
+  <ul class="lista-bonita">
+    <li>¿Por qué una gráfica de líneas es la adecuada para las mediciones del experimento?</li>
+    <li>¿Qué dice la gráfica y qué no dice sobre la salud de las plantas?</li>
+    <li>¿Qué pasaría con la impresión de la gráfica si el eje empezara en 8 cm?</li>
+  </ul>
+</div>
+<div class="tip"><strong>➡️ Sigue con la próxima lección:</strong> <a href="https://zhemaria.github.io/clases_leng4/clase_6-2.html" style="color:var(--cp-oscuro);font-weight:700">Lección 6.2 · Hipótesis, datos y conclusiones</a>.</div>
+<p style="font-size:.9rem"><strong>Fuente de los datos:</strong> José M. Fernández, <a href="https://zhemaria.github.io/clases_leng3/tabla_experimento_luz.html" target="_blank" rel="noopener noreferrer" style="color:var(--cp-oscuro)">Bitácora del experimento «Efecto de la luz en la germinación y crecimiento»</a> (2026).</p>
+</div>
+</details>
+
+<footer class="pie">
+  <p><strong>GEDparaHispanos · Artes del Lenguaje · Nivel 4: Dominio del GED y Escritura Argumentativa · Tema 6 · Lección 6.1</strong></p>
+  <p>José M. Fernández, ABE/ASE Math Master Teacher, Harry S. Truman College — City Colleges of Chicago</p>
+  <p>© 2026. Esta obra está licenciada bajo <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es" rel="license noopener noreferrer" target="_blank">Creative Commons Reconocimiento-NoComercial-CompartirIgual 4.0 Internacional (CC BY-NC-SA 4.0)</a>.</p>
+</footer>
+<a class="volver-indice" href="#indice" aria-label="Volver al contenido de la lección"><span aria-hidden="true">↑</span> Índice</a>
+
+<script>
+
+/* ===== Voz: todas las lecturas pasan por hablar(), para poder cambiarla después por audio grabado ===== */
+(function(){
+  var voz=null, hay=('speechSynthesis' in window);
+  function elegir(){
+    if(!hay)return;
+    var vs=speechSynthesis.getVoices().filter(function(v){return /^es/i.test(v.lang);});
+    var pref=['es-US','es-MX','es-419','es-CO','es-AR','es-CL','es-PE'];
+    voz=null;
+    for(var i=0;i<pref.length&&!voz;i++){voz=vs.find(function(v){return v.lang.replace('_','-').toLowerCase()===pref[i].toLowerCase();})||null;}
+    if(!voz)voz=vs.find(function(v){return !/es[-_]ES/i.test(v.lang);})||vs[0]||null;
+  }
+  function aviso(){var a=document.getElementById('aviso-voz');if(a)a.classList.add('visible');}
+  function frase(t,vel){var u=new SpeechSynthesisUtterance(t);u.lang=voz?voz.lang:'es-US';if(voz)u.voice=voz;u.rate=vel||0.9;return u;}
+  if(hay){elegir(); speechSynthesis.onvoiceschanged=elegir;}
+  window.hablar=function(texto,vel,fin){
+    if(!hay||!texto){aviso();return;}
+    speechSynthesis.cancel();
+    /* Se lee por oraciones: algunos navegadores cortan las lecturas largas */
+    var partes=texto.replace(/\s+/g,' ').match(/[^.!?…]+[.!?…]+[»"”)]*\s*|[^.!?…]+$/g)||[texto];
+    partes.forEach(function(t,i){var u=frase(t.trim(),vel); if(fin&&i===partes.length-1)u.onend=fin; speechSynthesis.speak(u);});
+  };
+  window.callar=function(){if(hay)speechSynthesis.cancel();};
+  if(!hay)document.addEventListener('DOMContentLoaded',aviso);
+})();
+
+/* ===== Clasificador: cada elemento con sus botones; al acertar muestra una nota =====
+   Las opciones propias de cada elemento se barajan; las opciones comunes conservan su orden */
+function orden(it,ops){
+  var o=ops.map(function(_,j){return j;});
+  if(it.ops&&!it.fijo){for(var k=o.length-1;k>0;k--){var r=Math.floor(Math.random()*(k+1)),t=o[k];o[k]=o[r];o[r]=t;}}
+  return o;
+}
+function clasificador(idCaja,idPuntaje,items,opciones,conAudio){
+  var caja=document.getElementById(idCaja), pun=document.getElementById(idPuntaje), bien=0, hechas={};
+  function marcador(){pun.textContent=bien===items.length?(items.length===1?'🎉 ¡Muy bien!':'🎉 ¡Muy bien! Acertaste las '+bien+'.'):(items.length===1?'':'Aciertos: '+bien+' / '+items.length);}
+  items.forEach(function(it,i){
+    var d=document.createElement('div'); d.className='item'; d.setAttribute('role','group'); d.setAttribute('aria-label',it.p.replace(/<[^>]+>/g,''));
+    var ops=it.ops||opciones;
+    d.innerHTML='<span class="item-pal">'+it.p+(conAudio?' <button type="button" class="oir" aria-label="Escuchar">🔊</button>':'')+'</span>'+
+      '<span class="item-ops">'+orden(it,ops).map(function(j){return '<button type="button" class="btn-op" data-j="'+j+'">'+ops[j]+'</button>';}).join('')+'</span>'+
+      '<span class="item-fb" aria-live="polite"></span>';
+    caja.appendChild(d);
+    if(conAudio)d.querySelector('.oir').addEventListener('click',function(){hablar(it.a||it.p.replace(/<[^>]+>/g,''),0.85);});
+    var fb=d.querySelector('.item-fb');
+    d.querySelectorAll('.btn-op').forEach(function(b){
+      b.addEventListener('click',function(){
+        if(hechas[i])return;
+        if(+b.getAttribute('data-j')===it.c){
+          b.classList.add('correcta'); hechas[i]=true; bien++;
+          d.querySelectorAll('.btn-op').forEach(function(x){x.disabled=true;});
+          fb.innerHTML='✓ '+(it.n||'Correcto.'); marcador();
+        }else{
+          b.classList.add('incorrecta'); b.disabled=true;
+          fb.innerHTML='Todavía no. '+(it.pista||'Vuelve a mirar la regla e intenta otra vez.');
+        }
+      });
+    });
+  });
+  marcador();
+}
+
+/* ===== Quiz de la lección ===== */
+function iniciarQuiz(P,cfg){
+  var META=cfg.meta, N=P.length, cuerpo=document.getElementById('qz-cuerpo'), elegidas={};
+  P.forEach(function(p,i){
+    var d=document.createElement('div');
+    d.className='qz-preg'; d.setAttribute('role','group'); d.setAttribute('aria-labelledby','qz-e'+i);
+    var h='<p class="qz-enun" id="qz-e'+i+'"><span class="qz-num">'+(i+1)+'</span>'+p.t+'</p><div class="qz-ops">';
+    var orden=p.o.map(function(_,j){return j;});
+    if(!p.fijo){for(var k=orden.length-1;k>0;k--){var r=Math.floor(Math.random()*(k+1)),t=orden[k];orden[k]=orden[r];orden[r]=t;}}
+    orden.forEach(function(j){h+='<button type="button" class="qz-op" data-i="'+i+'" data-j="'+j+'" aria-pressed="false">'+p.o[j]+'</button>';});
+    d.innerHTML=h+'</div>'; cuerpo.appendChild(d);
+  });
+  cuerpo.addEventListener('click',function(ev){
+    var b=ev.target.closest('.qz-op'); if(!b||b.disabled)return;
+    var i=b.getAttribute('data-i');
+    cuerpo.querySelectorAll('.qz-op[data-i="'+i+'"]').forEach(function(x){x.classList.remove('elegida');x.setAttribute('aria-pressed','false');});
+    b.classList.add('elegida'); b.setAttribute('aria-pressed','true'); elegidas[i]=+b.getAttribute('data-j');
+  });
+  var res=document.getElementById('qz-resultado');
+  document.getElementById('qz-calificar').addEventListener('click',function(){
+    var bien=0;
+    P.forEach(function(p,i){
+      cuerpo.querySelectorAll('.qz-op[data-i="'+i+'"]').forEach(function(x){
+        var j=+x.getAttribute('data-j'); x.disabled=true; x.classList.remove('elegida');
+        if(j===p.c)x.classList.add('correcta'); else if(elegidas[i]===j)x.classList.add('incorrecta');
+      });
+      if(elegidas[i]===p.c)bien++;
+      else if(p.r){var nota=document.createElement('p');nota.className='qz-repaso';nota.innerHTML='📘 Para repasar: '+p.r;cuerpo.children[i].appendChild(nota);}
+    });
+    var msg,fondo,color;
+    if(bien>=META){msg='¡Excelente! '+bien+' de '+N+'. '+cfg.bien;fondo='#d4edda';color='#155724';}
+    else if(bien>=Math.ceil(N*0.6)){msg='Buen trabajo: '+bien+' de '+N+'. Repasa las preguntas marcadas con ✗ y vuelve a intentarlo.';fondo='#fff3cd';color='#5c3900';}
+    else{msg='Llevas '+bien+' de '+N+'. '+cfg.repaso;fondo='#f8d7da';color='#721c24';}
+    res.textContent=msg; res.style.background=fondo; res.style.color=color; res.classList.add('visible');
+    this.style.display='none'; document.getElementById('qz-reintentar').style.display='inline-block';
+    res.scrollIntoView({behavior:'smooth',block:'center'});
+  });
+  document.getElementById('qz-reintentar').addEventListener('click',function(){
+    cuerpo.querySelectorAll('.qz-op').forEach(function(x){x.disabled=false;x.classList.remove('correcta','incorrecta','elegida');x.setAttribute('aria-pressed','false');});
+    cuerpo.querySelectorAll('.qz-repaso').forEach(function(n){n.remove();});
+    elegidas={}; res.classList.remove('visible'); res.textContent='';
+    this.style.display='none'; document.getElementById('qz-calificar').style.display='inline-block';
+    cuerpo.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+}
+
+/* ===== Navegación: el índice y la dirección (#ancla) abren su sección ===== */
+document.addEventListener('DOMContentLoaded',function(){
+  function abrir(id){
+    var el=id&&document.getElementById(id); if(!el)return;
+    var d=el.tagName==='DETAILS'?el:el.closest('details');
+    if(d){d.open=true; el.scrollIntoView({behavior:'smooth',block:'start'});}
+  }
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(){abrir(a.getAttribute('href').slice(1));});});
+  document.getElementById('abrir-todo').addEventListener('click',function(){document.querySelectorAll('details').forEach(function(d){d.open=true;});});
+  document.getElementById('cerrar-todo').addEventListener('click',function(){document.querySelectorAll('details').forEach(function(d){d.open=false;});});
+  window.addEventListener('hashchange',function(){abrir(decodeURIComponent(location.hash.slice(1)));});
+  abrir(decodeURIComponent(location.hash.slice(1)));
+});
+
+/* ===== Taller de escritura =====
+   El borrador se guarda en este navegador (si el navegador lo permite). */
+function tallerEscritura(id,o){
+  var caja=document.getElementById(id), k='gph-borrador-'+o.clave;
+  var h='<label class="tl-etq" for="'+id+'-txt">'+(o.etiqueta||'Escribe aquí tu texto')+'</label>'+
+    '<textarea class="tl-txt" id="'+id+'-txt" rows="10" spellcheck="true" lang="es"'+(o.guia?' placeholder="'+o.guia.replace(/"/g,'&quot;')+'"':'')+'></textarea>'+
+    '<div class="tl-cuenta" id="'+id+'-cuenta" aria-live="polite"></div>';
+  if(o.conectores)h+='<div class="tl-conect" id="'+id+'-con" aria-live="polite"></div>';
+  h+='<div class="botones" style="justify-content:flex-start">'+
+    '<button type="button" class="btn btn-secundario" id="'+id+'-oir">🔊 Escuchar mi texto</button>'+
+    '<button type="button" class="btn btn-secundario" id="'+id+'-copiar">📋 Copiar mi texto</button>'+
+    '<button type="button" class="btn btn-secundario" id="'+id+'-borrar">🗑️ Borrar</button></div>'+
+    '<div class="tl-aviso" id="'+id+'-aviso" role="status" aria-live="polite"></div>';
+  if(o.lista){
+    h+='<fieldset class="tl-lista"><legend>✅ Revisa tu texto antes de darlo por terminado</legend>'+
+      o.lista.map(function(t,i){return '<label><input type="checkbox" id="'+id+'-c'+i+'"> '+t+'</label>';}).join('')+
+      '<p class="tl-listo" id="'+id+'-listo" aria-live="polite"></p></fieldset>';
+  }
+  caja.innerHTML=h;
+  var ta=document.getElementById(id+'-txt'), cu=document.getElementById(id+'-cuenta'), co=document.getElementById(id+'-con'), av=document.getElementById(id+'-aviso');
+  try{var g=localStorage.getItem(k); if(g)ta.value=g;}catch(e){}
+  function avisar(t){av.textContent=t; clearTimeout(avisar.t); avisar.t=setTimeout(function(){av.textContent='';},4000);}
+  function medir(){var t=ta.value.trim();return {t:t,pal:t?t.split(/\s+/).length:0,ora:(t.match(/[^.!?…]+[.!?…]+/g)||[]).length};}
+  function contar(){
+    var x=medir(), m=o.meta||{}, s='Palabras: '+x.pal+(m.palabras?' (meta: '+m.palabras+' o más)':'')+' · Oraciones: '+x.ora+(m.oraciones?' (meta: '+m.oraciones+' o más)':'');
+    if(m.oraciones&&x.ora>=m.oraciones&&(!m.palabras||x.pal>=m.palabras))s+=' · 🎯 ¡Llegaste a la meta de extensión!';
+    cu.textContent=s;
+    if(co){
+      var low=' '+x.t.toLowerCase().replace(/[.,;:¡!¿?«»"()—]/g,' ')+' ', us=o.conectores.filter(function(c){return low.indexOf(' '+c.toLowerCase()+' ')>=0;});
+      co.innerHTML=us.length?(o.titLista||'Conectores que usaste')+': '+us.map(function(c){return '<span class="tl-chip">'+c+'</span>';}).join(' '):(o.vacioLista||'Todavía no aparece ningún conector de la lista.');
+    }
+    try{localStorage.setItem(k,ta.value);}catch(e){}
+  }
+  ta.addEventListener('input',contar); contar();
+  document.getElementById(id+'-oir').addEventListener('click',function(){
+    if(!ta.value.trim()){avisar('Primero escribe algo para poder escucharlo.');return;}
+    hablar(ta.value,0.9);
+  });
+  document.getElementById(id+'-copiar').addEventListener('click',function(){
+    if(!ta.value.trim()){avisar('Todavía no hay texto para copiar.');return;}
+    function ok(){avisar('✓ Texto copiado. Ya puedes pegarlo en un correo o en un documento.');}
+    if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(ta.value).then(ok,function(){ta.select();document.execCommand('copy');ok();});
+    else{ta.select();document.execCommand('copy');ok();}
+  });
+  var borrarListo=false;
+  document.getElementById(id+'-borrar').addEventListener('click',function(){
+    if(!borrarListo){borrarListo=true;avisar('¿Seguro? Pulsa «Borrar» otra vez para borrar todo el texto.');setTimeout(function(){borrarListo=false;},4000);return;}
+    borrarListo=false; ta.value=''; contar(); avisar('Texto borrado.'); ta.focus();
+  });
+  if(o.lista){
+    var cbs=caja.querySelectorAll('.tl-lista input'), li=document.getElementById(id+'-listo');
+    function rev(){var n=Array.prototype.filter.call(cbs,function(c){return c.checked;}).length, x=medir(), m=o.meta||{}, corto=(m.oraciones&&x.ora<m.oraciones)||(m.palabras&&x.pal<m.palabras);
+      li.textContent=n<cbs.length?'Revisado: '+n+' de '+cbs.length:(corto?'Marcaste toda la lista, pero tu texto todavía no llega a la meta de extensión. Añade algo más.':'🎉 ¡Todo revisado! Tu párrafo está listo.');}
+    ta.addEventListener('input',rev);
+    cbs.forEach(function(c){c.addEventListener('change',rev);}); rev();
+  }
+}
+/* Rúbricas: cada celda recibe el nombre de su nivel para mostrarlo en el celular */
+document.querySelectorAll('table.rubrica').forEach(function(t){
+  var cab=Array.prototype.map.call(t.querySelectorAll('thead th'),function(th){return th.textContent;});
+  t.querySelectorAll('tbody tr').forEach(function(tr){Array.prototype.forEach.call(tr.children,function(c,i){if(c.tagName==='TD')c.setAttribute('data-et',cab[i]);});});
+});
+
+
+/* ===== Datos del experimento del profesor (bitácora «Efecto de la luz en la germinación y crecimiento», 2026) =====
+   Si cambian las mediciones, se corrigen SOLO aquí: la gráfica y la tabla se generan con estos números. */
+var EXP={
+  dias:[0,2,4,6,8,10,14,20,21],
+  series:[
+    {k:'A',nombre:'Maceta A · luz plena',corto:'A · Luz plena',color:'#2e7d32',trazo:'',marca:'triangulo',
+     alt:[1.2,1.8,2.5,3.4,4.5,5.8,7.5,9.5,10.2]},
+    {k:'B',nombre:'Maceta B · poca luz',corto:'B · Poca luz',color:'#9a6700',trazo:'8 5',marca:'cuadrado',
+     alt:[1.1,2.1,3.5,5.0,7.2,9.1,11.5,13.8,14.5]},
+    {k:'C',nombre:'Maceta C · oscuridad',corto:'C · Oscuridad',color:'#4a4a4a',trazo:'2 4',marca:'circulo',
+     alt:[1.3,2.8,5.2,8.5,11.0,13.5,16.2,18.1,18.8]}
+  ]
+};
+function fmtCm(v){return v.toFixed(1)+' cm';}
+function marcaSVG(tipo,x,y,r,color,extra){
+  if(tipo==='triangulo')return '<path d="M'+x+','+(y-r-1)+' L'+(x+r+1)+','+(y+r)+' L'+(x-r-1)+','+(y+r)+' Z" fill="'+color+'" stroke="#fff" stroke-width="1.5" '+(extra||'')+'/>';
+  if(tipo==='cuadrado')return '<rect x="'+(x-r)+'" y="'+(y-r)+'" width="'+(2*r)+'" height="'+(2*r)+'" fill="'+color+'" stroke="#fff" stroke-width="1.5" '+(extra||'')+'/>';
+  return '<circle cx="'+x+'" cy="'+y+'" r="'+r+'" fill="'+color+'" stroke="#fff" stroke-width="1.5" '+(extra||'')+'/>';
+}
+/* Gráfica de líneas accesible: eje desde cero, días a su distancia real, trazo y marcador distintos por serie,
+   etiquetas al final de cada línea, valor al pasar el cursor o con la tecla Tab, y tabla con los mismos datos. */
+function graficaExperimento(id,opc){
+  opc=opc||{};
+  var caja=document.getElementById(id); if(!caja)return;
+  var W=680,H=380,x0=56,x1=548,y0=320,y1=24,ymax=20;
+  function X(d){return x0+(d/21)*(x1-x0);}
+  function Y(v){return y0-(v/ymax)*(y0-y1);}
+  var tid=id+'-t',did=id+'-d';
+  var desc='Gráfica de líneas con la altura promedio, en centímetros, de las plantas de tres macetas durante 21 días. '+
+    EXP.series.map(function(s){return s.nombre+': de '+fmtCm(s.alt[0])+' el día 0 a '+fmtCm(s.alt[s.alt.length-1])+' el día 21';}).join('; ')+
+    '. Las tres crecen; la maceta en oscuridad es la que más sube y la de luz plena, la que menos.';
+  var h='<p style="font-weight:700;color:var(--cp-oscuro);margin:0 0 4px">'+(opc.titulo||'Altura promedio de las plantas de frijol según la luz (días 0 a 21)')+'</p>';
+  h+='<div class="leyenda-graf" aria-hidden="true">'+EXP.series.map(function(s){
+    return '<span><svg width="44" height="14" viewBox="0 0 44 14"><line x1="2" y1="7" x2="42" y2="7" stroke="'+s.color+'" stroke-width="3" stroke-dasharray="'+s.trazo+'" stroke-linecap="round"/>'+marcaSVG(s.marca,22,7,4,s.color)+'</svg>'+s.nombre+'</span>';}).join('')+'</div>';
+  var g='<svg class="graf-principal" viewBox="0 0 '+W+' '+H+'" role="img" aria-labelledby="'+tid+' '+did+'"><title id="'+tid+'">Altura promedio de las plantas según la luz</title><desc id="'+did+'">'+desc+'</desc>';
+  for(var v=0;v<=ymax;v+=5){g+='<line x1="'+x0+'" x2="'+x1+'" y1="'+Y(v)+'" y2="'+Y(v)+'" stroke="#d6dde4"/><text x="'+(x0-8)+'" y="'+(Y(v)+4)+'" text-anchor="end" font-size="12" fill="#333">'+v+'</text>';}
+  g+='<line x1="'+x0+'" x2="'+x1+'" y1="'+y0+'" y2="'+y0+'" stroke="#555"/>';
+  EXP.dias.forEach(function(d){g+='<line x1="'+X(d)+'" x2="'+X(d)+'" y1="'+y0+'" y2="'+(y0+5)+'" stroke="#555"/><text x="'+X(d)+'" y="'+(y0+19)+'" text-anchor="middle" font-size="12" fill="#333">'+d+'</text>';});
+  g+='<text x="'+((x0+x1)/2)+'" y="'+(y0+42)+'" text-anchor="middle" font-size="13" fill="#333">Días desde la separación de las macetas</text>';
+  g+='<text x="14" y="'+((y0+y1)/2)+'" transform="rotate(-90 14 '+((y0+y1)/2)+')" text-anchor="middle" font-size="13" fill="#333">Altura promedio (cm)</text>';
+  /* etiquetas finales sin solaparse */
+  var fin=EXP.series.map(function(s){return {s:s,y:Y(s.alt[s.alt.length-1])};}).sort(function(a,b){return a.y-b.y;});
+  for(var i=1;i<fin.length;i++){if(fin[i].y-fin[i-1].y<30)fin[i].y=fin[i-1].y+30;}
+  EXP.series.forEach(function(s){
+    var pts=EXP.dias.map(function(d,i){return X(d)+','+Y(s.alt[i]);}).join(' ');
+    g+='<polyline points="'+pts+'" fill="none" stroke="'+s.color+'" stroke-width="2.5" stroke-dasharray="'+s.trazo+'" stroke-linecap="round" stroke-linejoin="round"/>';
+  });
+  EXP.series.forEach(function(s){
+    EXP.dias.forEach(function(d,i){
+      var et=s.nombre+', día '+d+': '+fmtCm(s.alt[i]);
+      g+='<g class="pto" tabindex="0" role="img" aria-label="'+et+'" data-et="'+et+'" data-x="'+X(d)+'" data-y="'+Y(s.alt[i])+'">'+
+         '<circle cx="'+X(d)+'" cy="'+Y(s.alt[i])+'" r="11" fill="transparent"/>'+marcaSVG(s.marca,X(d),Y(s.alt[i]),4.5,s.color)+'<title>'+et+'</title></g>';
+    });
+    var f=fin.filter(function(o){return o.s===s;})[0];
+    g+='<text x="'+(x1+10)+'" y="'+(f.y+4)+'" font-size="13" font-weight="700" fill="'+s.color+'">'+s.corto+'</text>'+
+       '<text x="'+(x1+10)+'" y="'+(f.y+19)+'" font-size="12" fill="#333">'+fmtCm(s.alt[s.alt.length-1])+'</text>';
+  });
+  g+='<g class="tip-graf" style="display:none" pointer-events="none"><rect rx="6" ry="6" fill="#1a2332" opacity=".92"/><text fill="#fff" font-size="12.5" font-weight="600"></text></g>';
+  g+='</svg>';
+  h+=g;
+  h+='<details class="ver-tabla"><summary>Ver los datos de la gráfica en una tabla</summary><div class="contenido-detalle" style="padding:8px 12px"><table class="tabla"><caption class="sr-solo">Altura promedio en centímetros de las plantas de cada maceta, por día</caption><thead><tr><th scope="col">Día</th>'+
+     EXP.series.map(function(s){return '<th scope="col">'+s.nombre+'</th>';}).join('')+'</tr></thead><tbody>'+
+     EXP.dias.map(function(d,i){return '<tr><td>'+d+'</td>'+EXP.series.map(function(s){return '<td>'+fmtCm(s.alt[i])+'</td>';}).join('')+'</tr>';}).join('')+
+     '</tbody></table></div></details>';
+  caja.innerHTML=h;
+  var svg=caja.querySelector('svg.graf-principal'), tip=svg.querySelector('.tip-graf'), tr=tip.querySelector('rect'), tt=tip.querySelector('text');
+  function mostrar(p){
+    var x=+p.getAttribute('data-x'), y=+p.getAttribute('data-y'); tt.textContent=p.getAttribute('data-et');
+    var w=tt.textContent.length*6.6+16, tx=Math.min(Math.max(x-w/2,4),W-w-4), ty=y-38<4?y+14:y-38;
+    tr.setAttribute('x',tx);tr.setAttribute('y',ty);tr.setAttribute('width',w);tr.setAttribute('height',26);
+    tt.setAttribute('x',tx+8);tt.setAttribute('y',ty+17);tip.style.display='';
+  }
+  function ocultar(){tip.style.display='none';}
+  svg.querySelectorAll('.pto').forEach(function(p){
+    p.addEventListener('mouseenter',function(){mostrar(p);}); p.addEventListener('focus',function(){mostrar(p);});
+    p.addEventListener('mouseleave',ocultar); p.addEventListener('blur',ocultar);
+    p.addEventListener('touchstart',function(){mostrar(p);},{passive:true});
+  });
+}
+
+graficaExperimento('graf-exp');
+document.getElementById('leer-lectura').addEventListener('click',function(){var c=document.getElementById('lectura').cloneNode(true);c.querySelectorAll('.num-p').forEach(function(e){e.remove();});hablar(c.textContent.trim(),0.9);});
+
+/* ===== Ejercicios de la lección ===== */
+clasificador('clasif-forma','puntaje-forma',[
+  {p:'Quieres mostrar cómo cambió el precio de la gasolina cada mes durante un año. ¿Qué usas?',ops:['Gráfica de líneas','Gráfica circular','Gráfica de barras de una sola barra'],c:0,n:'Cambio a lo largo del tiempo.'},
+  {p:'Quieres comparar cuántos estudiantes hay en cinco programas distintos.',ops:['Gráfica de barras','Gráfica de líneas','Gráfica circular de dos partes'],c:0,n:'Comparación entre categorías.'},
+  {p:'Quieres mostrar en qué se gasta el sueldo de una familia (renta, comida, transporte, otros), que suma el 100 %.',ops:['Gráfica circular','Gráfica de líneas','Tabla sin totales'],c:0,n:'Partes de un todo.'},
+  {p:'Necesitas consultar la medición exacta de cada planta cada día.',ops:['Tabla','Gráfica circular','Una sola barra'],c:0,n:'Cifras exactas.'}
+],null,false);
+
+clasificador('clasif-informe','puntaje-informe',[
+  {p:'Según el informe, ¿cuánto medían en promedio las plantas de la maceta C al final?',ops:['18.8 cm','14.5 cm','13.5 cm'],c:0,n:'Párrafo 2. 13.5 cm es el día 10.'},
+  {p:'¿Qué variable se cambió de una maceta a otra?',ops:['La cantidad de luz','La cantidad de agua','El tipo de sustrato'],c:0,n:'El agua y el sustrato fueron iguales.'},
+  {p:'¿Qué dato del párrafo 3 NO aparece en una gráfica de alturas?',ops:['El número y el color de las hojas','La altura final de la maceta A','La altura inicial de la maceta B'],c:0,n:'La altura no lo dice todo.'}
+],null,false);
+
+clasificador('clasif-grafica','puntaje-grafica',[
+  {p:'En la gráfica, ¿qué línea sube más rápido?',ops:['La de la maceta C (oscuridad)','La de la maceta A (luz plena)','Las tres suben al mismo ritmo'],c:0,n:'Tiene la pendiente más pronunciada.'},
+  {p:'¿Cuánto medía en promedio la maceta B el día 10?',ops:['9.1 cm','5.8 cm','13.5 cm'],c:0,n:'Pasa el cursor sobre el punto o mira la tabla.'},
+  {p:'¿Por qué el eje vertical de la gráfica empieza en cero?',ops:['Para no exagerar las diferencias entre las líneas','Porque así la gráfica cabe mejor en la pantalla','Porque ninguna planta medía menos de un centímetro'],c:0,n:'Regla de oro de las gráficas honestas.'},
+  {p:'¿Qué se necesita, además de la gráfica, para saber qué planta está más sana?',ops:['Los datos de hojas y color de la bitácora','Una gráfica con el eje empezando en 10','Más días de medición de la altura'],c:0,n:'La gráfica solo muestra la altura.'}
+],null,false);
+
+clasificador('clasif-texto','puntaje-texto',[
+  {p:'¿Qué descripción de la gráfica es la más precisa?',ops:['Las tres macetas crecen, pero la C termina con 18.8 cm, casi el doble que la A (10.2 cm).','Las plantas crecen mucho durante el experimento y la gráfica resulta muy interesante de ver.','La maceta A es la mejor de las tres porque es la más sana y la que tiene más hojas.'],c:0,n:'Tendencia y comparación con cifras.'},
+  {p:'¿Qué expresión describe bien el crecimiento de la maceta A del día 0 al 21?',ops:['Pasa de 1.2 a 10.2 cm: crece unas ocho veces y media','Se duplica exactamente durante el experimento','Se mantiene estable durante todo el experimento'],c:0,n:'10.2 ÷ 1.2 = 8.5.'},
+  {p:'¿Qué afirmación va MÁS ALLÁ de lo que muestra la gráfica?',ops:['Las plantas de la maceta C están enfermas','La maceta C es la más alta al final','Las tres líneas suben desde el día 0'],c:0,n:'La gráfica solo mide altura.'}
+],null,false);
+
+clasificador('clasif-error','puntaje-error',[
+  {p:'Una gráfica de barras compara 10 y 11 cm con un eje que empieza en 9. La segunda barra parece el doble. ¿Qué error tiene?',ops:['El eje no empieza en cero','Usa el tipo de gráfica equivocado','Le falta la leyenda'],c:0,n:'El eje truncado exagera.'},
+  {p:'Una gráfica circular muestra «A: 40 %, B: 35 %, C: 45 %». ¿Qué error tiene?',ops:['Los porcentajes suman más de 100 %','El eje no empieza en cero','Tiene intervalos desiguales'],c:0,n:'Una circular debe sumar 100 %.'},
+  {p:'Una gráfica de líneas coloca los días 0, 2, 4, 6, 8, 10, 14, 20 y 21 a la misma distancia. ¿Qué error tiene?',ops:['Intervalos desiguales que deforman la tendencia','El eje vertical no empieza en cero','Usa una gráfica circular en vez de líneas'],c:0,n:'Entre el 14 y el 20 hay seis días, no dos.'}
+],null,false);
+
+tallerEscritura('taller-61',{clave:'n4-6-1',etiqueta:'Parte A (tabla) y Parte B (descripción de la gráfica)',
+  guia:'Parte A: Mes - Libros prestados / enero - 120 / … Parte B: La gráfica muestra … Las tres … La maceta C … mientras que …',
+  meta:{oraciones:5,palabras:90},
+  conectores:['aumenta','crece','disminuye','se mantiene','el doble','casi','mientras que','supera','cm','promedio'],
+  titLista:'Expresiones de datos que usaste',
+  vacioLista:'Todavía no aparecen expresiones para describir datos (aumenta, el doble, mientras que…).',
+  lista:['Mi tabla de la Parte A tiene los cuatro meses y sus cifras.','Expliqué por qué marzo es más bajo, con la información del texto.','Mi descripción dice qué se mide.','Describo la tendencia general.','Incluyo al menos tres cifras exactas con su unidad.','No digo nada que la gráfica no muestre.']});
+
+iniciarQuiz([
+  {t:'Para mostrar cómo cambia algo a lo largo del tiempo, la mejor opción es…',o:['una gráfica de líneas','una gráfica circular','una tabla de dos filas'],c:0,r:'<a href="#s-1-formas">Sección 1</a>'},
+  {t:'Una gráfica circular sirve para mostrar…',o:['las partes de un todo que suman 100 %','el cambio de una medida en el tiempo','la comparación de alturas entre plantas'],c:0,r:'<a href="#s-1-formas">Sección 1</a>'},
+  {t:'Según el informe, ¿dónde se colocó la maceta B?',o:['En un rincón, con poca luz','Junto a una ventana con mucha luz','Dentro de una caja en el clóset'],c:0,r:'<a href="#s-2-informe">Sección 2</a>'},
+  {t:'¿Cuánta agua recibía cada maceta?',o:['60 ml cada dos días','60 ml cada día','120 ml cada semana'],c:0,r:'<a href="#s-2-informe">Sección 2</a>'},
+  {t:'¿Cuál es el primer paso para pasar un texto a una gráfica?',o:['Identificar qué se mide y respecto a qué','Elegir los colores de las líneas','Dibujar el título más grande'],c:0,r:'<a href="#s-3-a-grafica">Sección 3</a>'},
+  {t:'En la gráfica del experimento, ¿cuánto medía la maceta A el día 14?',o:['7.5 cm','11.5 cm','16.2 cm'],c:0,r:'<a href="#s-3-a-grafica">Sección 3</a>'},
+  {t:'¿Qué maceta crece más despacio?',o:['La A, con luz plena','La B, con poca luz','La C, en oscuridad'],c:0,r:'<a href="#s-3-a-grafica">Sección 3</a>'},
+  {t:'¿Qué tres partes tiene una buena descripción de una gráfica?',o:['Qué se mide, la tendencia y las comparaciones clave','El título, los colores de las líneas y el tamaño','La fuente de los datos, la fecha y el autor'],c:0,r:'<a href="#s-4-a-texto">Sección 4</a>'},
+  {t:'«Las plantas de C terminan con casi el doble de altura que las de A.» ¿Es correcta?',o:['Sí: 18.8 cm frente a 10.2 cm','No: C mide menos que A','No: C mide exactamente el triple'],c:0,r:'<a href="#s-4-a-texto">Sección 4</a>'},
+  {t:'¿Qué expresión indica que algo no cambia?',o:['se mantiene','se duplica','se reduce a la mitad'],c:0,r:'<a href="#s-4-a-texto">Sección 4</a>'},
+  {t:'¿Qué efecto tiene un eje vertical que no empieza en cero?',o:['Exagera las diferencias','Hace la gráfica más exacta','Elimina los datos raros'],c:0,r:'<a href="#s-5-errores">Sección 5</a>'},
+  {t:'Mostrar solo los años que convienen al autor es un error de…',o:['datos seleccionados','intervalos desiguales','falta de leyenda'],c:0,r:'<a href="#s-5-errores">Sección 5</a>'}
+],{meta:10,
+   bien:'Ya traduces datos del texto a la gráfica y de la gráfica al texto, y detectas las gráficas engañosas. Sigue con la Lección 6.2.',
+   repaso:'Vuelve a las secciones 1, 3 y 4 y repite el quiz: con práctica sale.'});
+</script>
+</body>
+</html>

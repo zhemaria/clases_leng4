@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<!-- Lección 6.3 · Artes del Lenguaje Nivel 4 · GEDparaHispanos
+     José M. Fernández, ABE/ASE Math Master Teacher, Harry S. Truman College — City Colleges of Chicago
+     Licencia CC BY-NC-SA 4.0 · https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es -->
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lección 6.3 · Sintetizar fuentes científicas diversas</title>
+<meta name="author" content="José M. Fernández, ABE/ASE Math Master Teacher, Harry S. Truman College — City Colleges of Chicago">
+<meta name="license" content="CC BY-NC-SA 4.0">
+<link rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es">
+<style>
+  :root{
+    --cp:#b91c1c;--cp-claro:#fee2e2;--cp-oscuro:#7f1d1d;
+    --acento:#ff8c42;--texto:#1a2332;--fondo:#fafbfc;
+    --gris:#555;--gris-claro:#eef1f4;
+    --exito:#2e7d32;--error:#c62828;
+  }
+  *{box-sizing:border-box}
+  body{font-family:'Poppins','Segoe UI',Arial,sans-serif;line-height:1.7;color:var(--texto);background:var(--fondo);max-width:960px;margin:0 auto;padding:24px 18px}
+  h1{color:var(--cp-oscuro);border-bottom:4px solid var(--cp);padding-bottom:14px;font-size:1.85rem;margin-bottom:8px}
+  .subtitulo{color:var(--gris);font-style:italic;margin-top:0;margin-bottom:24px;font-size:1.05rem}
+  h2{color:var(--cp-oscuro);border-left:6px solid var(--cp);padding-left:14px;margin-top:32px;font-size:1.4rem}
+  h3{color:var(--cp-oscuro);margin-top:24px;font-size:1.15rem}
+  .caja-objetivos{background:var(--cp-claro);border-left:6px solid var(--cp);padding:18px 22px;border-radius:8px;margin:18px 0 28px 0}
+  .caja-objetivos h2{margin-top:0;color:var(--cp-oscuro);border-left:none;padding-left:0;font-size:1.2rem}
+  .caja-tiempo{display:inline-block;background:var(--acento);color:#1a2332;padding:4px 12px;border-radius:14px;font-size:0.85rem;font-weight:600;margin-left:10px;vertical-align:middle}
+  details{background:#fff;border:1px solid #d6dde4;border-radius:10px;margin:14px 0;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,0.04)}
+  details[open]{border-color:var(--cp);box-shadow:0 3px 10px rgba(185,28,28,0.12)}
+  summary{cursor:pointer;padding:16px 20px;font-weight:600;color:var(--cp-oscuro);background:var(--gris-claro);list-style:none;user-select:none;font-size:1.05rem}
+  summary::-webkit-details-marker{display:none}
+  summary::before{content:'▶';display:inline-block;margin-right:10px;color:var(--cp);transition:transform 0.25s;font-size:0.85rem}
+  details[open] summary::before{transform:rotate(90deg)}
+  details[open] summary{background:var(--cp-claro);border-bottom:2px solid var(--cp)}
+  .contenido-detalle{padding:18px 22px}
+  .tip{background:#fffbe6;border-left:5px solid #f4c430;padding:12px 18px;border-radius:6px;margin:14px 0}
+  .tip strong{color:#6b5400}
+  .botones{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:14px 0}
+  .btn{padding:10px 22px;border:none;border-radius:8px;font-weight:600;cursor:pointer;font-family:inherit;font-size:0.95rem;transition:background 0.2s}
+  .btn-primario{background:var(--cp);color:#fff}
+  .btn-primario:hover{background:var(--cp-oscuro)}
+  .btn-secundario{background:var(--gris-claro);color:var(--texto)}
+  .btn-secundario:hover{background:#d6dde4}
+  .btn[aria-pressed="true"]{background:var(--cp-oscuro);color:#fff}
+  ul.lista-bonita{list-style:none;padding-left:0}
+  ul.lista-bonita li{padding:8px 0 8px 30px;position:relative}
+  ul.lista-bonita li::before{content:'➜';position:absolute;left:0;color:var(--cp);font-weight:700}
+  .palabra-clave{background:linear-gradient(transparent 60%,#ffeb3b 60%);padding:0 4px;font-weight:600}
+  .ej{font-family:Georgia,serif;font-size:1.08rem}
+  .sub{font-weight:700;border-bottom:3px solid var(--cp-oscuro)}
+  table.tabla{width:100%;border-collapse:collapse;margin:16px 0;background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,0.06)}
+  table.tabla th{background:var(--cp-oscuro);color:#fff;padding:10px 12px;text-align:left}
+  table.tabla td{padding:10px 12px;border-bottom:1px solid var(--gris-claro);vertical-align:top}
+  table.tabla tr:last-child td{border-bottom:none}
+  .actividad{background:#fff;border:2px solid var(--acento);border-radius:10px;padding:16px 20px;margin:14px 0}
+  .actividad h4{color:#8a3d0c;margin-top:0}
+  .badge{display:inline-block;padding:3px 10px;border-radius:12px;font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-right:6px}
+  .badge-lectura{background:#e3f2fd;color:#0d47a1}
+  /* Clasificadores */
+  .clasificador{background:#fff;border:2px solid var(--cp);border-radius:12px;padding:14px 18px;margin:18px 0}
+  .item{border:2px solid var(--gris-claro);border-radius:8px;padding:10px 14px;margin:8px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+  .item-pal{font-family:Georgia,serif;font-size:1.12rem;color:var(--texto);display:flex;align-items:center;gap:10px}
+  .item-ops{display:flex;gap:8px;flex-wrap:wrap}
+  .item-fb{flex-basis:100%;font-size:.95rem}
+  .item-fb:empty{display:none}
+  .btn-op{padding:7px 14px;border:2px solid var(--cp-oscuro);background:#fff;color:var(--cp-oscuro);border-radius:8px;cursor:pointer;font-weight:600;font-family:inherit;font-size:.92rem}
+  .btn-op:hover:not(:disabled){background:var(--cp-claro)}
+  .btn-op.correcta{background:#d4edda;border-color:var(--exito);color:#155724}
+  .btn-op.correcta::before{content:'✓ '}
+  .btn-op.incorrecta{background:#f8d7da;border-color:var(--error);color:#721c24;text-decoration:line-through}
+  .btn-op.incorrecta::before{content:'✗ '}
+  .btn-op:disabled{cursor:default}
+  .apilado .item{flex-direction:column;align-items:stretch}
+  .apilado .item-ops{flex-direction:column}
+  .apilado .btn-op{text-align:left;font-weight:400}
+  .apilado .item-pal{font-family:'Segoe UI',Arial,sans-serif;font-size:1rem;font-weight:600;display:block}
+  .puntaje{text-align:center;margin-top:12px;font-weight:600;color:var(--cp-oscuro)}
+  /* Lectura con marcas: color + borde distinto + etiqueta escrita */
+  .texto-lectura{background:#fff;border:2px solid var(--gris-claro);border-radius:8px;padding:18px 22px;margin:14px 0;font-family:Georgia,serif;font-size:1.12rem;line-height:2.1}
+  .texto-lectura p{margin:0 0 10px}
+  .num-p{display:inline-block;background:var(--cp-oscuro);color:#fff;border-radius:50%;width:1.6em;height:1.6em;text-align:center;line-height:1.6em;font-size:.8rem;font-family:'Segoe UI',Arial,sans-serif;margin-right:6px;vertical-align:middle}
+  .m-sus{background:#e3f2fd;color:#0d3c78;border-bottom:3px solid #0d3c78}
+  .m-adj{background:#fff3e0;color:#6b3300;border-bottom:3px dashed #8a4b00}
+  .m-adv{background:#e8f5e9;color:#1b5e20;border-bottom:3px dotted #1b5e20}
+  .etq{font-weight:700;font-size:.78em;font-family:'Segoe UI',Arial,sans-serif;white-space:nowrap}
+  .oculta-marcas .m-sus,.oculta-marcas .m-adj,.oculta-marcas .m-adv{background:none;color:inherit;border:none}
+  .oculta-marcas .etq{display:none}
+  .leyenda-marcas{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0;font-size:.92rem}
+  .leyenda-marcas span{padding:2px 8px}
+  /* Índice */
+  .indice{background:#fff;border:1px solid #d6dde4;border-left:6px solid var(--cp);border-radius:10px;padding:16px 20px;margin:22px 0}
+  .indice h2{font-size:1.1rem;margin:0 0 8px;border:none;padding:0}
+  .indice ol{margin:0;padding-left:1.4em}
+  .indice li{margin:4px 0}
+  .indice a{color:var(--cp-oscuro)}
+  .abrir-cerrar{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0 0}
+  .volver-indice{position:fixed;right:18px;bottom:18px;z-index:60;background:var(--cp-oscuro);color:#fff;border-radius:999px;padding:10px 16px;font-weight:700;font-size:.92rem;text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,.28)}
+  .volver-indice:hover{background:var(--cp);color:#fff}
+  a:focus-visible,summary:focus-visible,button:focus-visible,textarea:focus-visible{outline:3px solid #b35316;outline-offset:2px}
+  .sr-solo{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+  .enlace-practica{display:block;background:#fff;border:2px solid var(--cp);border-radius:10px;padding:14px 18px;margin:16px 0;text-decoration:none;color:var(--cp-oscuro);font-weight:600}
+  .enlace-practica:hover{background:var(--cp-claro)}
+  .enlace-practica span{display:block;font-weight:400;color:var(--texto);font-size:.95rem}
+  .aviso-voz{font-size:.9rem;color:#5c3900;background:#fff3cd;border-radius:6px;padding:6px 10px;display:none}
+  .aviso-voz.visible{display:block}
+  /* Quiz */
+  .qz-intro{background:var(--cp-claro);border-radius:10px;padding:14px 18px;margin:0 0 14px}
+  .qz-intro h4{margin:0 0 6px;color:var(--cp-oscuro)}
+  .qz-preg{background:#fff;border:2px solid var(--gris-claro);border-radius:10px;padding:14px 18px;margin:12px 0}
+  .qz-enun{font-weight:600;margin:0 0 10px}
+  .qz-num{display:inline-block;background:var(--cp-oscuro);color:#fff;border-radius:12px;padding:1px 10px;font-size:.8rem;margin-right:8px}
+  .qz-ops{display:flex;flex-direction:column;gap:8px}
+  .qz-op{text-align:left;background:#fff;border:2px solid #c9d2db;border-radius:8px;padding:10px 14px;font-family:inherit;font-size:1rem;cursor:pointer;color:var(--texto)}
+  .qz-op:hover:not(:disabled){border-color:var(--cp)}
+  .qz-op.elegida{background:var(--cp-claro);border-color:var(--cp-oscuro);color:var(--cp-oscuro);box-shadow:0 0 0 3px #fff,0 0 0 5px var(--cp)}
+  .qz-op.correcta{background:#d4edda;border-color:#2e7d32;color:#155724}
+  .qz-op.correcta::before{content:'✓ '}
+  .qz-op.incorrecta{background:#f8d7da;border-color:#c62828;color:#721c24}
+  .qz-op.incorrecta::before{content:'✗ '}
+  .qz-op:disabled{cursor:default}
+  .qz-resultado{display:none;margin:16px 0;padding:16px;border-radius:10px;text-align:center;font-weight:600}
+  .qz-resultado.visible{display:block}
+  .qz-repaso{margin:10px 0 0;padding:8px 12px;background:#fff3cd;border-radius:6px;color:#3d2600;font-size:.95rem}
+  .qz-repaso a{color:var(--cp-oscuro);font-weight:700}
+  /* Taller de escritura */
+  .taller{background:#fff;border:2px solid var(--cp);border-radius:12px;padding:14px;margin:14px 0}
+  .tl-etq{display:block;font-weight:700;color:var(--cp-oscuro);margin-bottom:6px}
+  .tl-txt{width:100%;box-sizing:border-box;font:inherit;font-size:1.05rem;line-height:1.7;padding:10px 12px;border:2px solid #9aa9b7;border-radius:8px;resize:vertical;min-height:200px}
+  .tl-txt:focus{outline:3px solid var(--cp);outline-offset:1px;border-color:var(--cp-oscuro)}
+  .tl-cuenta{font-size:.92rem;color:#333;margin:6px 0}
+  .tl-conect{font-size:.95rem;margin:4px 0 8px}
+  .tl-chip{display:inline-block;background:var(--cp-claro);color:var(--cp-oscuro);border:1px solid var(--cp);border-radius:12px;padding:1px 10px;margin:2px 2px;font-weight:700}
+  .tl-aviso{min-height:1.4em;font-weight:700;color:var(--cp-oscuro)}
+  .tl-lista{border:2px dashed var(--cp);border-radius:10px;padding:8px 14px;margin-top:10px}
+  .tl-lista legend{font-weight:700;color:var(--cp-oscuro);padding:0 6px}
+  .tl-lista label{display:flex;gap:10px;align-items:flex-start;padding:6px 0;cursor:pointer}
+  .tl-lista input{width:22px;height:22px;flex-shrink:0;margin-top:2px;accent-color:var(--cp-oscuro)}
+  .tl-listo{font-weight:700;color:var(--cp-oscuro);margin:6px 0 0}
+  .rubrica{font-size:.92rem}
+  .rubrica td,.rubrica th{vertical-align:top}
+  @media(max-width:640px){
+    .rubrica thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+    .rubrica,.rubrica tbody,.rubrica tr,.rubrica th,.rubrica td{display:block;width:auto}
+    .rubrica tr{border:2px solid var(--cp);border-radius:10px;margin:0 0 10px;overflow:hidden}
+    .rubrica tbody th{background:var(--cp-oscuro);color:#fff;border:none}
+    .rubrica td{border:none;border-top:1px solid #d5dde3}
+    .rubrica td::before{content:attr(data-et);display:block;font-weight:700;color:var(--cp-oscuro)}
+  }
+  footer.pie{margin-top:40px;padding-top:18px;border-top:2px solid var(--gris-claro);text-align:center;color:#555;font-size:.9rem}
+  footer.pie p{margin:4px 0}
+  footer.pie a{color:var(--cp-oscuro)}
+  @media print{.indice,.volver-indice,.abrir-cerrar{display:none}}
+  @media (prefers-reduced-motion:reduce){summary::before{transition:none}}
+  .graf svg{width:100%;height:auto;display:block}
+  .graf svg [tabindex]:focus{outline:3px solid #b35316}
+  .leyenda-graf{display:flex;flex-wrap:wrap;gap:14px;font-size:.92rem;margin:4px 0 6px}
+  .leyenda-graf span{display:inline-flex;align-items:center;gap:6px}
+  .ver-tabla{margin-top:8px}
+  .ver-tabla summary{padding:8px 12px;font-size:.95rem}
+  .fuente{background:#fff;border:2px solid var(--gris-claro);border-left:8px solid var(--cp-oscuro);border-radius:8px;padding:12px 18px;margin:14px 0}
+  .fuente .cab-f{display:block;font-weight:700;color:var(--cp-oscuro);margin-bottom:6px}
+  .fuente blockquote{margin:0;font-family:Georgia,serif;font-size:1.06rem;line-height:1.8}
+  .formula{background:#fff;border:2px dashed var(--cp);border-radius:10px;padding:10px 16px;margin:10px 0;font-family:Georgia,serif}
+  .matriz td,.matriz th{font-size:.92rem}
+  .matriz textarea{width:100%;min-height:60px;font:inherit;font-size:.92rem;border:2px solid #9aa9b7;border-radius:6px;padding:6px}
+  .pasos-disc{counter-reset:paso;list-style:none;padding:0}
+  .pasos-disc li{counter-increment:paso;position:relative;padding:8px 0 8px 44px}
+  .pasos-disc li::before{content:counter(paso);position:absolute;left:0;top:6px;width:30px;height:30px;border-radius:50%;background:var(--cp-oscuro);color:#fff;font-weight:700;text-align:center;line-height:30px}
+</style>
+</head>
+<body>
+<h1>Lección 6.3 · Sintetizar fuentes científicas diversas</h1>
+<p class="subtitulo">Artes del Lenguaje · Nivel 4 · Tema 6: Análisis cuantitativo y científico en las materias · Unas 2 horas, a tu ritmo</p>
+
+<div class="caja-objetivos">
+  <h2>🎯 Objetivos de la lección</h2>
+  <ul class="lista-bonita" style="margin:0">
+    <li><strong>Reunir</strong> información de fuentes científicas diversas: un experimento, un texto explicativo y una tabla de datos.</li>
+    <li><strong>Resolver una discrepancia</strong> entre fuentes con evidencia, comparando sus condiciones.</li>
+    <li>Construir una <strong>síntesis</strong> coherente que responda a una pregunta y diga qué queda por saber.</li>
+  </ul>
+  <p style="margin:8px 0 0;font-size:.92rem">Estándares: RST.11-12.9 · RH.11-12.7</p>
+</div>
+
+<nav class="indice" id="indice" aria-labelledby="indice-titulo">
+  <h2 id="indice-titulo">Contenido de la lección</h2>
+  <ol>
+    <li><a href="#s-1-pregunta">Una pregunta, tres fuentes</a></li>
+    <li><a href="#s-2-fuentes">Las tres fuentes</a></li>
+    <li><a href="#s-3-matriz">La matriz de síntesis científica</a></li>
+    <li><a href="#s-4-discrepancia">Resolver la discrepancia</a></li>
+    <li><a href="#s-5-sintesis">Escribir la síntesis</a></li>
+    <li><a href="#s-6-taller">Taller: tu síntesis científica</a></li>
+    <li><a href="#s-tarea">Tarea</a></li>
+    <li><a href="#s-quiz">Quiz de la lección</a></li>
+    <li><a href="#s-cierre">Cierre</a></li>
+  </ol>
+  <div class="abrir-cerrar">
+    <button type="button" class="btn btn-secundario" id="abrir-todo">Abrir todo</button>
+    <button type="button" class="btn btn-secundario" id="cerrar-todo">Cerrar todo</button>
+  </div>
+</nav>
+
+<h2>📚 Para empezar</h2>
+<p>En la Lección 5.3 sintetizaste fuentes sobre una decisión de la ciudad. En ciencia ocurre algo frecuente y desconcertante: <strong>dos experimentos sobre lo mismo dan resultados distintos</strong>. ¿Uno está mal? No necesariamente. Muchas veces las dos fuentes tienen razón, cada una en sus condiciones, y una tercera fuente explica por qué. En esta lección vas a vivir ese caso con el experimento de la luz del profesor, una explicación científica y otro experimento que parece contradecirlo.</p>
+<p class="aviso-voz" id="aviso-voz" role="status">Tu navegador no tiene una voz en español disponible, así que los botones 🔊 no sonarán.</p>
+
+<details open id="s-1-pregunta">
+<summary>1. Una pregunta, tres fuentes <span class="caja-tiempo">10 min</span></summary>
+<div class="contenido-detalle">
+<p class="formula" style="font-weight:700">Pregunta: ¿Qué le pasa a una planta de frijol que crece sin luz, y por qué?</p>
+<table class="tabla">
+  <caption class="sr-solo">Las tres fuentes de la lección, su tipo y lo que aporta cada una</caption>
+  <thead><tr><th scope="col">Fuente</th><th scope="col">Tipo</th><th scope="col">Aporta</th></tr></thead>
+  <tbody>
+    <tr><td><strong>1</strong> · Experimento del profesor</td><td>Experimento, con gráfica y bitácora</td><td>Datos medidos durante 21 días.</td></tr>
+    <tr><td><strong>2</strong> · «¿Por qué se estira una planta en la oscuridad?»</td><td>Texto explicativo</td><td>La explicación biológica: el porqué.</td></tr>
+    <tr><td><strong>3</strong> · Réplica de otro grupo</td><td>Experimento, con tabla</td><td>Datos medidos durante 35 días, en otras condiciones.</td></tr>
+  </tbody>
+</table>
+<div class="tip"><strong>💡 Experimentos y textos aportan cosas distintas.</strong> Un experimento dice <em>qué pasó</em> en unas condiciones concretas. Un texto explicativo dice <em>por qué</em> suele pasar. Para sintetizar necesitas los dos.</div>
+</div>
+</details>
+
+<details id="s-2-fuentes">
+<summary>2. Las tres fuentes <span class="caja-tiempo">25 min</span></summary>
+<div class="contenido-detalle">
+<div class="actividad">
+  <h4><span class="badge badge-lectura">Lectura de síntesis</span> Individual · busca dónde no coinciden</h4>
+  <p style="margin:0">Lee las tres fuentes. Hay un punto en que la Fuente 1 y la Fuente 3 parecen decir lo contrario. Encuéntralo antes de seguir.</p>
+</div>
+
+<div class="fuente">
+  <span class="cab-f">Fuente 1 · Experimento del profesor José M. Fernández (2026) · 21 días</span>
+  <p style="margin:0 0 6px">Tres macetas de frijol con la misma agua y el mismo sustrato: A con luz plena, B con poca luz y C en oscuridad. Al día 21, la C era la más alta (18.8 cm), pero tenía solo 2 hojas diminutas, era blanca o amarilla y no se sostenía. La bitácora anota que el día 20 estaba «casi sin vida».</p>
+  <div class="graf" id="graf-exp"></div>
+</div>
+
+<div class="fuente">
+  <span class="cab-f">Fuente 2 · Texto explicativo · «¿Por qué se estira una planta en la oscuridad?»</span>
+  <blockquote>
+    <p style="margin:0 0 8px">Cuando una planta crece sin luz, su tallo se alarga muy deprisa, sus hojas quedan pequeñas y su color es pálido, amarillo o blanco. Este fenómeno se llama <strong>etiolación</strong>. El color se debe a que, sin luz, la planta no fabrica clorofila, el pigmento verde que le permite producir su alimento con la luz del sol.</p>
+    <p style="margin:0 0 8px">Estirarse es una estrategia de supervivencia: una semilla que germina bajo la tierra o a la sombra necesita alcanzar la luz cuanto antes. Una hormona vegetal, la auxina, ablanda las paredes de las células del tallo y permite que se alarguen. Mientras tanto, la planta vive de las reservas que traía la semilla.</p>
+    <p style="margin:0">Pero esas reservas se acaban. Si la planta encuentra la luz a tiempo, se vuelve verde y empieza a fabricar su propio alimento. Si no la encuentra, deja de crecer, se debilita y muere.</p>
+  </blockquote>
+  <p style="font-size:.88rem;margin:6px 0 0"><em>Texto escrito para esta lección a partir de obras de consulta sobre la etiolación (ver el cierre).</em></p>
+</div>
+
+<div class="fuente">
+  <span class="cab-f">Fuente 3 · Réplica de otro grupo de estudiantes · 35 días</span>
+  <p style="margin:0 0 6px">Otro grupo repitió el experimento con frijol, tres macetas y las mismas condiciones de luz, pero en un sótano más frío y midiendo durante 35 días. <em>(Grupo y datos inventados para esta lección.)</em></p>
+  <table class="tabla">
+    <caption>Altura promedio (cm) en la réplica</caption>
+    <thead><tr><th scope="col">Día</th><th scope="col">Luz plena</th><th scope="col">Poca luz</th><th scope="col">Oscuridad</th></tr></thead>
+    <tbody>
+      <tr><td>7</td><td>3.5</td><td>5.0</td><td>9.0</td></tr>
+      <tr><td>14</td><td>7.0</td><td>10.5</td><td>15.0</td></tr>
+      <tr><td>21</td><td>10.0</td><td>14.0</td><td>16.0</td></tr>
+      <tr><td>28</td><td>13.0</td><td>18.0</td><td>16.0 · plantas dobladas</td></tr>
+      <tr><td>35</td><td>16.0</td><td>22.0</td><td>16.0 · plantas secas</td></tr>
+    </tbody>
+  </table>
+  <p style="margin:0"><strong>Conclusión del grupo:</strong> «La planta en oscuridad no es la que más crece: al final, la de poca luz es la más alta.»</p>
+</div>
+<div class="botones" style="justify-content:flex-start">
+  <button type="button" class="btn btn-secundario" id="leer-fuente2">🔊 Escuchar la Fuente 2</button>
+</div>
+<div class="clasificador apilado" id="clasif-fuentes"></div>
+<div class="puntaje" id="puntaje-fuentes" role="status" aria-live="polite"></div>
+<a class="enlace-practica" href="https://zhemaria.github.io/gramatica/n4-l6-3.html#atribuye" target="_blank" rel="noopener noreferrer">📂 Practica más: atribuye cada dato a su fuente
+  <span>Datos y afirmaciones para decidir de qué fuente salen. Se abre en una pestaña nueva.</span></a>
+</div>
+</details>
+
+<details id="s-3-matriz">
+<summary>3. La matriz de síntesis científica <span class="caja-tiempo">15 min</span></summary>
+<div class="contenido-detalle">
+<p>Como en la Lección 5.3, la matriz pone lo que dice cada fuente sobre las mismas preguntas. Completa las celdas vacías; lo que escribas se queda en la página mientras la tengas abierta.</p>
+<table class="tabla matriz">
+  <caption class="sr-solo">Matriz de síntesis de las tres fuentes sobre las plantas sin luz</caption>
+  <thead><tr><th scope="col">Pregunta</th><th scope="col">Fuente 1 · Profesor</th><th scope="col">Fuente 2 · Texto</th><th scope="col">Fuente 3 · Réplica</th></tr></thead>
+  <tbody>
+    <tr><td><strong>¿La planta sin luz se alarga deprisa?</strong></td><td>Sí: 13.5 cm el día 10, la más alta.</td><td>Sí: «su tallo se alarga muy deprisa».</td><td>Sí: 15 cm el día 14, la más alta.</td></tr>
+    <tr><td><strong>¿Está sana?</strong></td><td>No: 2 hojas, blanca, no se sostiene.</td><td><label class="sr-solo" for="mz1">Tu respuesta: qué dice la Fuente 2 sobre su salud</label><textarea id="mz1" placeholder="¿Qué dice el texto sobre el color y las hojas?"></textarea></td><td>No: dobladas el día 28, secas el día 35.</td></tr>
+    <tr><td><strong>¿Hasta cuándo crece?</strong></td><td><label class="sr-solo" for="mz2">Tu respuesta: qué muestran los datos de la Fuente 1 sobre cuándo deja de crecer</label><textarea id="mz2" placeholder="Mira la gráfica del día 14 al 21…"></textarea></td><td>Mientras duran las reservas de la semilla.</td><td>Hasta el día 21, más o menos; después, nada.</td></tr>
+    <tr><td><strong>¿Por qué ocurre?</strong></td><td>No lo explica: lo interpreta («buscando el sol»).</td><td>Auxina y reservas de la semilla.</td><td><label class="sr-solo" for="mz3">Tu respuesta: qué explica la Fuente 3</label><textarea id="mz3" placeholder="¿Da alguna explicación?"></textarea></td></tr>
+  </tbody>
+</table>
+<div class="botones" style="justify-content:flex-start">
+  <button type="button" class="btn btn-secundario" id="ver-matriz" aria-expanded="false" aria-controls="sol-matriz">Ver una respuesta posible</button>
+</div>
+<div id="sol-matriz" hidden>
+  <ul class="lista-bonita">
+    <li><strong>Fuente 2, ¿está sana?:</strong> no; hojas pequeñas, color pálido, sin clorofila, y si no encuentra la luz se debilita y muere.</li>
+    <li><strong>Fuente 1, ¿hasta cuándo crece?:</strong> crece hasta el día 21, pero se va frenando: 12.2 cm del día 0 al 10, y solo 1.9 cm del día 14 al 20.</li>
+    <li><strong>Fuente 3, ¿por qué?:</strong> no da ninguna explicación; solo datos y una conclusión.</li>
+  </ul>
+</div>
+</div>
+</details>
+
+<details id="s-4-discrepancia">
+<summary>4. Resolver la discrepancia <span class="caja-tiempo">20 min</span></summary>
+<div class="contenido-detalle">
+<p>La <span class="palabra-clave">discrepancia</span>: la Fuente 1 dice que la planta en oscuridad terminó <strong>más alta</strong> que la de poca luz (18.8 frente a 14.5 cm); la Fuente 3, que terminó <strong>más baja</strong> (16 frente a 22 cm). Antes de decidir quién tiene razón, sigue estos pasos:</p>
+<ol class="pasos-disc">
+  <li><strong>Precisa dónde difieren exactamente.</strong> No difieren en todo: las dos muestran que la planta sin luz se alarga deprisa al principio y que no está sana. Difieren en <em>quién es más alta al final</em>.</li>
+  <li><strong>Compara las condiciones.</strong> El profesor midió 21 días; la réplica, 35. La réplica estaba en un sótano más frío. ¿Comparan el mismo momento?</li>
+  <li><strong>Compara en el mismo punto.</strong> El día 21, la réplica da 16.0 cm en oscuridad y 14.0 en poca luz: ¡la oscura también era la más alta! Hasta el día 21, las dos fuentes coinciden.</li>
+  <li><strong>Busca la explicación en una tercera fuente.</strong> La Fuente 2 dice que la planta sin luz vive de las reservas de la semilla y que, cuando se acaban, deja de crecer y muere. Eso explica por qué en la réplica se queda en 16 cm y por qué la del profesor se iba frenando y estaba «casi sin vida».</li>
+  <li><strong>Di qué queda abierto.</strong> No sabemos si el frío del sótano influyó (las plantas de la réplica crecieron algo menos), ni cuántos días habría tardado en morir la planta del profesor.</li>
+</ol>
+<div class="tip"><strong>💡 Resultado:</strong> las dos fuentes de datos tienen razón, <em>cada una en su tiempo de medición</em>. La conclusión del grupo («la planta en oscuridad no es la que más crece») es cierta a los 35 días, pero no a los 21. La discrepancia no se resuelve eligiendo a un ganador, sino explicando por qué los resultados difieren.</div>
+<div class="clasificador apilado" id="clasif-disc"></div>
+<div class="puntaje" id="puntaje-disc" role="status" aria-live="polite"></div>
+<a class="enlace-practica" href="https://zhemaria.github.io/gramatica/n4-l6-3.html#discrepancia" target="_blank" rel="noopener noreferrer">🔍 Practica más: identifica y explica la discrepancia
+  <span>Pares de estudios que no coinciden: encuentra la condición que explica la diferencia. Se abre en una pestaña nueva.</span></a>
+<div class="tip"><strong>👨‍👩‍👧 Si tienes con quién practicar:</strong> «Resuelve la discrepancia». Uno defiende la Fuente 1 y el otro la Fuente 3. Después, juntos, usen la Fuente 2 para explicar por qué los dos tienen parte de razón.</div>
+</div>
+</details>
+
+<details id="s-5-sintesis">
+<summary>5. Escribir la síntesis <span class="caja-tiempo">15 min</span></summary>
+<div class="contenido-detalle">
+<p>Una síntesis científica responde a la pregunta con las tres fuentes, resuelve la discrepancia y dice qué falta saber:</p>
+<p class="formula">Las tres fuentes coinciden en que <strong>[lo común]</strong>. Las Fuentes <strong>[x]</strong> y <strong>[y]</strong> difieren en <strong>[la discrepancia]</strong>, pero la diferencia se explica porque <strong>[condición]</strong>, como indica <strong>[fuente]</strong>. Por eso, <strong>[conclusión integrada]</strong>. Queda por saber <strong>[lo abierto]</strong>.</p>
+<p><strong>Ejemplo:</strong> <em>Las tres fuentes coinciden en que una planta de frijol sin luz se alarga deprisa al principio, pero no desarrolla hojas ni color verde. El experimento del profesor y la réplica difieren en qué planta termina más alta, pero la diferencia se explica por el tiempo de medición: el día 21 las dos muestran a la planta oscura como la más alta, y solo después, al agotarse las reservas de la semilla, como explica el texto, se detiene y muere. Por eso, la oscuridad produce un crecimiento rápido pero breve y débil, mientras que la luz produce un crecimiento más lento pero sostenido. Queda por saber si el frío del sótano influyó en la réplica.</em></p>
+<div class="clasificador apilado" id="clasif-sintesis"></div>
+<div class="puntaje" id="puntaje-sintesis" role="status" aria-live="polite"></div>
+<a class="enlace-practica" href="https://zhemaria.github.io/gramatica/n4-l6-3.html#sintesis" target="_blank" rel="noopener noreferrer">🧩 Practica más: la síntesis mejor respaldada
+  <span>Conjuntos de fuentes científicas breves para elegir la conclusión que las integra. Se abre en una pestaña nueva.</span></a>
+</div>
+</details>
+
+<details id="s-6-taller">
+<summary>6. Taller: tu síntesis científica <span class="caja-tiempo">25 min</span></summary>
+<div class="contenido-detalle">
+<p>Escribe una síntesis de <strong>5 a 7 oraciones</strong> que responda a la pregunta de la sección 1: <strong>¿qué le pasa a una planta de frijol que crece sin luz, y por qué?</strong> Usa las tres fuentes, explica la discrepancia con evidencia y termina con lo que queda por saber. No copies el ejemplo de la sección 5.</p>
+<div class="taller" id="taller-63"></div>
+<h3>Rúbrica: así se evaluará tu síntesis</h3>
+<table class="tabla rubrica">
+  <caption class="sr-solo">Rúbrica de la síntesis científica: tres criterios en cuatro niveles</caption>
+  <thead><tr><th scope="col">Criterio</th><th scope="col">4 · Excelente</th><th scope="col">3 · Bien</th><th scope="col">2 · En camino</th><th scope="col">1 · Inicial</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">Reúne información de fuentes diversas</th><td>Usa las tres fuentes con datos concretos de cada una</td><td>Usa las tres, una sin datos</td><td>Usa dos fuentes</td><td>Usa una sola</td></tr>
+    <tr><th scope="row">Resuelve discrepancias con evidencia</th><td>Precisa la discrepancia, compara en el mismo punto y la explica con la Fuente 2</td><td>Explica la discrepancia sin comparar en el mismo punto</td><td>Elige un «ganador» sin explicar</td><td>No ve la discrepancia</td></tr>
+    <tr><th scope="row">Construye una síntesis coherente y respaldada</th><td>Conclusión integrada que ninguna fuente da sola, con lo que queda abierto</td><td>Conclusión integrada sin lo abierto</td><td>Resume cada fuente por separado</td><td>Sin conclusión</td></tr>
+  </tbody>
+</table>
+<p style="font-size:.92rem">Total: 12 puntos.</p>
+</div>
+</details>
+
+<details id="s-tarea">
+<summary>7. Tarea <span class="caja-tiempo">30 min</span></summary>
+<div class="contenido-detalle">
+<ul class="lista-bonita">
+  <li><strong>Termina tu síntesis</strong> del taller y revísala con la rúbrica.</li>
+  <li><strong>Busca una discrepancia real:</strong> dos noticias sobre un mismo estudio de salud o de alimentación que digan cosas distintas. Anota en qué difieren y qué condición podría explicarlo (la muestra, el tiempo, el lugar, quién lo pagó).</li>
+  <li><strong>Diseña la réplica perfecta:</strong> en cinco oraciones, explica cómo repetirías el experimento de la luz para resolver lo que quedó abierto.</li>
+</ul>
+</div>
+</details>
+
+<details id="s-quiz">
+<summary>8. Quiz de la lección <span class="caja-tiempo">20 min</span></summary>
+<div class="contenido-detalle">
+<div class="qz-intro">
+  <h4>✅ Quiz · 12 preguntas · puedes repetirlo las veces que quieras</h4>
+  <p style="margin:0">Las preguntas se refieren a las tres fuentes de la sección 2. Elige una respuesta en cada pregunta y, al final, pulsa <strong>Ver mi resultado</strong>. La meta es acertar al menos <strong>10 de 12</strong>.</p>
+</div>
+<div id="qz-cuerpo"></div>
+<div class="botones">
+  <button type="button" class="btn btn-primario" id="qz-calificar">Ver mi resultado</button>
+  <button type="button" class="btn btn-secundario" id="qz-reintentar" style="display:none">Intentar de nuevo</button>
+</div>
+<div class="qz-resultado" id="qz-resultado" role="status" aria-live="polite"></div>
+</div>
+</details>
+
+<details id="s-cierre">
+<summary>9. Cierre <span class="caja-tiempo">5 min</span></summary>
+<div class="contenido-detalle">
+<h3>Lo que aprendiste en esta lección</h3>
+<ul class="lista-bonita">
+  <li>Los experimentos dicen qué pasó en unas condiciones; los textos explicativos dicen por qué suele pasar.</li>
+  <li>La matriz de síntesis científica ordena lo que dice cada fuente sobre las mismas preguntas.</li>
+  <li>Para resolver una discrepancia: precisa dónde difieren, compara las condiciones, compara en el mismo punto, busca la explicación y di qué queda abierto.</li>
+  <li>A menudo las dos fuentes tienen razón, cada una en sus condiciones.</li>
+</ul>
+<div class="caja-objetivos" style="background:#fff3e0;border-left-color:var(--acento)">
+  <h2 style="color:#8a3d0c;border:none;padding:0;margin-top:0;font-size:1.2rem">✅ Antes de irte, revísate</h2>
+  <ul class="lista-bonita">
+    <li>¿En qué coinciden el experimento del profesor y la réplica, y en qué difieren?</li>
+    <li>¿Qué condición explica la diferencia?</li>
+    <li>¿Qué aporta la Fuente 2 que no aportan las otras dos?</li>
+  </ul>
+</div>
+<div class="tip"><strong>🎉 Terminaste el Tema 6.</strong> Ya traduces datos, evalúas conclusiones científicas y resuelves discrepancias entre fuentes.</div>
+<div class="tip"><strong>➡️ Sigue con la próxima lección:</strong> <a href="https://zhemaria.github.io/clases_leng4/clase_7-1.html" style="color:var(--cp-oscuro);font-weight:700">Lección 7.1 · Ensayo argumentativo: afirmación, contrargumento y refutación</a>.</div>
+<p style="font-size:.9rem"><strong>Fuentes:</strong> José M. Fernández, <a href="https://zhemaria.github.io/clases_leng3/tabla_experimento_luz.html" target="_blank" rel="noopener noreferrer" style="color:var(--cp-oscuro)">bitácora del experimento «Efecto de la luz en la germinación y crecimiento»</a> (2026). La Fuente 2 resume lo que explican las obras de consulta sobre la etiolación (por ejemplo, el artículo «Etiolation» de Wikipedia en inglés y la guía de jardinería de NParks, Singapur). La Fuente 3, su grupo y sus datos fueron inventados para esta lección.</p>
+</div>
+</details>
+
+<footer class="pie">
+  <p><strong>GEDparaHispanos · Artes del Lenguaje · Nivel 4: Dominio del GED y Escritura Argumentativa · Tema 6 · Lección 6.3</strong></p>
+  <p>José M. Fernández, ABE/ASE Math Master Teacher, Harry S. Truman College — City Colleges of Chicago</p>
+  <p>© 2026. Esta obra está licenciada bajo <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es" rel="license noopener noreferrer" target="_blank">Creative Commons Reconocimiento-NoComercial-CompartirIgual 4.0 Internacional (CC BY-NC-SA 4.0)</a>.</p>
+</footer>
+<a class="volver-indice" href="#indice" aria-label="Volver al contenido de la lección"><span aria-hidden="true">↑</span> Índice</a>
+
+<script>
+
+/* ===== Voz: todas las lecturas pasan por hablar(), para poder cambiarla después por audio grabado ===== */
+(function(){
+  var voz=null, hay=('speechSynthesis' in window);
+  function elegir(){
+    if(!hay)return;
+    var vs=speechSynthesis.getVoices().filter(function(v){return /^es/i.test(v.lang);});
+    var pref=['es-US','es-MX','es-419','es-CO','es-AR','es-CL','es-PE'];
+    voz=null;
+    for(var i=0;i<pref.length&&!voz;i++){voz=vs.find(function(v){return v.lang.replace('_','-').toLowerCase()===pref[i].toLowerCase();})||null;}
+    if(!voz)voz=vs.find(function(v){return !/es[-_]ES/i.test(v.lang);})||vs[0]||null;
+  }
+  function aviso(){var a=document.getElementById('aviso-voz');if(a)a.classList.add('visible');}
+  function frase(t,vel){var u=new SpeechSynthesisUtterance(t);u.lang=voz?voz.lang:'es-US';if(voz)u.voice=voz;u.rate=vel||0.9;return u;}
+  if(hay){elegir(); speechSynthesis.onvoiceschanged=elegir;}
+  window.hablar=function(texto,vel,fin){
+    if(!hay||!texto){aviso();return;}
+    speechSynthesis.cancel();
+    /* Se lee por oraciones: algunos navegadores cortan las lecturas largas */
+    var partes=texto.replace(/\s+/g,' ').match(/[^.!?…]+[.!?…]+[»"”)]*\s*|[^.!?…]+$/g)||[texto];
+    partes.forEach(function(t,i){var u=frase(t.trim(),vel); if(fin&&i===partes.length-1)u.onend=fin; speechSynthesis.speak(u);});
+  };
+  window.callar=function(){if(hay)speechSynthesis.cancel();};
+  if(!hay)document.addEventListener('DOMContentLoaded',aviso);
+})();
+
+/* ===== Clasificador: cada elemento con sus botones; al acertar muestra una nota =====
+   Las opciones propias de cada elemento se barajan; las opciones comunes conservan su orden */
+function orden(it,ops){
+  var o=ops.map(function(_,j){return j;});
+  if(it.ops&&!it.fijo){for(var k=o.length-1;k>0;k--){var r=Math.floor(Math.random()*(k+1)),t=o[k];o[k]=o[r];o[r]=t;}}
+  return o;
+}
+function clasificador(idCaja,idPuntaje,items,opciones,conAudio){
+  var caja=document.getElementById(idCaja), pun=document.getElementById(idPuntaje), bien=0, hechas={};
+  function marcador(){pun.textContent=bien===items.length?(items.length===1?'🎉 ¡Muy bien!':'🎉 ¡Muy bien! Acertaste las '+bien+'.'):(items.length===1?'':'Aciertos: '+bien+' / '+items.length);}
+  items.forEach(function(it,i){
+    var d=document.createElement('div'); d.className='item'; d.setAttribute('role','group'); d.setAttribute('aria-label',it.p.replace(/<[^>]+>/g,''));
+    var ops=it.ops||opciones;
+    d.innerHTML='<span class="item-pal">'+it.p+(conAudio?' <button type="button" class="oir" aria-label="Escuchar">🔊</button>':'')+'</span>'+
+      '<span class="item-ops">'+orden(it,ops).map(function(j){return '<button type="button" class="btn-op" data-j="'+j+'">'+ops[j]+'</button>';}).join('')+'</span>'+
+      '<span class="item-fb" aria-live="polite"></span>';
+    caja.appendChild(d);
+    if(conAudio)d.querySelector('.oir').addEventListener('click',function(){hablar(it.a||it.p.replace(/<[^>]+>/g,''),0.85);});
+    var fb=d.querySelector('.item-fb');
+    d.querySelectorAll('.btn-op').forEach(function(b){
+      b.addEventListener('click',function(){
+        if(hechas[i])return;
+        if(+b.getAttribute('data-j')===it.c){
+          b.classList.add('correcta'); hechas[i]=true; bien++;
+          d.querySelectorAll('.btn-op').forEach(function(x){x.disabled=true;});
+          fb.innerHTML='✓ '+(it.n||'Correcto.'); marcador();
+        }else{
+          b.classList.add('incorrecta'); b.disabled=true;
+          fb.innerHTML='Todavía no. '+(it.pista||'Vuelve a mirar la regla e intenta otra vez.');
+        }
+      });
+    });
+  });
+  marcador();
+}
+
+/* ===== Quiz de la lección ===== */
+function iniciarQuiz(P,cfg){
+  var META=cfg.meta, N=P.length, cuerpo=document.getElementById('qz-cuerpo'), elegidas={};
+  P.forEach(function(p,i){
+    var d=document.createElement('div');
+    d.className='qz-preg'; d.setAttribute('role','group'); d.setAttribute('aria-labelledby','qz-e'+i);
+    var h='<p class="qz-enun" id="qz-e'+i+'"><span class="qz-num">'+(i+1)+'</span>'+p.t+'</p><div class="qz-ops">';
+    var orden=p.o.map(function(_,j){return j;});
+    if(!p.fijo){for(var k=orden.length-1;k>0;k--){var r=Math.floor(Math.random()*(k+1)),t=orden[k];orden[k]=orden[r];orden[r]=t;}}
+    orden.forEach(function(j){h+='<button type="button" class="qz-op" data-i="'+i+'" data-j="'+j+'" aria-pressed="false">'+p.o[j]+'</button>';});
+    d.innerHTML=h+'</div>'; cuerpo.appendChild(d);
+  });
+  cuerpo.addEventListener('click',function(ev){
+    var b=ev.target.closest('.qz-op'); if(!b||b.disabled)return;
+    var i=b.getAttribute('data-i');
+    cuerpo.querySelectorAll('.qz-op[data-i="'+i+'"]').forEach(function(x){x.classList.remove('elegida');x.setAttribute('aria-pressed','false');});
+    b.classList.add('elegida'); b.setAttribute('aria-pressed','true'); elegidas[i]=+b.getAttribute('data-j');
+  });
+  var res=document.getElementById('qz-resultado');
+  document.getElementById('qz-calificar').addEventListener('click',function(){
+    var bien=0;
+    P.forEach(function(p,i){
+      cuerpo.querySelectorAll('.qz-op[data-i="'+i+'"]').forEach(function(x){
+        var j=+x.getAttribute('data-j'); x.disabled=true; x.classList.remove('elegida');
+        if(j===p.c)x.classList.add('correcta'); else if(elegidas[i]===j)x.classList.add('incorrecta');
+      });
+      if(elegidas[i]===p.c)bien++;
+      else if(p.r){var nota=document.createElement('p');nota.className='qz-repaso';nota.innerHTML='📘 Para repasar: '+p.r;cuerpo.children[i].appendChild(nota);}
+    });
+    var msg,fondo,color;
+    if(bien>=META){msg='¡Excelente! '+bien+' de '+N+'. '+cfg.bien;fondo='#d4edda';color='#155724';}
+    else if(bien>=Math.ceil(N*0.6)){msg='Buen trabajo: '+bien+' de '+N+'. Repasa las preguntas marcadas con ✗ y vuelve a intentarlo.';fondo='#fff3cd';color='#5c3900';}
+    else{msg='Llevas '+bien+' de '+N+'. '+cfg.repaso;fondo='#f8d7da';color='#721c24';}
+    res.textContent=msg; res.style.background=fondo; res.style.color=color; res.classList.add('visible');
+    this.style.display='none'; document.getElementById('qz-reintentar').style.display='inline-block';
+    res.scrollIntoView({behavior:'smooth',block:'center'});
+  });
+  document.getElementById('qz-reintentar').addEventListener('click',function(){
+    cuerpo.querySelectorAll('.qz-op').forEach(function(x){x.disabled=false;x.classList.remove('correcta','incorrecta','elegida');x.setAttribute('aria-pressed','false');});
+    cuerpo.querySelectorAll('.qz-repaso').forEach(function(n){n.remove();});
+    elegidas={}; res.classList.remove('visible'); res.textContent='';
+    this.style.display='none'; document.getElementById('qz-calificar').style.display='inline-block';
+    cuerpo.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+}
+
+/* ===== Navegación: el índice y la dirección (#ancla) abren su sección ===== */
+document.addEventListener('DOMContentLoaded',function(){
+  function abrir(id){
+    var el=id&&document.getElementById(id); if(!el)return;
+    var d=el.tagName==='DETAILS'?el:el.closest('details');
+    if(d){d.open=true; el.scrollIntoView({behavior:'smooth',block:'start'});}
+  }
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(){abrir(a.getAttribute('href').slice(1));});});
+  document.getElementById('abrir-todo').addEventListener('click',function(){document.querySelectorAll('details').forEach(function(d){d.open=true;});});
+  document.getElementById('cerrar-todo').addEventListener('click',function(){document.querySelectorAll('details').forEach(function(d){d.open=false;});});
+  window.addEventListener('hashchange',function(){abrir(decodeURIComponent(location.hash.slice(1)));});
+  abrir(decodeURIComponent(location.hash.slice(1)));
+});
+
+/* ===== Taller de escritura =====
+   El borrador se guarda en este navegador (si el navegador lo permite). */
+function tallerEscritura(id,o){
+  var caja=document.getElementById(id), k='gph-borrador-'+o.clave;
+  var h='<label class="tl-etq" for="'+id+'-txt">'+(o.etiqueta||'Escribe aquí tu texto')+'</label>'+
+    '<textarea class="tl-txt" id="'+id+'-txt" rows="10" spellcheck="true" lang="es"'+(o.guia?' placeholder="'+o.guia.replace(/"/g,'&quot;')+'"':'')+'></textarea>'+
+    '<div class="tl-cuenta" id="'+id+'-cuenta" aria-live="polite"></div>';
+  if(o.conectores)h+='<div class="tl-conect" id="'+id+'-con" aria-live="polite"></div>';
+  h+='<div class="botones" style="justify-content:flex-start">'+
+    '<button type="button" class="btn btn-secundario" id="'+id+'-oir">🔊 Escuchar mi texto</button>'+
+    '<button type="button" class="btn btn-secundario" id="'+id+'-copiar">📋 Copiar mi texto</button>'+
+    '<button type="button" class="btn btn-secundario" id="'+id+'-borrar">🗑️ Borrar</button></div>'+
+    '<div class="tl-aviso" id="'+id+'-aviso" role="status" aria-live="polite"></div>';
+  if(o.lista){
+    h+='<fieldset class="tl-lista"><legend>✅ Revisa tu texto antes de darlo por terminado</legend>'+
+      o.lista.map(function(t,i){return '<label><input type="checkbox" id="'+id+'-c'+i+'"> '+t+'</label>';}).join('')+
+      '<p class="tl-listo" id="'+id+'-listo" aria-live="polite"></p></fieldset>';
+  }
+  caja.innerHTML=h;
+  var ta=document.getElementById(id+'-txt'), cu=document.getElementById(id+'-cuenta'), co=document.getElementById(id+'-con'), av=document.getElementById(id+'-aviso');
+  try{var g=localStorage.getItem(k); if(g)ta.value=g;}catch(e){}
+  function avisar(t){av.textContent=t; clearTimeout(avisar.t); avisar.t=setTimeout(function(){av.textContent='';},4000);}
+  function medir(){var t=ta.value.trim();return {t:t,pal:t?t.split(/\s+/).length:0,ora:(t.match(/[^.!?…]+[.!?…]+/g)||[]).length};}
+  function contar(){
+    var x=medir(), m=o.meta||{}, s='Palabras: '+x.pal+(m.palabras?' (meta: '+m.palabras+' o más)':'')+' · Oraciones: '+x.ora+(m.oraciones?' (meta: '+m.oraciones+' o más)':'');
+    if(m.oraciones&&x.ora>=m.oraciones&&(!m.palabras||x.pal>=m.palabras))s+=' · 🎯 ¡Llegaste a la meta de extensión!';
+    cu.textContent=s;
+    if(co){
+      var low=' '+x.t.toLowerCase().replace(/[.,;:¡!¿?«»"()—]/g,' ')+' ', us=o.conectores.filter(function(c){return low.indexOf(' '+c.toLowerCase()+' ')>=0;});
+      co.innerHTML=us.length?(o.titLista||'Conectores que usaste')+': '+us.map(function(c){return '<span class="tl-chip">'+c+'</span>';}).join(' '):(o.vacioLista||'Todavía no aparece ningún conector de la lista.');
+    }
+    try{localStorage.setItem(k,ta.value);}catch(e){}
+  }
+  ta.addEventListener('input',contar); contar();
+  document.getElementById(id+'-oir').addEventListener('click',function(){
+    if(!ta.value.trim()){avisar('Primero escribe algo para poder escucharlo.');return;}
+    hablar(ta.value,0.9);
+  });
+  document.getElementById(id+'-copiar').addEventListener('click',function(){
+    if(!ta.value.trim()){avisar('Todavía no hay texto para copiar.');return;}
+    function ok(){avisar('✓ Texto copiado. Ya puedes pegarlo en un correo o en un documento.');}
+    if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(ta.value).then(ok,function(){ta.select();document.execCommand('copy');ok();});
+    else{ta.select();document.execCommand('copy');ok();}
+  });
+  var borrarListo=false;
+  document.getElementById(id+'-borrar').addEventListener('click',function(){
+    if(!borrarListo){borrarListo=true;avisar('¿Seguro? Pulsa «Borrar» otra vez para borrar todo el texto.');setTimeout(function(){borrarListo=false;},4000);return;}
+    borrarListo=false; ta.value=''; contar(); avisar('Texto borrado.'); ta.focus();
+  });
+  if(o.lista){
+    var cbs=caja.querySelectorAll('.tl-lista input'), li=document.getElementById(id+'-listo');
+    function rev(){var n=Array.prototype.filter.call(cbs,function(c){return c.checked;}).length, x=medir(), m=o.meta||{}, corto=(m.oraciones&&x.ora<m.oraciones)||(m.palabras&&x.pal<m.palabras);
+      li.textContent=n<cbs.length?'Revisado: '+n+' de '+cbs.length:(corto?'Marcaste toda la lista, pero tu texto todavía no llega a la meta de extensión. Añade algo más.':'🎉 ¡Todo revisado! Tu párrafo está listo.');}
+    ta.addEventListener('input',rev);
+    cbs.forEach(function(c){c.addEventListener('change',rev);}); rev();
+  }
+}
+/* Rúbricas: cada celda recibe el nombre de su nivel para mostrarlo en el celular */
+document.querySelectorAll('table.rubrica').forEach(function(t){
+  var cab=Array.prototype.map.call(t.querySelectorAll('thead th'),function(th){return th.textContent;});
+  t.querySelectorAll('tbody tr').forEach(function(tr){Array.prototype.forEach.call(tr.children,function(c,i){if(c.tagName==='TD')c.setAttribute('data-et',cab[i]);});});
+});
+
+
+/* ===== Datos del experimento del profesor (bitácora «Efecto de la luz en la germinación y crecimiento», 2026) =====
+   Si cambian las mediciones, se corrigen SOLO aquí: la gráfica y la tabla se generan con estos números. */
+var EXP={
+  dias:[0,2,4,6,8,10,14,20,21],
+  series:[
+    {k:'A',nombre:'Maceta A · luz plena',corto:'A · Luz plena',color:'#2e7d32',trazo:'',marca:'triangulo',
+     alt:[1.2,1.8,2.5,3.4,4.5,5.8,7.5,9.5,10.2]},
+    {k:'B',nombre:'Maceta B · poca luz',corto:'B · Poca luz',color:'#9a6700',trazo:'8 5',marca:'cuadrado',
+     alt:[1.1,2.1,3.5,5.0,7.2,9.1,11.5,13.8,14.5]},
+    {k:'C',nombre:'Maceta C · oscuridad',corto:'C · Oscuridad',color:'#4a4a4a',trazo:'2 4',marca:'circulo',
+     alt:[1.3,2.8,5.2,8.5,11.0,13.5,16.2,18.1,18.8]}
+  ]
+};
+function fmtCm(v){return v.toFixed(1)+' cm';}
+function marcaSVG(tipo,x,y,r,color,extra){
+  if(tipo==='triangulo')return '<path d="M'+x+','+(y-r-1)+' L'+(x+r+1)+','+(y+r)+' L'+(x-r-1)+','+(y+r)+' Z" fill="'+color+'" stroke="#fff" stroke-width="1.5" '+(extra||'')+'/>';
+  if(tipo==='cuadrado')return '<rect x="'+(x-r)+'" y="'+(y-r)+'" width="'+(2*r)+'" height="'+(2*r)+'" fill="'+color+'" stroke="#fff" stroke-width="1.5" '+(extra||'')+'/>';
+  return '<circle cx="'+x+'" cy="'+y+'" r="'+r+'" fill="'+color+'" stroke="#fff" stroke-width="1.5" '+(extra||'')+'/>';
+}
+/* Gráfica de líneas accesible: eje desde cero, días a su distancia real, trazo y marcador distintos por serie,
+   etiquetas al final de cada línea, valor al pasar el cursor o con la tecla Tab, y tabla con los mismos datos. */
+function graficaExperimento(id,opc){
+  opc=opc||{};
+  var caja=document.getElementById(id); if(!caja)return;
+  var W=680,H=380,x0=56,x1=548,y0=320,y1=24,ymax=20;
+  function X(d){return x0+(d/21)*(x1-x0);}
+  function Y(v){return y0-(v/ymax)*(y0-y1);}
+  var tid=id+'-t',did=id+'-d';
+  var desc='Gráfica de líneas con la altura promedio, en centímetros, de las plantas de tres macetas durante 21 días. '+
+    EXP.series.map(function(s){return s.nombre+': de '+fmtCm(s.alt[0])+' el día 0 a '+fmtCm(s.alt[s.alt.length-1])+' el día 21';}).join('; ')+
+    '. Las tres crecen; la maceta en oscuridad es la que más sube y la de luz plena, la que menos.';
+  var h='<p style="font-weight:700;color:var(--cp-oscuro);margin:0 0 4px">'+(opc.titulo||'Altura promedio de las plantas de frijol según la luz (días 0 a 21)')+'</p>';
+  h+='<div class="leyenda-graf" aria-hidden="true">'+EXP.series.map(function(s){
+    return '<span><svg width="44" height="14" viewBox="0 0 44 14"><line x1="2" y1="7" x2="42" y2="7" stroke="'+s.color+'" stroke-width="3" stroke-dasharray="'+s.trazo+'" stroke-linecap="round"/>'+marcaSVG(s.marca,22,7,4,s.color)+'</svg>'+s.nombre+'</span>';}).join('')+'</div>';
+  var g='<svg class="graf-principal" viewBox="0 0 '+W+' '+H+'" role="img" aria-labelledby="'+tid+' '+did+'"><title id="'+tid+'">Altura promedio de las plantas según la luz</title><desc id="'+did+'">'+desc+'</desc>';
+  for(var v=0;v<=ymax;v+=5){g+='<line x1="'+x0+'" x2="'+x1+'" y1="'+Y(v)+'" y2="'+Y(v)+'" stroke="#d6dde4"/><text x="'+(x0-8)+'" y="'+(Y(v)+4)+'" text-anchor="end" font-size="12" fill="#333">'+v+'</text>';}
+  g+='<line x1="'+x0+'" x2="'+x1+'" y1="'+y0+'" y2="'+y0+'" stroke="#555"/>';
+  EXP.dias.forEach(function(d){g+='<line x1="'+X(d)+'" x2="'+X(d)+'" y1="'+y0+'" y2="'+(y0+5)+'" stroke="#555"/><text x="'+X(d)+'" y="'+(y0+19)+'" text-anchor="middle" font-size="12" fill="#333">'+d+'</text>';});
+  g+='<text x="'+((x0+x1)/2)+'" y="'+(y0+42)+'" text-anchor="middle" font-size="13" fill="#333">Días desde la separación de las macetas</text>';
+  g+='<text x="14" y="'+((y0+y1)/2)+'" transform="rotate(-90 14 '+((y0+y1)/2)+')" text-anchor="middle" font-size="13" fill="#333">Altura promedio (cm)</text>';
+  /* etiquetas finales sin solaparse */
+  var fin=EXP.series.map(function(s){return {s:s,y:Y(s.alt[s.alt.length-1])};}).sort(function(a,b){return a.y-b.y;});
+  for(var i=1;i<fin.length;i++){if(fin[i].y-fin[i-1].y<30)fin[i].y=fin[i-1].y+30;}
+  EXP.series.forEach(function(s){
+    var pts=EXP.dias.map(function(d,i){return X(d)+','+Y(s.alt[i]);}).join(' ');
+    g+='<polyline points="'+pts+'" fill="none" stroke="'+s.color+'" stroke-width="2.5" stroke-dasharray="'+s.trazo+'" stroke-linecap="round" stroke-linejoin="round"/>';
+  });
+  EXP.series.forEach(function(s){
+    EXP.dias.forEach(function(d,i){
+      var et=s.nombre+', día '+d+': '+fmtCm(s.alt[i]);
+      g+='<g class="pto" tabindex="0" role="img" aria-label="'+et+'" data-et="'+et+'" data-x="'+X(d)+'" data-y="'+Y(s.alt[i])+'">'+
+         '<circle cx="'+X(d)+'" cy="'+Y(s.alt[i])+'" r="11" fill="transparent"/>'+marcaSVG(s.marca,X(d),Y(s.alt[i]),4.5,s.color)+'<title>'+et+'</title></g>';
+    });
+    var f=fin.filter(function(o){return o.s===s;})[0];
+    g+='<text x="'+(x1+10)+'" y="'+(f.y+4)+'" font-size="13" font-weight="700" fill="'+s.color+'">'+s.corto+'</text>'+
+       '<text x="'+(x1+10)+'" y="'+(f.y+19)+'" font-size="12" fill="#333">'+fmtCm(s.alt[s.alt.length-1])+'</text>';
+  });
+  g+='<g class="tip-graf" style="display:none" pointer-events="none"><rect rx="6" ry="6" fill="#1a2332" opacity=".92"/><text fill="#fff" font-size="12.5" font-weight="600"></text></g>';
+  g+='</svg>';
+  h+=g;
+  h+='<details class="ver-tabla"><summary>Ver los datos de la gráfica en una tabla</summary><div class="contenido-detalle" style="padding:8px 12px"><table class="tabla"><caption class="sr-solo">Altura promedio en centímetros de las plantas de cada maceta, por día</caption><thead><tr><th scope="col">Día</th>'+
+     EXP.series.map(function(s){return '<th scope="col">'+s.nombre+'</th>';}).join('')+'</tr></thead><tbody>'+
+     EXP.dias.map(function(d,i){return '<tr><td>'+d+'</td>'+EXP.series.map(function(s){return '<td>'+fmtCm(s.alt[i])+'</td>';}).join('')+'</tr>';}).join('')+
+     '</tbody></table></div></details>';
+  caja.innerHTML=h;
+  var svg=caja.querySelector('svg.graf-principal'), tip=svg.querySelector('.tip-graf'), tr=tip.querySelector('rect'), tt=tip.querySelector('text');
+  function mostrar(p){
+    var x=+p.getAttribute('data-x'), y=+p.getAttribute('data-y'); tt.textContent=p.getAttribute('data-et');
+    var w=tt.textContent.length*6.6+16, tx=Math.min(Math.max(x-w/2,4),W-w-4), ty=y-38<4?y+14:y-38;
+    tr.setAttribute('x',tx);tr.setAttribute('y',ty);tr.setAttribute('width',w);tr.setAttribute('height',26);
+    tt.setAttribute('x',tx+8);tt.setAttribute('y',ty+17);tip.style.display='';
+  }
+  function ocultar(){tip.style.display='none';}
+  svg.querySelectorAll('.pto').forEach(function(p){
+    p.addEventListener('mouseenter',function(){mostrar(p);}); p.addEventListener('focus',function(){mostrar(p);});
+    p.addEventListener('mouseleave',ocultar); p.addEventListener('blur',ocultar);
+    p.addEventListener('touchstart',function(){mostrar(p);},{passive:true});
+  });
+}
+
+graficaExperimento('graf-exp',{titulo:'Fuente 1 · Altura promedio de las plantas de frijol según la luz (días 0 a 21)'});
+document.getElementById('leer-fuente2').addEventListener('click',function(){hablar(document.querySelectorAll('.fuente blockquote')[0].textContent.trim(),0.9);});
+(function(){
+  var b=document.getElementById('ver-matriz'), s=document.getElementById('sol-matriz');
+  b.addEventListener('click',function(){var a=s.hidden; s.hidden=!a; b.setAttribute('aria-expanded',a?'true':'false'); b.textContent=a?'Ocultar la respuesta posible':'Ver una respuesta posible';});
+})();
+
+/* ===== Ejercicios de la lección ===== */
+clasificador('clasif-fuentes','puntaje-fuentes',[
+  {p:'¿Qué fuente explica el papel de la auxina?',ops:['La Fuente 2, el texto explicativo','La Fuente 1, el experimento del profesor','La Fuente 3, la réplica de 35 días'],c:0,n:'Es la única que explica el porqué.'},
+  {p:'¿Qué fuente muestra a la planta en oscuridad seca el día 35?',ops:['La Fuente 3','La Fuente 1','La Fuente 2'],c:0,n:'La réplica midió 35 días.'},
+  {p:'¿En qué punto parecen contradecirse las Fuentes 1 y 3?',ops:['En qué planta es la más alta al final','En si la planta oscura se alarga deprisa','En si la planta oscura está sana'],c:0,n:'1: la oscura, 18.8 cm; 3: la de poca luz, 22 cm.'},
+  {p:'¿Qué condición distinta tenía la réplica?',ops:['Midió 35 días en un sótano más frío','Usó maíz en lugar de frijol','Regó con el doble de agua'],c:0,n:'Más días y otra temperatura.'}
+],null,false);
+
+clasificador('clasif-disc','puntaje-disc',[
+  {p:'El día 21, ¿qué planta era la más alta en la réplica?',ops:['La de oscuridad, con 16.0 cm','La de poca luz, con 22.0 cm','La de luz plena, con 16.0 cm'],c:0,n:'Igual que en el experimento del profesor.'},
+  {p:'¿Qué explica, según la Fuente 2, que la planta oscura deje de crecer?',ops:['Se le acaban las reservas de la semilla','Le falta agua en el sótano','La auxina deja de existir en el suelo'],c:0,n:'Sin luz no fabrica alimento propio.'},
+  {p:'¿Qué dato de la Fuente 1 encaja con esa explicación?',ops:['La planta oscura se frenaba y el día 20 estaba «casi sin vida»','La planta de luz plena terminó con 12 a 14 hojas grandes','La maceta B se inclinó hacia la ventana desde el día 10'],c:0,n:'El principio del fin de las reservas.'},
+  {p:'¿Cuál es la mejor manera de resolver esta discrepancia?',ops:['Explicar que cada fuente tiene razón en su tiempo de medición','Decidir que la réplica está mal porque es de estudiantes','Decidir que el profesor se equivocó al medir'],c:0,n:'No se trata de elegir un ganador.'}
+],null,false);
+
+clasificador('clasif-sintesis','puntaje-sintesis',[
+  {p:'¿Qué síntesis integra mejor las tres fuentes?',ops:['Sin luz, el frijol se alarga deprisa mientras duran las reservas de la semilla, y después se detiene y muere','La oscuridad hace crecer más a las plantas, como demostró con sus datos el experimento del profesor','La réplica de 35 días demuestra que el experimento del profesor estaba equivocado desde el principio'],c:0,n:'Usa las tres y resuelve la discrepancia.'},
+  {p:'¿Qué le falta a la síntesis «La planta en oscuridad mide 18.8 cm el día 21»?',ops:['Relacionarla con las otras fuentes','La unidad de medida de la altura','El nombre completo del profesor'],c:0,n:'Es un dato, no una síntesis.'},
+  {p:'¿Qué queda abierto después de la síntesis?',ops:['Si el frío del sótano influyó en la réplica','Si la planta oscura se alarga deprisa al principio','Si la planta oscura tiene clorofila'],c:0,n:'Las fuentes no lo resuelven.'}
+],null,false);
+
+tallerEscritura('taller-63',{clave:'n4-6-3',etiqueta:'Tu síntesis científica (5 a 7 oraciones)',
+  guia:'Las tres fuentes coinciden en que … Las Fuentes 1 y 3 difieren en …, pero … El día 21, … Según la Fuente 2, … Por eso, … Queda por saber …',
+  meta:{oraciones:5,palabras:110},
+  conectores:['coinciden','difieren','discrepancia','fuente','sin embargo','pero','según','explica','reservas','por eso','queda por saber'],
+  titLista:'Expresiones de síntesis que usaste',
+  vacioLista:'Todavía no aparecen expresiones de síntesis (coinciden, difieren, según la Fuente 2, queda por saber…).',
+  lista:['Uso datos concretos de las tres fuentes.','Digo exactamente en qué difieren las Fuentes 1 y 3.','Comparo las dos fuentes en el mismo día.','Explico la diferencia con la Fuente 2.','Llego a una conclusión que ninguna fuente da sola y digo qué queda abierto.','Escuché mi síntesis en voz alta y la revisé.']});
+
+iniciarQuiz([
+  {t:'¿Qué aporta un texto explicativo que no aporta un experimento?',o:['Por qué suele ocurrir un fenómeno','Las mediciones de un caso concreto','La fecha exacta de cada medición'],c:0,r:'<a href="#s-1-pregunta">Sección 1</a>'},
+  {t:'¿Cuántos días midió el profesor?',o:['21','35','14'],c:0,r:'<a href="#s-2-fuentes">Sección 2</a>'},
+  {t:'¿Cómo se llama el fenómeno que describe la Fuente 2?',o:['Etiolación','Fotosíntesis','Germinación'],c:0,r:'<a href="#s-2-fuentes">Sección 2</a>'},
+  {t:'Según la Fuente 2, ¿por qué la planta sin luz es pálida?',o:['Porque no fabrica clorofila','Porque recibe demasiada agua','Porque la semilla era vieja'],c:0,r:'<a href="#s-2-fuentes">Sección 2</a>'},
+  {t:'En la réplica, ¿qué planta era la más alta el día 35?',o:['La de poca luz','La de oscuridad','La de luz plena'],c:0,r:'<a href="#s-2-fuentes">Sección 2</a>'},
+  {t:'¿Para qué sirve la matriz de síntesis científica?',o:['Para ver qué dice cada fuente sobre las mismas preguntas','Para dibujar la gráfica de la réplica de 35 días','Para corregir los datos equivocados de las fuentes'],c:0,r:'<a href="#s-3-matriz">Sección 3</a>'},
+  {t:'¿Cuál es el primer paso para resolver una discrepancia?',o:['Precisar en qué difieren exactamente las fuentes','Elegir la fuente más famosa o más reciente','Descartar la fuente que tenga menos datos'],c:0,r:'<a href="#s-4-discrepancia">Sección 4</a>'},
+  {t:'¿Por qué conviene comparar las fuentes en el mismo día?',o:['Porque así se ve si la diferencia es solo de tiempo','Porque los datos de otros días son falsos','Porque el GED solo pregunta por el día 21'],c:0,r:'<a href="#s-4-discrepancia">Sección 4</a>'},
+  {t:'El día 21, ¿coinciden las Fuentes 1 y 3 en qué planta es la más alta?',o:['Sí: en las dos es la de oscuridad','No: en la réplica es la de poca luz','No: en las dos es la de luz plena'],c:0,r:'<a href="#s-4-discrepancia">Sección 4</a>'},
+  {t:'La conclusión de la réplica («la planta oscura no es la que más crece») es…',o:['cierta a los 35 días, pero no a los 21','falsa en todos los casos y en todos los días','cierta desde el primer día de medición'],c:0,r:'<a href="#s-4-discrepancia">Sección 4</a>'},
+  {t:'¿Cómo termina la fórmula de la síntesis científica?',o:['Con lo que queda por saber','Con la fuente preferida','Con la cifra más alta'],c:0,r:'<a href="#s-5-sintesis">Sección 5</a>'},
+  {t:'¿Qué conclusión integra mejor las tres fuentes?',o:['La oscuridad produce un crecimiento rápido pero breve y débil','La oscuridad es lo mejor para que crezca el frijol','La luz no influye para nada en el crecimiento del frijol'],c:0,r:'<a href="#s-5-sintesis">Sección 5</a>'}
+],{meta:10,
+   bien:'Ya sabes reunir fuentes científicas, resolver discrepancias con evidencia y escribir una síntesis respaldada. Terminaste el Tema 6: sigue con la Lección 7.1.',
+   repaso:'Vuelve a las secciones 2, 4 y 5 y repite el quiz: con práctica sale.'});
+</script>
+</body>
+</html>

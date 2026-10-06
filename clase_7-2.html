@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<!-- Lección 7.2 · Artes del Lenguaje Nivel 4 · GEDparaHispanos
+     José M. Fernández, ABE/ASE Math Master Teacher, Harry S. Truman College — City Colleges of Chicago
+     Licencia CC BY-NC-SA 4.0 · https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es -->
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lección 7.2 · Texto explicativo complejo con análisis</title>
+<meta name="author" content="José M. Fernández, ABE/ASE Math Master Teacher, Harry S. Truman College — City Colleges of Chicago">
+<meta name="license" content="CC BY-NC-SA 4.0">
+<link rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es">
+<style>
+  :root{
+    --cp:#b91c1c;--cp-claro:#fee2e2;--cp-oscuro:#7f1d1d;
+    --acento:#ff8c42;--texto:#1a2332;--fondo:#fafbfc;
+    --gris:#555;--gris-claro:#eef1f4;
+    --exito:#2e7d32;--error:#c62828;
+  }
+  *{box-sizing:border-box}
+  body{font-family:'Poppins','Segoe UI',Arial,sans-serif;line-height:1.7;color:var(--texto);background:var(--fondo);max-width:960px;margin:0 auto;padding:24px 18px}
+  h1{color:var(--cp-oscuro);border-bottom:4px solid var(--cp);padding-bottom:14px;font-size:1.85rem;margin-bottom:8px}
+  .subtitulo{color:var(--gris);font-style:italic;margin-top:0;margin-bottom:24px;font-size:1.05rem}
+  h2{color:var(--cp-oscuro);border-left:6px solid var(--cp);padding-left:14px;margin-top:32px;font-size:1.4rem}
+  h3{color:var(--cp-oscuro);margin-top:24px;font-size:1.15rem}
+  .caja-objetivos{background:var(--cp-claro);border-left:6px solid var(--cp);padding:18px 22px;border-radius:8px;margin:18px 0 28px 0}
+  .caja-objetivos h2{margin-top:0;color:var(--cp-oscuro);border-left:none;padding-left:0;font-size:1.2rem}
+  .caja-tiempo{display:inline-block;background:var(--acento);color:#1a2332;padding:4px 12px;border-radius:14px;font-size:0.85rem;font-weight:600;margin-left:10px;vertical-align:middle}
+  details{background:#fff;border:1px solid #d6dde4;border-radius:10px;margin:14px 0;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,0.04)}
+  details[open]{border-color:var(--cp);box-shadow:0 3px 10px rgba(185,28,28,0.12)}
+  summary{cursor:pointer;padding:16px 20px;font-weight:600;color:var(--cp-oscuro);background:var(--gris-claro);list-style:none;user-select:none;font-size:1.05rem}
+  summary::-webkit-details-marker{display:none}
+  summary::before{content:'▶';display:inline-block;margin-right:10px;color:var(--cp);transition:transform 0.25s;font-size:0.85rem}
+  details[open] summary::before{transform:rotate(90deg)}
+  details[open] summary{background:var(--cp-claro);border-bottom:2px solid var(--cp)}
+  .contenido-detalle{padding:18px 22px}
+  .tip{background:#fffbe6;border-left:5px solid #f4c430;padding:12px 18px;border-radius:6px;margin:14px 0}
+  .tip strong{color:#6b5400}
+  .botones{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:14px 0}
+  .btn{padding:10px 22px;border:none;border-radius:8px;font-weight:600;cursor:pointer;font-family:inherit;font-size:0.95rem;transition:background 0.2s}
+  .btn-primario{background:var(--cp);color:#fff}
+  .btn-primario:hover{background:var(--cp-oscuro)}
+  .btn-secundario{background:var(--gris-claro);color:var(--texto)}
+  .btn-secundario:hover{background:#d6dde4}
+  .btn[aria-pressed="true"]{background:var(--cp-oscuro);color:#fff}
+  ul.lista-bonita{list-style:none;padding-left:0}
+  ul.lista-bonita li{padding:8px 0 8px 30px;position:relative}
+  ul.lista-bonita li::before{content:'➜';position:absolute;left:0;color:var(--cp);font-weight:700}
+  .palabra-clave{background:linear-gradient(transparent 60%,#ffeb3b 60%);padding:0 4px;font-weight:600}
+  .ej{font-family:Georgia,serif;font-size:1.08rem}
+  .sub{font-weight:700;border-bottom:3px solid var(--cp-oscuro)}
+  table.tabla{width:100%;border-collapse:collapse;margin:16px 0;background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,0.06)}
+  table.tabla th{background:var(--cp-oscuro);color:#fff;padding:10px 12px;text-align:left}
+  table.tabla td{padding:10px 12px;border-bottom:1px solid var(--gris-claro);vertical-align:top}
+  table.tabla tr:last-child td{border-bottom:none}
+  .actividad{background:#fff;border:2px solid var(--acento);border-radius:10px;padding:16px 20px;margin:14px 0}
+  .actividad h4{color:#8a3d0c;margin-top:0}
+  .badge{display:inline-block;padding:3px 10px;border-radius:12px;font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-right:6px}
+  .badge-lectura{background:#e3f2fd;color:#0d47a1}
+  /* Clasificadores */
+  .clasificador{background:#fff;border:2px solid var(--cp);border-radius:12px;padding:14px 18px;margin:18px 0}
+  .item{border:2px solid var(--gris-claro);border-radius:8px;padding:10px 14px;margin:8px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+  .item-pal{font-family:Georgia,serif;font-size:1.12rem;color:var(--texto);display:flex;align-items:center;gap:10px}
+  .item-ops{display:flex;gap:8px;flex-wrap:wrap}
+  .item-fb{flex-basis:100%;font-size:.95rem}
+  .item-fb:empty{display:none}
+  .btn-op{padding:7px 14px;border:2px solid var(--cp-oscuro);background:#fff;color:var(--cp-oscuro);border-radius:8px;cursor:pointer;font-weight:600;font-family:inherit;font-size:.92rem}
+  .btn-op:hover:not(:disabled){background:var(--cp-claro)}
+  .btn-op.correcta{background:#d4edda;border-color:var(--exito);color:#155724}
+  .btn-op.correcta::before{content:'✓ '}
+  .btn-op.incorrecta{background:#f8d7da;border-color:var(--error);color:#721c24;text-decoration:line-through}
+  .btn-op.incorrecta::before{content:'✗ '}
+  .btn-op:disabled{cursor:default}
+  .apilado .item{flex-direction:column;align-items:stretch}
+  .apilado .item-ops{flex-direction:column}
+  .apilado .btn-op{text-align:left;font-weight:400}
+  .apilado .item-pal{font-family:'Segoe UI',Arial,sans-serif;font-size:1rem;font-weight:600;display:block}
+  .puntaje{text-align:center;margin-top:12px;font-weight:600;color:var(--cp-oscuro)}
+  /* Lectura con marcas: color + borde distinto + etiqueta escrita */
+  .texto-lectura{background:#fff;border:2px solid var(--gris-claro);border-radius:8px;padding:18px 22px;margin:14px 0;font-family:Georgia,serif;font-size:1.12rem;line-height:2.1}
+  .texto-lectura p{margin:0 0 10px}
+  .num-p{display:inline-block;background:var(--cp-oscuro);color:#fff;border-radius:50%;width:1.6em;height:1.6em;text-align:center;line-height:1.6em;font-size:.8rem;font-family:'Segoe UI',Arial,sans-serif;margin-right:6px;vertical-align:middle}
+  .m-sus{background:#e3f2fd;color:#0d3c78;border-bottom:3px solid #0d3c78}
+  .m-adj{background:#fff3e0;color:#6b3300;border-bottom:3px dashed #8a4b00}
+  .m-adv{background:#e8f5e9;color:#1b5e20;border-bottom:3px dotted #1b5e20}
+  .etq{font-weight:700;font-size:.78em;font-family:'Segoe UI',Arial,sans-serif;white-space:nowrap}
+  .oculta-marcas .m-sus,.oculta-marcas .m-adj,.oculta-marcas .m-adv{background:none;color:inherit;border:none}
+  .oculta-marcas .etq{display:none}
+  .leyenda-marcas{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0;font-size:.92rem}
+  .leyenda-marcas span{padding:2px 8px}
+  /* Índice */
+  .indice{background:#fff;border:1px solid #d6dde4;border-left:6px solid var(--cp);border-radius:10px;padding:16px 20px;margin:22px 0}
+  .indice h2{font-size:1.1rem;margin:0 0 8px;border:none;padding:0}
+  .indice ol{margin:0;padding-left:1.4em}
+  .indice li{margin:4px 0}
+  .indice a{color:var(--cp-oscuro)}
+  .abrir-cerrar{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0 0}
+  .volver-indice{position:fixed;right:18px;bottom:18px;z-index:60;background:var(--cp-oscuro);color:#fff;border-radius:999px;padding:10px 16px;font-weight:700;font-size:.92rem;text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,.28)}
+  .volver-indice:hover{background:var(--cp);color:#fff}
+  a:focus-visible,summary:focus-visible,button:focus-visible,textarea:focus-visible{outline:3px solid #b35316;outline-offset:2px}
+  .sr-solo{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+  .enlace-practica{display:block;background:#fff;border:2px solid var(--cp);border-radius:10px;padding:14px 18px;margin:16px 0;text-decoration:none;color:var(--cp-oscuro);font-weight:600}
+  .enlace-practica:hover{background:var(--cp-claro)}
+  .enlace-practica span{display:block;font-weight:400;color:var(--texto);font-size:.95rem}
+  .aviso-voz{font-size:.9rem;color:#5c3900;background:#fff3cd;border-radius:6px;padding:6px 10px;display:none}
+  .aviso-voz.visible{display:block}
+  /* Quiz */
+  .qz-intro{background:var(--cp-claro);border-radius:10px;padding:14px 18px;margin:0 0 14px}
+  .qz-intro h4{margin:0 0 6px;color:var(--cp-oscuro)}
+  .qz-preg{background:#fff;border:2px solid var(--gris-claro);border-radius:10px;padding:14px 18px;margin:12px 0}
+  .qz-enun{font-weight:600;margin:0 0 10px}
+  .qz-num{display:inline-block;background:var(--cp-oscuro);color:#fff;border-radius:12px;padding:1px 10px;font-size:.8rem;margin-right:8px}
+  .qz-ops{display:flex;flex-direction:column;gap:8px}
+  .qz-op{text-align:left;background:#fff;border:2px solid #c9d2db;border-radius:8px;padding:10px 14px;font-family:inherit;font-size:1rem;cursor:pointer;color:var(--texto)}
+  .qz-op:hover:not(:disabled){border-color:var(--cp)}
+  .qz-op.elegida{background:var(--cp-claro);border-color:var(--cp-oscuro);color:var(--cp-oscuro);box-shadow:0 0 0 3px #fff,0 0 0 5px var(--cp)}
+  .qz-op.correcta{background:#d4edda;border-color:#2e7d32;color:#155724}
+  .qz-op.correcta::before{content:'✓ '}
+  .qz-op.incorrecta{background:#f8d7da;border-color:#c62828;color:#721c24}
+  .qz-op.incorrecta::before{content:'✗ '}
+  .qz-op:disabled{cursor:default}
+  .qz-resultado{display:none;margin:16px 0;padding:16px;border-radius:10px;text-align:center;font-weight:600}
+  .qz-resultado.visible{display:block}
+  .qz-repaso{margin:10px 0 0;padding:8px 12px;background:#fff3cd;border-radius:6px;color:#3d2600;font-size:.95rem}
+  .qz-repaso a{color:var(--cp-oscuro);font-weight:700}
+  /* Taller de escritura */
+  .taller{background:#fff;border:2px solid var(--cp);border-radius:12px;padding:14px;margin:14px 0}
+  .tl-etq{display:block;font-weight:700;color:var(--cp-oscuro);margin-bottom:6px}
+  .tl-txt{width:100%;box-sizing:border-box;font:inherit;font-size:1.05rem;line-height:1.7;padding:10px 12px;border:2px solid #9aa9b7;border-radius:8px;resize:vertical;min-height:200px}
+  .tl-txt:focus{outline:3px solid var(--cp);outline-offset:1px;border-color:var(--cp-oscuro)}
+  .tl-cuenta{font-size:.92rem;color:#333;margin:6px 0}
+  .tl-conect{font-size:.95rem;margin:4px 0 8px}
+  .tl-chip{display:inline-block;background:var(--cp-claro);color:var(--cp-oscuro);border:1px solid var(--cp);border-radius:12px;padding:1px 10px;margin:2px 2px;font-weight:700}
+  .tl-aviso{min-height:1.4em;font-weight:700;color:var(--cp-oscuro)}
+  .tl-lista{border:2px dashed var(--cp);border-radius:10px;padding:8px 14px;margin-top:10px}
+  .tl-lista legend{font-weight:700;color:var(--cp-oscuro);padding:0 6px}
+  .tl-lista label{display:flex;gap:10px;align-items:flex-start;padding:6px 0;cursor:pointer}
+  .tl-lista input{width:22px;height:22px;flex-shrink:0;margin-top:2px;accent-color:var(--cp-oscuro)}
+  .tl-listo{font-weight:700;color:var(--cp-oscuro);margin:6px 0 0}
+  .rubrica{font-size:.92rem}
+  .rubrica td,.rubrica th{vertical-align:top}
+  @media(max-width:640px){
+    .rubrica thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+    .rubrica,.rubrica tbody,.rubrica tr,.rubrica th,.rubrica td{display:block;width:auto}
+    .rubrica tr{border:2px solid var(--cp);border-radius:10px;margin:0 0 10px;overflow:hidden}
+    .rubrica tbody th{background:var(--cp-oscuro);color:#fff;border:none}
+    .rubrica td{border:none;border-top:1px solid #d5dde3}
+    .rubrica td::before{content:attr(data-et);display:block;font-weight:700;color:var(--cp-oscuro)}
+  }
+  footer.pie{margin-top:40px;padding-top:18px;border-top:2px solid var(--gris-claro);text-align:center;color:#555;font-size:.9rem}
+  footer.pie p{margin:4px 0}
+  footer.pie a{color:var(--cp-oscuro)}
+  @media print{.indice,.volver-indice,.abrir-cerrar{display:none}}
+  @media (prefers-reduced-motion:reduce){summary::before{transition:none}}
+  .m-da{background:#e8f5e9;color:#1b5e20;border-bottom:3px dotted #1b5e20}
+  .m-an{background:#e3f2fd;color:#0d3c78;border-bottom:3px solid #0d3c78}
+  .m-tr{font-weight:700;outline:2px solid #7f1d1d;outline-offset:1px;border-radius:3px}
+  .oculta-marcas .m-da,.oculta-marcas .m-an{background:none;color:inherit;border:none}
+  .oculta-marcas .m-tr{font-weight:inherit;outline:none}
+  .formula{background:#fff;border:2px dashed var(--cp);border-radius:10px;padding:10px 16px;margin:10px 0;font-family:Georgia,serif}
+  .dos2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  @media(max-width:700px){.dos2{grid-template-columns:1fr}}
+  .caja-ej{background:#fff;border:2px solid var(--gris-claro);border-radius:8px;padding:10px 14px;font-family:Georgia,serif}
+  .caja-ej strong{font-family:'Segoe UI',Arial,sans-serif}
+</style>
+</head>
+<body>
+<h1>Lección 7.2 · Texto explicativo complejo con análisis</h1>
+<p class="subtitulo">Artes del Lenguaje · Nivel 4 · Tema 7: Escritura argumentativa y disciplinar · Unas 2 horas, a tu ritmo</p>
+
+<div class="caja-objetivos">
+  <h2>🎯 Objetivos de la lección</h2>
+  <ul class="lista-bonita" style="margin:0">
+    <li>Escribir un texto explicativo que <strong>desarrolle ideas complejas</strong>: causas, procesos y consecuencias.</li>
+    <li><strong>Seleccionar el contenido pertinente</strong> e <strong>incorporar análisis</strong>, no solo datos.</li>
+    <li>Usar <strong>transiciones variadas</strong> para guiar al lector.</li>
+  </ul>
+  <p style="margin:8px 0 0;font-size:.92rem">Estándares: 5–6.W.TT.2 · WHST.9-10.2 · WHST.11-12.2</p>
+</div>
+
+<nav class="indice" id="indice" aria-labelledby="indice-titulo">
+  <h2 id="indice-titulo">Contenido de la lección</h2>
+  <ol>
+    <li><a href="#s-1-explicar">Explicar no es opinar ni solo describir</a></li>
+    <li><a href="#s-2-modelo">Texto modelo: por qué Chicago le dio la vuelta a su río</a></li>
+    <li><a href="#s-3-pertinente">Seleccionar el contenido pertinente</a></li>
+    <li><a href="#s-4-analisis">Del dato al análisis</a></li>
+    <li><a href="#s-5-transiciones">Transiciones variadas</a></li>
+    <li><a href="#s-6-taller">Taller: explica un fenómeno</a></li>
+    <li><a href="#s-tarea">Tarea</a></li>
+    <li><a href="#s-quiz">Quiz de la lección</a></li>
+    <li><a href="#s-cierre">Cierre</a></li>
+  </ol>
+  <div class="abrir-cerrar">
+    <button type="button" class="btn btn-secundario" id="abrir-todo">Abrir todo</button>
+    <button type="button" class="btn btn-secundario" id="cerrar-todo">Cerrar todo</button>
+  </div>
+</nav>
+
+<h2>📚 Para empezar</h2>
+<p>En la Lección 7.1 escribiste para convencer. Ahora vas a escribir para <strong>hacer entender</strong>: explicar por qué ocurre algo, cómo funciona o qué consecuencias tuvo. En el trabajo, en un informe o en una carta a una oficina, esta es la escritura que más se usa. Y en el GED, la Respuesta Extendida también exige explicar: decir qué hace un texto y <em>por qué</em> eso lo hace más o menos convincente. La diferencia entre un texto explicativo pobre y uno complejo está en el <strong>análisis</strong>: no basta con poner datos, hay que decir qué significan.</p>
+<p class="aviso-voz" id="aviso-voz" role="status">Tu navegador no tiene una voz en español disponible, así que los botones 🔊 no sonarán.</p>
+
+<details open id="s-1-explicar">
+<summary>1. Explicar no es opinar ni solo describir <span class="caja-tiempo">10 min</span></summary>
+<div class="contenido-detalle">
+<table class="tabla">
+  <caption class="sr-solo">Diferencias entre describir, explicar con análisis y argumentar</caption>
+  <thead><tr><th scope="col">Tipo</th><th scope="col">Responde a…</th><th scope="col">Ejemplo</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Describir</strong></td><td>¿Qué pasó? ¿Cómo es?</td><td class="ej">En 1900 se abrió un canal y el río Chicago cambió de dirección.</td></tr>
+    <tr><td><strong>Explicar con análisis</strong></td><td>¿Por qué pasó? ¿Qué significa? ¿Qué relación hay?</td><td class="ej">El río cambió de dirección para que las aguas residuales dejaran de llegar al lago del que la ciudad bebía.</td></tr>
+    <tr><td><strong>Argumentar</strong></td><td>¿Qué debería hacerse? ¿Quién tiene razón?</td><td class="ej">La ciudad debería invertir más en limpiar el río.</td></tr>
+  </tbody>
+</table>
+<p>Un texto explicativo <strong>complejo</strong> no se queda en una causa ni en una lista: muestra <strong>varias causas</strong>, el <strong>proceso</strong> y las <strong>consecuencias</strong>, y cómo se relacionan entre sí.</p>
+<div class="tip"><strong>📘 ¿Necesitas repasar?</strong> El texto informativo del Nivel 3 está en la <a href="https://zhemaria.github.io/clases_leng3/clase_7-2.html" target="_blank" rel="noopener noreferrer" style="color:var(--cp-oscuro);font-weight:700">Lección 7.2 del Nivel 3</a>. Se abre en una pestaña nueva.</div>
+</div>
+</details>
+
+<details id="s-2-modelo">
+<summary>2. Texto modelo: por qué Chicago le dio la vuelta a su río <span class="caja-tiempo">25 min</span></summary>
+<div class="contenido-detalle">
+<div class="actividad">
+  <h4><span class="badge badge-lectura">Lectura analítica</span> Individual · dato o análisis</h4>
+  <p style="margin:0">Lee el texto. Cada vez que el autor da un dato, fíjate en si después dice qué significa. Pulsa el botón para ver los datos, el análisis y las transiciones marcados.</p>
+</div>
+<div class="leyenda-marcas" aria-label="Leyenda de las marcas">
+  <span class="m-da">Dato pertinente (puntos)</span><span class="m-an">Análisis (continuo)</span><span class="m-tr">Transición (recuadro)</span>
+</div>
+<div class="texto-lectura oculta-marcas" id="lectura">
+  <h3 style="margin-top:0">El río que corre al revés</h3>
+  <p><span class="num-p" aria-hidden="true">1</span><span class="m-da">Chicago toma su agua potable del lago Míchigan. En el siglo XIX, el río Chicago desembocaba en ese mismo lago, y por el río corrían las aguas residuales de la ciudad.</span> <span class="m-tr">Es decir</span>, <span class="m-an">la ciudad bebía, en parte, el agua que ella misma ensuciaba.</span></p>
+  <p><span class="num-p" aria-hidden="true">2</span><span class="m-da">A partir de la década de 1870, un sistema de agua moderno superó la capacidad del sistema de alcantarillado, y lo que arrastraba el río contaminaba el agua del lago.</span> <span class="m-an">La paradoja es que el progreso agravó el problema: cuanta más agua usaba la ciudad, más aguas residuales llegaban al lago.</span> <span class="m-tr">Como consecuencia</span>, <span class="m-an">las enfermedades que se transmiten por el agua, como la fiebre tifoidea, se convirtieron en una amenaza constante.</span></p>
+  <p><span class="num-p" aria-hidden="true">3</span><span class="m-tr">La primera respuesta fue</span> alejarse de la contaminación: <span class="m-da">en 1869 un túnel ya tomaba el agua a una milla de la orilla, y en 1892-1893 se abrió otro a cuatro millas.</span> <span class="m-da">Este segundo túnel se relaciona con una baja de los casos de tifoidea en Chicago en comparación con otras grandes ciudades.</span> <span class="m-tr">Sin embargo</span>, <span class="m-an">estos túneles no atacaban la causa: las aguas residuales seguían llegando al lago; solo se buscaba agua más lejos de ellas.</span></p>
+  <p><span class="num-p" aria-hidden="true">4</span><span class="m-tr">La solución de fondo llegó en 1900</span>, <span class="m-da">cuando se abrió el Canal Sanitario y de Navegación, que invirtió de forma permanente la corriente del río: en lugar de ir al lago, el agua se dirigió hacia el río Des Plaines y, desde allí, hacia el Misisipi.</span> <span class="m-tr">A diferencia de</span> los túneles, <span class="m-an">esta obra sí alejaba el problema del agua potable.</span> <span class="m-tr">Pero también lo trasladaba</span>: <span class="m-da">el estado de Misuri, río abajo, demandó a Illinois ante la Corte Suprema de Estados Unidos, que en 1906 falló a favor de Illinois.</span></p>
+  <p><span class="num-p" aria-hidden="true">5</span><span class="m-da">Los casos de tifoidea disminuyeron. La <em>Encyclopedia of Chicago</em> considera la inversión del río «esencial» en ese descenso, pero señala también la pasteurización de la leche, desde 1909, y la cloración del agua, desde 1912.</span> <span class="m-tr">Por eso</span>, <span class="m-an">sería un error atribuir toda la mejora a una sola obra: fue el resultado de varias medidas que se sumaron a lo largo de cuatro décadas.</span></p>
+  <p style="font-size:.9rem;margin-bottom:0"><em>Texto escrito para esta lección con datos comprobados (ver las fuentes en el cierre).</em></p>
+</div>
+<div class="botones" style="justify-content:flex-start">
+  <button type="button" class="btn btn-secundario" id="leer-lectura">🔊 Escuchar el texto</button>
+  <button type="button" class="btn btn-secundario" id="ver-partes" aria-pressed="false">Mostrar datos y análisis</button>
+</div>
+<div class="tip"><strong>💡 Por qué es complejo:</strong> no da una sola causa ni una sola solución. Explica un <strong>problema</strong> con su paradoja (párrafo 2), <strong>dos soluciones</strong> que se comparan (párrafos 3 y 4), una <strong>consecuencia no buscada</strong> (la demanda de Misuri) y un <strong>resultado con varias causas</strong> (párrafo 5).</div>
+<div class="clasificador apilado" id="clasif-modelo"></div>
+<div class="puntaje" id="puntaje-modelo" role="status" aria-live="polite"></div>
+</div>
+</details>
+
+<details id="s-3-pertinente">
+<summary>3. Seleccionar el contenido pertinente <span class="caja-tiempo">15 min</span></summary>
+<div class="contenido-detalle">
+<p>Investigar da muchos datos; escribir bien es <strong>elegir</strong>. Un dato es <span class="palabra-clave">pertinente</span> si ayuda a responder la pregunta que guía el texto. Los demás pueden ser verdaderos e interesantes, pero distraen.</p>
+<p><strong>Pregunta guía del texto modelo:</strong> ¿Por qué le dio Chicago la vuelta a su río y qué consiguió con ello?</p>
+<div class="clasificador" id="clasif-pertinente"></div>
+<div class="puntaje" id="puntaje-pertinente" role="status" aria-live="polite"></div>
+<div class="tip"><strong>💡 La prueba de la pregunta:</strong> ante cada dato, pregúntate «¿esto ayuda a explicar <em>por qué</em> o <em>qué se consiguió</em>?». Si la respuesta es «no, pero es curioso», déjalo fuera.</div>
+<a class="enlace-practica" href="https://zhemaria.github.io/gramatica/n4-l7-2.html#pertinente" target="_blank" rel="noopener noreferrer">🎯 Practica más: el contenido pertinente
+  <span>Preguntas guía con varios datos para elegir los que sirven. Se abre en una pestaña nueva.</span></a>
+<div class="tip"><strong>👨‍👩‍👧 Si tienes con quién practicar:</strong> «Selecciona y analiza». Uno escribe en tarjetas ocho datos sobre su barrio o su trabajo. El otro elige una pregunta guía y se queda solo con los tres datos que sirven para responderla.</div>
+</div>
+</details>
+
+<details id="s-4-analisis">
+<summary>4. Del dato al análisis <span class="caja-tiempo">20 min</span></summary>
+<div class="contenido-detalle">
+<p>Un dato sin análisis deja al lector solo. El análisis responde a la pregunta <strong>«¿y qué?»</strong>: qué significa el dato y por qué importa para la explicación.</p>
+<p class="formula"><strong>Dato:</strong> lo que pasó o lo que se midió. → <strong>Significado:</strong> «esto muestra que…», «es decir…». → <strong>Importancia:</strong> «por eso…», «lo cual explica…», «a diferencia de…».</p>
+<div class="dos2">
+  <div class="caja-ej"><strong>✖️ Solo descripción</strong><br>En 1869 se abrió un túnel a una milla. En 1892 se abrió otro a cuatro millas. En 1900 se abrió el canal.</div>
+  <div class="caja-ej"><strong>✔️ Con análisis</strong><br>Los túneles de 1869 y 1892 buscaban agua más lejos de la contaminación, pero no la detenían. A diferencia de ellos, el canal de 1900 impidió que las aguas residuales llegaran al lago, por eso fue la solución de fondo.</div>
+</div>
+<p>Tipos de análisis que puedes hacer:</p>
+<ul class="lista-bonita">
+  <li><strong>Causa:</strong> por qué ocurrió («El progreso agravó el problema…»).</li>
+  <li><strong>Comparación:</strong> en qué se parecen o difieren dos hechos («A diferencia de los túneles…»).</li>
+  <li><strong>Consecuencia:</strong> qué provocó («También trasladaba el problema río abajo…»).</li>
+  <li><strong>Matiz:</strong> qué límites tiene una conclusión («Sería un error atribuirlo todo a una sola obra…»).</li>
+</ul>
+<div class="clasificador apilado" id="clasif-analisis"></div>
+<div class="puntaje" id="puntaje-analisis" role="status" aria-live="polite"></div>
+<a class="enlace-practica" href="https://zhemaria.github.io/gramatica/n4-l7-2.html#analisis" target="_blank" rel="noopener noreferrer">🔬 Practica más: descripción o análisis
+  <span>Oraciones para distinguir las que solo describen de las que analizan. Se abre en una pestaña nueva.</span></a>
+</div>
+</details>
+
+<details id="s-5-transiciones">
+<summary>5. Transiciones variadas <span class="caja-tiempo">15 min</span></summary>
+<div class="contenido-detalle">
+<p>En un texto complejo, las transiciones dicen al lector <strong>qué relación</strong> hay entre una idea y la siguiente. Repetir siempre «y» o «también» esconde esas relaciones.</p>
+<table class="tabla">
+  <caption class="sr-solo">Transiciones según la relación que expresan</caption>
+  <thead><tr><th scope="col">Relación</th><th scope="col">Transiciones</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Adición</strong></td><td><em>además, asimismo, también, por otra parte</em></td></tr>
+    <tr><td><strong>Causa</strong></td><td><em>porque, ya que, debido a que, puesto que</em></td></tr>
+    <tr><td><strong>Consecuencia</strong></td><td><em>por eso, como consecuencia, por lo tanto, así que</em></td></tr>
+    <tr><td><strong>Contraste</strong></td><td><em>sin embargo, en cambio, a diferencia de, no obstante</em></td></tr>
+    <tr><td><strong>Ejemplo</strong></td><td><em>por ejemplo, como, es el caso de</em></td></tr>
+    <tr><td><strong>Explicación</strong></td><td><em>es decir, o sea, en otras palabras</em></td></tr>
+    <tr><td><strong>Tiempo</strong></td><td><em>primero, a partir de, más tarde, finalmente</em></td></tr>
+    <tr><td><strong>Resumen</strong></td><td><em>en resumen, en conclusión, en definitiva</em></td></tr>
+  </tbody>
+</table>
+<div class="clasificador apilado" id="clasif-trans"></div>
+<div class="puntaje" id="puntaje-trans" role="status" aria-live="polite"></div>
+<a class="enlace-practica" href="https://zhemaria.github.io/gramatica/n4-l7-2.html#transiciones" target="_blank" rel="noopener noreferrer">🔗 Practica más: la transición adecuada
+  <span>Pares de ideas para elegir la transición que expresa su relación. Se abre en una pestaña nueva.</span></a>
+</div>
+</details>
+
+<details id="s-6-taller">
+<summary>6. Taller: explica un fenómeno <span class="caja-tiempo">30 min</span></summary>
+<div class="contenido-detalle">
+<p>Elige <strong>una</strong> pregunta guía y escribe un texto explicativo de <strong>2 o 3 párrafos</strong> (8 a 12 oraciones):</p>
+<ul class="lista-bonita">
+  <li><strong>¿Por qué la planta de frijol que creció a oscuras fue la más alta, pero la menos sana?</strong> Usa los datos del experimento del profesor (<a href="https://zhemaria.github.io/clases_leng4/clase_6-2.html" target="_blank" rel="noopener noreferrer" style="color:var(--cp-oscuro);font-weight:700">Lección 6.2</a>) y la explicación de la etiolación (<a href="https://zhemaria.github.io/clases_leng4/clase_6-3.html" target="_blank" rel="noopener noreferrer" style="color:var(--cp-oscuro);font-weight:700">Lección 6.3</a>).</li>
+  <li><strong>¿Por qué bajaron los casos de tifoidea en Chicago a principios del siglo XX?</strong> Usa los datos del texto modelo, pero con tus palabras y tu propio orden.</li>
+  <li><strong>Una pregunta tuya</strong> sobre algo que conozcas bien: un proceso de tu trabajo, un cambio en tu barrio, un fenómeno de la naturaleza.</li>
+</ul>
+<p>Selecciona solo los datos pertinentes, analiza cada uno («¿y qué?») y usa al menos <strong>cuatro transiciones de relaciones distintas</strong>.</p>
+<div class="taller" id="taller-72"></div>
+<h3>Rúbrica: así se evaluará tu texto</h3>
+<table class="tabla rubrica">
+  <caption class="sr-solo">Rúbrica de la escritura explicativa: cuatro criterios en cuatro niveles</caption>
+  <thead><tr><th scope="col">Criterio</th><th scope="col">4 · Excelente</th><th scope="col">3 · Bien</th><th scope="col">2 · En camino</th><th scope="col">1 · Inicial</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">Desarrolla ideas complejas</th><td>Varias causas o etapas, relacionadas entre sí</td><td>Varias causas, poco relacionadas</td><td>Una sola causa</td><td>Lista de hechos</td></tr>
+    <tr><th scope="row">Selecciona contenido pertinente</th><td>Todos los datos responden a la pregunta guía</td><td>Un dato que sobra</td><td>Varios datos que distraen</td><td>Datos sin relación con la pregunta</td></tr>
+    <tr><th scope="row">Incorpora análisis</th><td>Cada dato importante va seguido de su significado</td><td>Analiza casi todos los datos</td><td>Análisis aislado</td><td>Solo describe</td></tr>
+    <tr><th scope="row">Usa transiciones variadas</th><td>Cuatro o más relaciones distintas, bien elegidas</td><td>Tres relaciones</td><td>Repite «y», «también»</td><td>Sin transiciones</td></tr>
+  </tbody>
+</table>
+<p style="font-size:.92rem">Total: 16 puntos.</p>
+</div>
+</details>
+
+<details id="s-tarea">
+<summary>7. Tarea <span class="caja-tiempo">30 min</span></summary>
+<div class="contenido-detalle">
+<ul class="lista-bonita">
+  <li><strong>Termina tu texto</strong> del taller y revísalo con la lista y la rúbrica.</li>
+  <li><strong>Subraya en dos colores</strong> un artículo de divulgación (ciencia, historia, salud): un color para los datos y otro para el análisis. ¿Qué proporción tiene cada uno?</li>
+  <li><strong>Reescribe un párrafo descriptivo:</strong> toma un párrafo de un manual o de un aviso de tu trabajo que solo describa y añádele dos oraciones de análisis.</li>
+</ul>
+</div>
+</details>
+
+<details id="s-quiz">
+<summary>8. Quiz de la lección <span class="caja-tiempo">20 min</span></summary>
+<div class="contenido-detalle">
+<div class="qz-intro">
+  <h4>✅ Quiz · 12 preguntas · puedes repetirlo las veces que quieras</h4>
+  <p style="margin:0">Varias preguntas se refieren al texto modelo de la sección 2. Elige una respuesta en cada pregunta y, al final, pulsa <strong>Ver mi resultado</strong>. La meta es acertar al menos <strong>10 de 12</strong>.</p>
+</div>
+<div id="qz-cuerpo"></div>
+<div class="botones">
+  <button type="button" class="btn btn-primario" id="qz-calificar">Ver mi resultado</button>
+  <button type="button" class="btn btn-secundario" id="qz-reintentar" style="display:none">Intentar de nuevo</button>
+</div>
+<div class="qz-resultado" id="qz-resultado" role="status" aria-live="polite"></div>
+</div>
+</details>
+
+<details id="s-cierre">
+<summary>9. Cierre <span class="caja-tiempo">5 min</span></summary>
+<div class="contenido-detalle">
+<h3>Lo que aprendiste en esta lección</h3>
+<ul class="lista-bonita">
+  <li>Describir dice qué pasó; explicar con análisis dice por qué y qué significa; argumentar dice qué debería hacerse.</li>
+  <li>Un texto explicativo complejo relaciona varias causas, el proceso y las consecuencias.</li>
+  <li>Solo es pertinente el contenido que ayuda a responder la pregunta guía.</li>
+  <li>El análisis responde «¿y qué?» después de cada dato; las transiciones variadas muestran la relación entre las ideas.</li>
+</ul>
+<div class="caja-objetivos" style="background:#fff3e0;border-left-color:var(--acento)">
+  <h2 style="color:#8a3d0c;border:none;padding:0;margin-top:0;font-size:1.2rem">✅ Antes de irte, revísate</h2>
+  <ul class="lista-bonita">
+    <li>¿Por qué el texto dice que «el progreso agravó el problema»?</li>
+    <li>¿En qué se diferencian los túneles del canal como soluciones?</li>
+    <li>¿Por qué sería un error atribuir toda la baja de la tifoidea a la inversión del río?</li>
+  </ul>
+</div>
+<div class="tip"><strong>➡️ Sigue con la próxima lección:</strong> <a href="https://zhemaria.github.io/clases_leng4/clase_7-3.html" style="color:var(--cp-oscuro);font-weight:700">Lección 7.3 · Escritura disciplinar y revisión independiente</a>.</div>
+<p style="font-size:.9rem"><strong>Fuentes del texto modelo:</strong> <em>Encyclopedia of Chicago</em> (Chicago Historical Society y Newberry Library), «Water-Related Epidemics»: el sistema de agua que superó al alcantarillado en la década de 1870, los túneles de 1869 y 1892-1893, el Canal Sanitario y de Navegación (1900), la pasteurización (1909) y la cloración (1912). La demanda de Misuri: <em>Missouri v. Illinois</em>, 200 U.S. 496 (1906), Corte Suprema de Estados Unidos.</p>
+</div>
+</details>
+
+<footer class="pie">
+  <p><strong>GEDparaHispanos · Artes del Lenguaje · Nivel 4: Dominio del GED y Escritura Argumentativa · Tema 7 · Lección 7.2</strong></p>
+  <p>José M. Fernández, ABE/ASE Math Master Teacher, Harry S. Truman College — City Colleges of Chicago</p>
+  <p>© 2026. Esta obra está licenciada bajo <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es" rel="license noopener noreferrer" target="_blank">Creative Commons Reconocimiento-NoComercial-CompartirIgual 4.0 Internacional (CC BY-NC-SA 4.0)</a>.</p>
+</footer>
+<a class="volver-indice" href="#indice" aria-label="Volver al contenido de la lección"><span aria-hidden="true">↑</span> Índice</a>
+
+<script>
+
+/* ===== Voz: todas las lecturas pasan por hablar(), para poder cambiarla después por audio grabado ===== */
+(function(){
+  var voz=null, hay=('speechSynthesis' in window);
+  function elegir(){
+    if(!hay)return;
+    var vs=speechSynthesis.getVoices().filter(function(v){return /^es/i.test(v.lang);});
+    var pref=['es-US','es-MX','es-419','es-CO','es-AR','es-CL','es-PE'];
+    voz=null;
+    for(var i=0;i<pref.length&&!voz;i++){voz=vs.find(function(v){return v.lang.replace('_','-').toLowerCase()===pref[i].toLowerCase();})||null;}
+    if(!voz)voz=vs.find(function(v){return !/es[-_]ES/i.test(v.lang);})||vs[0]||null;
+  }
+  function aviso(){var a=document.getElementById('aviso-voz');if(a)a.classList.add('visible');}
+  function frase(t,vel){var u=new SpeechSynthesisUtterance(t);u.lang=voz?voz.lang:'es-US';if(voz)u.voice=voz;u.rate=vel||0.9;return u;}
+  if(hay){elegir(); speechSynthesis.onvoiceschanged=elegir;}
+  window.hablar=function(texto,vel,fin){
+    if(!hay||!texto){aviso();return;}
+    speechSynthesis.cancel();
+    /* Se lee por oraciones: algunos navegadores cortan las lecturas largas */
+    var partes=texto.replace(/\s+/g,' ').match(/[^.!?…]+[.!?…]+[»"”)]*\s*|[^.!?…]+$/g)||[texto];
+    partes.forEach(function(t,i){var u=frase(t.trim(),vel); if(fin&&i===partes.length-1)u.onend=fin; speechSynthesis.speak(u);});
+  };
+  window.callar=function(){if(hay)speechSynthesis.cancel();};
+  if(!hay)document.addEventListener('DOMContentLoaded',aviso);
+})();
+
+/* ===== Clasificador: cada elemento con sus botones; al acertar muestra una nota =====
+   Las opciones propias de cada elemento se barajan; las opciones comunes conservan su orden */
+function orden(it,ops){
+  var o=ops.map(function(_,j){return j;});
+  if(it.ops&&!it.fijo){for(var k=o.length-1;k>0;k--){var r=Math.floor(Math.random()*(k+1)),t=o[k];o[k]=o[r];o[r]=t;}}
+  return o;
+}
+function clasificador(idCaja,idPuntaje,items,opciones,conAudio){
+  var caja=document.getElementById(idCaja), pun=document.getElementById(idPuntaje), bien=0, hechas={};
+  function marcador(){pun.textContent=bien===items.length?(items.length===1?'🎉 ¡Muy bien!':'🎉 ¡Muy bien! Acertaste las '+bien+'.'):(items.length===1?'':'Aciertos: '+bien+' / '+items.length);}
+  items.forEach(function(it,i){
+    var d=document.createElement('div'); d.className='item'; d.setAttribute('role','group'); d.setAttribute('aria-label',it.p.replace(/<[^>]+>/g,''));
+    var ops=it.ops||opciones;
+    d.innerHTML='<span class="item-pal">'+it.p+(conAudio?' <button type="button" class="oir" aria-label="Escuchar">🔊</button>':'')+'</span>'+
+      '<span class="item-ops">'+orden(it,ops).map(function(j){return '<button type="button" class="btn-op" data-j="'+j+'">'+ops[j]+'</button>';}).join('')+'</span>'+
+      '<span class="item-fb" aria-live="polite"></span>';
+    caja.appendChild(d);
+    if(conAudio)d.querySelector('.oir').addEventListener('click',function(){hablar(it.a||it.p.replace(/<[^>]+>/g,''),0.85);});
+    var fb=d.querySelector('.item-fb');
+    d.querySelectorAll('.btn-op').forEach(function(b){
+      b.addEventListener('click',function(){
+        if(hechas[i])return;
+        if(+b.getAttribute('data-j')===it.c){
+          b.classList.add('correcta'); hechas[i]=true; bien++;
+          d.querySelectorAll('.btn-op').forEach(function(x){x.disabled=true;});
+          fb.innerHTML='✓ '+(it.n||'Correcto.'); marcador();
+        }else{
+          b.classList.add('incorrecta'); b.disabled=true;
+          fb.innerHTML='Todavía no. '+(it.pista||'Vuelve a mirar la regla e intenta otra vez.');
+        }
+      });
+    });
+  });
+  marcador();
+}
+
+/* ===== Quiz de la lección ===== */
+function iniciarQuiz(P,cfg){
+  var META=cfg.meta, N=P.length, cuerpo=document.getElementById('qz-cuerpo'), elegidas={};
+  P.forEach(function(p,i){
+    var d=document.createElement('div');
+    d.className='qz-preg'; d.setAttribute('role','group'); d.setAttribute('aria-labelledby','qz-e'+i);
+    var h='<p class="qz-enun" id="qz-e'+i+'"><span class="qz-num">'+(i+1)+'</span>'+p.t+'</p><div class="qz-ops">';
+    var orden=p.o.map(function(_,j){return j;});
+    if(!p.fijo){for(var k=orden.length-1;k>0;k--){var r=Math.floor(Math.random()*(k+1)),t=orden[k];orden[k]=orden[r];orden[r]=t;}}
+    orden.forEach(function(j){h+='<button type="button" class="qz-op" data-i="'+i+'" data-j="'+j+'" aria-pressed="false">'+p.o[j]+'</button>';});
+    d.innerHTML=h+'</div>'; cuerpo.appendChild(d);
+  });
+  cuerpo.addEventListener('click',function(ev){
+    var b=ev.target.closest('.qz-op'); if(!b||b.disabled)return;
+    var i=b.getAttribute('data-i');
+    cuerpo.querySelectorAll('.qz-op[data-i="'+i+'"]').forEach(function(x){x.classList.remove('elegida');x.setAttribute('aria-pressed','false');});
+    b.classList.add('elegida'); b.setAttribute('aria-pressed','true'); elegidas[i]=+b.getAttribute('data-j');
+  });
+  var res=document.getElementById('qz-resultado');
+  document.getElementById('qz-calificar').addEventListener('click',function(){
+    var bien=0;
+    P.forEach(function(p,i){
+      cuerpo.querySelectorAll('.qz-op[data-i="'+i+'"]').forEach(function(x){
+        var j=+x.getAttribute('data-j'); x.disabled=true; x.classList.remove('elegida');
+        if(j===p.c)x.classList.add('correcta'); else if(elegidas[i]===j)x.classList.add('incorrecta');
+      });
+      if(elegidas[i]===p.c)bien++;
+      else if(p.r){var nota=document.createElement('p');nota.className='qz-repaso';nota.innerHTML='📘 Para repasar: '+p.r;cuerpo.children[i].appendChild(nota);}
+    });
+    var msg,fondo,color;
+    if(bien>=META){msg='¡Excelente! '+bien+' de '+N+'. '+cfg.bien;fondo='#d4edda';color='#155724';}
+    else if(bien>=Math.ceil(N*0.6)){msg='Buen trabajo: '+bien+' de '+N+'. Repasa las preguntas marcadas con ✗ y vuelve a intentarlo.';fondo='#fff3cd';color='#5c3900';}
+    else{msg='Llevas '+bien+' de '+N+'. '+cfg.repaso;fondo='#f8d7da';color='#721c24';}
+    res.textContent=msg; res.style.background=fondo; res.style.color=color; res.classList.add('visible');
+    this.style.display='none'; document.getElementById('qz-reintentar').style.display='inline-block';
+    res.scrollIntoView({behavior:'smooth',block:'center'});
+  });
+  document.getElementById('qz-reintentar').addEventListener('click',function(){
+    cuerpo.querySelectorAll('.qz-op').forEach(function(x){x.disabled=false;x.classList.remove('correcta','incorrecta','elegida');x.setAttribute('aria-pressed','false');});
+    cuerpo.querySelectorAll('.qz-repaso').forEach(function(n){n.remove();});
+    elegidas={}; res.classList.remove('visible'); res.textContent='';
+    this.style.display='none'; document.getElementById('qz-calificar').style.display='inline-block';
+    cuerpo.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+}
+
+/* ===== Navegación: el índice y la dirección (#ancla) abren su sección ===== */
+document.addEventListener('DOMContentLoaded',function(){
+  function abrir(id){
+    var el=id&&document.getElementById(id); if(!el)return;
+    var d=el.tagName==='DETAILS'?el:el.closest('details');
+    if(d){d.open=true; el.scrollIntoView({behavior:'smooth',block:'start'});}
+  }
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(){abrir(a.getAttribute('href').slice(1));});});
+  document.getElementById('abrir-todo').addEventListener('click',function(){document.querySelectorAll('details').forEach(function(d){d.open=true;});});
+  document.getElementById('cerrar-todo').addEventListener('click',function(){document.querySelectorAll('details').forEach(function(d){d.open=false;});});
+  window.addEventListener('hashchange',function(){abrir(decodeURIComponent(location.hash.slice(1)));});
+  abrir(decodeURIComponent(location.hash.slice(1)));
+});
+
+/* ===== Taller de escritura =====
+   El borrador se guarda en este navegador (si el navegador lo permite). */
+function tallerEscritura(id,o){
+  var caja=document.getElementById(id), k='gph-borrador-'+o.clave;
+  var h='<label class="tl-etq" for="'+id+'-txt">'+(o.etiqueta||'Escribe aquí tu texto')+'</label>'+
+    '<textarea class="tl-txt" id="'+id+'-txt" rows="10" spellcheck="true" lang="es"'+(o.guia?' placeholder="'+o.guia.replace(/"/g,'&quot;')+'"':'')+'></textarea>'+
+    '<div class="tl-cuenta" id="'+id+'-cuenta" aria-live="polite"></div>';
+  if(o.conectores)h+='<div class="tl-conect" id="'+id+'-con" aria-live="polite"></div>';
+  h+='<div class="botones" style="justify-content:flex-start">'+
+    '<button type="button" class="btn btn-secundario" id="'+id+'-oir">🔊 Escuchar mi texto</button>'+
+    '<button type="button" class="btn btn-secundario" id="'+id+'-copiar">📋 Copiar mi texto</button>'+
+    '<button type="button" class="btn btn-secundario" id="'+id+'-borrar">🗑️ Borrar</button></div>'+
+    '<div class="tl-aviso" id="'+id+'-aviso" role="status" aria-live="polite"></div>';
+  if(o.lista){
+    h+='<fieldset class="tl-lista"><legend>✅ Revisa tu texto antes de darlo por terminado</legend>'+
+      o.lista.map(function(t,i){return '<label><input type="checkbox" id="'+id+'-c'+i+'"> '+t+'</label>';}).join('')+
+      '<p class="tl-listo" id="'+id+'-listo" aria-live="polite"></p></fieldset>';
+  }
+  caja.innerHTML=h;
+  var ta=document.getElementById(id+'-txt'), cu=document.getElementById(id+'-cuenta'), co=document.getElementById(id+'-con'), av=document.getElementById(id+'-aviso');
+  try{var g=localStorage.getItem(k); if(g)ta.value=g;}catch(e){}
+  function avisar(t){av.textContent=t; clearTimeout(avisar.t); avisar.t=setTimeout(function(){av.textContent='';},4000);}
+  function medir(){var t=ta.value.trim();return {t:t,pal:t?t.split(/\s+/).length:0,ora:(t.match(/[^.!?…]+[.!?…]+/g)||[]).length};}
+  function contar(){
+    var x=medir(), m=o.meta||{}, s='Palabras: '+x.pal+(m.palabras?' (meta: '+m.palabras+' o más)':'')+' · Oraciones: '+x.ora+(m.oraciones?' (meta: '+m.oraciones+' o más)':'');
+    if(m.oraciones&&x.ora>=m.oraciones&&(!m.palabras||x.pal>=m.palabras))s+=' · 🎯 ¡Llegaste a la meta de extensión!';
+    cu.textContent=s;
+    if(co){
+      var low=' '+x.t.toLowerCase().replace(/[.,;:¡!¿?«»"()—]/g,' ')+' ', us=o.conectores.filter(function(c){return low.indexOf(' '+c.toLowerCase()+' ')>=0;});
+      co.innerHTML=us.length?(o.titLista||'Conectores que usaste')+': '+us.map(function(c){return '<span class="tl-chip">'+c+'</span>';}).join(' '):(o.vacioLista||'Todavía no aparece ningún conector de la lista.');
+    }
+    try{localStorage.setItem(k,ta.value);}catch(e){}
+  }
+  ta.addEventListener('input',contar); contar();
+  document.getElementById(id+'-oir').addEventListener('click',function(){
+    if(!ta.value.trim()){avisar('Primero escribe algo para poder escucharlo.');return;}
+    hablar(ta.value,0.9);
+  });
+  document.getElementById(id+'-copiar').addEventListener('click',function(){
+    if(!ta.value.trim()){avisar('Todavía no hay texto para copiar.');return;}
+    function ok(){avisar('✓ Texto copiado. Ya puedes pegarlo en un correo o en un documento.');}
+    if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(ta.value).then(ok,function(){ta.select();document.execCommand('copy');ok();});
+    else{ta.select();document.execCommand('copy');ok();}
+  });
+  var borrarListo=false;
+  document.getElementById(id+'-borrar').addEventListener('click',function(){
+    if(!borrarListo){borrarListo=true;avisar('¿Seguro? Pulsa «Borrar» otra vez para borrar todo el texto.');setTimeout(function(){borrarListo=false;},4000);return;}
+    borrarListo=false; ta.value=''; contar(); avisar('Texto borrado.'); ta.focus();
+  });
+  if(o.lista){
+    var cbs=caja.querySelectorAll('.tl-lista input'), li=document.getElementById(id+'-listo');
+    function rev(){var n=Array.prototype.filter.call(cbs,function(c){return c.checked;}).length, x=medir(), m=o.meta||{}, corto=(m.oraciones&&x.ora<m.oraciones)||(m.palabras&&x.pal<m.palabras);
+      li.textContent=n<cbs.length?'Revisado: '+n+' de '+cbs.length:(corto?'Marcaste toda la lista, pero tu texto todavía no llega a la meta de extensión. Añade algo más.':'🎉 ¡Todo revisado! Tu párrafo está listo.');}
+    ta.addEventListener('input',rev);
+    cbs.forEach(function(c){c.addEventListener('change',rev);}); rev();
+  }
+}
+/* Rúbricas: cada celda recibe el nombre de su nivel para mostrarlo en el celular */
+document.querySelectorAll('table.rubrica').forEach(function(t){
+  var cab=Array.prototype.map.call(t.querySelectorAll('thead th'),function(th){return th.textContent;});
+  t.querySelectorAll('tbody tr').forEach(function(tr){Array.prototype.forEach.call(tr.children,function(c,i){if(c.tagName==='TD')c.setAttribute('data-et',cab[i]);});});
+});
+
+
+/* ===== Texto modelo ===== */
+(function(){
+  var t=document.getElementById('lectura'), v=document.getElementById('ver-partes');
+  document.getElementById('leer-lectura').addEventListener('click',function(){
+    var c=t.cloneNode(true); c.querySelectorAll('.num-p').forEach(function(e){e.remove();}); hablar(c.textContent.trim(),0.9);});
+  v.addEventListener('click',function(){var on=!t.classList.toggle('oculta-marcas');v.setAttribute('aria-pressed',on?'true':'false');v.textContent=on?'Ocultar las marcas':'Mostrar datos y análisis';});
+})();
+
+/* ===== Ejercicios de la lección ===== */
+clasificador('clasif-modelo','puntaje-modelo',[
+  {p:'¿Cuál era el problema de fondo según el párrafo 1?',ops:['El río llevaba las aguas residuales al lago del que se bebía','El lago Míchigan estaba demasiado lejos de la ciudad','La ciudad no tenía ningún río cerca para tomar agua'],c:0,n:'Por eso la ciudad «bebía lo que ensuciaba».'},
+  {p:'«La paradoja es que el progreso agravó el problema.» ¿Qué tipo de oración es?',ops:['Análisis: explica qué significa el dato','Dato: informa de una fecha y una cifra','Transición: une dos párrafos del texto'],c:0,n:'Interpreta el dato anterior.'},
+  {p:'¿En qué se diferencian los túneles del canal?',ops:['Los túneles buscaban agua más lejos; el canal impedía que la contaminación llegara','Los túneles eran más caros que el canal y tardaron más años en construirse','Los túneles invirtieron el río y el canal tomó el agua del centro del lago'],c:0,n:'Párrafos 3 y 4, con «a diferencia de».'},
+  {p:'¿Qué consecuencia no buscada tuvo el canal?',ops:['Trasladó el problema río abajo, y Misuri demandó a Illinois','Contaminó todavía más el agua del lago Míchigan','Hizo que la ciudad dejara de tomar agua del lago'],c:0,n:'Párrafo 4.'}
+],null,false);
+
+clasificador('clasif-pertinente','puntaje-pertinente',[
+  {p:'El río Chicago desembocaba en el lago del que la ciudad tomaba el agua.',c:0,n:'Es la causa del problema.'},
+  {p:'Cada año, para el Día de San Patricio, el río se tiñe de verde.',c:1,n:'Cierto y curioso, pero no explica nada de la pregunta.'},
+  {p:'En 1900 se abrió el canal que invirtió la corriente del río.',c:0,n:'Es la solución que se explica.'},
+  {p:'El Gran Incendio de Chicago ocurrió en 1871.',c:1,n:'Es otro tema (Lección 1.1).'},
+  {p:'La cloración del agua comenzó en 1912.',c:0,n:'Ayuda a explicar el resultado: varias causas.'},
+  {p:'Chicago es la tercera ciudad más poblada del país.',c:1,n:'No ayuda a responder la pregunta guía.'}
+],['Pertinente','No pertinente'],false);
+
+clasificador('clasif-analisis','puntaje-analisis',[
+  {p:'¿Qué oración <strong>analiza</strong> y no solo describe?',ops:['El canal fue la solución de fondo porque detuvo la contaminación del lago','El canal se abrió en el año 1900, tras varios años de obras','El canal une el río Chicago con el río Des Plaines'],c:0,n:'Dice por qué importa.'},
+  {p:'Dato: «La cloración del agua empezó en 1912». ¿Qué análisis le corresponde?',ops:['Esto muestra que la baja de la tifoidea tuvo más de una causa','En 1912 se empezó a poner cloro en el agua de la ciudad','La cloración es un proceso que usa una sustancia química'],c:0,n:'Relaciona el dato con la explicación.'},
+  {p:'¿Qué tipo de análisis es «Pero también trasladaba el problema río abajo»?',ops:['Consecuencia','Ejemplo','Definición'],c:0,n:'Muestra un efecto de la solución.'}
+],null,false);
+
+clasificador('clasif-trans','puntaje-trans',[
+  {p:'«Los túneles buscaban agua más limpia. ___, no detenían la contaminación.»',ops:['Sin embargo','Por ejemplo','Además'],c:0,n:'Contraste.'},
+  {p:'«La ciudad usaba cada vez más agua. ___, llegaban más aguas residuales al lago.»',ops:['Como consecuencia','En cambio','Por ejemplo'],c:0,n:'Consecuencia.'},
+  {p:'«Hubo otras medidas sanitarias; ___, la pasteurización de la leche.»',ops:['por ejemplo','sin embargo','en conclusión'],c:0,n:'Ejemplo.'},
+  {p:'«La ciudad bebía su propia agua sucia; ___, el agua potable y las aguas residuales se mezclaban.»',ops:['es decir','además','a diferencia de'],c:0,n:'Explicación: dice lo mismo de otra forma.'}
+],null,false);
+
+tallerEscritura('taller-72',{clave:'n4-7-2',etiqueta:'Tu texto explicativo (2 o 3 párrafos)',
+  guia:'Pregunta guía: ¿Por qué…? // Primero, … Es decir, … Como consecuencia, … // Sin embargo, … A diferencia de … // Por eso, …',
+  meta:{oraciones:8,palabras:170},
+  conectores:['además','asimismo','porque','ya que','debido a que','por eso','como consecuencia','por lo tanto','sin embargo','en cambio','a diferencia de','por ejemplo','es decir','primero','finalmente','en resumen'],
+  titLista:'Transiciones que usaste',
+  vacioLista:'Todavía no aparece ninguna transición de la lista (por eso, sin embargo, es decir, a diferencia de…).',
+  lista:['Escribí mi pregunta guía al principio.','Todos mis datos ayudan a responder la pregunta.','Después de cada dato importante explico qué significa.','Relaciono varias causas, etapas o consecuencias.','Uso al menos cuatro transiciones de relaciones distintas.','No doy mi opinión: explico.']});
+
+iniciarQuiz([
+  {t:'¿Qué hace un texto explicativo con análisis?',o:['Dice por qué ocurre algo y qué significa','Dice qué debería hacerse sobre algo','Solo enumera los hechos en orden'],c:0,r:'<a href="#s-1-explicar">Sección 1</a>'},
+  {t:'«En 1900 se abrió un canal.» Esta oración…',o:['describe','analiza','argumenta'],c:0,r:'<a href="#s-1-explicar">Sección 1</a>'},
+  {t:'¿Qué hace complejo un texto explicativo?',o:['Relacionar varias causas, el proceso y las consecuencias','Usar palabras técnicas y difíciles en cada oración','Tener muchos párrafos largos y muchas citas'],c:0,r:'<a href="#s-1-explicar">Sección 1</a>'},
+  {t:'Según el texto modelo, ¿por qué el progreso agravó el problema?',o:['Más uso de agua significó más aguas residuales en el lago','Las fábricas nuevas cerraron los túneles de agua','El canal se construyó antes que las alcantarillas'],c:0,r:'<a href="#s-2-modelo">Sección 2, párrafo 2</a>'},
+  {t:'¿A cuántas millas de la orilla tomaba el agua el túnel de 1892-1893?',o:['Cuatro','Una','Diez'],c:0,r:'<a href="#s-2-modelo">Sección 2, párrafo 3</a>'},
+  {t:'¿Hacia dónde se dirigió el agua del río después de 1900?',o:['Hacia el río Des Plaines y el Misisipi','Hacia el centro del lago Míchigan','Hacia los túneles de agua potable'],c:0,r:'<a href="#s-2-modelo">Sección 2, párrafo 4</a>'},
+  {t:'¿Qué medidas, además del canal, ayudaron a bajar la tifoidea?',o:['La pasteurización de la leche y la cloración del agua','La construcción de puentes y de nuevas calles','El cambio de nombre del río y del canal'],c:0,r:'<a href="#s-2-modelo">Sección 2, párrafo 5</a>'},
+  {t:'Un dato es pertinente cuando…',o:['ayuda a responder la pregunta guía','es el más curioso de todos los que encontraste','tiene una fecha exacta y un nombre propio'],c:0,r:'<a href="#s-3-pertinente">Sección 3</a>'},
+  {t:'¿A qué pregunta responde el análisis?',o:['¿Y qué? ¿Qué significa?','¿Cuándo ocurrió exactamente?','¿Cuántas palabras tiene el dato?'],c:0,r:'<a href="#s-4-analisis">Sección 4</a>'},
+  {t:'«A diferencia de los túneles, el canal sí detuvo la contaminación.» ¿Qué tipo de análisis es?',o:['Comparación','Definición','Ejemplo'],c:0,r:'<a href="#s-4-analisis">Sección 4</a>'},
+  {t:'¿Qué transición expresa consecuencia?',o:['por lo tanto','sin embargo','por ejemplo'],c:0,r:'<a href="#s-5-transiciones">Sección 5</a>'},
+  {t:'¿Por qué conviene variar las transiciones?',o:['Porque cada una muestra una relación distinta entre las ideas','Porque así el texto tiene más palabras y parece más largo','Porque el GED cuenta cuántas transiciones hay en el ensayo'],c:0,r:'<a href="#s-5-transiciones">Sección 5</a>'}
+],{meta:10,
+   bien:'Ya sabes explicar un fenómeno complejo con datos pertinentes, análisis y transiciones. Sigue con la Lección 7.3.',
+   repaso:'Vuelve a las secciones 3, 4 y 5 y repite el quiz: con práctica sale.'});
+</script>
+</body>
+</html>

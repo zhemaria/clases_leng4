@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<!-- Lección 5.2 · Artes del Lenguaje Nivel 4 · GEDparaHispanos
+     José M. Fernández, ABE/ASE Math Master Teacher, Harry S. Truman College — City Colleges of Chicago
+     Licencia CC BY-NC-SA 4.0 · https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es -->
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lección 5.2 · Documentos fundacionales y análisis crítico de fuentes</title>
+<meta name="author" content="José M. Fernández, ABE/ASE Math Master Teacher, Harry S. Truman College — City Colleges of Chicago">
+<meta name="license" content="CC BY-NC-SA 4.0">
+<link rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es">
+<style>
+  :root{
+    --cp:#b91c1c;--cp-claro:#fee2e2;--cp-oscuro:#7f1d1d;
+    --acento:#ff8c42;--texto:#1a2332;--fondo:#fafbfc;
+    --gris:#555;--gris-claro:#eef1f4;
+    --exito:#2e7d32;--error:#c62828;
+  }
+  *{box-sizing:border-box}
+  body{font-family:'Poppins','Segoe UI',Arial,sans-serif;line-height:1.7;color:var(--texto);background:var(--fondo);max-width:960px;margin:0 auto;padding:24px 18px}
+  h1{color:var(--cp-oscuro);border-bottom:4px solid var(--cp);padding-bottom:14px;font-size:1.85rem;margin-bottom:8px}
+  .subtitulo{color:var(--gris);font-style:italic;margin-top:0;margin-bottom:24px;font-size:1.05rem}
+  h2{color:var(--cp-oscuro);border-left:6px solid var(--cp);padding-left:14px;margin-top:32px;font-size:1.4rem}
+  h3{color:var(--cp-oscuro);margin-top:24px;font-size:1.15rem}
+  .caja-objetivos{background:var(--cp-claro);border-left:6px solid var(--cp);padding:18px 22px;border-radius:8px;margin:18px 0 28px 0}
+  .caja-objetivos h2{margin-top:0;color:var(--cp-oscuro);border-left:none;padding-left:0;font-size:1.2rem}
+  .caja-tiempo{display:inline-block;background:var(--acento);color:#1a2332;padding:4px 12px;border-radius:14px;font-size:0.85rem;font-weight:600;margin-left:10px;vertical-align:middle}
+  details{background:#fff;border:1px solid #d6dde4;border-radius:10px;margin:14px 0;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,0.04)}
+  details[open]{border-color:var(--cp);box-shadow:0 3px 10px rgba(185,28,28,0.12)}
+  summary{cursor:pointer;padding:16px 20px;font-weight:600;color:var(--cp-oscuro);background:var(--gris-claro);list-style:none;user-select:none;font-size:1.05rem}
+  summary::-webkit-details-marker{display:none}
+  summary::before{content:'▶';display:inline-block;margin-right:10px;color:var(--cp);transition:transform 0.25s;font-size:0.85rem}
+  details[open] summary::before{transform:rotate(90deg)}
+  details[open] summary{background:var(--cp-claro);border-bottom:2px solid var(--cp)}
+  .contenido-detalle{padding:18px 22px}
+  .tip{background:#fffbe6;border-left:5px solid #f4c430;padding:12px 18px;border-radius:6px;margin:14px 0}
+  .tip strong{color:#6b5400}
+  .botones{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:14px 0}
+  .btn{padding:10px 22px;border:none;border-radius:8px;font-weight:600;cursor:pointer;font-family:inherit;font-size:0.95rem;transition:background 0.2s}
+  .btn-primario{background:var(--cp);color:#fff}
+  .btn-primario:hover{background:var(--cp-oscuro)}
+  .btn-secundario{background:var(--gris-claro);color:var(--texto)}
+  .btn-secundario:hover{background:#d6dde4}
+  .btn[aria-pressed="true"]{background:var(--cp-oscuro);color:#fff}
+  ul.lista-bonita{list-style:none;padding-left:0}
+  ul.lista-bonita li{padding:8px 0 8px 30px;position:relative}
+  ul.lista-bonita li::before{content:'➜';position:absolute;left:0;color:var(--cp);font-weight:700}
+  .palabra-clave{background:linear-gradient(transparent 60%,#ffeb3b 60%);padding:0 4px;font-weight:600}
+  .ej{font-family:Georgia,serif;font-size:1.08rem}
+  .sub{font-weight:700;border-bottom:3px solid var(--cp-oscuro)}
+  table.tabla{width:100%;border-collapse:collapse;margin:16px 0;background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,0.06)}
+  table.tabla th{background:var(--cp-oscuro);color:#fff;padding:10px 12px;text-align:left}
+  table.tabla td{padding:10px 12px;border-bottom:1px solid var(--gris-claro);vertical-align:top}
+  table.tabla tr:last-child td{border-bottom:none}
+  .actividad{background:#fff;border:2px solid var(--acento);border-radius:10px;padding:16px 20px;margin:14px 0}
+  .actividad h4{color:#8a3d0c;margin-top:0}
+  .badge{display:inline-block;padding:3px 10px;border-radius:12px;font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-right:6px}
+  .badge-lectura{background:#e3f2fd;color:#0d47a1}
+  /* Clasificadores */
+  .clasificador{background:#fff;border:2px solid var(--cp);border-radius:12px;padding:14px 18px;margin:18px 0}
+  .item{border:2px solid var(--gris-claro);border-radius:8px;padding:10px 14px;margin:8px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+  .item-pal{font-family:Georgia,serif;font-size:1.12rem;color:var(--texto);display:flex;align-items:center;gap:10px}
+  .item-ops{display:flex;gap:8px;flex-wrap:wrap}
+  .item-fb{flex-basis:100%;font-size:.95rem}
+  .item-fb:empty{display:none}
+  .btn-op{padding:7px 14px;border:2px solid var(--cp-oscuro);background:#fff;color:var(--cp-oscuro);border-radius:8px;cursor:pointer;font-weight:600;font-family:inherit;font-size:.92rem}
+  .btn-op:hover:not(:disabled){background:var(--cp-claro)}
+  .btn-op.correcta{background:#d4edda;border-color:var(--exito);color:#155724}
+  .btn-op.correcta::before{content:'✓ '}
+  .btn-op.incorrecta{background:#f8d7da;border-color:var(--error);color:#721c24;text-decoration:line-through}
+  .btn-op.incorrecta::before{content:'✗ '}
+  .btn-op:disabled{cursor:default}
+  .apilado .item{flex-direction:column;align-items:stretch}
+  .apilado .item-ops{flex-direction:column}
+  .apilado .btn-op{text-align:left;font-weight:400}
+  .apilado .item-pal{font-family:'Segoe UI',Arial,sans-serif;font-size:1rem;font-weight:600;display:block}
+  .puntaje{text-align:center;margin-top:12px;font-weight:600;color:var(--cp-oscuro)}
+  /* Lectura con marcas: color + borde distinto + etiqueta escrita */
+  .texto-lectura{background:#fff;border:2px solid var(--gris-claro);border-radius:8px;padding:18px 22px;margin:14px 0;font-family:Georgia,serif;font-size:1.12rem;line-height:2.1}
+  .texto-lectura p{margin:0 0 10px}
+  .num-p{display:inline-block;background:var(--cp-oscuro);color:#fff;border-radius:50%;width:1.6em;height:1.6em;text-align:center;line-height:1.6em;font-size:.8rem;font-family:'Segoe UI',Arial,sans-serif;margin-right:6px;vertical-align:middle}
+  .m-sus{background:#e3f2fd;color:#0d3c78;border-bottom:3px solid #0d3c78}
+  .m-adj{background:#fff3e0;color:#6b3300;border-bottom:3px dashed #8a4b00}
+  .m-adv{background:#e8f5e9;color:#1b5e20;border-bottom:3px dotted #1b5e20}
+  .etq{font-weight:700;font-size:.78em;font-family:'Segoe UI',Arial,sans-serif;white-space:nowrap}
+  .oculta-marcas .m-sus,.oculta-marcas .m-adj,.oculta-marcas .m-adv{background:none;color:inherit;border:none}
+  .oculta-marcas .etq{display:none}
+  .leyenda-marcas{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0;font-size:.92rem}
+  .leyenda-marcas span{padding:2px 8px}
+  /* Índice */
+  .indice{background:#fff;border:1px solid #d6dde4;border-left:6px solid var(--cp);border-radius:10px;padding:16px 20px;margin:22px 0}
+  .indice h2{font-size:1.1rem;margin:0 0 8px;border:none;padding:0}
+  .indice ol{margin:0;padding-left:1.4em}
+  .indice li{margin:4px 0}
+  .indice a{color:var(--cp-oscuro)}
+  .abrir-cerrar{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0 0}
+  .volver-indice{position:fixed;right:18px;bottom:18px;z-index:60;background:var(--cp-oscuro);color:#fff;border-radius:999px;padding:10px 16px;font-weight:700;font-size:.92rem;text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,.28)}
+  .volver-indice:hover{background:var(--cp);color:#fff}
+  a:focus-visible,summary:focus-visible,button:focus-visible,textarea:focus-visible{outline:3px solid #b35316;outline-offset:2px}
+  .sr-solo{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+  .enlace-practica{display:block;background:#fff;border:2px solid var(--cp);border-radius:10px;padding:14px 18px;margin:16px 0;text-decoration:none;color:var(--cp-oscuro);font-weight:600}
+  .enlace-practica:hover{background:var(--cp-claro)}
+  .enlace-practica span{display:block;font-weight:400;color:var(--texto);font-size:.95rem}
+  .aviso-voz{font-size:.9rem;color:#5c3900;background:#fff3cd;border-radius:6px;padding:6px 10px;display:none}
+  .aviso-voz.visible{display:block}
+  /* Quiz */
+  .qz-intro{background:var(--cp-claro);border-radius:10px;padding:14px 18px;margin:0 0 14px}
+  .qz-intro h4{margin:0 0 6px;color:var(--cp-oscuro)}
+  .qz-preg{background:#fff;border:2px solid var(--gris-claro);border-radius:10px;padding:14px 18px;margin:12px 0}
+  .qz-enun{font-weight:600;margin:0 0 10px}
+  .qz-num{display:inline-block;background:var(--cp-oscuro);color:#fff;border-radius:12px;padding:1px 10px;font-size:.8rem;margin-right:8px}
+  .qz-ops{display:flex;flex-direction:column;gap:8px}
+  .qz-op{text-align:left;background:#fff;border:2px solid #c9d2db;border-radius:8px;padding:10px 14px;font-family:inherit;font-size:1rem;cursor:pointer;color:var(--texto)}
+  .qz-op:hover:not(:disabled){border-color:var(--cp)}
+  .qz-op.elegida{background:var(--cp-claro);border-color:var(--cp-oscuro);color:var(--cp-oscuro);box-shadow:0 0 0 3px #fff,0 0 0 5px var(--cp)}
+  .qz-op.correcta{background:#d4edda;border-color:#2e7d32;color:#155724}
+  .qz-op.correcta::before{content:'✓ '}
+  .qz-op.incorrecta{background:#f8d7da;border-color:#c62828;color:#721c24}
+  .qz-op.incorrecta::before{content:'✗ '}
+  .qz-op:disabled{cursor:default}
+  .qz-resultado{display:none;margin:16px 0;padding:16px;border-radius:10px;text-align:center;font-weight:600}
+  .qz-resultado.visible{display:block}
+  .qz-repaso{margin:10px 0 0;padding:8px 12px;background:#fff3cd;border-radius:6px;color:#3d2600;font-size:.95rem}
+  .qz-repaso a{color:var(--cp-oscuro);font-weight:700}
+  /* Taller de escritura */
+  .taller{background:#fff;border:2px solid var(--cp);border-radius:12px;padding:14px;margin:14px 0}
+  .tl-etq{display:block;font-weight:700;color:var(--cp-oscuro);margin-bottom:6px}
+  .tl-txt{width:100%;box-sizing:border-box;font:inherit;font-size:1.05rem;line-height:1.7;padding:10px 12px;border:2px solid #9aa9b7;border-radius:8px;resize:vertical;min-height:200px}
+  .tl-txt:focus{outline:3px solid var(--cp);outline-offset:1px;border-color:var(--cp-oscuro)}
+  .tl-cuenta{font-size:.92rem;color:#333;margin:6px 0}
+  .tl-conect{font-size:.95rem;margin:4px 0 8px}
+  .tl-chip{display:inline-block;background:var(--cp-claro);color:var(--cp-oscuro);border:1px solid var(--cp);border-radius:12px;padding:1px 10px;margin:2px 2px;font-weight:700}
+  .tl-aviso{min-height:1.4em;font-weight:700;color:var(--cp-oscuro)}
+  .tl-lista{border:2px dashed var(--cp);border-radius:10px;padding:8px 14px;margin-top:10px}
+  .tl-lista legend{font-weight:700;color:var(--cp-oscuro);padding:0 6px}
+  .tl-lista label{display:flex;gap:10px;align-items:flex-start;padding:6px 0;cursor:pointer}
+  .tl-lista input{width:22px;height:22px;flex-shrink:0;margin-top:2px;accent-color:var(--cp-oscuro)}
+  .tl-listo{font-weight:700;color:var(--cp-oscuro);margin:6px 0 0}
+  .rubrica{font-size:.92rem}
+  .rubrica td,.rubrica th{vertical-align:top}
+  @media(max-width:640px){
+    .rubrica thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+    .rubrica,.rubrica tbody,.rubrica tr,.rubrica th,.rubrica td{display:block;width:auto}
+    .rubrica tr{border:2px solid var(--cp);border-radius:10px;margin:0 0 10px;overflow:hidden}
+    .rubrica tbody th{background:var(--cp-oscuro);color:#fff;border:none}
+    .rubrica td{border:none;border-top:1px solid #d5dde3}
+    .rubrica td::before{content:attr(data-et);display:block;font-weight:700;color:var(--cp-oscuro)}
+  }
+  footer.pie{margin-top:40px;padding-top:18px;border-top:2px solid var(--gris-claro);text-align:center;color:#555;font-size:.9rem}
+  footer.pie p{margin:4px 0}
+  footer.pie a{color:var(--cp-oscuro)}
+  @media print{.indice,.volver-indice,.abrir-cerrar{display:none}}
+  @media (prefers-reduced-motion:reduce){summary::before{transition:none}}
+  .doc{background:#fff;border:2px solid var(--gris-claro);border-left:8px solid var(--cp-oscuro);border-radius:8px;padding:12px 18px;margin:14px 0;font-family:Georgia,serif;font-size:1.08rem;line-height:1.85}
+  .doc .cab-doc{display:block;font-family:'Segoe UI',Arial,sans-serif;font-size:.9rem;font-weight:700;color:var(--cp-oscuro);margin-bottom:6px}
+  .doc .orig{display:block;font-size:.95rem;color:#333;border-top:1px dashed #c9d2db;margin-top:8px;padding-top:6px}
+  .m-pre{background:#e3f2fd;color:#0d3c78;border-bottom:3px solid #0d3c78}
+  .m-ev{background:#e8f5e9;color:#1b5e20;border-bottom:3px dotted #1b5e20}
+  .oculta-marcas .m-pre,.oculta-marcas .m-ev{background:none;color:inherit;border:none}
+</style>
+</head>
+<body>
+<h1>Lección 5.2 · Documentos fundacionales y análisis crítico de fuentes</h1>
+<p class="subtitulo">Artes del Lenguaje · Nivel 4 · Tema 5: Evaluar argumentos y sintetizar fuentes · Unas 2 horas, a tu ritmo</p>
+
+<div class="caja-objetivos">
+  <h2>🎯 Objetivos de la lección</h2>
+  <ul class="lista-bonita" style="margin:0">
+    <li>Analizar críticamente un <strong>documento fundacional</strong> de Estados Unidos e identificar sus <strong>premisas</strong>.</li>
+    <li>Comparar los <strong>puntos de vista</strong> de dos fuentes que interpretan el mismo documento.</li>
+    <li>Evaluar las <strong>premisas</strong> y las <strong>evidencias</strong> que sostienen cada interpretación, teniendo en cuenta su contexto.</li>
+  </ul>
+  <p style="margin:8px 0 0;font-size:.92rem">Estándares: 5–6.R.CI.8 · RH.9-10.1 · RH.9-10.6 · RH.11-12.6 · RH.11-12.8</p>
+</div>
+
+<nav class="indice" id="indice" aria-labelledby="indice-titulo">
+  <h2 id="indice-titulo">Contenido de la lección</h2>
+  <ol>
+    <li><a href="#s-1-fundacionales">Los documentos fundacionales y la gran conversación</a></li>
+    <li><a href="#s-2-premisas">Premisas: el punto de partida</a></li>
+    <li><a href="#s-3-declaracion">Fuente 1: la Declaración de Independencia (1776)</a></li>
+    <li><a href="#s-4-interpretaciones">Fuentes 2 y 3: Douglass (1852) y Lincoln (1863)</a></li>
+    <li><a href="#s-5-comparar">Dos interpretaciones de una misma promesa</a></li>
+    <li><a href="#s-6-evaluar">Evaluar premisas, evidencias y contexto</a></li>
+    <li><a href="#s-7-taller">Taller: analiza una interpretación</a></li>
+    <li><a href="#s-tarea">Tarea</a></li>
+    <li><a href="#s-quiz">Quiz de la lección</a></li>
+    <li><a href="#s-cierre">Cierre</a></li>
+  </ol>
+  <div class="abrir-cerrar">
+    <button type="button" class="btn btn-secundario" id="abrir-todo">Abrir todo</button>
+    <button type="button" class="btn btn-secundario" id="cerrar-todo">Cerrar todo</button>
+  </div>
+</nav>
+
+<h2>📚 Para empezar</h2>
+<p>El examen RLA del GED incluye pasajes de los documentos fundacionales de Estados Unidos y de los textos que, a lo largo de la historia, han discutido con ellos. No se trata de saber historia de memoria, sino de leerlos como cualquier argumento: <strong>¿de qué premisas parten?, ¿qué evidencia ofrecen?, ¿desde qué punto de vista se interpretan?</strong> En esta lección leerás tres textos que forman una conversación de casi noventa años sobre una sola frase: «todos los hombres son creados iguales».</p>
+<p class="aviso-voz" id="aviso-voz" role="status">Tu navegador no tiene una voz en español disponible, así que los botones 🔊 no sonarán.</p>
+
+<details open id="s-1-fundacionales">
+<summary>1. Los documentos fundacionales y la gran conversación <span class="caja-tiempo">10 min</span></summary>
+<div class="contenido-detalle">
+<p>Los <span class="palabra-clave">documentos fundacionales</span> son los textos que crearon el país y sus reglas básicas. Los principales son tres:</p>
+<table class="tabla">
+  <caption class="sr-solo">Los tres documentos fundacionales de Estados Unidos</caption>
+  <thead><tr><th scope="col">Documento</th><th scope="col">Año</th><th scope="col">Qué hace</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Declaración de Independencia</strong></td><td>1776</td><td>Explica por qué las trece colonias se separan de Gran Bretaña y en qué principios se basa el nuevo país.</td></tr>
+    <tr><td><strong>Constitución</strong></td><td>1787</td><td>Organiza el gobierno: los tres poderes y sus límites.</td></tr>
+    <tr><td><strong>Carta de Derechos</strong> (primeras diez enmiendas)</td><td>1791</td><td>Protege libertades como la de expresión, de prensa y de religión.</td></tr>
+  </tbody>
+</table>
+<p>A estos documentos les respondieron después muchas voces: abolicionistas, sufragistas, líderes de los derechos civiles, presidentes. Ese diálogo a través de los siglos se llama a veces la <strong>gran conversación estadounidense</strong>, y el GED la trata como un solo gran tema: ¿cumple el país lo que prometió?</p>
+<div class="tip"><strong>📚 El Archivo de fuentes:</strong> en el <a href="https://zhemaria.github.io/sociales/fuentes/" target="_blank" rel="noopener noreferrer" style="color:var(--cp-oscuro);font-weight:700">Archivo de fuentes de Estudios Sociales</a> de GEDparaHispanos hay documentos de la historia de Estados Unidos traducidos al español, con enlace a su transcripción oficial. Se abre en una pestaña nueva.</div>
+</div>
+</details>
+
+<details id="s-2-premisas">
+<summary>2. Premisas: el punto de partida <span class="caja-tiempo">10 min</span></summary>
+<div class="contenido-detalle">
+<p>Una <span class="palabra-clave">premisa</span> es una idea que el autor acepta como punto de partida para razonar. Todo argumento descansa en premisas; algunas se dicen y otras quedan implícitas.</p>
+<table class="tabla">
+  <caption class="sr-solo">Premisas explícitas e implícitas con ejemplos</caption>
+  <thead><tr><th scope="col">Tipo</th><th scope="col">Ejemplo de argumento</th><th scope="col">Premisa</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Explícita</strong></td><td>«Todos los niños tienen derecho a la educación; por eso la escuela debe ser gratuita.»</td><td>«Todos los niños tienen derecho a la educación.»</td></tr>
+    <tr><td><strong>Implícita</strong></td><td>«La escuela debe ser gratuita, porque si cuesta, los pobres no podrán ir.»</td><td>(No dicha) Que todos, también los pobres, deben poder estudiar.</td></tr>
+  </tbody>
+</table>
+<p>Para <strong>evaluar una premisa</strong>, pregúntate: ¿es aceptable?, ¿la comparte el lector?, ¿se aplica a todos los casos que el autor dice?, ¿la contradice algún hecho?</p>
+</div>
+</details>
+
+<details id="s-3-declaracion">
+<summary>3. Fuente 1: la Declaración de Independencia (1776) <span class="caja-tiempo">15 min</span></summary>
+<div class="contenido-detalle">
+<div class="doc">
+  <span class="cab-doc">Declaración de Independencia · 4 de julio de 1776 · fragmento del segundo párrafo</span>
+  «<span class="m-pre">Sostenemos como evidentes estas verdades: que todos los hombres son creados iguales; que son dotados por su Creador de ciertos derechos inalienables; que entre estos están la vida, la libertad y la búsqueda de la felicidad.</span> Que para garantizar estos derechos se instituyen entre los hombres los gobiernos, que derivan sus poderes legítimos del consentimiento de los gobernados. Que cuando quiera que una forma de gobierno se haga destructora de estos fines, el pueblo tiene el derecho a reformarla o abolirla…»
+  <span class="orig"><strong>Original en inglés de la primera frase:</strong> <em>«We hold these truths to be self-evident, that all men are created equal…»</em></span>
+</div>
+<p style="font-size:.93rem">Traducción escrita para esta lección. Transcripción oficial en inglés en los <a href="https://www.archives.gov/founding-docs/declaration-transcript" target="_blank" rel="noopener noreferrer" style="color:var(--cp-oscuro);font-weight:700">Archivos Nacionales de Estados Unidos</a> (se abre en una pestaña nueva).</p>
+<table class="tabla">
+  <caption class="sr-solo">Análisis del argumento del fragmento de la Declaración</caption>
+  <thead><tr><th scope="col">Paso del argumento</th><th scope="col">Qué dice</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Premisa 1</strong></td><td>Todos los hombres son creados iguales y tienen derechos que nadie les puede quitar.</td></tr>
+    <tr><td><strong>Premisa 2</strong></td><td>Los gobiernos existen para proteger esos derechos, y su poder viene del consentimiento del pueblo.</td></tr>
+    <tr><td><strong>Conclusión</strong></td><td>Si un gobierno destruye esos derechos, el pueblo puede cambiarlo o abolirlo (y por eso las colonias se separan).</td></tr>
+  </tbody>
+</table>
+<div class="tip"><strong>💡 «Evidentes»:</strong> los autores no ofrecen evidencia para la Premisa 1: la declaran <em>evidente</em>, es decir, tan clara que no necesita demostración. Es una decisión retórica poderosa, y también un punto que otros podrán discutir: ¿a quiénes incluía, en la práctica, ese «todos»? En 1776 la esclavitud era legal en las trece colonias.</div>
+<div class="clasificador apilado" id="clasif-decl"></div>
+<div class="puntaje" id="puntaje-decl" role="status" aria-live="polite"></div>
+</div>
+</details>
+
+<details id="s-4-interpretaciones">
+<summary>4. Fuentes 2 y 3: Douglass (1852) y Lincoln (1863) <span class="caja-tiempo">20 min</span></summary>
+<div class="contenido-detalle">
+<div class="doc">
+  <span class="cab-doc">Frederick Douglass · «¿Qué es para el esclavo el 4 de julio?» · Rochester, Nueva York, 5 de julio de 1852 · fragmentos</span>
+  <p style="margin:0 0 8px"><em style="font-family:'Segoe UI',Arial,sans-serif;font-size:.92rem">Douglass había escapado de la esclavitud en 1838 y era el abolicionista más conocido del país. Una sociedad antiesclavista de Rochester lo invitó a dar el discurso de la fiesta nacional.</em></p>
+  «<span class="m-ev">Este 4 de julio es de ustedes, no mío. Ustedes pueden alegrarse; yo debo estar de luto.</span>»<br>
+  «<span class="m-ev">¿Qué es para el esclavo estadounidense su 4 de julio? Respondo: un día que le revela, más que todos los demás días del año, la enorme injusticia y la crueldad de las que es víctima constante.</span>»
+  <span class="orig"><strong>Original:</strong> <em>«This Fourth July is yours, not mine. You may rejoice, I must mourn.»</em></span>
+</div>
+<div class="doc">
+  <span class="cab-doc">Abraham Lincoln · Discurso de Gettysburg · Pensilvania, 19 de noviembre de 1863 · fragmentos</span>
+  <p style="margin:0 0 8px"><em style="font-family:'Segoe UI',Arial,sans-serif;font-size:.92rem">En plena Guerra Civil, el presidente habló en la inauguración de un cementerio para los soldados muertos en la batalla de Gettysburg.</em></p>
+  «Hace ochenta y siete años, nuestros padres hicieron nacer en este continente una nueva nación, concebida en la libertad y <span class="m-pre">consagrada a la proposición de que todos los hombres son creados iguales</span>.»<br>
+  «…que esta nación, bajo Dios, tenga un nuevo nacimiento de la libertad, y que el gobierno del pueblo, por el pueblo y para el pueblo no desaparezca de la Tierra.»
+  <span class="orig"><strong>Original:</strong> <em>«…dedicated to the proposition that all men are created equal.»</em></span>
+</div>
+<p style="font-size:.93rem">Traducciones escritas para esta lección. Texto completo del discurso de Douglass, en inglés, en <a href="https://www.americanyawp.com/reader/democracy-in-america/frederick-douglass-what-to-the-slave-is-the-fourth-of-july-1852/" target="_blank" rel="noopener noreferrer" style="color:var(--cp-oscuro);font-weight:700">The American Yawp Reader</a> (se abre en una pestaña nueva).</p>
+<div class="botones" style="justify-content:flex-start">
+  <button type="button" class="btn btn-secundario" id="leer-fuentes">🔊 Escuchar las tres fuentes</button>
+</div>
+<div class="tip"><strong>💡 Ochenta y siete años:</strong> Lincoln cuenta desde 1776. Habla de la Declaración, no de la Constitución. Y la llama <em>proposición</em>: una idea que hay que demostrar, no algo ya cumplido.</div>
+<div class="clasificador apilado" id="clasif-fuentes"></div>
+<div class="puntaje" id="puntaje-fuentes" role="status" aria-live="polite"></div>
+</div>
+</details>
+
+<details id="s-5-comparar">
+<summary>5. Dos interpretaciones de una misma promesa <span class="caja-tiempo">20 min</span></summary>
+<div class="contenido-detalle">
+<table class="tabla">
+  <caption class="sr-solo">Comparación de las interpretaciones de Douglass y de Lincoln sobre la Declaración</caption>
+  <thead><tr><th scope="col">Pregunta</th><th scope="col">Douglass (1852)</th><th scope="col">Lincoln (1863)</th></tr></thead>
+  <tbody>
+    <tr><td><strong>¿Acepta la premisa de la igualdad?</strong></td><td>Sí: la usa para juzgar al país.</td><td>Sí: la llama el propósito de la nación.</td></tr>
+    <tr><td><strong>¿Se ha cumplido?</strong></td><td>No: la esclavitud la contradice cada día.</td><td>Todavía no del todo: la guerra la pone a prueba.</td></tr>
+    <tr><td><strong>Perspectiva</strong></td><td>Hombre que fue esclavizado, ante un público libre.</td><td>Presidente, ante las tumbas de soldados.</td></tr>
+    <tr><td><strong>Tono</strong></td><td>Acusador, doloroso.</td><td>Solemne, esperanzado.</td></tr>
+    <tr><td><strong>Propósito</strong></td><td>Que los oyentes vean la hipocresía de celebrar la libertad con esclavitud.</td><td>Que el sacrificio de los soldados sirva para un «nuevo nacimiento de la libertad».</td></tr>
+  </tbody>
+</table>
+<div class="tip"><strong>💡 Coinciden en la premisa, difieren en el juicio.</strong> Los dos creen en la frase de 1776. Douglass mide la distancia entre la promesa y la realidad; Lincoln propone cerrar esa distancia. Ninguno rechaza la Declaración: los dos la reclaman. Por eso se habla de una «conversación».</div>
+<div class="clasificador apilado" id="clasif-comparar"></div>
+<div class="puntaje" id="puntaje-comparar" role="status" aria-live="polite"></div>
+<a class="enlace-practica" href="https://zhemaria.github.io/gramatica/n4-l5-2.html#interpretaciones" target="_blank" rel="noopener noreferrer">🔀 Practica más: dos interpretaciones
+  <span>Pares de fuentes que leen de forma distinta el mismo documento. Se abre en una pestaña nueva.</span></a>
+</div>
+</details>
+
+<details id="s-6-evaluar">
+<summary>6. Evaluar premisas, evidencias y contexto <span class="caja-tiempo">15 min</span></summary>
+<div class="contenido-detalle">
+<p>Para analizar críticamente una fuente histórica, aplica estas cuatro preguntas:</p>
+<table class="tabla">
+  <caption class="sr-solo">Cuatro preguntas para el análisis crítico de una fuente histórica, aplicadas a Douglass</caption>
+  <thead><tr><th scope="col">Pregunta</th><th scope="col">Aplicada a Douglass</th></tr></thead>
+  <tbody>
+    <tr><td><strong>¿Quién habla, cuándo y para quién?</strong></td><td>Un abolicionista que escapó de la esclavitud, en 1852, ante un público que celebraba la independencia.</td></tr>
+    <tr><td><strong>¿De qué premisa parte?</strong></td><td>De la de la Declaración: todos son creados iguales.</td></tr>
+    <tr><td><strong>¿Qué evidencia ofrece?</strong></td><td>La existencia de la esclavitud: un hecho que nadie podía negar en 1852.</td></tr>
+    <tr><td><strong>¿Se sostiene la conclusión?</strong></td><td>Sí: si la premisa es la igualdad y la realidad es la esclavitud, celebrar la libertad sin incluir a todos es contradictorio.</td></tr>
+  </tbody>
+</table>
+<div class="tip"><strong>⚠️ El contexto no es una excusa ni una acusación:</strong> sirve para entender. Saber que Lincoln habló en plena guerra explica su tono de esperanza y sacrificio; saber que Douglass habló un día después de la fiesta nacional explica su elección: no quiso celebrar el 4 de julio.</div>
+<div class="clasificador apilado" id="clasif-evaluar"></div>
+<div class="puntaje" id="puntaje-evaluar" role="status" aria-live="polite"></div>
+<a class="enlace-practica" href="https://zhemaria.github.io/gramatica/n4-l5-2.html#premisas" target="_blank" rel="noopener noreferrer">🧱 Practica más: identifica y evalúa premisas
+  <span>Argumentos breves para encontrar su punto de partida. Se abre en una pestaña nueva.</span></a>
+<a class="enlace-practica" href="https://zhemaria.github.io/gramatica/n4-l5-2.html#evidencia" target="_blank" rel="noopener noreferrer">🔎 Practica más: la evidencia que sostiene una interpretación
+  <span>Fragmentos de la Constitución, la Carta de Derechos y otros documentos. Se abren en una pestaña nueva.</span></a>
+<div class="tip"><strong>👨‍👩‍👧 Si tienes con quién practicar:</strong> «Dos interpretaciones». Lean en voz alta la frase de la Declaración. Uno la defiende como lo haría Lincoln; el otro la cuestiona como lo haría Douglass. Después, cambien los papeles.</div>
+</div>
+</details>
+
+<details id="s-7-taller">
+<summary>7. Taller: analiza una interpretación <span class="caja-tiempo">25 min</span></summary>
+<div class="contenido-detalle">
+<p>Escribe un párrafo de <strong>5 a 7 oraciones</strong> que responda: <strong>¿cómo interpretan Douglass y Lincoln la frase «todos los hombres son creados iguales», y qué evidencia sostiene cada interpretación?</strong> Incluye la perspectiva de cada uno, una cita de cada fuente y tu evaluación de la premisa.</p>
+<div class="taller" id="taller-52"></div>
+<h3>Rúbrica: así se evaluará tu análisis</h3>
+<table class="tabla rubrica">
+  <caption class="sr-solo">Rúbrica del análisis crítico de fuentes: tres criterios en cuatro niveles</caption>
+  <thead><tr><th scope="col">Criterio</th><th scope="col">4 · Excelente</th><th scope="col">3 · Bien</th><th scope="col">2 · En camino</th><th scope="col">1 · Inicial</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">Analiza críticamente la fuente</th><td>Considera quién habla, cuándo, para quién y con qué propósito</td><td>Considera dos de esos aspectos</td><td>Solo resume la fuente</td><td>No la analiza</td></tr>
+    <tr><th scope="row">Compara puntos de vista</th><td>Señala en qué coinciden y en qué difieren, con una cita de cada uno</td><td>Compara con una sola cita</td><td>Describe cada fuente por separado</td><td>No compara</td></tr>
+    <tr><th scope="row">Evalúa premisas y evidencias</th><td>Identifica la premisa y juzga si la evidencia la sostiene</td><td>Identifica la premisa sin juzgarla</td><td>Confunde premisa y conclusión</td><td>No las evalúa</td></tr>
+  </tbody>
+</table>
+<p style="font-size:.92rem">Total: 12 puntos.</p>
+</div>
+</details>
+
+<details id="s-tarea">
+<summary>8. Tarea <span class="caja-tiempo">30 min</span></summary>
+<div class="contenido-detalle">
+<ul class="lista-bonita">
+  <li><strong>Termina tu análisis</strong> del taller y revísalo con la rúbrica.</li>
+  <li><strong>Explora el Archivo de fuentes:</strong> elige un documento y escribe en tu cuaderno su premisa principal y quién la podría discutir.</li>
+  <li><strong>Continúa la conversación:</strong> escribe tres o cuatro oraciones sobre cómo leería hoy la frase de 1776 una persona de tu comunidad.</li>
+</ul>
+</div>
+</details>
+
+<details id="s-quiz">
+<summary>9. Quiz de la lección <span class="caja-tiempo">20 min</span></summary>
+<div class="contenido-detalle">
+<div class="qz-intro">
+  <h4>✅ Quiz · 12 preguntas · puedes repetirlo las veces que quieras</h4>
+  <p style="margin:0">Las preguntas se refieren a las tres fuentes de esta lección. Elige una respuesta en cada pregunta y, al final, pulsa <strong>Ver mi resultado</strong>. La meta es acertar al menos <strong>10 de 12</strong>.</p>
+</div>
+<div id="qz-cuerpo"></div>
+<div class="botones">
+  <button type="button" class="btn btn-primario" id="qz-calificar">Ver mi resultado</button>
+  <button type="button" class="btn btn-secundario" id="qz-reintentar" style="display:none">Intentar de nuevo</button>
+</div>
+<div class="qz-resultado" id="qz-resultado" role="status" aria-live="polite"></div>
+</div>
+</details>
+
+<details id="s-cierre">
+<summary>10. Cierre <span class="caja-tiempo">5 min</span></summary>
+<div class="contenido-detalle">
+<h3>Lo que aprendiste en esta lección</h3>
+<ul class="lista-bonita">
+  <li>Los documentos fundacionales son la Declaración (1776), la Constitución (1787) y la Carta de Derechos (1791); otros textos dialogan con ellos.</li>
+  <li>Una premisa es el punto de partida de un argumento; la Declaración presenta la suya como «evidente».</li>
+  <li>Douglass y Lincoln aceptan la premisa de la igualdad pero la juzgan desde perspectivas y momentos distintos.</li>
+  <li>El análisis crítico pregunta quién habla, cuándo, para quién, desde qué premisa y con qué evidencia.</li>
+</ul>
+<div class="caja-objetivos" style="background:#fff3e0;border-left-color:var(--acento)">
+  <h2 style="color:#8a3d0c;border:none;padding:0;margin-top:0;font-size:1.2rem">✅ Antes de irte, revísate</h2>
+  <ul class="lista-bonita">
+    <li>¿Cuál es la premisa central del fragmento de la Declaración?</li>
+    <li>¿En qué coinciden Douglass y Lincoln, y en qué se diferencian?</li>
+    <li>¿Qué evidencia usa Douglass y por qué es difícil de rebatir?</li>
+  </ul>
+</div>
+<div class="tip"><strong>➡️ Sigue con la próxima lección:</strong> <a href="https://zhemaria.github.io/clases_leng4/clase_5-3.html" style="color:var(--cp-oscuro);font-weight:700">Lección 5.3 · Integrar fuentes de varios formatos</a>.</div>
+<p style="font-size:.9rem"><strong>Fuentes:</strong> Declaración de Independencia (1776), transcripción de los Archivos Nacionales de Estados Unidos; Frederick Douglass, discurso del 5 de julio de 1852 en el Corinthian Hall de Rochester, según <em>The American Yawp Reader</em>; Abraham Lincoln, Discurso de Gettysburg (19 de noviembre de 1863). Todos de dominio público; las traducciones fueron escritas para esta lección.</p>
+</div>
+</details>
+
+<footer class="pie">
+  <p><strong>GEDparaHispanos · Artes del Lenguaje · Nivel 4: Dominio del GED y Escritura Argumentativa · Tema 5 · Lección 5.2</strong></p>
+  <p>José M. Fernández, ABE/ASE Math Master Teacher, Harry S. Truman College — City Colleges of Chicago</p>
+  <p>© 2026. Esta obra está licenciada bajo <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es" rel="license noopener noreferrer" target="_blank">Creative Commons Reconocimiento-NoComercial-CompartirIgual 4.0 Internacional (CC BY-NC-SA 4.0)</a>.</p>
+</footer>
+<a class="volver-indice" href="#indice" aria-label="Volver al contenido de la lección"><span aria-hidden="true">↑</span> Índice</a>
+
+<script>
+
+/* ===== Voz: todas las lecturas pasan por hablar(), para poder cambiarla después por audio grabado ===== */
+(function(){
+  var voz=null, hay=('speechSynthesis' in window);
+  function elegir(){
+    if(!hay)return;
+    var vs=speechSynthesis.getVoices().filter(function(v){return /^es/i.test(v.lang);});
+    var pref=['es-US','es-MX','es-419','es-CO','es-AR','es-CL','es-PE'];
+    voz=null;
+    for(var i=0;i<pref.length&&!voz;i++){voz=vs.find(function(v){return v.lang.replace('_','-').toLowerCase()===pref[i].toLowerCase();})||null;}
+    if(!voz)voz=vs.find(function(v){return !/es[-_]ES/i.test(v.lang);})||vs[0]||null;
+  }
+  function aviso(){var a=document.getElementById('aviso-voz');if(a)a.classList.add('visible');}
+  function frase(t,vel){var u=new SpeechSynthesisUtterance(t);u.lang=voz?voz.lang:'es-US';if(voz)u.voice=voz;u.rate=vel||0.9;return u;}
+  if(hay){elegir(); speechSynthesis.onvoiceschanged=elegir;}
+  window.hablar=function(texto,vel,fin){
+    if(!hay||!texto){aviso();return;}
+    speechSynthesis.cancel();
+    /* Se lee por oraciones: algunos navegadores cortan las lecturas largas */
+    var partes=texto.replace(/\s+/g,' ').match(/[^.!?…]+[.!?…]+[»"”)]*\s*|[^.!?…]+$/g)||[texto];
+    partes.forEach(function(t,i){var u=frase(t.trim(),vel); if(fin&&i===partes.length-1)u.onend=fin; speechSynthesis.speak(u);});
+  };
+  window.callar=function(){if(hay)speechSynthesis.cancel();};
+  if(!hay)document.addEventListener('DOMContentLoaded',aviso);
+})();
+
+/* ===== Clasificador: cada elemento con sus botones; al acertar muestra una nota =====
+   Las opciones propias de cada elemento se barajan; las opciones comunes conservan su orden */
+function orden(it,ops){
+  var o=ops.map(function(_,j){return j;});
+  if(it.ops&&!it.fijo){for(var k=o.length-1;k>0;k--){var r=Math.floor(Math.random()*(k+1)),t=o[k];o[k]=o[r];o[r]=t;}}
+  return o;
+}
+function clasificador(idCaja,idPuntaje,items,opciones,conAudio){
+  var caja=document.getElementById(idCaja), pun=document.getElementById(idPuntaje), bien=0, hechas={};
+  function marcador(){pun.textContent=bien===items.length?(items.length===1?'🎉 ¡Muy bien!':'🎉 ¡Muy bien! Acertaste las '+bien+'.'):(items.length===1?'':'Aciertos: '+bien+' / '+items.length);}
+  items.forEach(function(it,i){
+    var d=document.createElement('div'); d.className='item'; d.setAttribute('role','group'); d.setAttribute('aria-label',it.p.replace(/<[^>]+>/g,''));
+    var ops=it.ops||opciones;
+    d.innerHTML='<span class="item-pal">'+it.p+(conAudio?' <button type="button" class="oir" aria-label="Escuchar">🔊</button>':'')+'</span>'+
+      '<span class="item-ops">'+orden(it,ops).map(function(j){return '<button type="button" class="btn-op" data-j="'+j+'">'+ops[j]+'</button>';}).join('')+'</span>'+
+      '<span class="item-fb" aria-live="polite"></span>';
+    caja.appendChild(d);
+    if(conAudio)d.querySelector('.oir').addEventListener('click',function(){hablar(it.a||it.p.replace(/<[^>]+>/g,''),0.85);});
+    var fb=d.querySelector('.item-fb');
+    d.querySelectorAll('.btn-op').forEach(function(b){
+      b.addEventListener('click',function(){
+        if(hechas[i])return;
+        if(+b.getAttribute('data-j')===it.c){
+          b.classList.add('correcta'); hechas[i]=true; bien++;
+          d.querySelectorAll('.btn-op').forEach(function(x){x.disabled=true;});
+          fb.innerHTML='✓ '+(it.n||'Correcto.'); marcador();
+        }else{
+          b.classList.add('incorrecta'); b.disabled=true;
+          fb.innerHTML='Todavía no. '+(it.pista||'Vuelve a mirar la regla e intenta otra vez.');
+        }
+      });
+    });
+  });
+  marcador();
+}
+
+/* ===== Quiz de la lección ===== */
+function iniciarQuiz(P,cfg){
+  var META=cfg.meta, N=P.length, cuerpo=document.getElementById('qz-cuerpo'), elegidas={};
+  P.forEach(function(p,i){
+    var d=document.createElement('div');
+    d.className='qz-preg'; d.setAttribute('role','group'); d.setAttribute('aria-labelledby','qz-e'+i);
+    var h='<p class="qz-enun" id="qz-e'+i+'"><span class="qz-num">'+(i+1)+'</span>'+p.t+'</p><div class="qz-ops">';
+    var orden=p.o.map(function(_,j){return j;});
+    if(!p.fijo){for(var k=orden.length-1;k>0;k--){var r=Math.floor(Math.random()*(k+1)),t=orden[k];orden[k]=orden[r];orden[r]=t;}}
+    orden.forEach(function(j){h+='<button type="button" class="qz-op" data-i="'+i+'" data-j="'+j+'" aria-pressed="false">'+p.o[j]+'</button>';});
+    d.innerHTML=h+'</div>'; cuerpo.appendChild(d);
+  });
+  cuerpo.addEventListener('click',function(ev){
+    var b=ev.target.closest('.qz-op'); if(!b||b.disabled)return;
+    var i=b.getAttribute('data-i');
+    cuerpo.querySelectorAll('.qz-op[data-i="'+i+'"]').forEach(function(x){x.classList.remove('elegida');x.setAttribute('aria-pressed','false');});
+    b.classList.add('elegida'); b.setAttribute('aria-pressed','true'); elegidas[i]=+b.getAttribute('data-j');
+  });
+  var res=document.getElementById('qz-resultado');
+  document.getElementById('qz-calificar').addEventListener('click',function(){
+    var bien=0;
+    P.forEach(function(p,i){
+      cuerpo.querySelectorAll('.qz-op[data-i="'+i+'"]').forEach(function(x){
+        var j=+x.getAttribute('data-j'); x.disabled=true; x.classList.remove('elegida');
+        if(j===p.c)x.classList.add('correcta'); else if(elegidas[i]===j)x.classList.add('incorrecta');
+      });
+      if(elegidas[i]===p.c)bien++;
+      else if(p.r){var nota=document.createElement('p');nota.className='qz-repaso';nota.innerHTML='📘 Para repasar: '+p.r;cuerpo.children[i].appendChild(nota);}
+    });
+    var msg,fondo,color;
+    if(bien>=META){msg='¡Excelente! '+bien+' de '+N+'. '+cfg.bien;fondo='#d4edda';color='#155724';}
+    else if(bien>=Math.ceil(N*0.6)){msg='Buen trabajo: '+bien+' de '+N+'. Repasa las preguntas marcadas con ✗ y vuelve a intentarlo.';fondo='#fff3cd';color='#5c3900';}
+    else{msg='Llevas '+bien+' de '+N+'. '+cfg.repaso;fondo='#f8d7da';color='#721c24';}
+    res.textContent=msg; res.style.background=fondo; res.style.color=color; res.classList.add('visible');
+    this.style.display='none'; document.getElementById('qz-reintentar').style.display='inline-block';
+    res.scrollIntoView({behavior:'smooth',block:'center'});
+  });
+  document.getElementById('qz-reintentar').addEventListener('click',function(){
+    cuerpo.querySelectorAll('.qz-op').forEach(function(x){x.disabled=false;x.classList.remove('correcta','incorrecta','elegida');x.setAttribute('aria-pressed','false');});
+    cuerpo.querySelectorAll('.qz-repaso').forEach(function(n){n.remove();});
+    elegidas={}; res.classList.remove('visible'); res.textContent='';
+    this.style.display='none'; document.getElementById('qz-calificar').style.display='inline-block';
+    cuerpo.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+}
+
+/* ===== Navegación: el índice y la dirección (#ancla) abren su sección ===== */
+document.addEventListener('DOMContentLoaded',function(){
+  function abrir(id){
+    var el=id&&document.getElementById(id); if(!el)return;
+    var d=el.tagName==='DETAILS'?el:el.closest('details');
+    if(d){d.open=true; el.scrollIntoView({behavior:'smooth',block:'start'});}
+  }
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(){abrir(a.getAttribute('href').slice(1));});});
+  document.getElementById('abrir-todo').addEventListener('click',function(){document.querySelectorAll('details').forEach(function(d){d.open=true;});});
+  document.getElementById('cerrar-todo').addEventListener('click',function(){document.querySelectorAll('details').forEach(function(d){d.open=false;});});
+  window.addEventListener('hashchange',function(){abrir(decodeURIComponent(location.hash.slice(1)));});
+  abrir(decodeURIComponent(location.hash.slice(1)));
+});
+
+/* ===== Taller de escritura =====
+   El borrador se guarda en este navegador (si el navegador lo permite). */
+function tallerEscritura(id,o){
+  var caja=document.getElementById(id), k='gph-borrador-'+o.clave;
+  var h='<label class="tl-etq" for="'+id+'-txt">'+(o.etiqueta||'Escribe aquí tu texto')+'</label>'+
+    '<textarea class="tl-txt" id="'+id+'-txt" rows="10" spellcheck="true" lang="es"'+(o.guia?' placeholder="'+o.guia.replace(/"/g,'&quot;')+'"':'')+'></textarea>'+
+    '<div class="tl-cuenta" id="'+id+'-cuenta" aria-live="polite"></div>';
+  if(o.conectores)h+='<div class="tl-conect" id="'+id+'-con" aria-live="polite"></div>';
+  h+='<div class="botones" style="justify-content:flex-start">'+
+    '<button type="button" class="btn btn-secundario" id="'+id+'-oir">🔊 Escuchar mi texto</button>'+
+    '<button type="button" class="btn btn-secundario" id="'+id+'-copiar">📋 Copiar mi texto</button>'+
+    '<button type="button" class="btn btn-secundario" id="'+id+'-borrar">🗑️ Borrar</button></div>'+
+    '<div class="tl-aviso" id="'+id+'-aviso" role="status" aria-live="polite"></div>';
+  if(o.lista){
+    h+='<fieldset class="tl-lista"><legend>✅ Revisa tu texto antes de darlo por terminado</legend>'+
+      o.lista.map(function(t,i){return '<label><input type="checkbox" id="'+id+'-c'+i+'"> '+t+'</label>';}).join('')+
+      '<p class="tl-listo" id="'+id+'-listo" aria-live="polite"></p></fieldset>';
+  }
+  caja.innerHTML=h;
+  var ta=document.getElementById(id+'-txt'), cu=document.getElementById(id+'-cuenta'), co=document.getElementById(id+'-con'), av=document.getElementById(id+'-aviso');
+  try{var g=localStorage.getItem(k); if(g)ta.value=g;}catch(e){}
+  function avisar(t){av.textContent=t; clearTimeout(avisar.t); avisar.t=setTimeout(function(){av.textContent='';},4000);}
+  function medir(){var t=ta.value.trim();return {t:t,pal:t?t.split(/\s+/).length:0,ora:(t.match(/[^.!?…]+[.!?…]+/g)||[]).length};}
+  function contar(){
+    var x=medir(), m=o.meta||{}, s='Palabras: '+x.pal+(m.palabras?' (meta: '+m.palabras+' o más)':'')+' · Oraciones: '+x.ora+(m.oraciones?' (meta: '+m.oraciones+' o más)':'');
+    if(m.oraciones&&x.ora>=m.oraciones&&(!m.palabras||x.pal>=m.palabras))s+=' · 🎯 ¡Llegaste a la meta de extensión!';
+    cu.textContent=s;
+    if(co){
+      var low=' '+x.t.toLowerCase().replace(/[.,;:¡!¿?«»"()—]/g,' ')+' ', us=o.conectores.filter(function(c){return low.indexOf(' '+c.toLowerCase()+' ')>=0;});
+      co.innerHTML=us.length?(o.titLista||'Conectores que usaste')+': '+us.map(function(c){return '<span class="tl-chip">'+c+'</span>';}).join(' '):(o.vacioLista||'Todavía no aparece ningún conector de la lista.');
+    }
+    try{localStorage.setItem(k,ta.value);}catch(e){}
+  }
+  ta.addEventListener('input',contar); contar();
+  document.getElementById(id+'-oir').addEventListener('click',function(){
+    if(!ta.value.trim()){avisar('Primero escribe algo para poder escucharlo.');return;}
+    hablar(ta.value,0.9);
+  });
+  document.getElementById(id+'-copiar').addEventListener('click',function(){
+    if(!ta.value.trim()){avisar('Todavía no hay texto para copiar.');return;}
+    function ok(){avisar('✓ Texto copiado. Ya puedes pegarlo en un correo o en un documento.');}
+    if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(ta.value).then(ok,function(){ta.select();document.execCommand('copy');ok();});
+    else{ta.select();document.execCommand('copy');ok();}
+  });
+  var borrarListo=false;
+  document.getElementById(id+'-borrar').addEventListener('click',function(){
+    if(!borrarListo){borrarListo=true;avisar('¿Seguro? Pulsa «Borrar» otra vez para borrar todo el texto.');setTimeout(function(){borrarListo=false;},4000);return;}
+    borrarListo=false; ta.value=''; contar(); avisar('Texto borrado.'); ta.focus();
+  });
+  if(o.lista){
+    var cbs=caja.querySelectorAll('.tl-lista input'), li=document.getElementById(id+'-listo');
+    function rev(){var n=Array.prototype.filter.call(cbs,function(c){return c.checked;}).length, x=medir(), m=o.meta||{}, corto=(m.oraciones&&x.ora<m.oraciones)||(m.palabras&&x.pal<m.palabras);
+      li.textContent=n<cbs.length?'Revisado: '+n+' de '+cbs.length:(corto?'Marcaste toda la lista, pero tu texto todavía no llega a la meta de extensión. Añade algo más.':'🎉 ¡Todo revisado! Tu párrafo está listo.');}
+    ta.addEventListener('input',rev);
+    cbs.forEach(function(c){c.addEventListener('change',rev);}); rev();
+  }
+}
+/* Rúbricas: cada celda recibe el nombre de su nivel para mostrarlo en el celular */
+document.querySelectorAll('table.rubrica').forEach(function(t){
+  var cab=Array.prototype.map.call(t.querySelectorAll('thead th'),function(th){return th.textContent;});
+  t.querySelectorAll('tbody tr').forEach(function(tr){Array.prototype.forEach.call(tr.children,function(c,i){if(c.tagName==='TD')c.setAttribute('data-et',cab[i]);});});
+});
+
+
+document.getElementById('leer-fuentes').addEventListener('click',function(){
+  hablar(Array.prototype.map.call(document.querySelectorAll('.doc'),function(d){var c=d.cloneNode(true);c.querySelectorAll('.orig').forEach(function(e){e.remove();});return c.textContent.replace(/[«»]/g,'');}).join(' '),0.9);
+});
+
+/* ===== Ejercicios de la lección ===== */
+clasificador('clasif-decl','puntaje-decl',[
+  {p:'¿Cuál es la premisa central del fragmento de la Declaración?',ops:['Todos los hombres son creados iguales y tienen derechos inalienables','Las colonias deben pagar menos impuestos a Gran Bretaña','El gobierno debe tener tres poderes separados'],c:0,n:'Es el punto de partida del argumento.'},
+  {p:'Según el fragmento, ¿de dónde viene el poder legítimo de un gobierno?',ops:['Del consentimiento de los gobernados','De la voluntad del rey de Gran Bretaña','De la fuerza de su ejército'],c:0,n:'«Derivan sus poderes legítimos del consentimiento de los gobernados».'},
+  {p:'¿Qué conclusión se sigue de las premisas?',ops:['El pueblo puede cambiar un gobierno que destruye sus derechos','Todos los gobiernos deben ser abolidos','Los derechos los da el gobierno a quien quiere'],c:0,n:'«El pueblo tiene el derecho a reformarla o abolirla».'},
+  {p:'¿Por qué los autores llaman «evidentes» a esas verdades?',ops:['Para presentarlas como tan claras que no necesitan demostración','Porque las habían probado con un estudio científico','Porque eran leyes aprobadas por Gran Bretaña'],c:0,n:'Una decisión retórica: no ofrecen evidencia.'}
+],null,false);
+
+clasificador('clasif-fuentes','puntaje-fuentes',[
+  {p:'¿Por qué Douglass dice «Este 4 de julio es de ustedes, no mío»?',ops:['Porque la libertad que se celebra no incluye a los esclavizados','Porque él no había nacido en Estados Unidos','Porque prefería celebrar otra fiesta nacional'],c:0,n:'La fiesta de la libertad excluye a millones.'},
+  {p:'Lincoln llama a la igualdad una «proposición». ¿Qué sugiere esa palabra?',ops:['Una idea que hay que demostrar o cumplir','Una ley que ya está totalmente cumplida','Una opinión sin importancia'],c:0,n:'Una propuesta que la nación está poniendo a prueba.'},
+  {p:'¿Desde qué año cuenta Lincoln los «ochenta y siete años»?',ops:['Desde 1776, la Declaración','Desde 1787, la Constitución','Desde 1791, la Carta de Derechos'],c:0,n:'1863 − 87 = 1776.'},
+  {p:'¿Qué tono tiene el fragmento de Douglass?',ops:['Acusador y doloroso','Solemne y esperanzado','Neutro e informativo'],c:0,n:'«Debo estar de luto», «injusticia y crueldad».'}
+],null,false);
+
+clasificador('clasif-comparar','puntaje-comparar',[
+  {p:'¿En qué <strong>coinciden</strong> Douglass y Lincoln?',ops:['Los dos aceptan la premisa de la igualdad de la Declaración','Los dos dicen que la igualdad ya se cumplió','Los dos rechazan la Declaración de Independencia'],c:0,n:'Los dos la reclaman.'},
+  {p:'¿En qué se <strong>diferencian</strong>?',ops:['Douglass denuncia que no se cumple; Lincoln propone cumplirla','Douglass la defiende; Lincoln la rechaza','Douglass habla de la Constitución; Lincoln, de la Carta de Derechos'],c:0,n:'Distinto juicio sobre la misma premisa.'},
+  {p:'¿Qué parte del contexto explica mejor el tono esperanzado de Lincoln?',ops:['Hablaba ante las tumbas de soldados, en plena guerra, para dar sentido a su sacrificio','Hablaba un día después de la fiesta nacional en Rochester','Hablaba ante una sociedad antiesclavista que lo invitó'],c:0,n:'Perspectiva y momento.'}
+],null,false);
+
+clasificador('clasif-evaluar','puntaje-evaluar',[
+  {p:'¿Qué evidencia usa Douglass para su conclusión?',ops:['La existencia de la esclavitud en el país','Una encuesta a los ciudadanos de Rochester','Las cifras de la economía de 1852'],c:0,n:'Un hecho indiscutible en 1852.'},
+  {p:'¿Por qué es difícil rebatir el argumento de Douglass?',ops:['Usa la propia premisa del país para mostrar una contradicción','Cita a muchos expertos que estaban de acuerdo con él','Ataca a las personas que celebraban la fiesta'],c:0,n:'Si la igualdad es la premisa, la esclavitud la contradice.'},
+  {p:'¿Para qué sirve conocer el contexto de una fuente?',ops:['Para entender su perspectiva, su tono y su propósito','Para decidir si el autor era buena persona','Para saber si el texto tiene faltas de ortografía'],c:0,n:'El contexto ayuda a interpretar.'}
+],null,false);
+
+tallerEscritura('taller-52',{clave:'n4-5-2',etiqueta:'Tu análisis de las dos interpretaciones (5 a 7 oraciones)',
+  guia:'Douglass y Lincoln parten de la misma premisa: … Douglass, que …, sostiene que … («…»). Lincoln, en cambio, … («…»). La evidencia de Douglass es … La premisa me parece … porque …',
+  meta:{oraciones:5,palabras:110},
+  conectores:['premisa','evidencia','perspectiva','contexto','coinciden','en cambio','sostiene','sin embargo','proposición','igualdad'],
+  titLista:'Términos de análisis que usaste',
+  vacioLista:'Todavía no aparecen términos de análisis (premisa, evidencia, perspectiva, en cambio…).',
+  lista:['Identifico la premisa común de las dos fuentes.','Explico la interpretación de cada autor con una cita.','Tengo en cuenta la perspectiva y el contexto de cada uno.','Digo en qué coinciden y en qué se diferencian.','Evalúo si la evidencia sostiene cada interpretación.','Escuché mi análisis en voz alta y lo revisé.']});
+
+iniciarQuiz([
+  {t:'¿Cuáles son los tres documentos fundacionales de Estados Unidos?',o:['La Declaración, la Constitución y la Carta de Derechos','La Declaración, el Discurso de Gettysburg y la Constitución','La Constitución, la Carta de Derechos y el discurso de Douglass'],c:0,r:'<a href="#s-1-fundacionales">Sección 1</a>'},
+  {t:'¿Qué es una <strong>premisa</strong>?',o:['La idea de la que parte un argumento','La conclusión final de un texto','La cita más importante de una fuente'],c:0,r:'<a href="#s-2-premisas">Sección 2</a>'},
+  {t:'Una premisa que el autor no dice, pero que su argumento necesita, es…',o:['implícita','explícita','evidente'],c:0,r:'<a href="#s-2-premisas">Sección 2</a>'},
+  {t:'Según la Declaración, ¿qué derechos están entre los inalienables?',o:['La vida, la libertad y la búsqueda de la felicidad','La propiedad, el voto y la educación','La religión, la prensa y la reunión'],c:0,r:'<a href="#s-3-declaracion">Sección 3</a>'},
+  {t:'¿Qué hecho de 1776 permite cuestionar a quiénes incluía, en la práctica, el «todos»?',o:['La esclavitud era legal en las trece colonias','Las colonias tenían rey propio','No existían todavía los gobiernos'],c:0,r:'<a href="#s-3-declaracion">Sección 3</a>'},
+  {t:'¿Cuándo y dónde habló Douglass?',o:['El 5 de julio de 1852, en Rochester','El 4 de julio de 1776, en Filadelfia','El 19 de noviembre de 1863, en Gettysburg'],c:0,r:'<a href="#s-4-interpretaciones">Sección 4</a>'},
+  {t:'¿En qué situación pronunció Lincoln su discurso?',o:['En la inauguración de un cementerio de soldados, durante la Guerra Civil','En la firma de la Declaración de Independencia','En una fiesta del 4 de julio en Rochester'],c:0,r:'<a href="#s-4-interpretaciones">Sección 4</a>'},
+  {t:'¿Qué propósito tiene Douglass?',o:['Que su público vea la contradicción entre celebrar la libertad y mantener la esclavitud','Que su público celebre con alegría la fiesta nacional','Que su público apoye a Gran Bretaña'],c:0,r:'<a href="#s-5-comparar">Sección 5</a>'},
+  {t:'¿Qué propósito tiene Lincoln?',o:['Que el sacrificio de los soldados sirva para un nuevo nacimiento de la libertad','Que el público olvide la guerra lo antes posible','Que se cambie la Declaración de Independencia'],c:0,r:'<a href="#s-5-comparar">Sección 5</a>'},
+  {t:'¿Por qué se dice que estos textos forman una «conversación»?',o:['Porque responden, a lo largo del tiempo, a la misma promesa','Porque sus autores se escribían cartas entre sí','Porque fueron escritos el mismo año'],c:0,r:'<a href="#s-5-comparar">Sección 5</a>'},
+  {t:'¿Cuál es la primera pregunta del análisis crítico de una fuente?',o:['¿Quién habla, cuándo y para quién?','¿Cuántas páginas tiene?','¿Estoy de acuerdo con el autor?'],c:0,r:'<a href="#s-6-evaluar">Sección 6</a>'},
+  {t:'¿Por qué el argumento de Douglass se sostiene?',o:['Si la premisa es la igualdad, la esclavitud la contradice','Porque Douglass era el orador más famoso','Porque su público estaba de acuerdo con él'],c:0,r:'<a href="#s-6-evaluar">Sección 6</a>'}
+],{meta:10,
+   bien:'Ya sabes leer críticamente un documento fundacional y comparar cómo lo interpretan distintas voces. Sigue con la Lección 5.3.',
+   repaso:'Vuelve a las secciones 2, 5 y 6 y repite el quiz: con práctica sale.'});
+</script>
+</body>
+</html>

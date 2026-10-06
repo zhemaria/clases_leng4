@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<!-- Lección 2.2 · Artes del Lenguaje Nivel 4 · GEDparaHispanos
+     José M. Fernández, ABE/ASE Math Master Teacher, Harry S. Truman College — City Colleges of Chicago
+     Licencia CC BY-NC-SA 4.0 · https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es -->
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lección 2.2 · Ironía, sátira, paradoja y eufemismo</title>
+<meta name="author" content="José M. Fernández, ABE/ASE Math Master Teacher, Harry S. Truman College — City Colleges of Chicago">
+<meta name="license" content="CC BY-NC-SA 4.0">
+<link rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es">
+<style>
+  :root{
+    --cp:#b91c1c;--cp-claro:#fee2e2;--cp-oscuro:#7f1d1d;
+    --acento:#ff8c42;--texto:#1a2332;--fondo:#fafbfc;
+    --gris:#555;--gris-claro:#eef1f4;
+    --exito:#2e7d32;--error:#c62828;
+  }
+  *{box-sizing:border-box}
+  body{font-family:'Poppins','Segoe UI',Arial,sans-serif;line-height:1.7;color:var(--texto);background:var(--fondo);max-width:960px;margin:0 auto;padding:24px 18px}
+  h1{color:var(--cp-oscuro);border-bottom:4px solid var(--cp);padding-bottom:14px;font-size:1.85rem;margin-bottom:8px}
+  .subtitulo{color:var(--gris);font-style:italic;margin-top:0;margin-bottom:24px;font-size:1.05rem}
+  h2{color:var(--cp-oscuro);border-left:6px solid var(--cp);padding-left:14px;margin-top:32px;font-size:1.4rem}
+  h3{color:var(--cp-oscuro);margin-top:24px;font-size:1.15rem}
+  .caja-objetivos{background:var(--cp-claro);border-left:6px solid var(--cp);padding:18px 22px;border-radius:8px;margin:18px 0 28px 0}
+  .caja-objetivos h2{margin-top:0;color:var(--cp-oscuro);border-left:none;padding-left:0;font-size:1.2rem}
+  .caja-tiempo{display:inline-block;background:var(--acento);color:#1a2332;padding:4px 12px;border-radius:14px;font-size:0.85rem;font-weight:600;margin-left:10px;vertical-align:middle}
+  details{background:#fff;border:1px solid #d6dde4;border-radius:10px;margin:14px 0;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,0.04)}
+  details[open]{border-color:var(--cp);box-shadow:0 3px 10px rgba(185,28,28,0.12)}
+  summary{cursor:pointer;padding:16px 20px;font-weight:600;color:var(--cp-oscuro);background:var(--gris-claro);list-style:none;user-select:none;font-size:1.05rem}
+  summary::-webkit-details-marker{display:none}
+  summary::before{content:'▶';display:inline-block;margin-right:10px;color:var(--cp);transition:transform 0.25s;font-size:0.85rem}
+  details[open] summary::before{transform:rotate(90deg)}
+  details[open] summary{background:var(--cp-claro);border-bottom:2px solid var(--cp)}
+  .contenido-detalle{padding:18px 22px}
+  .tip{background:#fffbe6;border-left:5px solid #f4c430;padding:12px 18px;border-radius:6px;margin:14px 0}
+  .tip strong{color:#6b5400}
+  .botones{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:14px 0}
+  .btn{padding:10px 22px;border:none;border-radius:8px;font-weight:600;cursor:pointer;font-family:inherit;font-size:0.95rem;transition:background 0.2s}
+  .btn-primario{background:var(--cp);color:#fff}
+  .btn-primario:hover{background:var(--cp-oscuro)}
+  .btn-secundario{background:var(--gris-claro);color:var(--texto)}
+  .btn-secundario:hover{background:#d6dde4}
+  .btn[aria-pressed="true"]{background:var(--cp-oscuro);color:#fff}
+  ul.lista-bonita{list-style:none;padding-left:0}
+  ul.lista-bonita li{padding:8px 0 8px 30px;position:relative}
+  ul.lista-bonita li::before{content:'➜';position:absolute;left:0;color:var(--cp);font-weight:700}
+  .palabra-clave{background:linear-gradient(transparent 60%,#ffeb3b 60%);padding:0 4px;font-weight:600}
+  .ej{font-family:Georgia,serif;font-size:1.08rem}
+  .sub{font-weight:700;border-bottom:3px solid var(--cp-oscuro)}
+  table.tabla{width:100%;border-collapse:collapse;margin:16px 0;background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,0.06)}
+  table.tabla th{background:var(--cp-oscuro);color:#fff;padding:10px 12px;text-align:left}
+  table.tabla td{padding:10px 12px;border-bottom:1px solid var(--gris-claro);vertical-align:top}
+  table.tabla tr:last-child td{border-bottom:none}
+  .actividad{background:#fff;border:2px solid var(--acento);border-radius:10px;padding:16px 20px;margin:14px 0}
+  .actividad h4{color:#8a3d0c;margin-top:0}
+  .badge{display:inline-block;padding:3px 10px;border-radius:12px;font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-right:6px}
+  .badge-lectura{background:#e3f2fd;color:#0d47a1}
+  /* Clasificadores */
+  .clasificador{background:#fff;border:2px solid var(--cp);border-radius:12px;padding:14px 18px;margin:18px 0}
+  .item{border:2px solid var(--gris-claro);border-radius:8px;padding:10px 14px;margin:8px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+  .item-pal{font-family:Georgia,serif;font-size:1.12rem;color:var(--texto);display:flex;align-items:center;gap:10px}
+  .item-ops{display:flex;gap:8px;flex-wrap:wrap}
+  .item-fb{flex-basis:100%;font-size:.95rem}
+  .item-fb:empty{display:none}
+  .btn-op{padding:7px 14px;border:2px solid var(--cp-oscuro);background:#fff;color:var(--cp-oscuro);border-radius:8px;cursor:pointer;font-weight:600;font-family:inherit;font-size:.92rem}
+  .btn-op:hover:not(:disabled){background:var(--cp-claro)}
+  .btn-op.correcta{background:#d4edda;border-color:var(--exito);color:#155724}
+  .btn-op.correcta::before{content:'✓ '}
+  .btn-op.incorrecta{background:#f8d7da;border-color:var(--error);color:#721c24;text-decoration:line-through}
+  .btn-op.incorrecta::before{content:'✗ '}
+  .btn-op:disabled{cursor:default}
+  .apilado .item{flex-direction:column;align-items:stretch}
+  .apilado .item-ops{flex-direction:column}
+  .apilado .btn-op{text-align:left;font-weight:400}
+  .apilado .item-pal{font-family:'Segoe UI',Arial,sans-serif;font-size:1rem;font-weight:600;display:block}
+  .puntaje{text-align:center;margin-top:12px;font-weight:600;color:var(--cp-oscuro)}
+  /* Lectura con marcas: color + borde distinto + etiqueta escrita */
+  .texto-lectura{background:#fff;border:2px solid var(--gris-claro);border-radius:8px;padding:18px 22px;margin:14px 0;font-family:Georgia,serif;font-size:1.12rem;line-height:2.1}
+  .texto-lectura p{margin:0 0 10px}
+  .num-p{display:inline-block;background:var(--cp-oscuro);color:#fff;border-radius:50%;width:1.6em;height:1.6em;text-align:center;line-height:1.6em;font-size:.8rem;font-family:'Segoe UI',Arial,sans-serif;margin-right:6px;vertical-align:middle}
+  .m-sus{background:#e3f2fd;color:#0d3c78;border-bottom:3px solid #0d3c78}
+  .m-adj{background:#fff3e0;color:#6b3300;border-bottom:3px dashed #8a4b00}
+  .m-adv{background:#e8f5e9;color:#1b5e20;border-bottom:3px dotted #1b5e20}
+  .etq{font-weight:700;font-size:.78em;font-family:'Segoe UI',Arial,sans-serif;white-space:nowrap}
+  .oculta-marcas .m-sus,.oculta-marcas .m-adj,.oculta-marcas .m-adv{background:none;color:inherit;border:none}
+  .oculta-marcas .etq{display:none}
+  .leyenda-marcas{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0;font-size:.92rem}
+  .leyenda-marcas span{padding:2px 8px}
+  /* Índice */
+  .indice{background:#fff;border:1px solid #d6dde4;border-left:6px solid var(--cp);border-radius:10px;padding:16px 20px;margin:22px 0}
+  .indice h2{font-size:1.1rem;margin:0 0 8px;border:none;padding:0}
+  .indice ol{margin:0;padding-left:1.4em}
+  .indice li{margin:4px 0}
+  .indice a{color:var(--cp-oscuro)}
+  .abrir-cerrar{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0 0}
+  .volver-indice{position:fixed;right:18px;bottom:18px;z-index:60;background:var(--cp-oscuro);color:#fff;border-radius:999px;padding:10px 16px;font-weight:700;font-size:.92rem;text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,.28)}
+  .volver-indice:hover{background:var(--cp);color:#fff}
+  a:focus-visible,summary:focus-visible,button:focus-visible,textarea:focus-visible{outline:3px solid #b35316;outline-offset:2px}
+  .sr-solo{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+  .enlace-practica{display:block;background:#fff;border:2px solid var(--cp);border-radius:10px;padding:14px 18px;margin:16px 0;text-decoration:none;color:var(--cp-oscuro);font-weight:600}
+  .enlace-practica:hover{background:var(--cp-claro)}
+  .enlace-practica span{display:block;font-weight:400;color:var(--texto);font-size:.95rem}
+  .aviso-voz{font-size:.9rem;color:#5c3900;background:#fff3cd;border-radius:6px;padding:6px 10px;display:none}
+  .aviso-voz.visible{display:block}
+  /* Quiz */
+  .qz-intro{background:var(--cp-claro);border-radius:10px;padding:14px 18px;margin:0 0 14px}
+  .qz-intro h4{margin:0 0 6px;color:var(--cp-oscuro)}
+  .qz-preg{background:#fff;border:2px solid var(--gris-claro);border-radius:10px;padding:14px 18px;margin:12px 0}
+  .qz-enun{font-weight:600;margin:0 0 10px}
+  .qz-num{display:inline-block;background:var(--cp-oscuro);color:#fff;border-radius:12px;padding:1px 10px;font-size:.8rem;margin-right:8px}
+  .qz-ops{display:flex;flex-direction:column;gap:8px}
+  .qz-op{text-align:left;background:#fff;border:2px solid #c9d2db;border-radius:8px;padding:10px 14px;font-family:inherit;font-size:1rem;cursor:pointer;color:var(--texto)}
+  .qz-op:hover:not(:disabled){border-color:var(--cp)}
+  .qz-op.elegida{background:var(--cp-claro);border-color:var(--cp-oscuro);color:var(--cp-oscuro);box-shadow:0 0 0 3px #fff,0 0 0 5px var(--cp)}
+  .qz-op.correcta{background:#d4edda;border-color:#2e7d32;color:#155724}
+  .qz-op.correcta::before{content:'✓ '}
+  .qz-op.incorrecta{background:#f8d7da;border-color:#c62828;color:#721c24}
+  .qz-op.incorrecta::before{content:'✗ '}
+  .qz-op:disabled{cursor:default}
+  .qz-resultado{display:none;margin:16px 0;padding:16px;border-radius:10px;text-align:center;font-weight:600}
+  .qz-resultado.visible{display:block}
+  .qz-repaso{margin:10px 0 0;padding:8px 12px;background:#fff3cd;border-radius:6px;color:#3d2600;font-size:.95rem}
+  .qz-repaso a{color:var(--cp-oscuro);font-weight:700}
+  /* Taller de escritura */
+  .taller{background:#fff;border:2px solid var(--cp);border-radius:12px;padding:14px;margin:14px 0}
+  .tl-etq{display:block;font-weight:700;color:var(--cp-oscuro);margin-bottom:6px}
+  .tl-txt{width:100%;box-sizing:border-box;font:inherit;font-size:1.05rem;line-height:1.7;padding:10px 12px;border:2px solid #9aa9b7;border-radius:8px;resize:vertical;min-height:200px}
+  .tl-txt:focus{outline:3px solid var(--cp);outline-offset:1px;border-color:var(--cp-oscuro)}
+  .tl-cuenta{font-size:.92rem;color:#333;margin:6px 0}
+  .tl-conect{font-size:.95rem;margin:4px 0 8px}
+  .tl-chip{display:inline-block;background:var(--cp-claro);color:var(--cp-oscuro);border:1px solid var(--cp);border-radius:12px;padding:1px 10px;margin:2px 2px;font-weight:700}
+  .tl-aviso{min-height:1.4em;font-weight:700;color:var(--cp-oscuro)}
+  .tl-lista{border:2px dashed var(--cp);border-radius:10px;padding:8px 14px;margin-top:10px}
+  .tl-lista legend{font-weight:700;color:var(--cp-oscuro);padding:0 6px}
+  .tl-lista label{display:flex;gap:10px;align-items:flex-start;padding:6px 0;cursor:pointer}
+  .tl-lista input{width:22px;height:22px;flex-shrink:0;margin-top:2px;accent-color:var(--cp-oscuro)}
+  .tl-listo{font-weight:700;color:var(--cp-oscuro);margin:6px 0 0}
+  .rubrica{font-size:.92rem}
+  .rubrica td,.rubrica th{vertical-align:top}
+  @media(max-width:640px){
+    .rubrica thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+    .rubrica,.rubrica tbody,.rubrica tr,.rubrica th,.rubrica td{display:block;width:auto}
+    .rubrica tr{border:2px solid var(--cp);border-radius:10px;margin:0 0 10px;overflow:hidden}
+    .rubrica tbody th{background:var(--cp-oscuro);color:#fff;border:none}
+    .rubrica td{border:none;border-top:1px solid #d5dde3}
+    .rubrica td::before{content:attr(data-et);display:block;font-weight:700;color:var(--cp-oscuro)}
+  }
+  footer.pie{margin-top:40px;padding-top:18px;border-top:2px solid var(--gris-claro);text-align:center;color:#555;font-size:.9rem}
+  footer.pie p{margin:4px 0}
+  footer.pie a{color:var(--cp-oscuro)}
+  @media print{.indice,.volver-indice,.abrir-cerrar{display:none}}
+  @media (prefers-reduced-motion:reduce){summary::before{transition:none}}
+  .cita{background:#fff8ee;border-left:5px solid var(--acento);border-radius:6px;padding:10px 16px;margin:10px 0;font-family:Georgia,serif;font-size:1.08rem;line-height:1.8}
+  .narra{font-size:.98rem;color:#333;margin:6px 0 6px 6px;font-style:italic}
+  .poema{background:#fff;border:2px solid var(--gris-claro);border-radius:8px;padding:14px 22px;margin:14px 0;font-family:Georgia,serif;font-size:1.12rem;line-height:1.9}
+  .poema p{margin:0 0 12px}
+  .verso{display:block}
+  .ver-nums .verso::before{content:attr(data-n);display:inline-block;width:2em;color:#555;font-family:'Segoe UI',Arial,sans-serif;font-size:.8rem}
+  .ver-par .px{background:#e3f2fd;color:#0d3c78;border-bottom:3px solid #0d3c78}
+  .ficha{background:var(--cp-claro);border-radius:8px;padding:8px 14px;margin:8px 0;font-size:.95rem}
+</style>
+</head>
+<body>
+<h1>Lección 2.2 · Ironía, sátira, paradoja y eufemismo</h1>
+<p class="subtitulo">Artes del Lenguaje · Nivel 4 · Tema 2: Vocabulario avanzado y lenguaje figurado · Unas 2 horas, a tu ritmo</p>
+
+<div class="caja-objetivos">
+  <h2>🎯 Objetivos de la lección</h2>
+  <ul class="lista-bonita" style="margin:0">
+    <li>Distinguir el <strong>sentido literal</strong> de un texto de su <strong>sentido intencionado</strong>.</li>
+    <li>Reconocer e interpretar la <strong>ironía</strong>, la <strong>sátira</strong>, la <strong>paradoja</strong>, el <strong>eufemismo</strong> y la <strong>analogía</strong>.</li>
+    <li>Explicar el <strong>efecto</strong> que cada recurso produce en el tono y el <strong>propósito</strong> del autor.</li>
+  </ul>
+  <p style="margin:8px 0 0;font-size:.92rem">Estándares: 5–6.R.VA.2 · 5–6.W.VU.1</p>
+</div>
+
+<nav class="indice" id="indice" aria-labelledby="indice-titulo">
+  <h2 id="indice-titulo">Contenido de la lección</h2>
+  <ol>
+    <li><a href="#s-1-literal">Lo que se dice y lo que se quiere decir</a></li>
+    <li><a href="#s-2-ironia">La ironía</a></li>
+    <li><a href="#s-3-satira">La sátira: «Vuelva usted mañana», de Larra</a></li>
+    <li><a href="#s-4-paradoja">La paradoja: el soneto de Quevedo</a></li>
+    <li><a href="#s-5-eufemismo">El eufemismo</a></li>
+    <li><a href="#s-6-analogia">La analogía</a></li>
+    <li><a href="#s-7-taller">Taller: analiza un recurso</a></li>
+    <li><a href="#s-tarea">Tarea</a></li>
+    <li><a href="#s-quiz">Quiz de la lección</a></li>
+    <li><a href="#s-cierre">Cierre</a></li>
+  </ol>
+  <div class="abrir-cerrar">
+    <button type="button" class="btn btn-secundario" id="abrir-todo">Abrir todo</button>
+    <button type="button" class="btn btn-secundario" id="cerrar-todo">Cerrar todo</button>
+  </div>
+</nav>
+
+<h2>📚 Para empezar</h2>
+<p>En el Nivel 3 estudiaste el símil, la metáfora, los modismos y los refranes: el lenguaje figurado que <em>adorna</em> o <em>compara</em>. En esta lección vas a estudiar un lenguaje más difícil, el que dice una cosa para dar a entender <strong>otra</strong>. Un lector que lo toma todo al pie de la letra se pierde la crítica de un periódico, la burla de un cuento o lo que oculta un comunicado oficial. En el GED, varias preguntas piden precisamente eso: qué quiere decir el autor y con qué propósito lo dice así.</p>
+<p class="aviso-voz" id="aviso-voz" role="status">Tu navegador no tiene una voz en español disponible, así que los botones 🔊 no sonarán.</p>
+
+<details open id="s-1-literal">
+<summary>1. Lo que se dice y lo que se quiere decir <span class="caja-tiempo">10 min</span></summary>
+<div class="contenido-detalle">
+<p>El <span class="palabra-clave">sentido literal</span> es lo que dicen las palabras. El <span class="palabra-clave">sentido intencionado</span> es lo que el autor quiere que entiendas. A veces coinciden; en los recursos de esta lección, no.</p>
+<table class="tabla">
+  <caption class="sr-solo">Cinco recursos con su sentido literal, su sentido intencionado y su efecto</caption>
+  <thead><tr><th scope="col">Recurso</th><th scope="col">Ejemplo</th><th scope="col">Lo que se quiere decir</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Ironía</strong>: decir lo contrario de lo que se piensa</td><td class="ej">«¡Qué puntual!», a alguien que llega una hora tarde.</td><td>Que fue muy impuntual.</td></tr>
+    <tr><td><strong>Sátira</strong>: criticar una costumbre o una institución burlándose de ella</td><td class="ej">Un artículo que exagera la lentitud de una oficina pública.</td><td>Que esa lentitud es un problema que hay que corregir.</td></tr>
+    <tr><td><strong>Paradoja</strong>: unir ideas que parecen contradictorias pero encierran una verdad</td><td class="ej">«Cuanto más aprendo, más me doy cuenta de lo que no sé.»</td><td>Que saber más muestra lo mucho que falta por saber.</td></tr>
+    <tr><td><strong>Eufemismo</strong>: palabra suave en lugar de una dura</td><td class="ej">«La empresa hizo un ajuste de personal.»</td><td>Que despidió a trabajadores.</td></tr>
+    <tr><td><strong>Analogía</strong>: explicar algo por su parecido con otra cosa conocida</td><td class="ej">«El corazón funciona como una bomba que empuja el agua por las tuberías.»</td><td>Cómo se mueve la sangre, con una imagen fácil de entender.</td></tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details id="s-2-ironia">
+<summary>2. La ironía <span class="caja-tiempo">15 min</span></summary>
+<div class="contenido-detalle">
+<p>En la <span class="palabra-clave">ironía verbal</span> el hablante dice lo contrario de lo que piensa y confía en que el oyente lo entienda. Al hablar, el tono la delata; al escribir, la delata el <strong>contexto</strong>: lo que dice no encaja con la situación.</p>
+<ul class="lista-bonita">
+  <li>Llueve a cántaros y alguien dice: «¡Qué día tan bonito para ir a la playa!»</li>
+  <li>El técnico tarda tres semanas en arreglar la lavadora y el cliente comenta: «Gracias por la rapidez».</li>
+</ul>
+<p>Existe también la <span class="palabra-clave">ironía de situación</span>: ocurre lo contrario de lo que se esperaba. Por ejemplo, que se queme la casa del jefe de bomberos, o que el libro sobre cómo ahorrar sea carísimo.</p>
+<div class="tip"><strong>💡 Cómo reconocerla al leer:</strong> pregúntate si lo que dice el texto es razonable en esa situación. Si un elogio no encaja con los hechos que se cuentan, probablemente es ironía. Otras señales: comillas alrededor de una palabra («su “ayuda” llegó tarde»), exageraciones y elogios excesivos.</div>
+<div class="clasificador apilado" id="clasif-ironia"></div>
+<div class="puntaje" id="puntaje-ironia" role="status" aria-live="polite"></div>
+<a class="enlace-practica" href="https://zhemaria.github.io/gramatica/n4-l2-2.html#literal-intencion" target="_blank" rel="noopener noreferrer">🎭 Practica más: lo literal y lo intencionado
+  <span>Frases irónicas, eufemismos y comentarios para descubrir qué quiere decir de verdad quien habla. Se abre en una pestaña nueva.</span></a>
+</div>
+</details>
+
+<details id="s-3-satira">
+<summary>3. La sátira: «Vuelva usted mañana», de Larra <span class="caja-tiempo">25 min</span></summary>
+<div class="contenido-detalle">
+<p>La <span class="palabra-clave">sátira</span> critica una costumbre, una institución o un tipo de persona por medio del humor. Sus herramientas son la ironía, la exageración y la caricatura. Su propósito no es solo hacer reír: es que el lector vea un defecto y quiera corregirlo.</p>
+<div class="ficha"><strong>El autor y la obra:</strong> Mariano José de Larra (Madrid, 1809-1837) fue el gran periodista satírico del romanticismo español. Publicó «Vuelva usted mañana» en 1833 en su periódico <em>El Pobrecito Hablador</em>. Critica la pereza y la burocracia de la España de su época, que no hacían nada hoy si se podía dejar para mañana.</div>
+<div class="actividad">
+  <h4><span class="badge badge-lectura">Lectura crítica</span> Individual · busca la burla</h4>
+  <p style="margin:0">Lee los fragmentos. Las partes en cursiva sin comillas son un resumen escrito para la lección; las citas son de Larra, con su ortografía de 1833. Pregúntate en cada una: ¿qué dice?, ¿qué quiere decir?</p>
+</div>
+<div id="lectura">
+<p class="cita">«Gran persona debió de ser el primero que llamó pecado mortal a la pereza. Nosotros, que ya en uno de nuestros artículos anteriores estuvimos más serios de lo que nunca nos habíamos propuesto, no entraremos ahora en largas y profundas investigaciones acerca de la historia de este pecado, por más que conozcamos que hay pecados que pican en historia, y que la historia de los pecados sería un tanto cuanto divertida. Convengamos solamente en que esta institución ha cerrado y cerrará las puertas del cielo a más de un cristiano.»</p>
+<p class="narra">Un francés llega a Madrid para arreglar asuntos de familia y hacer negocios. Se llama monsieur Sans-délai, que en francés quiere decir «sin demora». Le explica al narrador que lo tiene todo calculado. ¿Cuánto tiempo cree que necesita?</p>
+<p class="cita">«—Ciertamente —me contestó—. Quince días, y es mucho.»</p>
+<p class="cita">«Al llegar aquí monsieur Sans-délai, traté de reprimir una carcajada…»</p>
+<p class="cita">«Permitidme, monsieur Sans-délai —le dije entre socarrón y formal—, permitidme que os convide a comer para el día en que llevéis quince meses de estancia en Madrid.»</p>
+<p class="narra">Al día siguiente salen los dos a buscar a un genealogista, el especialista que debe investigar los antecedentes de la familia del francés.</p>
+<p class="cita">«—Vuelva usted mañana —nos respondió la criada—, porque el señor no se ha levantado todavía.»</p>
+<p class="cita">«—Vuelva usted mañana —nos dijo al siguiente día—, porque el amo acaba de salir.»</p>
+<p class="narra">La escena se repite con otros oficios y con las oficinas del gobierno. Pasan los meses y no se resuelve nada. Al final, el propio narrador confiesa que también él ha ido dejando para mañana… escribir este artículo.</p>
+</div>
+<div class="botones" style="justify-content:flex-start">
+  <button type="button" class="btn btn-secundario" id="leer-lectura">🔊 Escuchar los fragmentos</button>
+</div>
+<p style="font-size:.93rem">El artículo completo es de dominio público: puedes leerlo en la <a href="https://www.cervantesvirtual.com/obra-visor/vuelva-usted-manana--0/html/" target="_blank" rel="noopener noreferrer" style="color:var(--cp-oscuro);font-weight:700">Biblioteca Virtual Miguel de Cervantes</a> o en <a href="https://es.wikisource.org/wiki/Vuelva_usted_ma%C3%B1ana" target="_blank" rel="noopener noreferrer" style="color:var(--cp-oscuro);font-weight:700">Wikisource</a>. Se abren en una pestaña nueva.</p>
+<div class="tip"><strong>💡 Las herramientas de Larra:</strong> la <strong>ironía</strong> de la primera línea (llama «gran persona» a quien condenó la pereza, y luego llama «institución» al pecado, como si fuera un organismo oficial); el <strong>nombre parlante</strong> del francés, que anuncia su carácter; la <strong>exageración</strong> (de quince días a quince meses); y la <strong>repetición</strong> del «vuelva usted mañana», que convierte la frase en el símbolo de todo un país.</div>
+<div class="clasificador apilado" id="clasif-satira"></div>
+<div class="puntaje" id="puntaje-satira" role="status" aria-live="polite"></div>
+</div>
+</details>
+
+<details id="s-4-paradoja">
+<summary>4. La paradoja: el soneto de Quevedo <span class="caja-tiempo">20 min</span></summary>
+<div class="contenido-detalle">
+<p>La <span class="palabra-clave">paradoja</span> une dos ideas que parecen contradecirse, pero que juntas expresan una verdad difícil de decir de otro modo. Cuando la contradicción está en dos palabras pegadas («hielo abrasador», «silencio ensordecedor») se llama <span class="palabra-clave">oxímoron</span>.</p>
+<div class="ficha"><strong>El autor y la obra:</strong> Francisco de Quevedo (Madrid, 1580-1645), uno de los grandes poetas del Siglo de Oro español. Este soneto, conocido como «Definición del amor», intenta definir el amor con una cadena de paradojas. Es de dominio público.</div>
+<div class="poema" id="poema">
+  <p><span class="verso" data-n="1"><span class="px">Es hielo abrasador, es fuego helado,</span></span>
+  <span class="verso" data-n="2"><span class="px">es herida que duele y no se siente,</span></span>
+  <span class="verso" data-n="3">es un soñado bien, un mal presente,</span>
+  <span class="verso" data-n="4"><span class="px">es un breve descanso muy cansado.</span></span></p>
+  <p><span class="verso" data-n="5"><span class="px">Es un descuido que nos da cuidado,</span></span>
+  <span class="verso" data-n="6"><span class="px">un cobarde con nombre de valiente,</span></span>
+  <span class="verso" data-n="7"><span class="px">un andar solitario entre la gente,</span></span>
+  <span class="verso" data-n="8">un amar solamente ser amado.</span></p>
+  <p><span class="verso" data-n="9"><span class="px">Es una libertad encarcelada,</span></span>
+  <span class="verso" data-n="10">que dura hasta el postrero paroxismo;</span>
+  <span class="verso" data-n="11"><span class="px">enfermedad que crece si es curada.</span></span></p>
+  <p><span class="verso" data-n="12">Éste es el niño Amor, éste es su abismo.</span>
+  <span class="verso" data-n="13">¡Mirad cuál amistad tendrá con nada</span>
+  <span class="verso" data-n="14">el que en todo es contrario de sí mismo!</span></p>
+  <p style="font-size:.85rem;margin:0;font-family:'Segoe UI',Arial,sans-serif">Francisco de Quevedo, siglo XVII. <em>Éste</em> conserva la tilde que se usaba en la época. <em>Postrero paroxismo</em>: el último momento de la vida.</p>
+</div>
+<div class="botones" style="justify-content:flex-start">
+  <button type="button" class="btn btn-secundario" id="leer-poema">🔊 Escuchar el soneto</button>
+  <button type="button" class="btn btn-secundario" id="ver-paradojas" aria-pressed="false">Marcar las paradojas</button>
+  <button type="button" class="btn btn-secundario" id="ver-nums" aria-pressed="false">Numerar los versos</button>
+</div>
+<div class="tip"><strong>💡 Por qué funcionan:</strong> el amor es una experiencia que contradice la lógica: hace sufrir y hace feliz, encierra y libera. Quevedo no podía definirlo con palabras normales, así que lo define con contradicciones. Al final lo dice abiertamente: el amor es «contrario de sí mismo». La paradoja sirve para expresar lo que es contradictorio <em>en la realidad</em>.</div>
+<div class="clasificador apilado" id="clasif-paradoja"></div>
+<div class="puntaje" id="puntaje-paradoja" role="status" aria-live="polite"></div>
+</div>
+</details>
+
+<details id="s-5-eufemismo">
+<summary>5. El eufemismo <span class="caja-tiempo">15 min</span></summary>
+<div class="contenido-detalle">
+<p>Un <span class="palabra-clave">eufemismo</span> es una expresión suave que sustituye a otra que resultaría dura, triste o molesta. Su contrario es el <span class="palabra-clave">disfemismo</span>, la expresión deliberadamente dura o despectiva («el viejo» por «mi padre»).</p>
+<table class="tabla">
+  <caption class="sr-solo">Eufemismos frecuentes, lo que significan y su propósito</caption>
+  <thead><tr><th scope="col">Eufemismo</th><th scope="col">Lo que significa</th><th scope="col">Propósito</th></tr></thead>
+  <tbody>
+    <tr><td class="ej">Pasó a mejor vida · Nos dejó</td><td>Murió.</td><td>Respeto y consuelo ante el dolor.</td></tr>
+    <tr><td class="ej">Persona de la tercera edad</td><td>Persona mayor, anciana.</td><td>Cortesía.</td></tr>
+    <tr><td class="ej">Ajuste de personal · Reestructuración</td><td>Despidos.</td><td>Suavizar una mala noticia… y a veces ocultarla.</td></tr>
+    <tr><td class="ej">Daños colaterales</td><td>Víctimas civiles o destrucción no buscada en una acción militar.</td><td>Hacer menos visible una tragedia.</td></tr>
+    <tr><td class="ej">Desaceleración económica</td><td>La economía está empeorando.</td><td>Evitar la alarma.</td></tr>
+  </tbody>
+</table>
+<div class="tip"><strong>⚠️ Lectura crítica:</strong> el eufemismo puede ser una forma de respeto (en un pésame) o una forma de esconder la verdad (en un comunicado de una empresa o de un gobierno). Cuando lo encuentres en un texto informativo o argumentativo, pregúntate: ¿qué hecho concreto está suavizando y a quién le conviene que suene suave?</div>
+<div class="clasificador apilado" id="clasif-eufemismo"></div>
+<div class="puntaje" id="puntaje-eufemismo" role="status" aria-live="polite"></div>
+</div>
+</details>
+
+<details id="s-6-analogia">
+<summary>6. La analogía <span class="caja-tiempo">10 min</span></summary>
+<div class="contenido-detalle">
+<p>La <span class="palabra-clave">analogía</span> explica algo desconocido por su parecido con algo conocido, y desarrolla ese parecido punto por punto. El símil («rápido como un rayo») compara una cualidad; la analogía compara un <strong>funcionamiento</strong>.</p>
+<p class="cita">«El sistema inmunitario es como el ejército de un país: tiene vigilantes que detectan al invasor, soldados que lo atacan y una memoria que le permite reconocerlo si vuelve. La vacuna es como un simulacro: le enseña al ejército a reconocer al enemigo sin que haya una guerra de verdad.»</p>
+<div class="tip"><strong>⚠️ En los argumentos, la analogía puede fallar:</strong> que dos cosas se parezcan en algo no significa que se parezcan en todo. «Un país es como una familia: si una familia no gasta más de lo que gana, el país tampoco debería endeudarse» compara dos cosas que funcionan de forma muy distinta. En la Lección 5.1 estudiarás la <em>falsa analogía</em> como falacia.</div>
+<div class="clasificador apilado" id="clasif-analogia"></div>
+<div class="puntaje" id="puntaje-analogia" role="status" aria-live="polite"></div>
+<a class="enlace-practica" href="https://zhemaria.github.io/gramatica/n4-l2-2.html#recurso" target="_blank" rel="noopener noreferrer">🏷️ Practica más: ¿qué recurso es?
+  <span>Ironía, sátira, paradoja, eufemismo o analogía: identifícalo. Se abre en una pestaña nueva.</span></a>
+<a class="enlace-practica" href="https://zhemaria.github.io/gramatica/n4-l2-2.html#efecto" target="_blank" rel="noopener noreferrer">🎚️ Practica más: el efecto en el tono
+  <span>Para qué usa el autor cada recurso y qué tono produce. Se abre en una pestaña nueva.</span></a>
+</div>
+</details>
+
+<details id="s-7-taller">
+<summary>7. Taller: analiza un recurso <span class="caja-tiempo">20 min</span></summary>
+<div class="contenido-detalle">
+<p><strong>Elige un ejemplo</strong> de esta lección o, mejor, uno que encuentres tú: un titular, un comentario en las redes, un anuncio, un comunicado de una empresa, un chiste o un fragmento de una novela. Escribe un párrafo de <strong>4 a 6 oraciones</strong> que responda:</p>
+<ol>
+  <li>¿Qué recurso es? (ironía, sátira, paradoja, eufemismo o analogía)</li>
+  <li>¿Qué dice literalmente y qué quiere decir?</li>
+  <li>¿Qué efecto tiene en el tono? (burla, crítica, consuelo, alivio, claridad…)</li>
+  <li>¿Cuál es el propósito del autor?</li>
+</ol>
+<div class="taller" id="taller-22"></div>
+<h3>Rúbrica: así se evaluará tu análisis</h3>
+<table class="tabla rubrica">
+  <caption class="sr-solo">Rúbrica del análisis de recursos: cuatro criterios en cuatro niveles</caption>
+  <thead><tr><th scope="col">Criterio</th><th scope="col">4 · Excelente</th><th scope="col">3 · Bien</th><th scope="col">2 · En camino</th><th scope="col">1 · Inicial</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">Identifica el recurso</th><td>Lo nombra y explica por qué es ese y no otro</td><td>Lo nombra bien</td><td>Lo confunde con uno parecido</td><td>No lo identifica</td></tr>
+    <tr><th scope="row">Interpreta su efecto en el tono</th><td>Explica el efecto con precisión</td><td>Nombra el efecto sin explicarlo</td><td>Efecto vago</td><td>Sin efecto</td></tr>
+    <tr><th scope="row">Literal frente a intencionado</th><td>Distingue con claridad los dos sentidos</td><td>Los distingue con alguna imprecisión</td><td>Solo da uno de los dos</td><td>Lo toma al pie de la letra</td></tr>
+    <tr><th scope="row">Propósito del autor</th><td>Relaciona el recurso con el propósito</td><td>Nombra el propósito</td><td>Propósito poco claro</td><td>Sin propósito</td></tr>
+  </tbody>
+</table>
+<p style="font-size:.92rem">Total: 16 puntos.</p>
+</div>
+</details>
+
+<details id="s-tarea">
+<summary>8. Tarea <span class="caja-tiempo">30 min</span></summary>
+<div class="contenido-detalle">
+<ul class="lista-bonita">
+  <li><strong>Lee el artículo completo</strong> de Larra en uno de los enlaces de la sección 3. Copia en tu cuaderno otra frase irónica y explica qué quiere decir.</li>
+  <li><strong>Caza eufemismos:</strong> busca tres en noticias, anuncios o avisos de tu trabajo. Escribe al lado qué significan y si sirven para respetar o para ocultar.</li>
+  <li><strong>Escribe tu propio «Vuelva usted mañana»:</strong> un párrafo satírico breve sobre un trámite que te haya hecho perder el tiempo, con al menos una ironía y una exageración.</li>
+</ul>
+</div>
+</details>
+
+<details id="s-quiz">
+<summary>9. Quiz de la lección <span class="caja-tiempo">20 min</span></summary>
+<div class="contenido-detalle">
+<div class="qz-intro">
+  <h4>✅ Quiz · 12 preguntas · puedes repetirlo las veces que quieras</h4>
+  <p style="margin:0">Varias preguntas se refieren a Larra y a Quevedo. Elige una respuesta en cada pregunta y, al final, pulsa <strong>Ver mi resultado</strong>. La meta es acertar al menos <strong>10 de 12</strong>.</p>
+</div>
+<div id="qz-cuerpo"></div>
+<div class="botones">
+  <button type="button" class="btn btn-primario" id="qz-calificar">Ver mi resultado</button>
+  <button type="button" class="btn btn-secundario" id="qz-reintentar" style="display:none">Intentar de nuevo</button>
+</div>
+<div class="qz-resultado" id="qz-resultado" role="status" aria-live="polite"></div>
+</div>
+</details>
+
+<details id="s-cierre">
+<summary>10. Cierre <span class="caja-tiempo">5 min</span></summary>
+<div class="contenido-detalle">
+<h3>Lo que aprendiste en esta lección</h3>
+<ul class="lista-bonita">
+  <li>En la ironía se dice lo contrario de lo que se piensa; el contexto la delata.</li>
+  <li>La sátira critica con humor, ironía y exageración para que el lector vea un defecto.</li>
+  <li>La paradoja une contradicciones que encierran una verdad; el oxímoron las pega en dos palabras.</li>
+  <li>El eufemismo suaviza: puede respetar o puede ocultar. La analogía explica un funcionamiento, pero en un argumento puede fallar.</li>
+</ul>
+<div class="caja-objetivos" style="background:#fff3e0;border-left-color:var(--acento)">
+  <h2 style="color:#8a3d0c;border:none;padding:0;margin-top:0;font-size:1.2rem">✅ Antes de irte, revísate</h2>
+  <ul class="lista-bonita">
+    <li>¿Qué critica Larra y con qué herramientas lo hace?</li>
+    <li>¿Por qué «libertad encarcelada» es una paradoja y no un error?</li>
+    <li>¿Qué hecho oculta la expresión «ajuste de personal»?</li>
+  </ul>
+</div>
+<div class="tip"><strong>➡️ Sigue con la próxima lección:</strong> <a href="https://zhemaria.github.io/clases_leng4/clase_2-3.html" style="color:var(--cp-oscuro);font-weight:700">Lección 2.3 · Connotación, matices y la palabra precisa</a>.</div>
+<p style="font-size:.9rem"><strong>Textos:</strong> Mariano José de Larra, «Vuelva usted mañana», <em>El Pobrecito Hablador</em> (1833); Francisco de Quevedo, soneto «Es hielo abrasador, es fuego helado» (siglo XVII). Ambos de dominio público. Los demás ejemplos fueron escritos para esta lección.</p>
+</div>
+</details>
+
+<footer class="pie">
+  <p><strong>GEDparaHispanos · Artes del Lenguaje · Nivel 4: Dominio del GED y Escritura Argumentativa · Tema 2 · Lección 2.2</strong></p>
+  <p>José M. Fernández, ABE/ASE Math Master Teacher, Harry S. Truman College — City Colleges of Chicago</p>
+  <p>© 2026. Esta obra está licenciada bajo <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es" rel="license noopener noreferrer" target="_blank">Creative Commons Reconocimiento-NoComercial-CompartirIgual 4.0 Internacional (CC BY-NC-SA 4.0)</a>.</p>
+</footer>
+<a class="volver-indice" href="#indice" aria-label="Volver al contenido de la lección"><span aria-hidden="true">↑</span> Índice</a>
+
+<script>
+
+/* ===== Voz: todas las lecturas pasan por hablar(), para poder cambiarla después por audio grabado ===== */
+(function(){
+  var voz=null, hay=('speechSynthesis' in window);
+  function elegir(){
+    if(!hay)return;
+    var vs=speechSynthesis.getVoices().filter(function(v){return /^es/i.test(v.lang);});
+    var pref=['es-US','es-MX','es-419','es-CO','es-AR','es-CL','es-PE'];
+    voz=null;
+    for(var i=0;i<pref.length&&!voz;i++){voz=vs.find(function(v){return v.lang.replace('_','-').toLowerCase()===pref[i].toLowerCase();})||null;}
+    if(!voz)voz=vs.find(function(v){return !/es[-_]ES/i.test(v.lang);})||vs[0]||null;
+  }
+  function aviso(){var a=document.getElementById('aviso-voz');if(a)a.classList.add('visible');}
+  function frase(t,vel){var u=new SpeechSynthesisUtterance(t);u.lang=voz?voz.lang:'es-US';if(voz)u.voice=voz;u.rate=vel||0.9;return u;}
+  if(hay){elegir(); speechSynthesis.onvoiceschanged=elegir;}
+  window.hablar=function(texto,vel,fin){
+    if(!hay||!texto){aviso();return;}
+    speechSynthesis.cancel();
+    /* Se lee por oraciones: algunos navegadores cortan las lecturas largas */
+    var partes=texto.replace(/\s+/g,' ').match(/[^.!?…]+[.!?…]+[»"”)]*\s*|[^.!?…]+$/g)||[texto];
+    partes.forEach(function(t,i){var u=frase(t.trim(),vel); if(fin&&i===partes.length-1)u.onend=fin; speechSynthesis.speak(u);});
+  };
+  window.callar=function(){if(hay)speechSynthesis.cancel();};
+  if(!hay)document.addEventListener('DOMContentLoaded',aviso);
+})();
+
+/* ===== Clasificador: cada elemento con sus botones; al acertar muestra una nota =====
+   Las opciones propias de cada elemento se barajan; las opciones comunes conservan su orden */
+function orden(it,ops){
+  var o=ops.map(function(_,j){return j;});
+  if(it.ops&&!it.fijo){for(var k=o.length-1;k>0;k--){var r=Math.floor(Math.random()*(k+1)),t=o[k];o[k]=o[r];o[r]=t;}}
+  return o;
+}
+function clasificador(idCaja,idPuntaje,items,opciones,conAudio){
+  var caja=document.getElementById(idCaja), pun=document.getElementById(idPuntaje), bien=0, hechas={};
+  function marcador(){pun.textContent=bien===items.length?(items.length===1?'🎉 ¡Muy bien!':'🎉 ¡Muy bien! Acertaste las '+bien+'.'):(items.length===1?'':'Aciertos: '+bien+' / '+items.length);}
+  items.forEach(function(it,i){
+    var d=document.createElement('div'); d.className='item'; d.setAttribute('role','group'); d.setAttribute('aria-label',it.p.replace(/<[^>]+>/g,''));
+    var ops=it.ops||opciones;
+    d.innerHTML='<span class="item-pal">'+it.p+(conAudio?' <button type="button" class="oir" aria-label="Escuchar">🔊</button>':'')+'</span>'+
+      '<span class="item-ops">'+orden(it,ops).map(function(j){return '<button type="button" class="btn-op" data-j="'+j+'">'+ops[j]+'</button>';}).join('')+'</span>'+
+      '<span class="item-fb" aria-live="polite"></span>';
+    caja.appendChild(d);
+    if(conAudio)d.querySelector('.oir').addEventListener('click',function(){hablar(it.a||it.p.replace(/<[^>]+>/g,''),0.85);});
+    var fb=d.querySelector('.item-fb');
+    d.querySelectorAll('.btn-op').forEach(function(b){
+      b.addEventListener('click',function(){
+        if(hechas[i])return;
+        if(+b.getAttribute('data-j')===it.c){
+          b.classList.add('correcta'); hechas[i]=true; bien++;
+          d.querySelectorAll('.btn-op').forEach(function(x){x.disabled=true;});
+          fb.innerHTML='✓ '+(it.n||'Correcto.'); marcador();
+        }else{
+          b.classList.add('incorrecta'); b.disabled=true;
+          fb.innerHTML='Todavía no. '+(it.pista||'Vuelve a mirar la regla e intenta otra vez.');
+        }
+      });
+    });
+  });
+  marcador();
+}
+
+/* ===== Quiz de la lección ===== */
+function iniciarQuiz(P,cfg){
+  var META=cfg.meta, N=P.length, cuerpo=document.getElementById('qz-cuerpo'), elegidas={};
+  P.forEach(function(p,i){
+    var d=document.createElement('div');
+    d.className='qz-preg'; d.setAttribute('role','group'); d.setAttribute('aria-labelledby','qz-e'+i);
+    var h='<p class="qz-enun" id="qz-e'+i+'"><span class="qz-num">'+(i+1)+'</span>'+p.t+'</p><div class="qz-ops">';
+    var orden=p.o.map(function(_,j){return j;});
+    if(!p.fijo){for(var k=orden.length-1;k>0;k--){var r=Math.floor(Math.random()*(k+1)),t=orden[k];orden[k]=orden[r];orden[r]=t;}}
+    orden.forEach(function(j){h+='<button type="button" class="qz-op" data-i="'+i+'" data-j="'+j+'" aria-pressed="false">'+p.o[j]+'</button>';});
+    d.innerHTML=h+'</div>'; cuerpo.appendChild(d);
+  });
+  cuerpo.addEventListener('click',function(ev){
+    var b=ev.target.closest('.qz-op'); if(!b||b.disabled)return;
+    var i=b.getAttribute('data-i');
+    cuerpo.querySelectorAll('.qz-op[data-i="'+i+'"]').forEach(function(x){x.classList.remove('elegida');x.setAttribute('aria-pressed','false');});
+    b.classList.add('elegida'); b.setAttribute('aria-pressed','true'); elegidas[i]=+b.getAttribute('data-j');
+  });
+  var res=document.getElementById('qz-resultado');
+  document.getElementById('qz-calificar').addEventListener('click',function(){
+    var bien=0;
+    P.forEach(function(p,i){
+      cuerpo.querySelectorAll('.qz-op[data-i="'+i+'"]').forEach(function(x){
+        var j=+x.getAttribute('data-j'); x.disabled=true; x.classList.remove('elegida');
+        if(j===p.c)x.classList.add('correcta'); else if(elegidas[i]===j)x.classList.add('incorrecta');
+      });
+      if(elegidas[i]===p.c)bien++;
+      else if(p.r){var nota=document.createElement('p');nota.className='qz-repaso';nota.innerHTML='📘 Para repasar: '+p.r;cuerpo.children[i].appendChild(nota);}
+    });
+    var msg,fondo,color;
+    if(bien>=META){msg='¡Excelente! '+bien+' de '+N+'. '+cfg.bien;fondo='#d4edda';color='#155724';}
+    else if(bien>=Math.ceil(N*0.6)){msg='Buen trabajo: '+bien+' de '+N+'. Repasa las preguntas marcadas con ✗ y vuelve a intentarlo.';fondo='#fff3cd';color='#5c3900';}
+    else{msg='Llevas '+bien+' de '+N+'. '+cfg.repaso;fondo='#f8d7da';color='#721c24';}
+    res.textContent=msg; res.style.background=fondo; res.style.color=color; res.classList.add('visible');
+    this.style.display='none'; document.getElementById('qz-reintentar').style.display='inline-block';
+    res.scrollIntoView({behavior:'smooth',block:'center'});
+  });
+  document.getElementById('qz-reintentar').addEventListener('click',function(){
+    cuerpo.querySelectorAll('.qz-op').forEach(function(x){x.disabled=false;x.classList.remove('correcta','incorrecta','elegida');x.setAttribute('aria-pressed','false');});
+    cuerpo.querySelectorAll('.qz-repaso').forEach(function(n){n.remove();});
+    elegidas={}; res.classList.remove('visible'); res.textContent='';
+    this.style.display='none'; document.getElementById('qz-calificar').style.display='inline-block';
+    cuerpo.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+}
+
+/* ===== Navegación: el índice y la dirección (#ancla) abren su sección ===== */
+document.addEventListener('DOMContentLoaded',function(){
+  function abrir(id){
+    var el=id&&document.getElementById(id); if(!el)return;
+    var d=el.tagName==='DETAILS'?el:el.closest('details');
+    if(d){d.open=true; el.scrollIntoView({behavior:'smooth',block:'start'});}
+  }
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(){abrir(a.getAttribute('href').slice(1));});});
+  document.getElementById('abrir-todo').addEventListener('click',function(){document.querySelectorAll('details').forEach(function(d){d.open=true;});});
+  document.getElementById('cerrar-todo').addEventListener('click',function(){document.querySelectorAll('details').forEach(function(d){d.open=false;});});
+  window.addEventListener('hashchange',function(){abrir(decodeURIComponent(location.hash.slice(1)));});
+  abrir(decodeURIComponent(location.hash.slice(1)));
+});
+
+/* ===== Taller de escritura =====
+   El borrador se guarda en este navegador (si el navegador lo permite). */
+function tallerEscritura(id,o){
+  var caja=document.getElementById(id), k='gph-borrador-'+o.clave;
+  var h='<label class="tl-etq" for="'+id+'-txt">'+(o.etiqueta||'Escribe aquí tu texto')+'</label>'+
+    '<textarea class="tl-txt" id="'+id+'-txt" rows="10" spellcheck="true" lang="es"'+(o.guia?' placeholder="'+o.guia.replace(/"/g,'&quot;')+'"':'')+'></textarea>'+
+    '<div class="tl-cuenta" id="'+id+'-cuenta" aria-live="polite"></div>';
+  if(o.conectores)h+='<div class="tl-conect" id="'+id+'-con" aria-live="polite"></div>';
+  h+='<div class="botones" style="justify-content:flex-start">'+
+    '<button type="button" class="btn btn-secundario" id="'+id+'-oir">🔊 Escuchar mi texto</button>'+
+    '<button type="button" class="btn btn-secundario" id="'+id+'-copiar">📋 Copiar mi texto</button>'+
+    '<button type="button" class="btn btn-secundario" id="'+id+'-borrar">🗑️ Borrar</button></div>'+
+    '<div class="tl-aviso" id="'+id+'-aviso" role="status" aria-live="polite"></div>';
+  if(o.lista){
+    h+='<fieldset class="tl-lista"><legend>✅ Revisa tu texto antes de darlo por terminado</legend>'+
+      o.lista.map(function(t,i){return '<label><input type="checkbox" id="'+id+'-c'+i+'"> '+t+'</label>';}).join('')+
+      '<p class="tl-listo" id="'+id+'-listo" aria-live="polite"></p></fieldset>';
+  }
+  caja.innerHTML=h;
+  var ta=document.getElementById(id+'-txt'), cu=document.getElementById(id+'-cuenta'), co=document.getElementById(id+'-con'), av=document.getElementById(id+'-aviso');
+  try{var g=localStorage.getItem(k); if(g)ta.value=g;}catch(e){}
+  function avisar(t){av.textContent=t; clearTimeout(avisar.t); avisar.t=setTimeout(function(){av.textContent='';},4000);}
+  function medir(){var t=ta.value.trim();return {t:t,pal:t?t.split(/\s+/).length:0,ora:(t.match(/[^.!?…]+[.!?…]+/g)||[]).length};}
+  function contar(){
+    var x=medir(), m=o.meta||{}, s='Palabras: '+x.pal+(m.palabras?' (meta: '+m.palabras+' o más)':'')+' · Oraciones: '+x.ora+(m.oraciones?' (meta: '+m.oraciones+' o más)':'');
+    if(m.oraciones&&x.ora>=m.oraciones&&(!m.palabras||x.pal>=m.palabras))s+=' · 🎯 ¡Llegaste a la meta de extensión!';
+    cu.textContent=s;
+    if(co){
+      var low=' '+x.t.toLowerCase().replace(/[.,;:¡!¿?«»"()—]/g,' ')+' ', us=o.conectores.filter(function(c){return low.indexOf(' '+c.toLowerCase()+' ')>=0;});
+      co.innerHTML=us.length?(o.titLista||'Conectores que usaste')+': '+us.map(function(c){return '<span class="tl-chip">'+c+'</span>';}).join(' '):(o.vacioLista||'Todavía no aparece ningún conector de la lista.');
+    }
+    try{localStorage.setItem(k,ta.value);}catch(e){}
+  }
+  ta.addEventListener('input',contar); contar();
+  document.getElementById(id+'-oir').addEventListener('click',function(){
+    if(!ta.value.trim()){avisar('Primero escribe algo para poder escucharlo.');return;}
+    hablar(ta.value,0.9);
+  });
+  document.getElementById(id+'-copiar').addEventListener('click',function(){
+    if(!ta.value.trim()){avisar('Todavía no hay texto para copiar.');return;}
+    function ok(){avisar('✓ Texto copiado. Ya puedes pegarlo en un correo o en un documento.');}
+    if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(ta.value).then(ok,function(){ta.select();document.execCommand('copy');ok();});
+    else{ta.select();document.execCommand('copy');ok();}
+  });
+  var borrarListo=false;
+  document.getElementById(id+'-borrar').addEventListener('click',function(){
+    if(!borrarListo){borrarListo=true;avisar('¿Seguro? Pulsa «Borrar» otra vez para borrar todo el texto.');setTimeout(function(){borrarListo=false;},4000);return;}
+    borrarListo=false; ta.value=''; contar(); avisar('Texto borrado.'); ta.focus();
+  });
+  if(o.lista){
+    var cbs=caja.querySelectorAll('.tl-lista input'), li=document.getElementById(id+'-listo');
+    function rev(){var n=Array.prototype.filter.call(cbs,function(c){return c.checked;}).length, x=medir(), m=o.meta||{}, corto=(m.oraciones&&x.ora<m.oraciones)||(m.palabras&&x.pal<m.palabras);
+      li.textContent=n<cbs.length?'Revisado: '+n+' de '+cbs.length:(corto?'Marcaste toda la lista, pero tu texto todavía no llega a la meta de extensión. Añade algo más.':'🎉 ¡Todo revisado! Tu párrafo está listo.');}
+    ta.addEventListener('input',rev);
+    cbs.forEach(function(c){c.addEventListener('change',rev);}); rev();
+  }
+}
+/* Rúbricas: cada celda recibe el nombre de su nivel para mostrarlo en el celular */
+document.querySelectorAll('table.rubrica').forEach(function(t){
+  var cab=Array.prototype.map.call(t.querySelectorAll('thead th'),function(th){return th.textContent;});
+  t.querySelectorAll('tbody tr').forEach(function(tr){Array.prototype.forEach.call(tr.children,function(c,i){if(c.tagName==='TD')c.setAttribute('data-et',cab[i]);});});
+});
+
+
+/* ===== Lecturas ===== */
+(function(){
+  document.getElementById('leer-lectura').addEventListener('click',function(){
+    hablar(Array.prototype.map.call(document.querySelectorAll('#lectura .cita,#lectura .narra'),function(p){return p.textContent.replace(/[«»]/g,'');}).join(' '),0.9);});
+  var po=document.getElementById('poema');
+  document.getElementById('leer-poema').addEventListener('click',function(){
+    hablar(Array.prototype.map.call(po.querySelectorAll('.verso'),function(v){return v.textContent;}).join(' '),0.85);});
+  function alterna(id,clase,on,off){var b=document.getElementById(id);b.addEventListener('click',function(){var a=po.classList.toggle(clase);b.setAttribute('aria-pressed',a?'true':'false');b.textContent=a?off:on;});}
+  alterna('ver-paradojas','ver-par','Marcar las paradojas','Quitar las marcas');
+  alterna('ver-nums','ver-nums','Numerar los versos','Quitar los números');
+})();
+
+/* ===== Ejercicios de la lección ===== */
+clasificador('clasif-ironia','puntaje-ironia',[
+  {p:'Llueve a cántaros y tu vecino dice: «¡Qué día tan bonito para ir a la playa!». ¿Qué quiere decir?',ops:['Que es un día malo para la playa','Que hoy conviene ir a la playa','Que le gusta mucho la lluvia'],c:0,n:'Ironía verbal: lo contrario de lo que dice.'},
+  {p:'«Gracias por la rapidez», le dice el cliente al técnico que tardó tres semanas. ¿Qué lo delata como ironía?',ops:['El elogio no encaja con los hechos','La palabra «gracias» al principio','Que el cliente es muy educado'],c:0,n:'El contexto contradice lo que se dice.'},
+  {p:'El libro <em>Cómo ahorrar dinero</em> cuesta 90 dólares. ¿Qué tipo de ironía es?',ops:['Ironía de situación','Ironía verbal','No es ironía'],c:0,n:'Ocurre lo contrario de lo esperable.'}
+],null,false);
+
+clasificador('clasif-satira','puntaje-satira',[
+  {p:'¿Qué critica Larra en «Vuelva usted mañana»?',ops:['La pereza y la lentitud de la burocracia','La llegada de extranjeros a Madrid','Las costumbres de los franceses'],c:0,n:'El francés solo sirve para que el contraste se vea.'},
+  {p:'«Gran persona debió de ser el primero que llamó pecado mortal a la pereza.» ¿Qué recurso usa?',ops:['Ironía: el elogio esconde una burla','Paradoja: une dos ideas contrarias','Eufemismo: suaviza una palabra dura'],c:0,n:'Finge admirar con solemnidad para burlarse de los perezosos.'},
+  {p:'¿Por qué el francés se llama Sans-délai («sin demora»)?',ops:['Es un nombre parlante que anuncia su carácter','Era un apellido común en el Madrid de 1833','Larra quería ocultar el nombre de un amigo'],c:0,n:'Su nombre representa la prisa, que choca con la pereza.'},
+  {p:'El francés cree que necesita quince días; el narrador lo invita a comer a los quince meses. ¿Qué efecto busca?',ops:['Exagerar para que la crítica sea más clara','Mostrar que el narrador es muy generoso','Explicar el calendario de las oficinas'],c:0,n:'La exageración es una herramienta de la sátira.'},
+  {p:'Al final, el narrador confiesa que también dejó el artículo para mañana. ¿Qué logra con eso?',ops:['Mostrar que el defecto alcanza a todos, incluso a él','Pedir disculpas al lector por el retraso','Anunciar que escribirá una segunda parte'],c:0,n:'Una última ironía: nadie se salva del «vuelva usted mañana».'}
+],null,false);
+
+clasificador('clasif-paradoja','puntaje-paradoja',[
+  {p:'«Es hielo abrasador, es fuego helado.» ¿Qué recurso hay en «hielo abrasador»?',ops:['Oxímoron: dos palabras contradictorias juntas','Eufemismo: una palabra suave por otra dura','Ironía: lo contrario de lo que se piensa'],c:0,n:'El hielo no puede abrasar; juntos expresan el amor.'},
+  {p:'«Es una libertad encarcelada.» ¿Qué quiere decir Quevedo del amor?',ops:['Que el enamorado elige con libertad algo que lo encierra','Que los enamorados terminan siempre en la cárcel','Que el amor es un delito que se castiga'],c:0,n:'La paradoja expresa una experiencia contradictoria.'},
+  {p:'¿Qué conclusión da el último terceto?',ops:['El amor es contrario de sí mismo','El amor es una enfermedad sin cura','El amor solo existe en los sueños'],c:0,n:'Lo dice el verso 14.'},
+  {p:'¿Por qué Quevedo usa paradojas para definir el amor?',ops:['Porque el amor es contradictorio y no cabe en palabras normales','Porque quería que el poema fuera difícil de entender','Porque en su época estaba prohibido hablar del amor'],c:0,n:'La forma imita lo que describe.'}
+],null,false);
+
+clasificador('clasif-eufemismo','puntaje-eufemismo',[
+  {p:'«La empresa anunció un ajuste de personal de 200 puestos.» ¿Qué significa?',ops:['Que despedirá a 200 personas','Que contratará a 200 personas','Que cambiará el horario de 200 personas'],c:0,n:'Eufemismo de los despidos.'},
+  {p:'En un pésame: «Siento mucho que tu abuela nos haya dejado». ¿Qué propósito tiene el eufemismo?',ops:['Consolar con respeto','Ocultar la verdad','Burlarse de la familia'],c:0,n:'Aquí el eufemismo es cortesía.'},
+  {p:'«El gobierno habla de desaceleración; los vecinos, de que no llegan a fin de mes.» ¿Qué hace el autor?',ops:['Contrasta el eufemismo oficial con la realidad','Explica una analogía entre gobierno y vecinos','Usa una paradoja para definir la economía'],c:0,n:'Lectura crítica del eufemismo.'}
+],null,false);
+
+clasificador('clasif-analogia','puntaje-analogia',[
+  {p:'«El sistema inmunitario es como un ejército…» ¿Qué se compara?',ops:['El funcionamiento de las defensas con el de un ejército','El tamaño de las células con el de los soldados','La edad del cuerpo con la de un país'],c:0,n:'La analogía compara un funcionamiento, punto por punto.'},
+  {p:'«Un país es como una familia: si la familia no se endeuda, el país tampoco debería.» ¿Cuál es el problema?',ops:['Compara dos cosas que funcionan de forma muy distinta','No usa ninguna palabra de comparación','Es una ironía que nadie puede entender'],c:0,n:'Falsa analogía: se parecen en algo, no en todo.'}
+],null,false);
+
+tallerEscritura('taller-22',{clave:'n4-2-2',etiqueta:'Tu análisis de un recurso (4 a 6 oraciones)',
+  guia:'El ejemplo «…» es un caso de … porque … Literalmente dice …, pero quiere decir … El efecto en el tono es … El propósito del autor es …',
+  meta:{oraciones:4,palabras:70},
+  conectores:['ironía','sátira','paradoja','oxímoron','eufemismo','analogía','literalmente','quiere decir','tono','propósito'],
+  titLista:'Términos de análisis que usaste',
+  vacioLista:'Todavía no aparece ningún término de análisis (ironía, eufemismo, tono, propósito…). Úsalos para que tu análisis sea preciso.',
+  lista:['Nombro el recurso y explico por qué es ese y no otro.','Distingo lo que dice literalmente de lo que quiere decir.','Explico el efecto en el tono.','Relaciono el recurso con el propósito del autor.','Copié el ejemplo exactamente, entre comillas.','Escuché mi párrafo en voz alta y lo revisé.']});
+
+iniciarQuiz([
+  {t:'¿Qué es la <strong>ironía verbal</strong>?',o:['Decir lo contrario de lo que se piensa','Unir dos ideas que se contradicen','Usar una palabra suave por una dura'],c:0,r:'<a href="#s-2-ironia">Sección 2</a>'},
+  {t:'Un estudiante saca 40 de 100 y su hermano le dice: «¡Felicidades, genio!». Es…',o:['ironía verbal','una paradoja','un eufemismo'],c:0,r:'<a href="#s-2-ironia">Sección 2</a>'},
+  {t:'¿Cuál es el propósito principal de la <strong>sátira</strong>?',o:['Criticar un defecto para que se corrija','Contar una historia triste para emocionar','Explicar un proceso con una comparación'],c:0,r:'<a href="#s-3-satira">Sección 3</a>'},
+  {t:'En el artículo de Larra, ¿qué simboliza la frase «vuelva usted mañana»?',o:['La costumbre de dejarlo todo para después','La amabilidad de los empleados públicos','El deseo de que el francés vuelva a visitar'],c:0,r:'<a href="#s-3-satira">Sección 3</a>'},
+  {t:'Larra llama «institución» a la pereza. ¿Qué efecto tiene?',o:['Se burla tratándola como si fuera un organismo oficial','Explica que la pereza es una ley de España','Elogia sinceramente a los perezosos'],c:0,r:'<a href="#s-3-satira">Sección 3</a>'},
+  {t:'¿Qué es una <strong>paradoja</strong>?',o:['Ideas que parecen contradictorias pero encierran una verdad','Una comparación con «como» entre dos cosas','Una burla dirigida a una persona concreta'],c:0,r:'<a href="#s-4-paradoja">Sección 4</a>'},
+  {t:'«Un silencio ensordecedor» es un ejemplo de…',o:['oxímoron','eufemismo','analogía'],c:0,r:'<a href="#s-4-paradoja">Sección 4</a>'},
+  {t:'En el soneto de Quevedo, «enfermedad que crece si es curada» significa que el amor…',o:['aumenta cuando se intenta remediar','es una enfermedad que se contagia','se cura con medicinas fuertes'],c:0,r:'<a href="#s-4-paradoja">Sección 4</a>'},
+  {t:'¿Qué es un <strong>eufemismo</strong>?',o:['Una expresión suave en lugar de una dura','Una expresión dura en lugar de una suave','Una expresión antigua que ya no se usa'],c:0,r:'<a href="#s-5-eufemismo">Sección 5</a>'},
+  {t:'«Daños colaterales» es un eufemismo de…',o:['víctimas civiles o destrucción no buscada','gastos de la reparación de un edificio','efectos secundarios de un medicamento'],c:0,r:'<a href="#s-5-eufemismo">Sección 5</a>'},
+  {t:'¿En qué se distingue la analogía del símil?',o:['La analogía compara un funcionamiento punto por punto','La analogía siempre usa la palabra «como»','La analogía solo aparece en los poemas'],c:0,r:'<a href="#s-6-analogia">Sección 6</a>'},
+  {t:'¿Cuándo es débil una analogía en un argumento?',o:['Cuando las dos cosas se parecen en algo, pero no en lo importante','Cuando la comparación es demasiado fácil de entender','Cuando se usa en un texto de ciencias'],c:0,r:'<a href="#s-6-analogia">Sección 6</a>'}
+],{meta:10,
+   bien:'Ya sabes leer lo que un texto quiere decir, además de lo que dice. Sigue con la Lección 2.3.',
+   repaso:'Vuelve a las secciones 2, 4 y 5 y repite el quiz: con práctica sale.'});
+</script>
+</body>
+</html>

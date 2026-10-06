@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<!-- Lección 3.3 · Artes del Lenguaje Nivel 4 · GEDparaHispanos
+     José M. Fernández, ABE/ASE Math Master Teacher, Harry S. Truman College — City Colleges of Chicago
+     Licencia CC BY-NC-SA 4.0 · https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es -->
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lección 3.3 · Resumen objetivo e incertidumbre del texto</title>
+<meta name="author" content="José M. Fernández, ABE/ASE Math Master Teacher, Harry S. Truman College — City Colleges of Chicago">
+<meta name="license" content="CC BY-NC-SA 4.0">
+<link rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es">
+<style>
+  :root{
+    --cp:#b91c1c;--cp-claro:#fee2e2;--cp-oscuro:#7f1d1d;
+    --acento:#ff8c42;--texto:#1a2332;--fondo:#fafbfc;
+    --gris:#555;--gris-claro:#eef1f4;
+    --exito:#2e7d32;--error:#c62828;
+  }
+  *{box-sizing:border-box}
+  body{font-family:'Poppins','Segoe UI',Arial,sans-serif;line-height:1.7;color:var(--texto);background:var(--fondo);max-width:960px;margin:0 auto;padding:24px 18px}
+  h1{color:var(--cp-oscuro);border-bottom:4px solid var(--cp);padding-bottom:14px;font-size:1.85rem;margin-bottom:8px}
+  .subtitulo{color:var(--gris);font-style:italic;margin-top:0;margin-bottom:24px;font-size:1.05rem}
+  h2{color:var(--cp-oscuro);border-left:6px solid var(--cp);padding-left:14px;margin-top:32px;font-size:1.4rem}
+  h3{color:var(--cp-oscuro);margin-top:24px;font-size:1.15rem}
+  .caja-objetivos{background:var(--cp-claro);border-left:6px solid var(--cp);padding:18px 22px;border-radius:8px;margin:18px 0 28px 0}
+  .caja-objetivos h2{margin-top:0;color:var(--cp-oscuro);border-left:none;padding-left:0;font-size:1.2rem}
+  .caja-tiempo{display:inline-block;background:var(--acento);color:#1a2332;padding:4px 12px;border-radius:14px;font-size:0.85rem;font-weight:600;margin-left:10px;vertical-align:middle}
+  details{background:#fff;border:1px solid #d6dde4;border-radius:10px;margin:14px 0;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,0.04)}
+  details[open]{border-color:var(--cp);box-shadow:0 3px 10px rgba(185,28,28,0.12)}
+  summary{cursor:pointer;padding:16px 20px;font-weight:600;color:var(--cp-oscuro);background:var(--gris-claro);list-style:none;user-select:none;font-size:1.05rem}
+  summary::-webkit-details-marker{display:none}
+  summary::before{content:'▶';display:inline-block;margin-right:10px;color:var(--cp);transition:transform 0.25s;font-size:0.85rem}
+  details[open] summary::before{transform:rotate(90deg)}
+  details[open] summary{background:var(--cp-claro);border-bottom:2px solid var(--cp)}
+  .contenido-detalle{padding:18px 22px}
+  .tip{background:#fffbe6;border-left:5px solid #f4c430;padding:12px 18px;border-radius:6px;margin:14px 0}
+  .tip strong{color:#6b5400}
+  .botones{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:14px 0}
+  .btn{padding:10px 22px;border:none;border-radius:8px;font-weight:600;cursor:pointer;font-family:inherit;font-size:0.95rem;transition:background 0.2s}
+  .btn-primario{background:var(--cp);color:#fff}
+  .btn-primario:hover{background:var(--cp-oscuro)}
+  .btn-secundario{background:var(--gris-claro);color:var(--texto)}
+  .btn-secundario:hover{background:#d6dde4}
+  .btn[aria-pressed="true"]{background:var(--cp-oscuro);color:#fff}
+  ul.lista-bonita{list-style:none;padding-left:0}
+  ul.lista-bonita li{padding:8px 0 8px 30px;position:relative}
+  ul.lista-bonita li::before{content:'➜';position:absolute;left:0;color:var(--cp);font-weight:700}
+  .palabra-clave{background:linear-gradient(transparent 60%,#ffeb3b 60%);padding:0 4px;font-weight:600}
+  .ej{font-family:Georgia,serif;font-size:1.08rem}
+  .sub{font-weight:700;border-bottom:3px solid var(--cp-oscuro)}
+  table.tabla{width:100%;border-collapse:collapse;margin:16px 0;background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,0.06)}
+  table.tabla th{background:var(--cp-oscuro);color:#fff;padding:10px 12px;text-align:left}
+  table.tabla td{padding:10px 12px;border-bottom:1px solid var(--gris-claro);vertical-align:top}
+  table.tabla tr:last-child td{border-bottom:none}
+  .actividad{background:#fff;border:2px solid var(--acento);border-radius:10px;padding:16px 20px;margin:14px 0}
+  .actividad h4{color:#8a3d0c;margin-top:0}
+  .badge{display:inline-block;padding:3px 10px;border-radius:12px;font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-right:6px}
+  .badge-lectura{background:#e3f2fd;color:#0d47a1}
+  /* Clasificadores */
+  .clasificador{background:#fff;border:2px solid var(--cp);border-radius:12px;padding:14px 18px;margin:18px 0}
+  .item{border:2px solid var(--gris-claro);border-radius:8px;padding:10px 14px;margin:8px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+  .item-pal{font-family:Georgia,serif;font-size:1.12rem;color:var(--texto);display:flex;align-items:center;gap:10px}
+  .item-ops{display:flex;gap:8px;flex-wrap:wrap}
+  .item-fb{flex-basis:100%;font-size:.95rem}
+  .item-fb:empty{display:none}
+  .btn-op{padding:7px 14px;border:2px solid var(--cp-oscuro);background:#fff;color:var(--cp-oscuro);border-radius:8px;cursor:pointer;font-weight:600;font-family:inherit;font-size:.92rem}
+  .btn-op:hover:not(:disabled){background:var(--cp-claro)}
+  .btn-op.correcta{background:#d4edda;border-color:var(--exito);color:#155724}
+  .btn-op.correcta::before{content:'✓ '}
+  .btn-op.incorrecta{background:#f8d7da;border-color:var(--error);color:#721c24;text-decoration:line-through}
+  .btn-op.incorrecta::before{content:'✗ '}
+  .btn-op:disabled{cursor:default}
+  .apilado .item{flex-direction:column;align-items:stretch}
+  .apilado .item-ops{flex-direction:column}
+  .apilado .btn-op{text-align:left;font-weight:400}
+  .apilado .item-pal{font-family:'Segoe UI',Arial,sans-serif;font-size:1rem;font-weight:600;display:block}
+  .puntaje{text-align:center;margin-top:12px;font-weight:600;color:var(--cp-oscuro)}
+  /* Lectura con marcas: color + borde distinto + etiqueta escrita */
+  .texto-lectura{background:#fff;border:2px solid var(--gris-claro);border-radius:8px;padding:18px 22px;margin:14px 0;font-family:Georgia,serif;font-size:1.12rem;line-height:2.1}
+  .texto-lectura p{margin:0 0 10px}
+  .num-p{display:inline-block;background:var(--cp-oscuro);color:#fff;border-radius:50%;width:1.6em;height:1.6em;text-align:center;line-height:1.6em;font-size:.8rem;font-family:'Segoe UI',Arial,sans-serif;margin-right:6px;vertical-align:middle}
+  .m-sus{background:#e3f2fd;color:#0d3c78;border-bottom:3px solid #0d3c78}
+  .m-adj{background:#fff3e0;color:#6b3300;border-bottom:3px dashed #8a4b00}
+  .m-adv{background:#e8f5e9;color:#1b5e20;border-bottom:3px dotted #1b5e20}
+  .etq{font-weight:700;font-size:.78em;font-family:'Segoe UI',Arial,sans-serif;white-space:nowrap}
+  .oculta-marcas .m-sus,.oculta-marcas .m-adj,.oculta-marcas .m-adv{background:none;color:inherit;border:none}
+  .oculta-marcas .etq{display:none}
+  .leyenda-marcas{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0;font-size:.92rem}
+  .leyenda-marcas span{padding:2px 8px}
+  /* Índice */
+  .indice{background:#fff;border:1px solid #d6dde4;border-left:6px solid var(--cp);border-radius:10px;padding:16px 20px;margin:22px 0}
+  .indice h2{font-size:1.1rem;margin:0 0 8px;border:none;padding:0}
+  .indice ol{margin:0;padding-left:1.4em}
+  .indice li{margin:4px 0}
+  .indice a{color:var(--cp-oscuro)}
+  .abrir-cerrar{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0 0}
+  .volver-indice{position:fixed;right:18px;bottom:18px;z-index:60;background:var(--cp-oscuro);color:#fff;border-radius:999px;padding:10px 16px;font-weight:700;font-size:.92rem;text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,.28)}
+  .volver-indice:hover{background:var(--cp);color:#fff}
+  a:focus-visible,summary:focus-visible,button:focus-visible,textarea:focus-visible{outline:3px solid #b35316;outline-offset:2px}
+  .sr-solo{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+  .enlace-practica{display:block;background:#fff;border:2px solid var(--cp);border-radius:10px;padding:14px 18px;margin:16px 0;text-decoration:none;color:var(--cp-oscuro);font-weight:600}
+  .enlace-practica:hover{background:var(--cp-claro)}
+  .enlace-practica span{display:block;font-weight:400;color:var(--texto);font-size:.95rem}
+  .aviso-voz{font-size:.9rem;color:#5c3900;background:#fff3cd;border-radius:6px;padding:6px 10px;display:none}
+  .aviso-voz.visible{display:block}
+  /* Quiz */
+  .qz-intro{background:var(--cp-claro);border-radius:10px;padding:14px 18px;margin:0 0 14px}
+  .qz-intro h4{margin:0 0 6px;color:var(--cp-oscuro)}
+  .qz-preg{background:#fff;border:2px solid var(--gris-claro);border-radius:10px;padding:14px 18px;margin:12px 0}
+  .qz-enun{font-weight:600;margin:0 0 10px}
+  .qz-num{display:inline-block;background:var(--cp-oscuro);color:#fff;border-radius:12px;padding:1px 10px;font-size:.8rem;margin-right:8px}
+  .qz-ops{display:flex;flex-direction:column;gap:8px}
+  .qz-op{text-align:left;background:#fff;border:2px solid #c9d2db;border-radius:8px;padding:10px 14px;font-family:inherit;font-size:1rem;cursor:pointer;color:var(--texto)}
+  .qz-op:hover:not(:disabled){border-color:var(--cp)}
+  .qz-op.elegida{background:var(--cp-claro);border-color:var(--cp-oscuro);color:var(--cp-oscuro);box-shadow:0 0 0 3px #fff,0 0 0 5px var(--cp)}
+  .qz-op.correcta{background:#d4edda;border-color:#2e7d32;color:#155724}
+  .qz-op.correcta::before{content:'✓ '}
+  .qz-op.incorrecta{background:#f8d7da;border-color:#c62828;color:#721c24}
+  .qz-op.incorrecta::before{content:'✗ '}
+  .qz-op:disabled{cursor:default}
+  .qz-resultado{display:none;margin:16px 0;padding:16px;border-radius:10px;text-align:center;font-weight:600}
+  .qz-resultado.visible{display:block}
+  .qz-repaso{margin:10px 0 0;padding:8px 12px;background:#fff3cd;border-radius:6px;color:#3d2600;font-size:.95rem}
+  .qz-repaso a{color:var(--cp-oscuro);font-weight:700}
+  /* Taller de escritura */
+  .taller{background:#fff;border:2px solid var(--cp);border-radius:12px;padding:14px;margin:14px 0}
+  .tl-etq{display:block;font-weight:700;color:var(--cp-oscuro);margin-bottom:6px}
+  .tl-txt{width:100%;box-sizing:border-box;font:inherit;font-size:1.05rem;line-height:1.7;padding:10px 12px;border:2px solid #9aa9b7;border-radius:8px;resize:vertical;min-height:200px}
+  .tl-txt:focus{outline:3px solid var(--cp);outline-offset:1px;border-color:var(--cp-oscuro)}
+  .tl-cuenta{font-size:.92rem;color:#333;margin:6px 0}
+  .tl-conect{font-size:.95rem;margin:4px 0 8px}
+  .tl-chip{display:inline-block;background:var(--cp-claro);color:var(--cp-oscuro);border:1px solid var(--cp);border-radius:12px;padding:1px 10px;margin:2px 2px;font-weight:700}
+  .tl-aviso{min-height:1.4em;font-weight:700;color:var(--cp-oscuro)}
+  .tl-lista{border:2px dashed var(--cp);border-radius:10px;padding:8px 14px;margin-top:10px}
+  .tl-lista legend{font-weight:700;color:var(--cp-oscuro);padding:0 6px}
+  .tl-lista label{display:flex;gap:10px;align-items:flex-start;padding:6px 0;cursor:pointer}
+  .tl-lista input{width:22px;height:22px;flex-shrink:0;margin-top:2px;accent-color:var(--cp-oscuro)}
+  .tl-listo{font-weight:700;color:var(--cp-oscuro);margin:6px 0 0}
+  .rubrica{font-size:.92rem}
+  .rubrica td,.rubrica th{vertical-align:top}
+  @media(max-width:640px){
+    .rubrica thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+    .rubrica,.rubrica tbody,.rubrica tr,.rubrica th,.rubrica td{display:block;width:auto}
+    .rubrica tr{border:2px solid var(--cp);border-radius:10px;margin:0 0 10px;overflow:hidden}
+    .rubrica tbody th{background:var(--cp-oscuro);color:#fff;border:none}
+    .rubrica td{border:none;border-top:1px solid #d5dde3}
+    .rubrica td::before{content:attr(data-et);display:block;font-weight:700;color:var(--cp-oscuro)}
+  }
+  footer.pie{margin-top:40px;padding-top:18px;border-top:2px solid var(--gris-claro);text-align:center;color:#555;font-size:.9rem}
+  footer.pie p{margin:4px 0}
+  footer.pie a{color:var(--cp-oscuro)}
+  @media print{.indice,.volver-indice,.abrir-cerrar{display:none}}
+  @media (prefers-reduced-motion:reduce){summary::before{transition:none}}
+  .m-cer{background:#e3f2fd;color:#0d3c78;border-bottom:3px solid #0d3c78}
+  .m-inc{background:#fff3e0;color:#6b3300;border-bottom:3px dashed #8a4b00}
+  .oculta-marcas .m-cer,.oculta-marcas .m-inc{background:none;color:inherit;border:none}
+  .resumen-ej{background:#fff;border:2px solid var(--gris-claro);border-radius:8px;padding:10px 14px;margin:8px 0;font-family:Georgia,serif}
+  .resumen-ej strong{font-family:'Segoe UI',Arial,sans-serif}
+</style>
+</head>
+<body>
+<h1>Lección 3.3 · Resumen objetivo e incertidumbre del texto</h1>
+<p class="subtitulo">Artes del Lenguaje · Nivel 4 · Tema 3: Comprensión crítica: temas en interacción e inferencia compleja · Unas 2 horas, a tu ritmo</p>
+
+<div class="caja-objetivos">
+  <h2>🎯 Objetivos de la lección</h2>
+  <ul class="lista-bonita" style="margin:0">
+    <li>Elaborar un <strong>resumen objetivo</strong> de un texto complejo, que conserve el <strong>grado de certeza</strong> del original.</li>
+    <li>Identificar los puntos en que el texto <strong>deja el asunto abierto</strong> o incierto, y las palabras que lo señalan.</li>
+    <li>Distinguir un resumen objetivo de uno <strong>sesgado</strong> y reconocer las afirmaciones que el texto <strong>no sostiene</strong>.</li>
+  </ul>
+  <p style="margin:8px 0 0;font-size:.92rem">Estándares: 5–6.R.CL.2 · 5–6.R.CI.1 · 5–6.R.CI.3</p>
+</div>
+
+<nav class="indice" id="indice" aria-labelledby="indice-titulo">
+  <h2 id="indice-titulo">Contenido de la lección</h2>
+  <ol>
+    <li><a href="#s-1-objetivo">El resumen objetivo en el Nivel 4</a></li>
+    <li><a href="#s-2-modelo">Texto modelo: los gigantes de América</a></li>
+    <li><a href="#s-3-certeza">Lo que se afirma y lo que queda abierto</a></li>
+    <li><a href="#s-4-sesgado">Objetivo, sesgado o incompleto</a></li>
+    <li><a href="#s-5-no-dice">Lo que el texto no sostiene</a></li>
+    <li><a href="#s-6-taller">Taller: tu resumen objetivo</a></li>
+    <li><a href="#s-tarea">Tarea</a></li>
+    <li><a href="#s-quiz">Quiz de la lección</a></li>
+    <li><a href="#s-cierre">Cierre</a></li>
+  </ol>
+  <div class="abrir-cerrar">
+    <button type="button" class="btn btn-secundario" id="abrir-todo">Abrir todo</button>
+    <button type="button" class="btn btn-secundario" id="cerrar-todo">Cerrar todo</button>
+  </div>
+</nav>
+
+<h2>📚 Para empezar</h2>
+<p>No todos los textos dan respuestas. Los textos científicos, históricos o periodísticos serios a menudo dicen: «esto se sabe; esto otro, no». Un lector crítico respeta esa diferencia y no convierte una posibilidad en un hecho ni una duda en una certeza. En el GED, varias preguntas ponen a prueba precisamente eso: qué afirma el texto, qué sugiere y qué deja sin resolver.</p>
+<p class="aviso-voz" id="aviso-voz" role="status">Tu navegador no tiene una voz en español disponible, así que los botones 🔊 no sonarán.</p>
+
+<details open id="s-1-objetivo">
+<summary>1. El resumen objetivo en el Nivel 4 <span class="caja-tiempo">10 min</span></summary>
+<div class="contenido-detalle">
+<p>En el Nivel 3 aprendiste que un resumen objetivo recoge las ideas principales <strong>sin opiniones del lector</strong>. En el Nivel 4 se añaden dos exigencias:</p>
+<table class="tabla">
+  <caption class="sr-solo">Condiciones de un resumen objetivo</caption>
+  <thead><tr><th scope="col">Condición</th><th scope="col">Qué significa</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Sin opinión</strong></td><td>No dice si el texto te gustó ni si estás de acuerdo.</td></tr>
+    <tr><td><strong>Sin añadidos</strong></td><td>No incluye datos o ideas que no estén en el texto.</td></tr>
+    <tr><td><strong>Proporcional</strong> (Nivel 4)</td><td>Da a cada idea el espacio que le da el autor: no infla un detalle ni reduce lo central.</td></tr>
+    <tr><td><strong>Fiel a la certeza</strong> (Nivel 4)</td><td>Lo que el autor presenta como seguro, sigue siendo seguro; lo que presenta como posible, sigue siendo posible.</td></tr>
+  </tbody>
+</table>
+<div class="tip"><strong>📘 ¿Necesitas repasar?</strong> El resumen objetivo del Nivel 3 está en la <a href="https://zhemaria.github.io/clases_leng3/clase_3-1.html" target="_blank" rel="noopener noreferrer" style="color:var(--cp-oscuro);font-weight:700">Lección 3.1 del Nivel 3</a>. Se abre en una pestaña nueva.</div>
+</div>
+</details>
+
+<details id="s-2-modelo">
+<summary>2. Texto modelo: los gigantes de América <span class="caja-tiempo">20 min</span></summary>
+<div class="contenido-detalle">
+<div class="actividad">
+  <h4><span class="badge badge-lectura">Lectura reflexiva</span> Individual · separa lo seguro de lo dudoso</h4>
+  <p style="margin:0">Lee el texto. Haz dos columnas en tu cuaderno: «Lo que se sabe» y «Lo que no se sabe». Después pulsa el botón para comparar.</p>
+</div>
+<div class="leyenda-marcas" aria-label="Leyenda de las marcas">
+  <span class="m-cer">Lo que el texto da por seguro (continuo)</span><span class="m-inc">Lo que el texto deja abierto (rayas)</span>
+</div>
+<div class="texto-lectura oculta-marcas" id="lectura">
+  <h3 style="margin-top:0">¿Qué acabó con los gigantes de América?</h3>
+  <p><span class="num-p" aria-hidden="true">1</span><span class="m-cer">Hace unos 13,000 años, al final de la última edad de hielo, América del Norte perdió a muchos de sus animales más grandes: mamuts, mastodontes, perezosos gigantes, caballos, camellos y lobos de gran tamaño, entre otros. Los científicos han identificado unos 35 géneros que desaparecieron. Sobre eso hay acuerdo.</span> <span class="m-inc">Sobre la causa, no.</span></p>
+  <p><span class="num-p" aria-hidden="true">2</span><span class="m-inc">Una hipótesis culpa a los primeros cazadores humanos</span>, que llegaron al continente por esas mismas fechas: <span class="m-inc">animales que nunca habían visto a un ser humano habrían sido presas fáciles.</span> Sin embargo, <span class="m-cer">son pocos los sitios arqueológicos con pruebas claras de caza, y casi todos son de mamuts y mastodontes.</span></p>
+  <p><span class="num-p" aria-hidden="true">3</span><span class="m-inc">Otra hipótesis apunta al clima.</span> <span class="m-cer">Al final de la edad de hielo hubo cambios bruscos, entre ellos un regreso repentino del frío hace unos 12,900 años</span>, <span class="m-inc">que pudo transformar la vegetación de la que dependían esos animales.</span> Los críticos señalan, sin embargo, que esas mismas especies ya habían sobrevivido a otros cambios climáticos.</p>
+  <p><span class="num-p" aria-hidden="true">4</span><span class="m-inc">También se han propuesto una enfermedad traída por los recién llegados y el impacto de un cometa, aunque estas ideas tienen todavía menos pruebas. Muchos investigadores piensan hoy que pudo ser una combinación de factores.</span> <span class="m-cer">Lo cierto es que, por ahora, nadie ha encontrado una prueba decisiva</span>, <span class="m-inc">y es posible que la pregunta tarde años —o décadas— en resolverse.</span></p>
+  <p style="font-size:.9rem;margin-bottom:0"><em>Texto escrito para esta lección con datos comprobados (ver la fuente en el cierre).</em></p>
+</div>
+<div class="botones" style="justify-content:flex-start">
+  <button type="button" class="btn btn-secundario" id="leer-lectura">🔊 Escuchar el texto</button>
+  <button type="button" class="btn btn-secundario" id="ver-partes" aria-pressed="false">Mostrar lo seguro y lo abierto</button>
+</div>
+<div class="clasificador apilado" id="clasif-modelo"></div>
+<div class="puntaje" id="puntaje-modelo" role="status" aria-live="polite"></div>
+</div>
+</details>
+
+<details id="s-3-certeza">
+<summary>3. Lo que se afirma y lo que queda abierto <span class="caja-tiempo">20 min</span></summary>
+<div class="contenido-detalle">
+<p>Los autores señalan su <span class="palabra-clave">grado de certeza</span> con palabras concretas. Aprende a verlas:</p>
+<table class="tabla">
+  <caption class="sr-solo">Marcas de certeza y de incertidumbre en un texto</caption>
+  <thead><tr><th scope="col">El autor está seguro</th><th scope="col">El autor deja el asunto abierto</th></tr></thead>
+  <tbody>
+    <tr><td><em>se sabe, está comprobado, hay acuerdo, lo cierto es, los datos muestran</em></td><td><em>una hipótesis, se ha propuesto, algunos piensan, según algunos investigadores</em></td></tr>
+    <tr><td>Verbos en indicativo: <em>desaparecieron, llegaron, hubo</em></td><td>Condicional: <em>habrían sido, podría deberse</em></td></tr>
+    <tr><td>Cifras y fechas con su fuente</td><td><em>pudo, puede que, es posible, quizá, tal vez, probablemente</em></td></tr>
+    <tr><td></td><td>Objeciones: <em>sin embargo, los críticos señalan, aunque</em></td></tr>
+  </tbody>
+</table>
+<div class="tip"><strong>⚠️ Ojo con «probablemente» y «es posible»:</strong> no son lo mismo. «Probablemente» indica que el autor se inclina por una opción; «es posible» solo dice que no se puede descartar. Un buen resumen respeta esa diferencia.</div>
+<div class="clasificador" id="clasif-certeza"></div>
+<div class="puntaje" id="puntaje-certeza" role="status" aria-live="polite"></div>
+<a class="enlace-practica" href="https://zhemaria.github.io/gramatica/n4-l3-3.html#incertidumbre" target="_blank" rel="noopener noreferrer">❓ Practica más: lo seguro y lo incierto
+  <span>Oraciones de textos científicos e históricos para decidir qué da por seguro el autor. Se abre en una pestaña nueva.</span></a>
+</div>
+</details>
+
+<details id="s-4-sesgado">
+<summary>4. Objetivo, sesgado o incompleto <span class="caja-tiempo">20 min</span></summary>
+<div class="contenido-detalle">
+<p>Compara estos tres resúmenes del texto modelo:</p>
+<p class="resumen-ej"><strong>Resumen A.</strong> Hace unos 13,000 años desaparecieron muchos grandes animales de América del Norte. Los científicos discuten la causa: la caza humana, los cambios del clima, una enfermedad o un cometa. Cada hipótesis tiene puntos débiles, muchos piensan que fue una combinación y todavía no hay una prueba decisiva.</p>
+<p class="resumen-ej"><strong>Resumen B.</strong> Los primeros cazadores humanos acabaron con los grandes animales de América del Norte hace 13,000 años. Algunos científicos culpan también al clima, pero las pruebas de caza demuestran lo que pasó.</p>
+<p class="resumen-ej"><strong>Resumen C.</strong> Hace unos 13,000 años desaparecieron los mamuts, los mastodontes, los perezosos gigantes, los caballos y los camellos de América del Norte, que eran animales enormes y muy interesantes.</p>
+<table class="tabla">
+  <caption class="sr-solo">Evaluación de los tres resúmenes</caption>
+  <thead><tr><th scope="col">Resumen</th><th scope="col">Evaluación</th></tr></thead>
+  <tbody>
+    <tr><td><strong>A</strong></td><td><strong>Objetivo:</strong> recoge lo seguro (la extinción) y lo abierto (la causa), sin tomar partido.</td></tr>
+    <tr><td><strong>B</strong></td><td><strong>Sesgado:</strong> convierte una hipótesis en hecho («acabaron», «demuestran») y oculta que hay pocas pruebas de caza.</td></tr>
+    <tr><td><strong>C</strong></td><td><strong>Incompleto y con opinión:</strong> se queda con un detalle (la lista de animales), olvida la idea central (el debate sobre la causa) y añade una valoración («muy interesantes»).</td></tr>
+  </tbody>
+</table>
+<div class="clasificador apilado" id="clasif-sesgo"></div>
+<div class="puntaje" id="puntaje-sesgo" role="status" aria-live="polite"></div>
+<a class="enlace-practica" href="https://zhemaria.github.io/gramatica/n4-l3-3.html#objetivo-sesgado" target="_blank" rel="noopener noreferrer">⚖️ Practica más: ¿objetivo o sesgado?
+  <span>Pasajes breves con varios resúmenes: elige el que es fiel al original. Se abre en una pestaña nueva.</span></a>
+</div>
+</details>
+
+<details id="s-5-no-dice">
+<summary>5. Lo que el texto no sostiene <span class="caja-tiempo">15 min</span></summary>
+<div class="contenido-detalle">
+<p>Una pregunta típica del GED: «¿Qué afirmación <strong>no</strong> está respaldada por el texto?». Las afirmaciones no sostenidas suelen hacer una de estas cosas:</p>
+<ul class="lista-bonita">
+  <li><strong>Convierten la duda en certeza:</strong> «Está demostrado que fue el clima».</li>
+  <li><strong>Convierten la certeza en duda:</strong> «No se sabe si los mamuts se extinguieron».</li>
+  <li><strong>Añaden información:</strong> «Los cazadores usaban arcos y flechas».</li>
+  <li><strong>Exageran el alcance:</strong> «Ningún científico cree que los humanos influyeran».</li>
+</ul>
+<div class="clasificador apilado" id="clasif-nodice"></div>
+<div class="puntaje" id="puntaje-nodice" role="status" aria-live="polite"></div>
+<a class="enlace-practica" href="https://zhemaria.github.io/gramatica/n4-l3-3.html#no-lo-dice" target="_blank" rel="noopener noreferrer">🚫 Practica más: lo que el texto no dice
+  <span>Encuentra la afirmación que el texto no respalda. Se abre en una pestaña nueva.</span></a>
+<div class="tip"><strong>👨‍👩‍👧 Si tienes con quién practicar:</strong> «Lo que no se afirma». Lean juntos una noticia científica. Cada uno subraya con un color lo que el periodista da por seguro y con otro lo que deja abierto, y comparan.</div>
+</div>
+</details>
+
+<details id="s-6-taller">
+<summary>6. Taller: tu resumen objetivo <span class="caja-tiempo">25 min</span></summary>
+<div class="contenido-detalle">
+<p>Elige <strong>uno</strong>:</p>
+<ul class="lista-bonita">
+  <li>El texto modelo de esta lección, con tus propias palabras (no copies el resumen A).</li>
+  <li>Una noticia científica o histórica reciente que plantee una pregunta sin resolver.</li>
+</ul>
+<p>Escribe un resumen objetivo de <strong>4 a 5 oraciones</strong> y, debajo, <strong>una oración</strong> que identifique un punto que el texto deja abierto, con la palabra que lo señala.</p>
+<div class="taller" id="taller-33"></div>
+<h3>Rúbrica: así se evaluará tu resumen</h3>
+<table class="tabla rubrica">
+  <caption class="sr-solo">Rúbrica del resumen objetivo: tres criterios en cuatro niveles</caption>
+  <thead><tr><th scope="col">Criterio</th><th scope="col">4 · Excelente</th><th scope="col">3 · Bien</th><th scope="col">2 · En camino</th><th scope="col">1 · Inicial</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">Elabora un resumen objetivo</th><td>Ideas centrales completas y proporcionales, con sus palabras</td><td>Ideas centrales, algún detalle de más</td><td>Falta una idea central o copia frases</td><td>Lista de detalles</td></tr>
+    <tr><th scope="row">Mantiene la objetividad</th><td>Sin opinión ni añadidos; respeta la certeza del original</td><td>Una palabra de valoración aislada</td><td>Convierte alguna duda en certeza</td><td>Toma partido</td></tr>
+    <tr><th scope="row">Identifica la incertidumbre</th><td>Señala lo abierto y la palabra que lo marca</td><td>Señala lo abierto sin la palabra</td><td>Lo señala de forma vaga</td><td>No lo identifica</td></tr>
+  </tbody>
+</table>
+<p style="font-size:.92rem">Total: 12 puntos.</p>
+</div>
+</details>
+
+<details id="s-tarea">
+<summary>7. Tarea <span class="caja-tiempo">30 min</span></summary>
+<div class="contenido-detalle">
+<ul class="lista-bonita">
+  <li><strong>Termina tu resumen</strong> del taller y revísalo con la rúbrica.</li>
+  <li><strong>Busca un titular exagerado:</strong> encuentra una noticia cuyo titular presente como seguro algo que el cuerpo de la noticia trata como posible. Copia las dos frases y explica la diferencia.</li>
+  <li><strong>Resume una conversación:</strong> después de una discusión en tu casa o en tu trabajo, escribe un resumen objetivo de tres oraciones de las dos posturas, sin decir cuál prefieres.</li>
+</ul>
+</div>
+</details>
+
+<details id="s-quiz">
+<summary>8. Quiz de la lección <span class="caja-tiempo">20 min</span></summary>
+<div class="contenido-detalle">
+<div class="qz-intro">
+  <h4>✅ Quiz · 12 preguntas · puedes repetirlo las veces que quieras</h4>
+  <p style="margin:0">Varias preguntas se refieren al texto modelo de la sección 2. Elige una respuesta en cada pregunta y, al final, pulsa <strong>Ver mi resultado</strong>. La meta es acertar al menos <strong>10 de 12</strong>.</p>
+</div>
+<div id="qz-cuerpo"></div>
+<div class="botones">
+  <button type="button" class="btn btn-primario" id="qz-calificar">Ver mi resultado</button>
+  <button type="button" class="btn btn-secundario" id="qz-reintentar" style="display:none">Intentar de nuevo</button>
+</div>
+<div class="qz-resultado" id="qz-resultado" role="status" aria-live="polite"></div>
+</div>
+</details>
+
+<details id="s-cierre">
+<summary>9. Cierre <span class="caja-tiempo">5 min</span></summary>
+<div class="contenido-detalle">
+<h3>Lo que aprendiste en esta lección</h3>
+<ul class="lista-bonita">
+  <li>Un resumen objetivo no opina ni añade, es proporcional y respeta la certeza del original.</li>
+  <li>Las marcas de certeza (<em>se sabe, lo cierto es</em>) y de incertidumbre (<em>una hipótesis, pudo, es posible</em>) muestran qué afirma el autor y qué deja abierto.</li>
+  <li>Un resumen sesgado convierte una hipótesis en hecho o toma partido; uno incompleto se queda con los detalles.</li>
+  <li>Las afirmaciones no sostenidas cambian el grado de certeza, añaden información o exageran el alcance.</li>
+</ul>
+<div class="caja-objetivos" style="background:#fff3e0;border-left-color:var(--acento)">
+  <h2 style="color:#8a3d0c;border:none;padding:0;margin-top:0;font-size:1.2rem">✅ Antes de irte, revísate</h2>
+  <ul class="lista-bonita">
+    <li>¿Qué da por seguro el texto de los gigantes de América y qué deja abierto?</li>
+    <li>¿Por qué el resumen B es sesgado?</li>
+    <li>¿Qué diferencia hay entre «probablemente» y «es posible»?</li>
+  </ul>
+</div>
+<div class="tip"><strong>🎉 Terminaste el Tema 3.</strong> Ya lees de forma crítica: temas que se cruzan, inferencias complejas y textos que no lo dicen todo.</div>
+<div class="tip"><strong>➡️ Sigue con la próxima lección:</strong> <a href="https://zhemaria.github.io/clases_leng4/clase_4-1.html" style="color:var(--cp-oscuro);font-weight:700">Lección 4.1 · Tramas paralelas y retrospección</a>.</div>
+<p style="font-size:.9rem"><strong>Fuente del texto modelo:</strong> PBS, <em>NOVA</em>, «Megabeasts’ Sudden Death» (fecha de la extinción, unos 35 géneros, las cuatro hipótesis, el enfriamiento de hace unos 12,900 años y la falta de una prueba decisiva).</p>
+</div>
+</details>
+
+<footer class="pie">
+  <p><strong>GEDparaHispanos · Artes del Lenguaje · Nivel 4: Dominio del GED y Escritura Argumentativa · Tema 3 · Lección 3.3</strong></p>
+  <p>José M. Fernández, ABE/ASE Math Master Teacher, Harry S. Truman College — City Colleges of Chicago</p>
+  <p>© 2026. Esta obra está licenciada bajo <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es" rel="license noopener noreferrer" target="_blank">Creative Commons Reconocimiento-NoComercial-CompartirIgual 4.0 Internacional (CC BY-NC-SA 4.0)</a>.</p>
+</footer>
+<a class="volver-indice" href="#indice" aria-label="Volver al contenido de la lección"><span aria-hidden="true">↑</span> Índice</a>
+
+<script>
+
+/* ===== Voz: todas las lecturas pasan por hablar(), para poder cambiarla después por audio grabado ===== */
+(function(){
+  var voz=null, hay=('speechSynthesis' in window);
+  function elegir(){
+    if(!hay)return;
+    var vs=speechSynthesis.getVoices().filter(function(v){return /^es/i.test(v.lang);});
+    var pref=['es-US','es-MX','es-419','es-CO','es-AR','es-CL','es-PE'];
+    voz=null;
+    for(var i=0;i<pref.length&&!voz;i++){voz=vs.find(function(v){return v.lang.replace('_','-').toLowerCase()===pref[i].toLowerCase();})||null;}
+    if(!voz)voz=vs.find(function(v){return !/es[-_]ES/i.test(v.lang);})||vs[0]||null;
+  }
+  function aviso(){var a=document.getElementById('aviso-voz');if(a)a.classList.add('visible');}
+  function frase(t,vel){var u=new SpeechSynthesisUtterance(t);u.lang=voz?voz.lang:'es-US';if(voz)u.voice=voz;u.rate=vel||0.9;return u;}
+  if(hay){elegir(); speechSynthesis.onvoiceschanged=elegir;}
+  window.hablar=function(texto,vel,fin){
+    if(!hay||!texto){aviso();return;}
+    speechSynthesis.cancel();
+    /* Se lee por oraciones: algunos navegadores cortan las lecturas largas */
+    var partes=texto.replace(/\s+/g,' ').match(/[^.!?…]+[.!?…]+[»"”)]*\s*|[^.!?…]+$/g)||[texto];
+    partes.forEach(function(t,i){var u=frase(t.trim(),vel); if(fin&&i===partes.length-1)u.onend=fin; speechSynthesis.speak(u);});
+  };
+  window.callar=function(){if(hay)speechSynthesis.cancel();};
+  if(!hay)document.addEventListener('DOMContentLoaded',aviso);
+})();
+
+/* ===== Clasificador: cada elemento con sus botones; al acertar muestra una nota =====
+   Las opciones propias de cada elemento se barajan; las opciones comunes conservan su orden */
+function orden(it,ops){
+  var o=ops.map(function(_,j){return j;});
+  if(it.ops&&!it.fijo){for(var k=o.length-1;k>0;k--){var r=Math.floor(Math.random()*(k+1)),t=o[k];o[k]=o[r];o[r]=t;}}
+  return o;
+}
+function clasificador(idCaja,idPuntaje,items,opciones,conAudio){
+  var caja=document.getElementById(idCaja), pun=document.getElementById(idPuntaje), bien=0, hechas={};
+  function marcador(){pun.textContent=bien===items.length?(items.length===1?'🎉 ¡Muy bien!':'🎉 ¡Muy bien! Acertaste las '+bien+'.'):(items.length===1?'':'Aciertos: '+bien+' / '+items.length);}
+  items.forEach(function(it,i){
+    var d=document.createElement('div'); d.className='item'; d.setAttribute('role','group'); d.setAttribute('aria-label',it.p.replace(/<[^>]+>/g,''));
+    var ops=it.ops||opciones;
+    d.innerHTML='<span class="item-pal">'+it.p+(conAudio?' <button type="button" class="oir" aria-label="Escuchar">🔊</button>':'')+'</span>'+
+      '<span class="item-ops">'+orden(it,ops).map(function(j){return '<button type="button" class="btn-op" data-j="'+j+'">'+ops[j]+'</button>';}).join('')+'</span>'+
+      '<span class="item-fb" aria-live="polite"></span>';
+    caja.appendChild(d);
+    if(conAudio)d.querySelector('.oir').addEventListener('click',function(){hablar(it.a||it.p.replace(/<[^>]+>/g,''),0.85);});
+    var fb=d.querySelector('.item-fb');
+    d.querySelectorAll('.btn-op').forEach(function(b){
+      b.addEventListener('click',function(){
+        if(hechas[i])return;
+        if(+b.getAttribute('data-j')===it.c){
+          b.classList.add('correcta'); hechas[i]=true; bien++;
+          d.querySelectorAll('.btn-op').forEach(function(x){x.disabled=true;});
+          fb.innerHTML='✓ '+(it.n||'Correcto.'); marcador();
+        }else{
+          b.classList.add('incorrecta'); b.disabled=true;
+          fb.innerHTML='Todavía no. '+(it.pista||'Vuelve a mirar la regla e intenta otra vez.');
+        }
+      });
+    });
+  });
+  marcador();
+}
+
+/* ===== Quiz de la lección ===== */
+function iniciarQuiz(P,cfg){
+  var META=cfg.meta, N=P.length, cuerpo=document.getElementById('qz-cuerpo'), elegidas={};
+  P.forEach(function(p,i){
+    var d=document.createElement('div');
+    d.className='qz-preg'; d.setAttribute('role','group'); d.setAttribute('aria-labelledby','qz-e'+i);
+    var h='<p class="qz-enun" id="qz-e'+i+'"><span class="qz-num">'+(i+1)+'</span>'+p.t+'</p><div class="qz-ops">';
+    var orden=p.o.map(function(_,j){return j;});
+    if(!p.fijo){for(var k=orden.length-1;k>0;k--){var r=Math.floor(Math.random()*(k+1)),t=orden[k];orden[k]=orden[r];orden[r]=t;}}
+    orden.forEach(function(j){h+='<button type="button" class="qz-op" data-i="'+i+'" data-j="'+j+'" aria-pressed="false">'+p.o[j]+'</button>';});
+    d.innerHTML=h+'</div>'; cuerpo.appendChild(d);
+  });
+  cuerpo.addEventListener('click',function(ev){
+    var b=ev.target.closest('.qz-op'); if(!b||b.disabled)return;
+    var i=b.getAttribute('data-i');
+    cuerpo.querySelectorAll('.qz-op[data-i="'+i+'"]').forEach(function(x){x.classList.remove('elegida');x.setAttribute('aria-pressed','false');});
+    b.classList.add('elegida'); b.setAttribute('aria-pressed','true'); elegidas[i]=+b.getAttribute('data-j');
+  });
+  var res=document.getElementById('qz-resultado');
+  document.getElementById('qz-calificar').addEventListener('click',function(){
+    var bien=0;
+    P.forEach(function(p,i){
+      cuerpo.querySelectorAll('.qz-op[data-i="'+i+'"]').forEach(function(x){
+        var j=+x.getAttribute('data-j'); x.disabled=true; x.classList.remove('elegida');
+        if(j===p.c)x.classList.add('correcta'); else if(elegidas[i]===j)x.classList.add('incorrecta');
+      });
+      if(elegidas[i]===p.c)bien++;
+      else if(p.r){var nota=document.createElement('p');nota.className='qz-repaso';nota.innerHTML='📘 Para repasar: '+p.r;cuerpo.children[i].appendChild(nota);}
+    });
+    var msg,fondo,color;
+    if(bien>=META){msg='¡Excelente! '+bien+' de '+N+'. '+cfg.bien;fondo='#d4edda';color='#155724';}
+    else if(bien>=Math.ceil(N*0.6)){msg='Buen trabajo: '+bien+' de '+N+'. Repasa las preguntas marcadas con ✗ y vuelve a intentarlo.';fondo='#fff3cd';color='#5c3900';}
+    else{msg='Llevas '+bien+' de '+N+'. '+cfg.repaso;fondo='#f8d7da';color='#721c24';}
+    res.textContent=msg; res.style.background=fondo; res.style.color=color; res.classList.add('visible');
+    this.style.display='none'; document.getElementById('qz-reintentar').style.display='inline-block';
+    res.scrollIntoView({behavior:'smooth',block:'center'});
+  });
+  document.getElementById('qz-reintentar').addEventListener('click',function(){
+    cuerpo.querySelectorAll('.qz-op').forEach(function(x){x.disabled=false;x.classList.remove('correcta','incorrecta','elegida');x.setAttribute('aria-pressed','false');});
+    cuerpo.querySelectorAll('.qz-repaso').forEach(function(n){n.remove();});
+    elegidas={}; res.classList.remove('visible'); res.textContent='';
+    this.style.display='none'; document.getElementById('qz-calificar').style.display='inline-block';
+    cuerpo.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+}
+
+/* ===== Navegación: el índice y la dirección (#ancla) abren su sección ===== */
+document.addEventListener('DOMContentLoaded',function(){
+  function abrir(id){
+    var el=id&&document.getElementById(id); if(!el)return;
+    var d=el.tagName==='DETAILS'?el:el.closest('details');
+    if(d){d.open=true; el.scrollIntoView({behavior:'smooth',block:'start'});}
+  }
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(){abrir(a.getAttribute('href').slice(1));});});
+  document.getElementById('abrir-todo').addEventListener('click',function(){document.querySelectorAll('details').forEach(function(d){d.open=true;});});
+  document.getElementById('cerrar-todo').addEventListener('click',function(){document.querySelectorAll('details').forEach(function(d){d.open=false;});});
+  window.addEventListener('hashchange',function(){abrir(decodeURIComponent(location.hash.slice(1)));});
+  abrir(decodeURIComponent(location.hash.slice(1)));
+});
+
+/* ===== Taller de escritura =====
+   El borrador se guarda en este navegador (si el navegador lo permite). */
+function tallerEscritura(id,o){
+  var caja=document.getElementById(id), k='gph-borrador-'+o.clave;
+  var h='<label class="tl-etq" for="'+id+'-txt">'+(o.etiqueta||'Escribe aquí tu texto')+'</label>'+
+    '<textarea class="tl-txt" id="'+id+'-txt" rows="10" spellcheck="true" lang="es"'+(o.guia?' placeholder="'+o.guia.replace(/"/g,'&quot;')+'"':'')+'></textarea>'+
+    '<div class="tl-cuenta" id="'+id+'-cuenta" aria-live="polite"></div>';
+  if(o.conectores)h+='<div class="tl-conect" id="'+id+'-con" aria-live="polite"></div>';
+  h+='<div class="botones" style="justify-content:flex-start">'+
+    '<button type="button" class="btn btn-secundario" id="'+id+'-oir">🔊 Escuchar mi texto</button>'+
+    '<button type="button" class="btn btn-secundario" id="'+id+'-copiar">📋 Copiar mi texto</button>'+
+    '<button type="button" class="btn btn-secundario" id="'+id+'-borrar">🗑️ Borrar</button></div>'+
+    '<div class="tl-aviso" id="'+id+'-aviso" role="status" aria-live="polite"></div>';
+  if(o.lista){
+    h+='<fieldset class="tl-lista"><legend>✅ Revisa tu texto antes de darlo por terminado</legend>'+
+      o.lista.map(function(t,i){return '<label><input type="checkbox" id="'+id+'-c'+i+'"> '+t+'</label>';}).join('')+
+      '<p class="tl-listo" id="'+id+'-listo" aria-live="polite"></p></fieldset>';
+  }
+  caja.innerHTML=h;
+  var ta=document.getElementById(id+'-txt'), cu=document.getElementById(id+'-cuenta'), co=document.getElementById(id+'-con'), av=document.getElementById(id+'-aviso');
+  try{var g=localStorage.getItem(k); if(g)ta.value=g;}catch(e){}
+  function avisar(t){av.textContent=t; clearTimeout(avisar.t); avisar.t=setTimeout(function(){av.textContent='';},4000);}
+  function medir(){var t=ta.value.trim();return {t:t,pal:t?t.split(/\s+/).length:0,ora:(t.match(/[^.!?…]+[.!?…]+/g)||[]).length};}
+  function contar(){
+    var x=medir(), m=o.meta||{}, s='Palabras: '+x.pal+(m.palabras?' (meta: '+m.palabras+' o más)':'')+' · Oraciones: '+x.ora+(m.oraciones?' (meta: '+m.oraciones+' o más)':'');
+    if(m.oraciones&&x.ora>=m.oraciones&&(!m.palabras||x.pal>=m.palabras))s+=' · 🎯 ¡Llegaste a la meta de extensión!';
+    cu.textContent=s;
+    if(co){
+      var low=' '+x.t.toLowerCase().replace(/[.,;:¡!¿?«»"()—]/g,' ')+' ', us=o.conectores.filter(function(c){return low.indexOf(' '+c.toLowerCase()+' ')>=0;});
+      co.innerHTML=us.length?(o.titLista||'Conectores que usaste')+': '+us.map(function(c){return '<span class="tl-chip">'+c+'</span>';}).join(' '):(o.vacioLista||'Todavía no aparece ningún conector de la lista.');
+    }
+    try{localStorage.setItem(k,ta.value);}catch(e){}
+  }
+  ta.addEventListener('input',contar); contar();
+  document.getElementById(id+'-oir').addEventListener('click',function(){
+    if(!ta.value.trim()){avisar('Primero escribe algo para poder escucharlo.');return;}
+    hablar(ta.value,0.9);
+  });
+  document.getElementById(id+'-copiar').addEventListener('click',function(){
+    if(!ta.value.trim()){avisar('Todavía no hay texto para copiar.');return;}
+    function ok(){avisar('✓ Texto copiado. Ya puedes pegarlo en un correo o en un documento.');}
+    if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(ta.value).then(ok,function(){ta.select();document.execCommand('copy');ok();});
+    else{ta.select();document.execCommand('copy');ok();}
+  });
+  var borrarListo=false;
+  document.getElementById(id+'-borrar').addEventListener('click',function(){
+    if(!borrarListo){borrarListo=true;avisar('¿Seguro? Pulsa «Borrar» otra vez para borrar todo el texto.');setTimeout(function(){borrarListo=false;},4000);return;}
+    borrarListo=false; ta.value=''; contar(); avisar('Texto borrado.'); ta.focus();
+  });
+  if(o.lista){
+    var cbs=caja.querySelectorAll('.tl-lista input'), li=document.getElementById(id+'-listo');
+    function rev(){var n=Array.prototype.filter.call(cbs,function(c){return c.checked;}).length, x=medir(), m=o.meta||{}, corto=(m.oraciones&&x.ora<m.oraciones)||(m.palabras&&x.pal<m.palabras);
+      li.textContent=n<cbs.length?'Revisado: '+n+' de '+cbs.length:(corto?'Marcaste toda la lista, pero tu texto todavía no llega a la meta de extensión. Añade algo más.':'🎉 ¡Todo revisado! Tu párrafo está listo.');}
+    ta.addEventListener('input',rev);
+    cbs.forEach(function(c){c.addEventListener('change',rev);}); rev();
+  }
+}
+/* Rúbricas: cada celda recibe el nombre de su nivel para mostrarlo en el celular */
+document.querySelectorAll('table.rubrica').forEach(function(t){
+  var cab=Array.prototype.map.call(t.querySelectorAll('thead th'),function(th){return th.textContent;});
+  t.querySelectorAll('tbody tr').forEach(function(tr){Array.prototype.forEach.call(tr.children,function(c,i){if(c.tagName==='TD')c.setAttribute('data-et',cab[i]);});});
+});
+
+
+/* ===== Texto modelo ===== */
+(function(){
+  var t=document.getElementById('lectura'), v=document.getElementById('ver-partes');
+  document.getElementById('leer-lectura').addEventListener('click',function(){
+    var c=t.cloneNode(true); c.querySelectorAll('.num-p').forEach(function(e){e.remove();}); hablar(c.textContent.trim(),0.9);});
+  v.addEventListener('click',function(){var on=!t.classList.toggle('oculta-marcas');v.setAttribute('aria-pressed',on?'true':'false');v.textContent=on?'Ocultar las marcas':'Mostrar lo seguro y lo abierto';});
+})();
+
+/* ===== Ejercicios de la lección ===== */
+clasificador('clasif-modelo','puntaje-modelo',[
+  {p:'¿Qué da por <strong>seguro</strong> el texto?',ops:['Que muchos grandes animales desaparecieron hace unos 13,000 años','Que los cazadores humanos causaron la extinción','Que un cometa chocó contra América del Norte'],c:0,n:'«Sobre eso hay acuerdo» (párrafo 1).'},
+  {p:'¿Qué deja <strong>abierto</strong>?',ops:['Cuál fue la causa de la extinción','Cuándo desaparecieron los animales','Qué animales desaparecieron'],c:0,n:'«Sobre la causa, no».'},
+  {p:'¿Qué punto débil señala el texto en la hipótesis de la caza?',ops:['Hay pocos sitios con pruebas claras de caza','Los humanos llegaron mucho después','Los animales eran demasiado rápidos'],c:0,n:'Párrafo 2.'},
+  {p:'«Animales que nunca habían visto a un ser humano habrían sido presas fáciles.» ¿Qué indica el condicional «habrían sido»?',ops:['Que es una posibilidad, no un hecho comprobado','Que ocurrió en un pasado muy lejano','Que el autor está totalmente seguro'],c:0,n:'El condicional marca hipótesis.'}
+],null,false);
+
+clasificador('clasif-certeza','puntaje-certeza',[
+  {p:'«Los científicos han identificado unos 35 géneros que desaparecieron.»',c:0,n:'Indicativo y dato concreto.'},
+  {p:'«El cambio del clima pudo transformar la vegetación.»',c:1,n:'«Pudo» marca posibilidad.'},
+  {p:'«Lo cierto es que nadie ha encontrado una prueba decisiva.»',c:0,n:'«Lo cierto es» marca certeza… de que no hay certeza.'},
+  {p:'«Muchos investigadores piensan que fue una combinación de factores.»',c:1,n:'Una opinión de algunos, no un hecho comprobado.'},
+  {p:'«Hubo un regreso repentino del frío hace unos 12,900 años.»',c:0,n:'Indicativo y fecha.'},
+  {p:'«Es posible que la pregunta tarde décadas en resolverse.»',c:1,n:'«Es posible».'}
+],['El autor lo da por seguro','El autor lo deja abierto'],false);
+
+clasificador('clasif-sesgo','puntaje-sesgo',[
+  {p:'¿Qué palabra del resumen B convierte una hipótesis en hecho?',ops:['«acabaron»','«hace»','«algunos»'],c:0,n:'El texto original dice «una hipótesis culpa».'},
+  {p:'¿Qué le falta al resumen C?',ops:['La idea central: el debate sobre la causa','La fecha aproximada de la extinción','Los nombres de algunos animales'],c:0,n:'Se queda con un detalle.'},
+  {p:'¿Qué palabra del resumen C es una opinión?',ops:['«interesantes»','«desaparecieron»','«años»'],c:0,n:'El autor del texto no lo dice.'}
+],null,false);
+
+clasificador('clasif-nodice','puntaje-nodice',[
+  {p:'¿Qué afirmación <strong>no</strong> respalda el texto?',ops:['Está demostrado que el clima causó la extinción.','Hubo cambios bruscos al final de la edad de hielo.','Algunos piensan que fue una combinación de causas.'],c:0,n:'Convierte la duda en certeza.'},
+  {p:'¿Qué afirmación <strong>no</strong> respalda el texto?',ops:['Los cazadores usaban arcos y flechas.','Los humanos llegaron por esas mismas fechas.','Casi todas las pruebas de caza son de mamuts y mastodontes.'],c:0,n:'Añade información.'},
+  {p:'¿Qué afirmación <strong>no</strong> respalda el texto?',ops:['Ningún científico cree que los humanos influyeran.','Una hipótesis culpa a los primeros cazadores.','La hipótesis del cometa tiene pocas pruebas.'],c:0,n:'Exagera el alcance.'}
+],null,false);
+
+tallerEscritura('taller-33',{clave:'n4-3-3',etiqueta:'Tu resumen objetivo y el punto que queda abierto',
+  guia:'Resumen: … (4 o 5 oraciones). Punto abierto: el texto no resuelve …; lo señala con la palabra «…».',
+  meta:{oraciones:5,palabras:80},
+  conectores:['hipótesis','se sabe','no se sabe','pudo','es posible','según','todavía','sin embargo','discuten'],
+  titLista:'Marcas de certeza o incertidumbre que usaste',
+  vacioLista:'Todavía no aparecen marcas de certeza o de incertidumbre (hipótesis, pudo, es posible, se sabe…).',
+  lista:['Mi resumen recoge las ideas centrales, no una lista de detalles.','Escribí con mis palabras, sin copiar frases del texto.','No incluí mi opinión ni datos que no estén en el texto.','Lo que el autor presenta como posible sigue siendo posible en mi resumen.','Identifiqué un punto abierto y la palabra que lo señala.','Escuché mi resumen en voz alta y lo revisé.']});
+
+iniciarQuiz([
+  {t:'Un resumen objetivo del Nivel 4 debe ser, además, <strong>proporcional</strong>. ¿Qué significa?',o:['Da a cada idea el espacio que le da el autor','Tiene la mitad de palabras que el original','Incluye una cifra de cada párrafo'],c:0,r:'<a href="#s-1-objetivo">Sección 1</a>'},
+  {t:'¿Qué significa que un resumen sea <strong>fiel a la certeza</strong>?',o:['Lo posible sigue siendo posible y lo seguro, seguro','Solo incluye las ideas de las que el lector está seguro','Presenta todas las ideas como hechos comprobados'],c:0,r:'<a href="#s-1-objetivo">Sección 1</a>'},
+  {t:'Según el texto modelo, ¿cuándo desaparecieron los grandes animales?',o:['Hace unos 13,000 años','Hace unos 1,300 años','Hace unos 130,000 años'],c:0,r:'<a href="#s-2-modelo">Sección 2, párrafo 1</a>'},
+  {t:'¿Qué objeción plantean los críticos a la hipótesis del clima?',o:['Esas especies ya habían sobrevivido a otros cambios climáticos','El frío no llegó nunca a América del Norte','Los científicos no saben medir el clima antiguo'],c:0,r:'<a href="#s-2-modelo">Sección 2, párrafo 3</a>'},
+  {t:'Según el texto, ¿qué piensan hoy muchos investigadores?',o:['Que pudo ser una combinación de factores','Que la causa fue sin duda un cometa','Que los animales no se extinguieron'],c:0,r:'<a href="#s-2-modelo">Sección 2, párrafo 4</a>'},
+  {t:'¿Cuál es una marca de <strong>incertidumbre</strong>?',o:['es posible que','los datos muestran','está comprobado'],c:0,r:'<a href="#s-3-certeza">Sección 3</a>'},
+  {t:'«Podría deberse a una enfermedad.» El verbo en condicional indica que…',o:['es una hipótesis','es un hecho comprobado','ocurrirá en el futuro'],c:0,r:'<a href="#s-3-certeza">Sección 3</a>'},
+  {t:'¿En qué se diferencia «probablemente» de «es posible»?',o:['«Probablemente» indica que el autor se inclina por esa opción','Son sinónimos exactos en un texto científico','«Es posible» indica más seguridad que «probablemente»'],c:0,r:'<a href="#s-3-certeza">Sección 3</a>'},
+  {t:'Un resumen que toma partido por una de las hipótesis es…',o:['sesgado','proporcional','objetivo'],c:0,r:'<a href="#s-4-sesgado">Sección 4</a>'},
+  {t:'Un resumen que solo recoge la lista de animales es…',o:['incompleto','sesgado','exhaustivo'],c:0,r:'<a href="#s-4-sesgado">Sección 4</a>'},
+  {t:'«No se sabe si los mamuts se extinguieron.» ¿Por qué no está respaldada?',o:['Convierte una certeza del texto en duda','Añade un dato que el texto no menciona','Toma partido por la hipótesis de la caza'],c:0,r:'<a href="#s-5-no-dice">Sección 5</a>'},
+  {t:'«Los primeros americanos eran excelentes cazadores de bisontes.» ¿Por qué no está respaldada?',o:['Añade información que el texto no da','Contradice la fecha que da el texto','Convierte una hipótesis en hecho'],c:0,r:'<a href="#s-5-no-dice">Sección 5</a>'}
+],{meta:10,
+   bien:'Ya resumes con objetividad y distingues lo que un texto afirma de lo que deja abierto. Terminaste el Tema 3: sigue con la Lección 4.1.',
+   repaso:'Vuelve a las secciones 1, 3 y 4 y repite el quiz: con práctica sale.'});
+</script>
+</body>
+</html>

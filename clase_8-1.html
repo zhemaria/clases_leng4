@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<!-- Lección 8.1 · Artes del Lenguaje Nivel 4 · GEDparaHispanos
+     José M. Fernández, ABE/ASE Math Master Teacher, Harry S. Truman College — City Colleges of Chicago
+     Licencia CC BY-NC-SA 4.0 · https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es -->
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lección 8.1 · Investigación extensa: credibilidad, citación y plagio</title>
+<meta name="author" content="José M. Fernández, ABE/ASE Math Master Teacher, Harry S. Truman College — City Colleges of Chicago">
+<meta name="license" content="CC BY-NC-SA 4.0">
+<link rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es">
+<style>
+  :root{
+    --cp:#b91c1c;--cp-claro:#fee2e2;--cp-oscuro:#7f1d1d;
+    --acento:#ff8c42;--texto:#1a2332;--fondo:#fafbfc;
+    --gris:#555;--gris-claro:#eef1f4;
+    --exito:#2e7d32;--error:#c62828;
+  }
+  *{box-sizing:border-box}
+  body{font-family:'Poppins','Segoe UI',Arial,sans-serif;line-height:1.7;color:var(--texto);background:var(--fondo);max-width:960px;margin:0 auto;padding:24px 18px}
+  h1{color:var(--cp-oscuro);border-bottom:4px solid var(--cp);padding-bottom:14px;font-size:1.85rem;margin-bottom:8px}
+  .subtitulo{color:var(--gris);font-style:italic;margin-top:0;margin-bottom:24px;font-size:1.05rem}
+  h2{color:var(--cp-oscuro);border-left:6px solid var(--cp);padding-left:14px;margin-top:32px;font-size:1.4rem}
+  h3{color:var(--cp-oscuro);margin-top:24px;font-size:1.15rem}
+  .caja-objetivos{background:var(--cp-claro);border-left:6px solid var(--cp);padding:18px 22px;border-radius:8px;margin:18px 0 28px 0}
+  .caja-objetivos h2{margin-top:0;color:var(--cp-oscuro);border-left:none;padding-left:0;font-size:1.2rem}
+  .caja-tiempo{display:inline-block;background:var(--acento);color:#1a2332;padding:4px 12px;border-radius:14px;font-size:0.85rem;font-weight:600;margin-left:10px;vertical-align:middle}
+  details{background:#fff;border:1px solid #d6dde4;border-radius:10px;margin:14px 0;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,0.04)}
+  details[open]{border-color:var(--cp);box-shadow:0 3px 10px rgba(185,28,28,0.12)}
+  summary{cursor:pointer;padding:16px 20px;font-weight:600;color:var(--cp-oscuro);background:var(--gris-claro);list-style:none;user-select:none;font-size:1.05rem}
+  summary::-webkit-details-marker{display:none}
+  summary::before{content:'▶';display:inline-block;margin-right:10px;color:var(--cp);transition:transform 0.25s;font-size:0.85rem}
+  details[open] summary::before{transform:rotate(90deg)}
+  details[open] summary{background:var(--cp-claro);border-bottom:2px solid var(--cp)}
+  .contenido-detalle{padding:18px 22px}
+  .tip{background:#fffbe6;border-left:5px solid #f4c430;padding:12px 18px;border-radius:6px;margin:14px 0}
+  .tip strong{color:#6b5400}
+  .botones{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:14px 0}
+  .btn{padding:10px 22px;border:none;border-radius:8px;font-weight:600;cursor:pointer;font-family:inherit;font-size:0.95rem;transition:background 0.2s}
+  .btn-primario{background:var(--cp);color:#fff}
+  .btn-primario:hover{background:var(--cp-oscuro)}
+  .btn-secundario{background:var(--gris-claro);color:var(--texto)}
+  .btn-secundario:hover{background:#d6dde4}
+  .btn[aria-pressed="true"]{background:var(--cp-oscuro);color:#fff}
+  ul.lista-bonita{list-style:none;padding-left:0}
+  ul.lista-bonita li{padding:8px 0 8px 30px;position:relative}
+  ul.lista-bonita li::before{content:'➜';position:absolute;left:0;color:var(--cp);font-weight:700}
+  .palabra-clave{background:linear-gradient(transparent 60%,#ffeb3b 60%);padding:0 4px;font-weight:600}
+  .ej{font-family:Georgia,serif;font-size:1.08rem}
+  .sub{font-weight:700;border-bottom:3px solid var(--cp-oscuro)}
+  table.tabla{width:100%;border-collapse:collapse;margin:16px 0;background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,0.06)}
+  table.tabla th{background:var(--cp-oscuro);color:#fff;padding:10px 12px;text-align:left}
+  table.tabla td{padding:10px 12px;border-bottom:1px solid var(--gris-claro);vertical-align:top}
+  table.tabla tr:last-child td{border-bottom:none}
+  .actividad{background:#fff;border:2px solid var(--acento);border-radius:10px;padding:16px 20px;margin:14px 0}
+  .actividad h4{color:#8a3d0c;margin-top:0}
+  .badge{display:inline-block;padding:3px 10px;border-radius:12px;font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-right:6px}
+  .badge-lectura{background:#e3f2fd;color:#0d47a1}
+  /* Clasificadores */
+  .clasificador{background:#fff;border:2px solid var(--cp);border-radius:12px;padding:14px 18px;margin:18px 0}
+  .item{border:2px solid var(--gris-claro);border-radius:8px;padding:10px 14px;margin:8px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+  .item-pal{font-family:Georgia,serif;font-size:1.12rem;color:var(--texto);display:flex;align-items:center;gap:10px}
+  .item-ops{display:flex;gap:8px;flex-wrap:wrap}
+  .item-fb{flex-basis:100%;font-size:.95rem}
+  .item-fb:empty{display:none}
+  .btn-op{padding:7px 14px;border:2px solid var(--cp-oscuro);background:#fff;color:var(--cp-oscuro);border-radius:8px;cursor:pointer;font-weight:600;font-family:inherit;font-size:.92rem}
+  .btn-op:hover:not(:disabled){background:var(--cp-claro)}
+  .btn-op.correcta{background:#d4edda;border-color:var(--exito);color:#155724}
+  .btn-op.correcta::before{content:'✓ '}
+  .btn-op.incorrecta{background:#f8d7da;border-color:var(--error);color:#721c24;text-decoration:line-through}
+  .btn-op.incorrecta::before{content:'✗ '}
+  .btn-op:disabled{cursor:default}
+  .apilado .item{flex-direction:column;align-items:stretch}
+  .apilado .item-ops{flex-direction:column}
+  .apilado .btn-op{text-align:left;font-weight:400}
+  .apilado .item-pal{font-family:'Segoe UI',Arial,sans-serif;font-size:1rem;font-weight:600;display:block}
+  .puntaje{text-align:center;margin-top:12px;font-weight:600;color:var(--cp-oscuro)}
+  /* Lectura con marcas: color + borde distinto + etiqueta escrita */
+  .texto-lectura{background:#fff;border:2px solid var(--gris-claro);border-radius:8px;padding:18px 22px;margin:14px 0;font-family:Georgia,serif;font-size:1.12rem;line-height:2.1}
+  .texto-lectura p{margin:0 0 10px}
+  .num-p{display:inline-block;background:var(--cp-oscuro);color:#fff;border-radius:50%;width:1.6em;height:1.6em;text-align:center;line-height:1.6em;font-size:.8rem;font-family:'Segoe UI',Arial,sans-serif;margin-right:6px;vertical-align:middle}
+  .m-sus{background:#e3f2fd;color:#0d3c78;border-bottom:3px solid #0d3c78}
+  .m-adj{background:#fff3e0;color:#6b3300;border-bottom:3px dashed #8a4b00}
+  .m-adv{background:#e8f5e9;color:#1b5e20;border-bottom:3px dotted #1b5e20}
+  .etq{font-weight:700;font-size:.78em;font-family:'Segoe UI',Arial,sans-serif;white-space:nowrap}
+  .oculta-marcas .m-sus,.oculta-marcas .m-adj,.oculta-marcas .m-adv{background:none;color:inherit;border:none}
+  .oculta-marcas .etq{display:none}
+  .leyenda-marcas{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0;font-size:.92rem}
+  .leyenda-marcas span{padding:2px 8px}
+  /* Índice */
+  .indice{background:#fff;border:1px solid #d6dde4;border-left:6px solid var(--cp);border-radius:10px;padding:16px 20px;margin:22px 0}
+  .indice h2{font-size:1.1rem;margin:0 0 8px;border:none;padding:0}
+  .indice ol{margin:0;padding-left:1.4em}
+  .indice li{margin:4px 0}
+  .indice a{color:var(--cp-oscuro)}
+  .abrir-cerrar{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0 0}
+  .volver-indice{position:fixed;right:18px;bottom:18px;z-index:60;background:var(--cp-oscuro);color:#fff;border-radius:999px;padding:10px 16px;font-weight:700;font-size:.92rem;text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,.28)}
+  .volver-indice:hover{background:var(--cp);color:#fff}
+  a:focus-visible,summary:focus-visible,button:focus-visible,textarea:focus-visible{outline:3px solid #b35316;outline-offset:2px}
+  .sr-solo{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+  .enlace-practica{display:block;background:#fff;border:2px solid var(--cp);border-radius:10px;padding:14px 18px;margin:16px 0;text-decoration:none;color:var(--cp-oscuro);font-weight:600}
+  .enlace-practica:hover{background:var(--cp-claro)}
+  .enlace-practica span{display:block;font-weight:400;color:var(--texto);font-size:.95rem}
+  .aviso-voz{font-size:.9rem;color:#5c3900;background:#fff3cd;border-radius:6px;padding:6px 10px;display:none}
+  .aviso-voz.visible{display:block}
+  /* Quiz */
+  .qz-intro{background:var(--cp-claro);border-radius:10px;padding:14px 18px;margin:0 0 14px}
+  .qz-intro h4{margin:0 0 6px;color:var(--cp-oscuro)}
+  .qz-preg{background:#fff;border:2px solid var(--gris-claro);border-radius:10px;padding:14px 18px;margin:12px 0}
+  .qz-enun{font-weight:600;margin:0 0 10px}
+  .qz-num{display:inline-block;background:var(--cp-oscuro);color:#fff;border-radius:12px;padding:1px 10px;font-size:.8rem;margin-right:8px}
+  .qz-ops{display:flex;flex-direction:column;gap:8px}
+  .qz-op{text-align:left;background:#fff;border:2px solid #c9d2db;border-radius:8px;padding:10px 14px;font-family:inherit;font-size:1rem;cursor:pointer;color:var(--texto)}
+  .qz-op:hover:not(:disabled){border-color:var(--cp)}
+  .qz-op.elegida{background:var(--cp-claro);border-color:var(--cp-oscuro);color:var(--cp-oscuro);box-shadow:0 0 0 3px #fff,0 0 0 5px var(--cp)}
+  .qz-op.correcta{background:#d4edda;border-color:#2e7d32;color:#155724}
+  .qz-op.correcta::before{content:'✓ '}
+  .qz-op.incorrecta{background:#f8d7da;border-color:#c62828;color:#721c24}
+  .qz-op.incorrecta::before{content:'✗ '}
+  .qz-op:disabled{cursor:default}
+  .qz-resultado{display:none;margin:16px 0;padding:16px;border-radius:10px;text-align:center;font-weight:600}
+  .qz-resultado.visible{display:block}
+  .qz-repaso{margin:10px 0 0;padding:8px 12px;background:#fff3cd;border-radius:6px;color:#3d2600;font-size:.95rem}
+  .qz-repaso a{color:var(--cp-oscuro);font-weight:700}
+  /* Taller de escritura */
+  .taller{background:#fff;border:2px solid var(--cp);border-radius:12px;padding:14px;margin:14px 0}
+  .tl-etq{display:block;font-weight:700;color:var(--cp-oscuro);margin-bottom:6px}
+  .tl-txt{width:100%;box-sizing:border-box;font:inherit;font-size:1.05rem;line-height:1.7;padding:10px 12px;border:2px solid #9aa9b7;border-radius:8px;resize:vertical;min-height:200px}
+  .tl-txt:focus{outline:3px solid var(--cp);outline-offset:1px;border-color:var(--cp-oscuro)}
+  .tl-cuenta{font-size:.92rem;color:#333;margin:6px 0}
+  .tl-conect{font-size:.95rem;margin:4px 0 8px}
+  .tl-chip{display:inline-block;background:var(--cp-claro);color:var(--cp-oscuro);border:1px solid var(--cp);border-radius:12px;padding:1px 10px;margin:2px 2px;font-weight:700}
+  .tl-aviso{min-height:1.4em;font-weight:700;color:var(--cp-oscuro)}
+  .tl-lista{border:2px dashed var(--cp);border-radius:10px;padding:8px 14px;margin-top:10px}
+  .tl-lista legend{font-weight:700;color:var(--cp-oscuro);padding:0 6px}
+  .tl-lista label{display:flex;gap:10px;align-items:flex-start;padding:6px 0;cursor:pointer}
+  .tl-lista input{width:22px;height:22px;flex-shrink:0;margin-top:2px;accent-color:var(--cp-oscuro)}
+  .tl-listo{font-weight:700;color:var(--cp-oscuro);margin:6px 0 0}
+  .rubrica{font-size:.92rem}
+  .rubrica td,.rubrica th{vertical-align:top}
+  @media(max-width:640px){
+    .rubrica thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+    .rubrica,.rubrica tbody,.rubrica tr,.rubrica th,.rubrica td{display:block;width:auto}
+    .rubrica tr{border:2px solid var(--cp);border-radius:10px;margin:0 0 10px;overflow:hidden}
+    .rubrica tbody th{background:var(--cp-oscuro);color:#fff;border:none}
+    .rubrica td{border:none;border-top:1px solid #d5dde3}
+    .rubrica td::before{content:attr(data-et);display:block;font-weight:700;color:var(--cp-oscuro)}
+  }
+  footer.pie{margin-top:40px;padding-top:18px;border-top:2px solid var(--gris-claro);text-align:center;color:#555;font-size:.9rem}
+  footer.pie p{margin:4px 0}
+  footer.pie a{color:var(--cp-oscuro)}
+  @media print{.indice,.volver-indice,.abrir-cerrar{display:none}}
+  @media (prefers-reduced-motion:reduce){summary::before{transition:none}}
+  .m-ci{background:#e3f2fd;color:#0d3c78;border-bottom:3px solid #0d3c78}
+  .oculta-marcas .m-ci{background:none;color:inherit;border:none}
+  .pasos-inv{counter-reset:paso;list-style:none;padding:0;margin:12px 0}
+  .pasos-inv li{counter-increment:paso;position:relative;padding:8px 0 8px 46px;border-bottom:1px solid var(--gris-claro)}
+  .pasos-inv li::before{content:counter(paso);position:absolute;left:0;top:8px;width:32px;height:32px;border-radius:50%;background:var(--cp-oscuro);color:#fff;font-weight:700;text-align:center;line-height:32px}
+  .ref{font-family:Georgia,serif;padding-left:2em;text-indent:-2em;margin:6px 0;line-height:1.7;overflow-wrap:anywhere}
+  .fuente-orig{background:#fff;border:2px solid var(--gris-claro);border-left:6px solid var(--cp-oscuro);border-radius:8px;padding:10px 14px;font-family:Georgia,serif}
+  .ej-pl{border-radius:8px;padding:10px 14px;margin:8px 0;font-family:Georgia,serif}
+  .ej-mal{background:#fff5f5;border-left:6px solid #b91c1c}
+  .ej-bien{background:#f1f8f1;border-left:6px solid #2e7d32}
+  .ej-pl strong{font-family:'Segoe UI',Arial,sans-serif;display:block;margin-bottom:4px}
+</style>
+</head>
+<body>
+<h1>Lección 8.1 · Investigación extensa: credibilidad, citación y plagio</h1>
+<p class="subtitulo">Artes del Lenguaje · Nivel 4 · Tema 8: Investigación extensa, oralidad y preparación GED · Unas 2 horas, a tu ritmo</p>
+
+<div class="caja-objetivos">
+  <h2>🎯 Objetivos de la lección</h2>
+  <ul class="lista-bonita" style="margin:0">
+    <li>Desarrollar un <strong>proyecto de investigación</strong> a partir de una pregunta y de varias fuentes.</li>
+    <li>Evaluar la <strong>credibilidad</strong> de cada fuente y <strong>corroborar</strong> los datos cuando las fuentes no coinciden.</li>
+    <li><strong>Citar en formato APA</strong>, organizar la lista de referencias y <strong>evitar el plagio</strong> con la paráfrasis y la cita correctas.</li>
+  </ul>
+  <p style="margin:8px 0 0;font-size:.92rem">Estándares: 5–6.W.RB.1 · 5–6.W.RB.2</p>
+</div>
+
+<nav class="indice" id="indice" aria-labelledby="indice-titulo">
+  <h2 id="indice-titulo">Contenido de la lección</h2>
+  <ol>
+    <li><a href="#s-1-pasos">Los pasos de una investigación</a></li>
+    <li><a href="#s-2-confiable">¿Es confiable? Cinco preguntas</a></li>
+    <li><a href="#s-3-corroborar">Cuando las fuentes no coinciden</a></li>
+    <li><a href="#s-4-plagio">Evitar el plagio: citar y parafrasear</a></li>
+    <li><a href="#s-5-apa">Citar en formato APA</a></li>
+    <li><a href="#s-6-modelo">Proyecto modelo: el voto de las puertorriqueñas</a></li>
+    <li><a href="#s-7-taller">Taller: tu mini investigación</a></li>
+    <li><a href="#s-tarea">Tarea</a></li>
+    <li><a href="#s-quiz">Quiz de la lección</a></li>
+    <li><a href="#s-cierre">Cierre</a></li>
+  </ol>
+  <div class="abrir-cerrar">
+    <button type="button" class="btn btn-secundario" id="abrir-todo">Abrir todo</button>
+    <button type="button" class="btn btn-secundario" id="cerrar-todo">Cerrar todo</button>
+  </div>
+</nav>
+
+<h2>📚 Para empezar</h2>
+<p>En el Nivel 3 hiciste una investigación breve con dos o tres fuentes. Ahora vas a trabajar como se trabaja en el college: con <strong>varias fuentes que no siempre coinciden</strong>, decidiendo en cuáles confiar y citándolas en un formato estándar. Es la última lección de contenido del nivel y la que más vas a usar después del GED: en un curso universitario, en un informe del trabajo o simplemente para no creerte cualquier cosa que circule por internet.</p>
+<p class="aviso-voz" id="aviso-voz" role="status">Tu navegador no tiene una voz en español disponible, así que los botones 🔊 no sonarán.</p>
+
+<details open id="s-1-pasos">
+<summary>1. Los pasos de una investigación <span class="caja-tiempo">10 min</span></summary>
+<div class="contenido-detalle">
+<ol class="pasos-inv">
+  <li><strong>Formula una pregunta</strong> precisa: ni tan amplia que no se pueda responder («¿Cómo fue la historia de Puerto Rico?»), ni tan cerrada que se responda con un dato («¿En qué año…?»).</li>
+  <li><strong>Busca fuentes</strong> variadas: artículos, documentos oficiales, libros, enciclopedias.</li>
+  <li><strong>Evalúa cada fuente</strong> antes de usarla (sección 2).</li>
+  <li><strong>Toma notas con la referencia</strong>: cada dato, con su fuente y su página o dirección. Así no te pierdes al citar.</li>
+  <li><strong>Corrobora</strong> los datos importantes en más de una fuente (sección 3).</li>
+  <li><strong>Escribe con tus palabras</strong> y cita lo que no es tuyo (secciones 4 y 5).</li>
+</ol>
+<div class="tip"><strong>📘 ¿Necesitas repasar?</strong> La investigación breve está en la <a href="https://zhemaria.github.io/clases_leng3/clase_8-1.html" target="_blank" rel="noopener noreferrer" style="color:var(--cp-oscuro);font-weight:700">Lección 8.1 del Nivel 3</a>. Se abre en una pestaña nueva.</div>
+</div>
+</details>
+
+<details id="s-2-confiable">
+<summary>2. ¿Es confiable? Cinco preguntas <span class="caja-tiempo">20 min</span></summary>
+<div class="contenido-detalle">
+<table class="tabla">
+  <caption class="sr-solo">Cinco preguntas para evaluar la credibilidad de una fuente</caption>
+  <thead><tr><th scope="col">Pregunta</th><th scope="col">Señales de confianza</th><th scope="col">Señales de alerta</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Autoría:</strong> ¿quién lo escribe?</td><td>Autor con nombre, institución conocida, especialista en el tema</td><td>Sin autor, cuenta anónima, nadie responde por lo que dice</td></tr>
+    <tr><td><strong>Actualidad:</strong> ¿cuándo?</td><td>Fecha visible y adecuada al tema</td><td>Sin fecha en un tema que cambia (salud, leyes, tecnología)</td></tr>
+    <tr><td><strong>Propósito:</strong> ¿para qué?</td><td>Informar o explicar</td><td>Vender, provocar, ganar clics o votos</td></tr>
+    <tr><td><strong>Evidencia:</strong> ¿con qué pruebas?</td><td>Datos con su origen, documentos, citas</td><td>Afirmaciones sin pruebas, mayúsculas y signos de exclamación</td></tr>
+    <tr><td><strong>Corroboración:</strong> ¿lo confirman otras fuentes?</td><td>Fuentes independientes dicen lo mismo</td><td>Solo esa fuente lo dice</td></tr>
+  </tbody>
+</table>
+<p>Así se evalúan las cuatro fuentes del proyecto modelo (sección 6), sobre cuándo consiguieron el voto las mujeres de Puerto Rico:</p>
+<table class="tabla">
+  <caption class="sr-solo">Evaluación de la credibilidad de las cuatro fuentes del proyecto modelo</caption>
+  <thead><tr><th scope="col">Fuente</th><th scope="col">Evaluación</th></tr></thead>
+  <tbody>
+    <tr><td><strong>A</strong> · Artículo de Rosa Cartagena en <em>Smithsonian Magazine</em> (2020)</td><td><strong>Muy confiable:</strong> autora con nombre, revista de una institución de investigación, fecha, datos concretos y fuentes históricas.</td></tr>
+    <tr><td><strong>B</strong> · Infografía del Senado de Puerto Rico (sin fecha)</td><td><strong>Confiable, pero breve:</strong> institución oficial; sin fecha y sin explicar sus fuentes.</td></tr>
+    <tr><td><strong>C</strong> · Artículo «Liga Social Sufragista» de Wikipedia en inglés</td><td><strong>Útil para empezar:</strong> cualquiera puede editarlo; hay que comprobar sus datos en otras fuentes.</td></tr>
+    <tr><td><strong>D</strong> · Un blog anónimo que dice que las puertorriqueñas votan desde 1920 por la Decimonovena Enmienda <em>(inventado para la lección)</em></td><td><strong>No confiable:</strong> sin autor, sin pruebas, y lo contradicen todas las demás fuentes.</td></tr>
+  </tbody>
+</table>
+<div class="clasificador apilado" id="clasif-cred"></div>
+<div class="puntaje" id="puntaje-cred" role="status" aria-live="polite"></div>
+<a class="enlace-practica" href="https://zhemaria.github.io/gramatica/n4-l8-1.html#credibilidad" target="_blank" rel="noopener noreferrer">🔎 Practica más: ¿es confiable?
+  <span>Fuentes descritas para juzgar su credibilidad con los cinco criterios. Se abre en una pestaña nueva.</span></a>
+<div class="tip"><strong>👨‍👩‍👧 Si tienes con quién practicar:</strong> «¿Es confiable?». Cada uno trae una noticia o publicación que haya visto esta semana. Pásenle juntos las cinco preguntas y decidan si la usarían en un trabajo.</div>
+</div>
+</details>
+
+<details id="s-3-corroborar">
+<summary>3. Cuando las fuentes no coinciden <span class="caja-tiempo">15 min</span></summary>
+<div class="contenido-detalle">
+<p>Al investigar el voto de las puertorriqueñas aparecen fechas distintas:</p>
+<table class="tabla">
+  <caption class="sr-solo">Fechas que da cada fuente sobre el voto femenino en Puerto Rico</caption>
+  <thead><tr><th scope="col">Dato</th><th scope="col">Fuente A · <em>Smithsonian</em></th><th scope="col">Fuente B · Senado</th><th scope="col">Fuente C · Wikipedia</th></tr></thead>
+  <tbody>
+    <tr><td>Ley del voto para las que sabían leer y escribir</td><td>1929 (primera votación en 1932)</td><td>1932</td><td>1929</td></tr>
+    <tr><td>Sufragio universal femenino</td><td>1935</td><td>1935</td><td>1932</td></tr>
+  </tbody>
+</table>
+<p>¿Qué hacer? Lo mismo que en la Lección 6.3: precisar la diferencia y buscar la explicación.</p>
+<ul class="lista-bonita">
+  <li><strong>Ley de las alfabetizadas:</strong> la Fuente A distingue entre la ley (1929) y la primera elección en que se aplicó (1932); un artículo del periódico <em>El Nuevo Día</em> dice lo mismo. La Fuente B probablemente se refiere al año en que las mujeres votaron. La diferencia se explica: <strong>ley en 1929, primer voto en 1932</strong>.</li>
+  <li><strong>Sufragio universal:</strong> las Fuentes A y B, independientes y confiables, coinciden en <strong>1935</strong>. La Fuente C queda en minoría, así que no se usa para ese dato.</li>
+</ul>
+<div class="tip"><strong>💡 La regla:</strong> un dato importante necesita al menos <strong>dos fuentes confiables e independientes</strong>. Si las fuentes no coinciden, explica la diferencia en tu texto o usa la versión mejor respaldada, y di de dónde sale.</div>
+</div>
+</details>
+
+<details id="s-4-plagio">
+<summary>4. Evitar el plagio: citar y parafrasear <span class="caja-tiempo">20 min</span></summary>
+<div class="contenido-detalle">
+<p>Hay <span class="palabra-clave">plagio</span> cuando presentas como tuyas las palabras o las ideas de otra persona. No importa si fue sin querer: copiar sin comillas, o cambiar solo algunas palabras, también es plagio. Observa estos ejemplos a partir de un fragmento del texto de la Lección 7.2:</p>
+<p class="fuente-orig"><strong style="font-family:'Segoe UI',Arial,sans-serif">Fuente original:</strong> «Estos túneles no atacaban la causa: las aguas residuales seguían llegando al lago; solo se buscaba agua más lejos de ellas.»</p>
+<p class="ej-pl ej-mal"><strong>✖️ Copia sin comillas (plagio)</strong>Los túneles no atacaban la causa: las aguas residuales seguían llegando al lago.</p>
+<p class="ej-pl ej-mal"><strong>✖️ Paráfrasis demasiado cercana (plagio)</strong>Esos túneles no combatían el origen: las aguas sucias continuaban llegando al lago; solo se buscaba agua más alejada de ellas.<br><em style="font-family:'Segoe UI',Arial,sans-serif;font-size:.9rem">Cambia algunas palabras, pero conserva la estructura y el orden del original.</em></p>
+<p class="ej-pl ej-bien"><strong>✔️ Paráfrasis correcta, con cita</strong>Alejar la toma de agua no resolvía el problema, porque la contaminación seguía entrando en el lago (Lección 7.2).</p>
+<p class="ej-pl ej-bien"><strong>✔️ Cita textual breve</strong>Los túneles, como explica la Lección 7.2, «no atacaban la causa».</p>
+<div class="tip"><strong>💡 Cómo parafrasear bien:</strong> (1) lee el fragmento hasta entenderlo; (2) tápalo; (3) escribe la idea con tus palabras y tu propia estructura; (4) compara con el original para no haber copiado sin querer; (5) <strong>cita la fuente igual</strong>: la idea sigue siendo de otro.</div>
+<div class="clasificador apilado" id="clasif-plagio"></div>
+<div class="puntaje" id="puntaje-plagio" role="status" aria-live="polite"></div>
+<a class="enlace-practica" href="https://zhemaria.github.io/gramatica/n4-l8-1.html#plagio" target="_blank" rel="noopener noreferrer">🚫 Practica más: ¿cita correcta o plagio?
+  <span>Fragmentos y versiones para distinguir la paráfrasis correcta del plagio. Se abre en una pestaña nueva.</span></a>
+</div>
+</details>
+
+<details id="s-5-apa">
+<summary>5. Citar en formato APA <span class="caja-tiempo">20 min</span></summary>
+<div class="contenido-detalle">
+<p>El formato <strong>APA</strong> (de la Asociación Estadounidense de Psicología, 7.ª edición) es el más usado en los colleges de Estados Unidos. Tiene dos partes que se corresponden:</p>
+<h3>a) La cita dentro del texto</h3>
+<table class="tabla">
+  <caption class="sr-solo">Formas de la cita dentro del texto en formato APA</caption>
+  <thead><tr><th scope="col">Caso</th><th scope="col">Ejemplo</th></tr></thead>
+  <tbody>
+    <tr><td>Paráfrasis</td><td>Unas 50,000 mujeres votaron en 1932 (Cartagena, 2020).</td></tr>
+    <tr><td>Con el autor en la oración</td><td>Cartagena (2020) explica que la primera ley solo incluía a las alfabetizadas.</td></tr>
+    <tr><td>Cita textual: añade la página si la hay</td><td>«…» (Apellido, año, p. 45). Si la fuente es una página web sin números de página, se omite.</td></tr>
+    <tr><td>Autor institucional, sin fecha</td><td>(Senado de Puerto Rico, s. f.)</td></tr>
+  </tbody>
+</table>
+<h3>b) La lista de referencias</h3>
+<p>Va al final, con el título <strong>Referencias</strong>, en orden alfabético por el apellido o el nombre de la institución, y con sangría francesa (la segunda línea entra más).</p>
+<table class="tabla">
+  <caption class="sr-solo">Modelos de referencias en formato APA según el tipo de fuente</caption>
+  <thead><tr><th scope="col">Tipo</th><th scope="col">Modelo</th></tr></thead>
+  <tbody>
+    <tr><td>Artículo de revista en línea</td><td>Apellido, Inicial. (año, día de mes). Título del artículo. <em>Nombre de la revista</em>. URL</td></tr>
+    <tr><td>Página web de una institución, sin fecha</td><td>Institución. (s. f.). <em>Título</em> [o descripción entre corchetes si no tiene título]. URL</td></tr>
+    <tr><td>Artículo de Wikipedia o de una página que cambia</td><td>Título del artículo. (s. f.). En <em>Wikipedia</em>. Recuperado el día de mes de año, de URL</td></tr>
+    <tr><td>Libro</td><td>Apellido, Inicial. (año). <em>Título del libro</em>. Editorial.</td></tr>
+  </tbody>
+</table>
+<div class="tip"><strong>⚠️ Cada cita del texto tiene su referencia, y cada referencia, al menos una cita.</strong> Si una fuente no la usaste, no la pongas en la lista. «s. f.» significa «sin fecha».</div>
+<div class="clasificador apilado" id="clasif-apa"></div>
+<div class="puntaje" id="puntaje-apa" role="status" aria-live="polite"></div>
+<a class="enlace-practica" href="https://zhemaria.github.io/gramatica/n4-l8-1.html#cita" target="_blank" rel="noopener noreferrer">📑 Practica más: la cita en formato APA
+  <span>Elige la cita y la referencia bien construidas. Se abre en una pestaña nueva.</span></a>
+</div>
+</details>
+
+<details id="s-6-modelo">
+<summary>6. Proyecto modelo: el voto de las puertorriqueñas <span class="caja-tiempo">15 min</span></summary>
+<div class="contenido-detalle">
+<div class="actividad">
+  <h4><span class="badge badge-lectura">Lectura de modelo de investigación</span> Individual · sigue cada cita</h4>
+  <p style="margin:0">Lee el informe. Pulsa el botón para ver marcadas las citas dentro del texto y comprueba que cada una tiene su referencia al final.</p>
+</div>
+<div class="texto-lectura oculta-marcas" id="lectura">
+  <h3 style="margin-top:0">Por etapas: cómo consiguieron el voto las mujeres de Puerto Rico</h3>
+  <p><strong style="font-family:'Segoe UI',Arial,sans-serif">Pregunta:</strong> ¿Cómo y cuándo consiguieron el derecho al voto las mujeres de Puerto Rico?</p>
+  <p><span class="num-p" aria-hidden="true">1</span>La Decimonovena Enmienda prohibió en 1920 negar el voto por razón de sexo en Estados Unidos, pero no se aplicó a Puerto Rico. Ese mismo año, cuando Genara Pagán intentó inscribirse para votar, el gobierno estadounidense decidió que la enmienda no amparaba a las mujeres de la isla <span class="m-ci">(Cartagena, 2020)</span>.</p>
+  <p><span class="num-p" aria-hidden="true">2</span>El derecho llegó por etapas. Una ley de 1929 concedió el voto solo a las mujeres que sabían leer y escribir, y unas 50,000 lo ejercieron por primera vez en las elecciones de 1932 <span class="m-ci">(Cartagena, 2020)</span>. Algunas fuentes dan 1932 como el año del voto de las alfabetizadas <span class="m-ci">(Senado de Puerto Rico, s. f.)</span>; la diferencia se explica porque esa fue la primera elección en que se aplicó la ley.</p>
+  <p><span class="num-p" aria-hidden="true">3</span>El sufragio universal, que incluyó también a las mujeres que no sabían leer, se aprobó en 1935 <span class="m-ci">(Cartagena, 2020; Senado de Puerto Rico, s. f.)</span>. En resumen, entre la Decimonovena Enmienda y el voto de todas las puertorriqueñas pasaron quince años y dos leyes.</p>
+  <h3 style="font-size:1.05rem">Referencias</h3>
+  <p class="ref">Cartagena, R. (2020, 2 de noviembre). In Puerto Rico, women won the vote in a bittersweet game of colonial politics. <em>Smithsonian Magazine</em>. https://www.smithsonianmag.com/history/puerto-rico-women-won-vote-bittersweet-game-colonial-politics-180976181/</p>
+  <p class="ref">Senado de Puerto Rico. (s. f.). <em>[Infografía sobre el sufragio femenino en Puerto Rico]</em>. https://senado.pr.gov/files/Infografia.pdf</p>
+  <p style="font-size:.9rem;margin-bottom:0"><em>Informe escrito para esta lección con fuentes reales. Fíjate en que Wikipedia no aparece en las referencias: sirvió para empezar, pero sus datos se comprobaron en otras fuentes y no se citó.</em></p>
+</div>
+<div class="botones" style="justify-content:flex-start">
+  <button type="button" class="btn btn-secundario" id="leer-lectura">🔊 Escuchar el informe</button>
+  <button type="button" class="btn btn-secundario" id="ver-partes" aria-pressed="false">Marcar las citas</button>
+</div>
+<div class="clasificador apilado" id="clasif-modelo"></div>
+<div class="puntaje" id="puntaje-modelo" role="status" aria-live="polite"></div>
+</div>
+</details>
+
+<details id="s-7-taller">
+<summary>7. Taller: tu mini investigación <span class="caja-tiempo">40 min</span></summary>
+<div class="contenido-detalle">
+<p><strong>Elige una pregunta</strong> (o formula una tuya) y busca <strong>al menos dos fuentes confiables</strong>:</p>
+<ul class="lista-bonita">
+  <li>¿Qué bibliotecas de Estados Unidos han eliminado las multas y qué resultados han tenido?</li>
+  <li>¿Cuándo y por qué se tiñe de verde el río Chicago?</li>
+  <li>¿Qué recomiendan los expertos sobre las horas de sueño de los adolescentes?</li>
+  <li>¿Cómo consiguieron el voto las mujeres de tu país de origen?</li>
+</ul>
+<p>Escribe en el cuadro: (1) tu pregunta; (2) una evaluación breve de cada fuente con los cinco criterios; (3) un párrafo de respuesta, con tus palabras y con citas APA dentro del texto; (4) la lista de referencias.</p>
+<div class="taller" id="taller-81"></div>
+<h3>Rúbrica: así se evaluará tu investigación</h3>
+<table class="tabla rubrica">
+  <caption class="sr-solo">Rúbrica de la investigación: cuatro criterios en cuatro niveles</caption>
+  <thead><tr><th scope="col">Criterio</th><th scope="col">4 · Excelente</th><th scope="col">3 · Bien</th><th scope="col">2 · En camino</th><th scope="col">1 · Inicial</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">Evalúa la credibilidad de las fuentes</th><td>Aplica los cinco criterios y corrobora los datos importantes</td><td>Aplica tres o cuatro criterios</td><td>Juzga sin criterios</td><td>No evalúa</td></tr>
+    <tr><th scope="row">Aplica la citación estándar</th><td>Cada dato ajeno tiene su cita APA dentro del texto</td><td>Alguna cita incompleta</td><td>Citas sin formato</td><td>Sin citas</td></tr>
+    <tr><th scope="row">Parafrasea y cita para evitar el plagio</th><td>Paráfrasis con palabras y estructura propias; citas textuales entre comillas</td><td>Una paráfrasis demasiado cercana</td><td>Varias frases copiadas</td><td>Texto copiado</td></tr>
+    <tr><th scope="row">Organiza la lista de referencias</th><td>Completa, en orden alfabético y con el modelo APA</td><td>Un error de formato</td><td>Faltan datos o fuentes</td><td>Sin lista</td></tr>
+  </tbody>
+</table>
+<p style="font-size:.92rem">Total: 16 puntos.</p>
+</div>
+</details>
+
+<details id="s-tarea">
+<summary>8. Tarea <span class="caja-tiempo">30 min</span></summary>
+<div class="contenido-detalle">
+<ul class="lista-bonita">
+  <li><strong>Termina tu mini investigación</strong> y revísala con la lista y la rúbrica.</li>
+  <li><strong>Pon a prueba una publicación:</strong> elige algo que te hayan reenviado por mensaje o por las redes y pásale las cinco preguntas. ¿Lo compartirías?</li>
+  <li><strong>Haz tres referencias APA</strong> de fuentes que uses a menudo (un periódico, una página del gobierno, un libro).</li>
+</ul>
+</div>
+</details>
+
+<details id="s-quiz">
+<summary>9. Quiz de la lección <span class="caja-tiempo">20 min</span></summary>
+<div class="contenido-detalle">
+<div class="qz-intro">
+  <h4>✅ Quiz · 12 preguntas · puedes repetirlo las veces que quieras</h4>
+  <p style="margin:0">Elige una respuesta en cada pregunta y, al final, pulsa <strong>Ver mi resultado</strong>. La meta es acertar al menos <strong>10 de 12</strong>.</p>
+</div>
+<div id="qz-cuerpo"></div>
+<div class="botones">
+  <button type="button" class="btn btn-primario" id="qz-calificar">Ver mi resultado</button>
+  <button type="button" class="btn btn-secundario" id="qz-reintentar" style="display:none">Intentar de nuevo</button>
+</div>
+<div class="qz-resultado" id="qz-resultado" role="status" aria-live="polite"></div>
+</div>
+</details>
+
+<details id="s-cierre">
+<summary>10. Cierre <span class="caja-tiempo">5 min</span></summary>
+<div class="contenido-detalle">
+<h3>Lo que aprendiste en esta lección</h3>
+<ul class="lista-bonita">
+  <li>Una investigación va de una pregunta precisa a varias fuentes evaluadas, notas con referencia, datos corroborados y un texto con citas.</li>
+  <li>La credibilidad se juzga por la autoría, la actualidad, el propósito, la evidencia y la corroboración.</li>
+  <li>Cuando las fuentes no coinciden, se explica la diferencia o se usa la versión respaldada por dos fuentes confiables.</li>
+  <li>Copiar sin comillas y parafrasear demasiado cerca son plagio; se cita tanto la cita textual como la paráfrasis, en formato APA.</li>
+</ul>
+<div class="caja-objetivos" style="background:#fff3e0;border-left-color:var(--acento)">
+  <h2 style="color:#8a3d0c;border:none;padding:0;margin-top:0;font-size:1.2rem">✅ Antes de irte, revísate</h2>
+  <ul class="lista-bonita">
+    <li>¿Por qué la Fuente A es más confiable que la Fuente C?</li>
+    <li>¿Cómo se explica que unas fuentes digan 1929 y otras 1932?</li>
+    <li>¿Por qué cambiar algunas palabras de un texto sigue siendo plagio?</li>
+  </ul>
+</div>
+<div class="tip"><strong>➡️ Sigue con la próxima lección:</strong> <a href="https://zhemaria.github.io/clases_leng4/clase_8-2.html" style="color:var(--cp-oscuro);font-weight:700">Lección 8.2 · Estrategias y formatos de preguntas del GED</a>.</div>
+<p style="font-size:.9rem"><strong>Fuentes:</strong> Cartagena, R. (2020, 2 de noviembre), <em>Smithsonian Magazine</em>; Senado de Puerto Rico, infografía sobre el sufragio femenino; <em>El Nuevo Día</em>, «¿Sabías que…? Cinco datos que no conocías sobre la centenaria lucha feminista en Puerto Rico»; Wikipedia en inglés, «Liga Social Sufragista» (consultadas en octubre de 2026). El blog de la Fuente D es inventado. Formato: American Psychological Association, <em>Publication Manual</em>, 7.ª edición.</p>
+</div>
+</details>
+
+<footer class="pie">
+  <p><strong>GEDparaHispanos · Artes del Lenguaje · Nivel 4: Dominio del GED y Escritura Argumentativa · Tema 8 · Lección 8.1</strong></p>
+  <p>José M. Fernández, ABE/ASE Math Master Teacher, Harry S. Truman College — City Colleges of Chicago</p>
+  <p>© 2026. Esta obra está licenciada bajo <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es" rel="license noopener noreferrer" target="_blank">Creative Commons Reconocimiento-NoComercial-CompartirIgual 4.0 Internacional (CC BY-NC-SA 4.0)</a>.</p>
+</footer>
+<a class="volver-indice" href="#indice" aria-label="Volver al contenido de la lección"><span aria-hidden="true">↑</span> Índice</a>
+
+<script>
+
+/* ===== Voz: todas las lecturas pasan por hablar(), para poder cambiarla después por audio grabado ===== */
+(function(){
+  var voz=null, hay=('speechSynthesis' in window);
+  function elegir(){
+    if(!hay)return;
+    var vs=speechSynthesis.getVoices().filter(function(v){return /^es/i.test(v.lang);});
+    var pref=['es-US','es-MX','es-419','es-CO','es-AR','es-CL','es-PE'];
+    voz=null;
+    for(var i=0;i<pref.length&&!voz;i++){voz=vs.find(function(v){return v.lang.replace('_','-').toLowerCase()===pref[i].toLowerCase();})||null;}
+    if(!voz)voz=vs.find(function(v){return !/es[-_]ES/i.test(v.lang);})||vs[0]||null;
+  }
+  function aviso(){var a=document.getElementById('aviso-voz');if(a)a.classList.add('visible');}
+  function frase(t,vel){var u=new SpeechSynthesisUtterance(t);u.lang=voz?voz.lang:'es-US';if(voz)u.voice=voz;u.rate=vel||0.9;return u;}
+  if(hay){elegir(); speechSynthesis.onvoiceschanged=elegir;}
+  window.hablar=function(texto,vel,fin){
+    if(!hay||!texto){aviso();return;}
+    speechSynthesis.cancel();
+    /* Se lee por oraciones: algunos navegadores cortan las lecturas largas */
+    var partes=texto.replace(/\s+/g,' ').match(/[^.!?…]+[.!?…]+[»"”)]*\s*|[^.!?…]+$/g)||[texto];
+    partes.forEach(function(t,i){var u=frase(t.trim(),vel); if(fin&&i===partes.length-1)u.onend=fin; speechSynthesis.speak(u);});
+  };
+  window.callar=function(){if(hay)speechSynthesis.cancel();};
+  if(!hay)document.addEventListener('DOMContentLoaded',aviso);
+})();
+
+/* ===== Clasificador: cada elemento con sus botones; al acertar muestra una nota =====
+   Las opciones propias de cada elemento se barajan; las opciones comunes conservan su orden */
+function orden(it,ops){
+  var o=ops.map(function(_,j){return j;});
+  if(it.ops&&!it.fijo){for(var k=o.length-1;k>0;k--){var r=Math.floor(Math.random()*(k+1)),t=o[k];o[k]=o[r];o[r]=t;}}
+  return o;
+}
+function clasificador(idCaja,idPuntaje,items,opciones,conAudio){
+  var caja=document.getElementById(idCaja), pun=document.getElementById(idPuntaje), bien=0, hechas={};
+  function marcador(){pun.textContent=bien===items.length?(items.length===1?'🎉 ¡Muy bien!':'🎉 ¡Muy bien! Acertaste las '+bien+'.'):(items.length===1?'':'Aciertos: '+bien+' / '+items.length);}
+  items.forEach(function(it,i){
+    var d=document.createElement('div'); d.className='item'; d.setAttribute('role','group'); d.setAttribute('aria-label',it.p.replace(/<[^>]+>/g,''));
+    var ops=it.ops||opciones;
+    d.innerHTML='<span class="item-pal">'+it.p+(conAudio?' <button type="button" class="oir" aria-label="Escuchar">🔊</button>':'')+'</span>'+
+      '<span class="item-ops">'+orden(it,ops).map(function(j){return '<button type="button" class="btn-op" data-j="'+j+'">'+ops[j]+'</button>';}).join('')+'</span>'+
+      '<span class="item-fb" aria-live="polite"></span>';
+    caja.appendChild(d);
+    if(conAudio)d.querySelector('.oir').addEventListener('click',function(){hablar(it.a||it.p.replace(/<[^>]+>/g,''),0.85);});
+    var fb=d.querySelector('.item-fb');
+    d.querySelectorAll('.btn-op').forEach(function(b){
+      b.addEventListener('click',function(){
+        if(hechas[i])return;
+        if(+b.getAttribute('data-j')===it.c){
+          b.classList.add('correcta'); hechas[i]=true; bien++;
+          d.querySelectorAll('.btn-op').forEach(function(x){x.disabled=true;});
+          fb.innerHTML='✓ '+(it.n||'Correcto.'); marcador();
+        }else{
+          b.classList.add('incorrecta'); b.disabled=true;
+          fb.innerHTML='Todavía no. '+(it.pista||'Vuelve a mirar la regla e intenta otra vez.');
+        }
+      });
+    });
+  });
+  marcador();
+}
+
+/* ===== Quiz de la lección ===== */
+function iniciarQuiz(P,cfg){
+  var META=cfg.meta, N=P.length, cuerpo=document.getElementById('qz-cuerpo'), elegidas={};
+  P.forEach(function(p,i){
+    var d=document.createElement('div');
+    d.className='qz-preg'; d.setAttribute('role','group'); d.setAttribute('aria-labelledby','qz-e'+i);
+    var h='<p class="qz-enun" id="qz-e'+i+'"><span class="qz-num">'+(i+1)+'</span>'+p.t+'</p><div class="qz-ops">';
+    var orden=p.o.map(function(_,j){return j;});
+    if(!p.fijo){for(var k=orden.length-1;k>0;k--){var r=Math.floor(Math.random()*(k+1)),t=orden[k];orden[k]=orden[r];orden[r]=t;}}
+    orden.forEach(function(j){h+='<button type="button" class="qz-op" data-i="'+i+'" data-j="'+j+'" aria-pressed="false">'+p.o[j]+'</button>';});
+    d.innerHTML=h+'</div>'; cuerpo.appendChild(d);
+  });
+  cuerpo.addEventListener('click',function(ev){
+    var b=ev.target.closest('.qz-op'); if(!b||b.disabled)return;
+    var i=b.getAttribute('data-i');
+    cuerpo.querySelectorAll('.qz-op[data-i="'+i+'"]').forEach(function(x){x.classList.remove('elegida');x.setAttribute('aria-pressed','false');});
+    b.classList.add('elegida'); b.setAttribute('aria-pressed','true'); elegidas[i]=+b.getAttribute('data-j');
+  });
+  var res=document.getElementById('qz-resultado');
+  document.getElementById('qz-calificar').addEventListener('click',function(){
+    var bien=0;
+    P.forEach(function(p,i){
+      cuerpo.querySelectorAll('.qz-op[data-i="'+i+'"]').forEach(function(x){
+        var j=+x.getAttribute('data-j'); x.disabled=true; x.classList.remove('elegida');
+        if(j===p.c)x.classList.add('correcta'); else if(elegidas[i]===j)x.classList.add('incorrecta');
+      });
+      if(elegidas[i]===p.c)bien++;
+      else if(p.r){var nota=document.createElement('p');nota.className='qz-repaso';nota.innerHTML='📘 Para repasar: '+p.r;cuerpo.children[i].appendChild(nota);}
+    });
+    var msg,fondo,color;
+    if(bien>=META){msg='¡Excelente! '+bien+' de '+N+'. '+cfg.bien;fondo='#d4edda';color='#155724';}
+    else if(bien>=Math.ceil(N*0.6)){msg='Buen trabajo: '+bien+' de '+N+'. Repasa las preguntas marcadas con ✗ y vuelve a intentarlo.';fondo='#fff3cd';color='#5c3900';}
+    else{msg='Llevas '+bien+' de '+N+'. '+cfg.repaso;fondo='#f8d7da';color='#721c24';}
+    res.textContent=msg; res.style.background=fondo; res.style.color=color; res.classList.add('visible');
+    this.style.display='none'; document.getElementById('qz-reintentar').style.display='inline-block';
+    res.scrollIntoView({behavior:'smooth',block:'center'});
+  });
+  document.getElementById('qz-reintentar').addEventListener('click',function(){
+    cuerpo.querySelectorAll('.qz-op').forEach(function(x){x.disabled=false;x.classList.remove('correcta','incorrecta','elegida');x.setAttribute('aria-pressed','false');});
+    cuerpo.querySelectorAll('.qz-repaso').forEach(function(n){n.remove();});
+    elegidas={}; res.classList.remove('visible'); res.textContent='';
+    this.style.display='none'; document.getElementById('qz-calificar').style.display='inline-block';
+    cuerpo.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+}
+
+/* ===== Navegación: el índice y la dirección (#ancla) abren su sección ===== */
+document.addEventListener('DOMContentLoaded',function(){
+  function abrir(id){
+    var el=id&&document.getElementById(id); if(!el)return;
+    var d=el.tagName==='DETAILS'?el:el.closest('details');
+    if(d){d.open=true; el.scrollIntoView({behavior:'smooth',block:'start'});}
+  }
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(){abrir(a.getAttribute('href').slice(1));});});
+  document.getElementById('abrir-todo').addEventListener('click',function(){document.querySelectorAll('details').forEach(function(d){d.open=true;});});
+  document.getElementById('cerrar-todo').addEventListener('click',function(){document.querySelectorAll('details').forEach(function(d){d.open=false;});});
+  window.addEventListener('hashchange',function(){abrir(decodeURIComponent(location.hash.slice(1)));});
+  abrir(decodeURIComponent(location.hash.slice(1)));
+});
+
+/* ===== Taller de escritura =====
+   El borrador se guarda en este navegador (si el navegador lo permite). */
+function tallerEscritura(id,o){
+  var caja=document.getElementById(id), k='gph-borrador-'+o.clave;
+  var h='<label class="tl-etq" for="'+id+'-txt">'+(o.etiqueta||'Escribe aquí tu texto')+'</label>'+
+    '<textarea class="tl-txt" id="'+id+'-txt" rows="10" spellcheck="true" lang="es"'+(o.guia?' placeholder="'+o.guia.replace(/"/g,'&quot;')+'"':'')+'></textarea>'+
+    '<div class="tl-cuenta" id="'+id+'-cuenta" aria-live="polite"></div>';
+  if(o.conectores)h+='<div class="tl-conect" id="'+id+'-con" aria-live="polite"></div>';
+  h+='<div class="botones" style="justify-content:flex-start">'+
+    '<button type="button" class="btn btn-secundario" id="'+id+'-oir">🔊 Escuchar mi texto</button>'+
+    '<button type="button" class="btn btn-secundario" id="'+id+'-copiar">📋 Copiar mi texto</button>'+
+    '<button type="button" class="btn btn-secundario" id="'+id+'-borrar">🗑️ Borrar</button></div>'+
+    '<div class="tl-aviso" id="'+id+'-aviso" role="status" aria-live="polite"></div>';
+  if(o.lista){
+    h+='<fieldset class="tl-lista"><legend>✅ Revisa tu texto antes de darlo por terminado</legend>'+
+      o.lista.map(function(t,i){return '<label><input type="checkbox" id="'+id+'-c'+i+'"> '+t+'</label>';}).join('')+
+      '<p class="tl-listo" id="'+id+'-listo" aria-live="polite"></p></fieldset>';
+  }
+  caja.innerHTML=h;
+  var ta=document.getElementById(id+'-txt'), cu=document.getElementById(id+'-cuenta'), co=document.getElementById(id+'-con'), av=document.getElementById(id+'-aviso');
+  try{var g=localStorage.getItem(k); if(g)ta.value=g;}catch(e){}
+  function avisar(t){av.textContent=t; clearTimeout(avisar.t); avisar.t=setTimeout(function(){av.textContent='';},4000);}
+  function medir(){var t=ta.value.trim();return {t:t,pal:t?t.split(/\s+/).length:0,ora:(t.match(/[^.!?…]+[.!?…]+/g)||[]).length};}
+  function contar(){
+    var x=medir(), m=o.meta||{}, s='Palabras: '+x.pal+(m.palabras?' (meta: '+m.palabras+' o más)':'')+' · Oraciones: '+x.ora+(m.oraciones?' (meta: '+m.oraciones+' o más)':'');
+    if(m.oraciones&&x.ora>=m.oraciones&&(!m.palabras||x.pal>=m.palabras))s+=' · 🎯 ¡Llegaste a la meta de extensión!';
+    cu.textContent=s;
+    if(co){
+      var low=' '+x.t.toLowerCase().replace(/[.,;:¡!¿?«»"()—]/g,' ')+' ', us=o.conectores.filter(function(c){return low.indexOf(' '+c.toLowerCase()+' ')>=0;});
+      co.innerHTML=us.length?(o.titLista||'Conectores que usaste')+': '+us.map(function(c){return '<span class="tl-chip">'+c+'</span>';}).join(' '):(o.vacioLista||'Todavía no aparece ningún conector de la lista.');
+    }
+    try{localStorage.setItem(k,ta.value);}catch(e){}
+  }
+  ta.addEventListener('input',contar); contar();
+  document.getElementById(id+'-oir').addEventListener('click',function(){
+    if(!ta.value.trim()){avisar('Primero escribe algo para poder escucharlo.');return;}
+    hablar(ta.value,0.9);
+  });
+  document.getElementById(id+'-copiar').addEventListener('click',function(){
+    if(!ta.value.trim()){avisar('Todavía no hay texto para copiar.');return;}
+    function ok(){avisar('✓ Texto copiado. Ya puedes pegarlo en un correo o en un documento.');}
+    if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(ta.value).then(ok,function(){ta.select();document.execCommand('copy');ok();});
+    else{ta.select();document.execCommand('copy');ok();}
+  });
+  var borrarListo=false;
+  document.getElementById(id+'-borrar').addEventListener('click',function(){
+    if(!borrarListo){borrarListo=true;avisar('¿Seguro? Pulsa «Borrar» otra vez para borrar todo el texto.');setTimeout(function(){borrarListo=false;},4000);return;}
+    borrarListo=false; ta.value=''; contar(); avisar('Texto borrado.'); ta.focus();
+  });
+  if(o.lista){
+    var cbs=caja.querySelectorAll('.tl-lista input'), li=document.getElementById(id+'-listo');
+    function rev(){var n=Array.prototype.filter.call(cbs,function(c){return c.checked;}).length, x=medir(), m=o.meta||{}, corto=(m.oraciones&&x.ora<m.oraciones)||(m.palabras&&x.pal<m.palabras);
+      li.textContent=n<cbs.length?'Revisado: '+n+' de '+cbs.length:(corto?'Marcaste toda la lista, pero tu texto todavía no llega a la meta de extensión. Añade algo más.':'🎉 ¡Todo revisado! Tu párrafo está listo.');}
+    ta.addEventListener('input',rev);
+    cbs.forEach(function(c){c.addEventListener('change',rev);}); rev();
+  }
+}
+/* Rúbricas: cada celda recibe el nombre de su nivel para mostrarlo en el celular */
+document.querySelectorAll('table.rubrica').forEach(function(t){
+  var cab=Array.prototype.map.call(t.querySelectorAll('thead th'),function(th){return th.textContent;});
+  t.querySelectorAll('tbody tr').forEach(function(tr){Array.prototype.forEach.call(tr.children,function(c,i){if(c.tagName==='TD')c.setAttribute('data-et',cab[i]);});});
+});
+
+
+/* ===== Texto modelo ===== */
+(function(){
+  var t=document.getElementById('lectura'), v=document.getElementById('ver-partes');
+  document.getElementById('leer-lectura').addEventListener('click',function(){
+    var c=t.cloneNode(true); c.querySelectorAll('.num-p,.ref').forEach(function(e){e.remove();}); hablar(c.textContent.trim(),0.9);});
+  v.addEventListener('click',function(){var on=!t.classList.toggle('oculta-marcas');v.setAttribute('aria-pressed',on?'true':'false');v.textContent=on?'Quitar las marcas':'Marcar las citas';});
+})();
+
+/* ===== Ejercicios de la lección ===== */
+clasificador('clasif-cred','puntaje-cred',[
+  {p:'Un artículo sobre vacunas sin autor, sin fecha y escrito en mayúsculas: «¡LO QUE NO QUIEREN QUE SEPAS!». ¿Qué señales de alerta tiene?',ops:['Sin autor, sin fecha y un propósito de provocar','Tiene demasiados datos con su fuente','Lo confirman muchas fuentes independientes'],c:0,n:'Autoría, actualidad y propósito fallan.'},
+  {p:'Una página de los Centros para el Control y la Prevención de Enfermedades (CDC), actualizada este año. ¿Qué la hace confiable?',ops:['Institución especializada y fecha reciente','Que tiene muchas fotos y colores vivos','Que la compartieron muchos amigos'],c:0,n:'Autoría y actualidad.'},
+  {p:'Un anuncio de una empresa de suplementos dice que su producto «cura el insomnio». ¿Qué criterio falla sobre todo?',ops:['El propósito: quiere vender','La actualidad: es demasiado nuevo','La autoría: tiene una marca conocida'],c:0,n:'Su objetivo es vender.'},
+  {p:'Wikipedia dice un dato que no aparece en ninguna otra fuente. ¿Qué haces?',ops:['No lo uso hasta corroborarlo en fuentes confiables','Lo uso, porque Wikipedia es una enciclopedia','Lo uso, pero sin citar de dónde salió'],c:0,n:'Wikipedia sirve para empezar, no para terminar.'}
+],null,false);
+
+clasificador('clasif-plagio','puntaje-plagio',[
+  {p:'Original: «La paradoja es que el progreso agravó el problema.» Versión: «La paradoja es que el progreso agravó el problema.» (sin comillas ni cita)',ops:['Plagio: copia sin comillas','Paráfrasis correcta','Cita textual correcta'],c:0,n:'Copia literal sin marcar.'},
+  {p:'Versión: «La contradicción es que el avance empeoró la dificultad.» (sin cita)',ops:['Plagio: paráfrasis demasiado cercana','Paráfrasis correcta con sus palabras','Cita textual correcta y completa'],c:0,n:'Cambia palabras, conserva la estructura y no cita.'},
+  {p:'Versión: «Paradójicamente, usar más agua multiplicó las aguas residuales que llegaban al lago (Lección 7.2).»',ops:['Paráfrasis correcta, con cita','Plagio: copia sin comillas','Plagio: falta la fecha de la cita'],c:0,n:'Palabras y estructura propias, con fuente.'},
+  {p:'Versión: Según la Lección 7.2, «el progreso agravó el problema».',ops:['Cita textual correcta','Plagio: copia sin comillas','Paráfrasis demasiado cercana'],c:0,n:'Entre comillas y con fuente.'}
+],null,false);
+
+clasificador('clasif-apa','puntaje-apa',[
+  {p:'¿Cuál es una cita APA correcta dentro del texto?',ops:['(Cartagena, 2020)','(Rosa Cartagena, Smithsonian)','[Cartagena 2020 revista]'],c:0,n:'Apellido y año, entre paréntesis.'},
+  {p:'¿Cómo se cita una fuente sin fecha de una institución?',ops:['(Senado de Puerto Rico, s. f.)','(Senado de Puerto Rico, sin año, sin fecha)','(Senado, ?)'],c:0,n:'«s. f.» = sin fecha.'},
+  {p:'¿En qué orden van las referencias?',ops:['Alfabético, por el apellido o la institución','Por la fecha, de la más nueva a la más vieja','En el orden en que se citaron en el texto'],c:0,n:'Orden alfabético.'},
+  {p:'En la referencia de un artículo de revista, ¿qué va en cursiva?',ops:['El nombre de la revista','El nombre del autor','La dirección URL completa'],c:0,n:'Smithsonian Magazine, en cursiva.'}
+],null,false);
+
+clasificador('clasif-modelo','puntaje-modelo',[
+  {p:'¿Por qué el informe cita dos fuentes en el párrafo 3?',ops:['Porque dos fuentes confiables confirman el dato de 1935','Porque así el párrafo parece más largo y serio','Porque la Fuente A no tenía ese dato de 1935'],c:0,n:'Corroboración.'},
+  {p:'¿Cómo resuelve el informe la diferencia entre 1929 y 1932?',ops:['Explica que 1929 es la ley y 1932 la elección','Elige 1932 porque es la fecha más reciente de todas','No la menciona para no confundir a quien lo lee'],c:0,n:'Explica la discrepancia.'},
+  {p:'¿Por qué Wikipedia no está en las referencias?',ops:['Sirvió para empezar, pero no se citó ningún dato suyo','Porque Wikipedia nunca se puede usar para nada','Porque se olvidó de ponerla en la lista'],c:0,n:'Solo se lista lo que se cita.'}
+],null,false);
+
+tallerEscritura('taller-81',{clave:'n4-8-1',etiqueta:'Tu mini investigación',
+  guia:'Pregunta: … // Fuente 1: autoría…, actualidad…, propósito…, evidencia…, corroboración… // Fuente 2: … // Respuesta: … (Apellido, año). … // Referencias: Apellido, I. (año). Título. Sitio. URL',
+  meta:{oraciones:6,palabras:150},
+  conectores:['según','(s. f.)','Referencias','autoría','actualidad','propósito','evidencia','corrobora','http'],
+  titLista:'Elementos de investigación que aparecen',
+  vacioLista:'Todavía no aparecen elementos de investigación (según, Referencias, autoría, una dirección http…).',
+  lista:['Mi pregunta es precisa: ni demasiado amplia ni de un solo dato.','Evalué cada fuente con los cinco criterios.','Corroboré el dato más importante en dos fuentes.','Escribí con mis palabras y mi propia estructura.','Cada dato ajeno tiene su cita APA dentro del texto.','Mi lista de referencias está en orden alfabético y sigue el modelo APA.']});
+
+iniciarQuiz([
+  {t:'¿Cuál es una buena pregunta de investigación?',o:['¿Cómo consiguieron el voto las mujeres de Puerto Rico?','¿Cómo fue toda la historia de Puerto Rico?','¿En qué año se aprobó una ley en Puerto Rico?'],c:0,r:'<a href="#s-1-pasos">Sección 1</a>'},
+  {t:'¿Por qué conviene anotar la referencia junto a cada dato?',o:['Para poder citarlo después sin perderse','Para que el cuaderno se vea ordenado','Porque el GED lo exige en el examen'],c:0,r:'<a href="#s-1-pasos">Sección 1</a>'},
+  {t:'¿Qué criterio pregunta «¿para qué se escribió?»?',o:['Propósito','Autoría','Actualidad'],c:0,r:'<a href="#s-2-confiable">Sección 2</a>'},
+  {t:'¿Cuál es una señal de alerta?',o:['Un texto sin autor que nadie más confirma','Un artículo con fecha y autora con nombre','Un informe que cita sus fuentes'],c:0,r:'<a href="#s-2-confiable">Sección 2</a>'},
+  {t:'¿Por qué el blog de la Fuente D no es confiable?',o:['No tiene autor ni pruebas, y otras fuentes lo contradicen','Porque los blogs siempre mienten, sin ninguna excepción','Porque se publicó hace demasiados años y ya no sirve'],c:0,r:'<a href="#s-2-confiable">Sección 2</a>'},
+  {t:'¿Cuántas fuentes conviene tener para un dato importante?',o:['Al menos dos confiables e independientes','Una sola, siempre que sea de internet','Ninguna: basta con saberlo uno mismo'],c:0,r:'<a href="#s-3-corroborar">Sección 3</a>'},
+  {t:'Según las fuentes A y B, ¿cuándo se aprobó el sufragio universal femenino en Puerto Rico?',o:['En 1935','En 1920','En 1929'],c:0,r:'<a href="#s-3-corroborar">Sección 3</a>'},
+  {t:'Cambiar algunas palabras de un texto ajeno y no citarlo es…',o:['un caso de plagio','una paráfrasis correcta','una cita textual'],c:0,r:'<a href="#s-4-plagio">Sección 4</a>'},
+  {t:'¿Hay que citar una paráfrasis?',o:['Sí: la idea sigue siendo de otra persona','No: si está con tus palabras, ya es tuya','Solo si es más larga que un párrafo'],c:0,r:'<a href="#s-4-plagio">Sección 4</a>'},
+  {t:'¿Qué significa «s. f.» en una cita APA?',o:['Sin fecha','Sin fuente','Según fulano'],c:0,r:'<a href="#s-5-apa">Sección 5</a>'},
+  {t:'¿Qué fuentes van en la lista de referencias?',o:['Solo las que se citaron en el texto','Todas las que se consultaron, aunque no se citen','Solo las que tienen autor con nombre'],c:0,r:'<a href="#s-5-apa">Sección 5</a>'},
+  {t:'Según el proyecto modelo, ¿cuántas mujeres votaron por primera vez en 1932?',o:['Unas 50,000','Unas 300,000','Unas 5,000'],c:0,r:'<a href="#s-6-modelo">Sección 6</a>'}
+],{meta:10,
+   bien:'Ya sabes investigar con fuentes confiables, citar en formato APA y evitar el plagio. Sigue con la Lección 8.2.',
+   repaso:'Vuelve a las secciones 2, 4 y 5 y repite el quiz: con práctica sale.'});
+</script>
+</body>
+</html>

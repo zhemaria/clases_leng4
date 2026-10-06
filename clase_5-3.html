@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<!-- Lección 5.3 · Artes del Lenguaje Nivel 4 · GEDparaHispanos
+     José M. Fernández, ABE/ASE Math Master Teacher, Harry S. Truman College — City Colleges of Chicago
+     Licencia CC BY-NC-SA 4.0 · https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es -->
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lección 5.3 · Integrar fuentes de varios formatos</title>
+<meta name="author" content="José M. Fernández, ABE/ASE Math Master Teacher, Harry S. Truman College — City Colleges of Chicago">
+<meta name="license" content="CC BY-NC-SA 4.0">
+<link rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es">
+<style>
+  :root{
+    --cp:#b91c1c;--cp-claro:#fee2e2;--cp-oscuro:#7f1d1d;
+    --acento:#ff8c42;--texto:#1a2332;--fondo:#fafbfc;
+    --gris:#555;--gris-claro:#eef1f4;
+    --exito:#2e7d32;--error:#c62828;
+  }
+  *{box-sizing:border-box}
+  body{font-family:'Poppins','Segoe UI',Arial,sans-serif;line-height:1.7;color:var(--texto);background:var(--fondo);max-width:960px;margin:0 auto;padding:24px 18px}
+  h1{color:var(--cp-oscuro);border-bottom:4px solid var(--cp);padding-bottom:14px;font-size:1.85rem;margin-bottom:8px}
+  .subtitulo{color:var(--gris);font-style:italic;margin-top:0;margin-bottom:24px;font-size:1.05rem}
+  h2{color:var(--cp-oscuro);border-left:6px solid var(--cp);padding-left:14px;margin-top:32px;font-size:1.4rem}
+  h3{color:var(--cp-oscuro);margin-top:24px;font-size:1.15rem}
+  .caja-objetivos{background:var(--cp-claro);border-left:6px solid var(--cp);padding:18px 22px;border-radius:8px;margin:18px 0 28px 0}
+  .caja-objetivos h2{margin-top:0;color:var(--cp-oscuro);border-left:none;padding-left:0;font-size:1.2rem}
+  .caja-tiempo{display:inline-block;background:var(--acento);color:#1a2332;padding:4px 12px;border-radius:14px;font-size:0.85rem;font-weight:600;margin-left:10px;vertical-align:middle}
+  details{background:#fff;border:1px solid #d6dde4;border-radius:10px;margin:14px 0;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,0.04)}
+  details[open]{border-color:var(--cp);box-shadow:0 3px 10px rgba(185,28,28,0.12)}
+  summary{cursor:pointer;padding:16px 20px;font-weight:600;color:var(--cp-oscuro);background:var(--gris-claro);list-style:none;user-select:none;font-size:1.05rem}
+  summary::-webkit-details-marker{display:none}
+  summary::before{content:'▶';display:inline-block;margin-right:10px;color:var(--cp);transition:transform 0.25s;font-size:0.85rem}
+  details[open] summary::before{transform:rotate(90deg)}
+  details[open] summary{background:var(--cp-claro);border-bottom:2px solid var(--cp)}
+  .contenido-detalle{padding:18px 22px}
+  .tip{background:#fffbe6;border-left:5px solid #f4c430;padding:12px 18px;border-radius:6px;margin:14px 0}
+  .tip strong{color:#6b5400}
+  .botones{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:14px 0}
+  .btn{padding:10px 22px;border:none;border-radius:8px;font-weight:600;cursor:pointer;font-family:inherit;font-size:0.95rem;transition:background 0.2s}
+  .btn-primario{background:var(--cp);color:#fff}
+  .btn-primario:hover{background:var(--cp-oscuro)}
+  .btn-secundario{background:var(--gris-claro);color:var(--texto)}
+  .btn-secundario:hover{background:#d6dde4}
+  .btn[aria-pressed="true"]{background:var(--cp-oscuro);color:#fff}
+  ul.lista-bonita{list-style:none;padding-left:0}
+  ul.lista-bonita li{padding:8px 0 8px 30px;position:relative}
+  ul.lista-bonita li::before{content:'➜';position:absolute;left:0;color:var(--cp);font-weight:700}
+  .palabra-clave{background:linear-gradient(transparent 60%,#ffeb3b 60%);padding:0 4px;font-weight:600}
+  .ej{font-family:Georgia,serif;font-size:1.08rem}
+  .sub{font-weight:700;border-bottom:3px solid var(--cp-oscuro)}
+  table.tabla{width:100%;border-collapse:collapse;margin:16px 0;background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,0.06)}
+  table.tabla th{background:var(--cp-oscuro);color:#fff;padding:10px 12px;text-align:left}
+  table.tabla td{padding:10px 12px;border-bottom:1px solid var(--gris-claro);vertical-align:top}
+  table.tabla tr:last-child td{border-bottom:none}
+  .actividad{background:#fff;border:2px solid var(--acento);border-radius:10px;padding:16px 20px;margin:14px 0}
+  .actividad h4{color:#8a3d0c;margin-top:0}
+  .badge{display:inline-block;padding:3px 10px;border-radius:12px;font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-right:6px}
+  .badge-lectura{background:#e3f2fd;color:#0d47a1}
+  /* Clasificadores */
+  .clasificador{background:#fff;border:2px solid var(--cp);border-radius:12px;padding:14px 18px;margin:18px 0}
+  .item{border:2px solid var(--gris-claro);border-radius:8px;padding:10px 14px;margin:8px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+  .item-pal{font-family:Georgia,serif;font-size:1.12rem;color:var(--texto);display:flex;align-items:center;gap:10px}
+  .item-ops{display:flex;gap:8px;flex-wrap:wrap}
+  .item-fb{flex-basis:100%;font-size:.95rem}
+  .item-fb:empty{display:none}
+  .btn-op{padding:7px 14px;border:2px solid var(--cp-oscuro);background:#fff;color:var(--cp-oscuro);border-radius:8px;cursor:pointer;font-weight:600;font-family:inherit;font-size:.92rem}
+  .btn-op:hover:not(:disabled){background:var(--cp-claro)}
+  .btn-op.correcta{background:#d4edda;border-color:var(--exito);color:#155724}
+  .btn-op.correcta::before{content:'✓ '}
+  .btn-op.incorrecta{background:#f8d7da;border-color:var(--error);color:#721c24;text-decoration:line-through}
+  .btn-op.incorrecta::before{content:'✗ '}
+  .btn-op:disabled{cursor:default}
+  .apilado .item{flex-direction:column;align-items:stretch}
+  .apilado .item-ops{flex-direction:column}
+  .apilado .btn-op{text-align:left;font-weight:400}
+  .apilado .item-pal{font-family:'Segoe UI',Arial,sans-serif;font-size:1rem;font-weight:600;display:block}
+  .puntaje{text-align:center;margin-top:12px;font-weight:600;color:var(--cp-oscuro)}
+  /* Lectura con marcas: color + borde distinto + etiqueta escrita */
+  .texto-lectura{background:#fff;border:2px solid var(--gris-claro);border-radius:8px;padding:18px 22px;margin:14px 0;font-family:Georgia,serif;font-size:1.12rem;line-height:2.1}
+  .texto-lectura p{margin:0 0 10px}
+  .num-p{display:inline-block;background:var(--cp-oscuro);color:#fff;border-radius:50%;width:1.6em;height:1.6em;text-align:center;line-height:1.6em;font-size:.8rem;font-family:'Segoe UI',Arial,sans-serif;margin-right:6px;vertical-align:middle}
+  .m-sus{background:#e3f2fd;color:#0d3c78;border-bottom:3px solid #0d3c78}
+  .m-adj{background:#fff3e0;color:#6b3300;border-bottom:3px dashed #8a4b00}
+  .m-adv{background:#e8f5e9;color:#1b5e20;border-bottom:3px dotted #1b5e20}
+  .etq{font-weight:700;font-size:.78em;font-family:'Segoe UI',Arial,sans-serif;white-space:nowrap}
+  .oculta-marcas .m-sus,.oculta-marcas .m-adj,.oculta-marcas .m-adv{background:none;color:inherit;border:none}
+  .oculta-marcas .etq{display:none}
+  .leyenda-marcas{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0;font-size:.92rem}
+  .leyenda-marcas span{padding:2px 8px}
+  /* Índice */
+  .indice{background:#fff;border:1px solid #d6dde4;border-left:6px solid var(--cp);border-radius:10px;padding:16px 20px;margin:22px 0}
+  .indice h2{font-size:1.1rem;margin:0 0 8px;border:none;padding:0}
+  .indice ol{margin:0;padding-left:1.4em}
+  .indice li{margin:4px 0}
+  .indice a{color:var(--cp-oscuro)}
+  .abrir-cerrar{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0 0}
+  .volver-indice{position:fixed;right:18px;bottom:18px;z-index:60;background:var(--cp-oscuro);color:#fff;border-radius:999px;padding:10px 16px;font-weight:700;font-size:.92rem;text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,.28)}
+  .volver-indice:hover{background:var(--cp);color:#fff}
+  a:focus-visible,summary:focus-visible,button:focus-visible,textarea:focus-visible{outline:3px solid #b35316;outline-offset:2px}
+  .sr-solo{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+  .enlace-practica{display:block;background:#fff;border:2px solid var(--cp);border-radius:10px;padding:14px 18px;margin:16px 0;text-decoration:none;color:var(--cp-oscuro);font-weight:600}
+  .enlace-practica:hover{background:var(--cp-claro)}
+  .enlace-practica span{display:block;font-weight:400;color:var(--texto);font-size:.95rem}
+  .aviso-voz{font-size:.9rem;color:#5c3900;background:#fff3cd;border-radius:6px;padding:6px 10px;display:none}
+  .aviso-voz.visible{display:block}
+  /* Quiz */
+  .qz-intro{background:var(--cp-claro);border-radius:10px;padding:14px 18px;margin:0 0 14px}
+  .qz-intro h4{margin:0 0 6px;color:var(--cp-oscuro)}
+  .qz-preg{background:#fff;border:2px solid var(--gris-claro);border-radius:10px;padding:14px 18px;margin:12px 0}
+  .qz-enun{font-weight:600;margin:0 0 10px}
+  .qz-num{display:inline-block;background:var(--cp-oscuro);color:#fff;border-radius:12px;padding:1px 10px;font-size:.8rem;margin-right:8px}
+  .qz-ops{display:flex;flex-direction:column;gap:8px}
+  .qz-op{text-align:left;background:#fff;border:2px solid #c9d2db;border-radius:8px;padding:10px 14px;font-family:inherit;font-size:1rem;cursor:pointer;color:var(--texto)}
+  .qz-op:hover:not(:disabled){border-color:var(--cp)}
+  .qz-op.elegida{background:var(--cp-claro);border-color:var(--cp-oscuro);color:var(--cp-oscuro);box-shadow:0 0 0 3px #fff,0 0 0 5px var(--cp)}
+  .qz-op.correcta{background:#d4edda;border-color:#2e7d32;color:#155724}
+  .qz-op.correcta::before{content:'✓ '}
+  .qz-op.incorrecta{background:#f8d7da;border-color:#c62828;color:#721c24}
+  .qz-op.incorrecta::before{content:'✗ '}
+  .qz-op:disabled{cursor:default}
+  .qz-resultado{display:none;margin:16px 0;padding:16px;border-radius:10px;text-align:center;font-weight:600}
+  .qz-resultado.visible{display:block}
+  .qz-repaso{margin:10px 0 0;padding:8px 12px;background:#fff3cd;border-radius:6px;color:#3d2600;font-size:.95rem}
+  .qz-repaso a{color:var(--cp-oscuro);font-weight:700}
+  /* Taller de escritura */
+  .taller{background:#fff;border:2px solid var(--cp);border-radius:12px;padding:14px;margin:14px 0}
+  .tl-etq{display:block;font-weight:700;color:var(--cp-oscuro);margin-bottom:6px}
+  .tl-txt{width:100%;box-sizing:border-box;font:inherit;font-size:1.05rem;line-height:1.7;padding:10px 12px;border:2px solid #9aa9b7;border-radius:8px;resize:vertical;min-height:200px}
+  .tl-txt:focus{outline:3px solid var(--cp);outline-offset:1px;border-color:var(--cp-oscuro)}
+  .tl-cuenta{font-size:.92rem;color:#333;margin:6px 0}
+  .tl-conect{font-size:.95rem;margin:4px 0 8px}
+  .tl-chip{display:inline-block;background:var(--cp-claro);color:var(--cp-oscuro);border:1px solid var(--cp);border-radius:12px;padding:1px 10px;margin:2px 2px;font-weight:700}
+  .tl-aviso{min-height:1.4em;font-weight:700;color:var(--cp-oscuro)}
+  .tl-lista{border:2px dashed var(--cp);border-radius:10px;padding:8px 14px;margin-top:10px}
+  .tl-lista legend{font-weight:700;color:var(--cp-oscuro);padding:0 6px}
+  .tl-lista label{display:flex;gap:10px;align-items:flex-start;padding:6px 0;cursor:pointer}
+  .tl-lista input{width:22px;height:22px;flex-shrink:0;margin-top:2px;accent-color:var(--cp-oscuro)}
+  .tl-listo{font-weight:700;color:var(--cp-oscuro);margin:6px 0 0}
+  .rubrica{font-size:.92rem}
+  .rubrica td,.rubrica th{vertical-align:top}
+  @media(max-width:640px){
+    .rubrica thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+    .rubrica,.rubrica tbody,.rubrica tr,.rubrica th,.rubrica td{display:block;width:auto}
+    .rubrica tr{border:2px solid var(--cp);border-radius:10px;margin:0 0 10px;overflow:hidden}
+    .rubrica tbody th{background:var(--cp-oscuro);color:#fff;border:none}
+    .rubrica td{border:none;border-top:1px solid #d5dde3}
+    .rubrica td::before{content:attr(data-et);display:block;font-weight:700;color:var(--cp-oscuro)}
+  }
+  footer.pie{margin-top:40px;padding-top:18px;border-top:2px solid var(--gris-claro);text-align:center;color:#555;font-size:.9rem}
+  footer.pie p{margin:4px 0}
+  footer.pie a{color:var(--cp-oscuro)}
+  @media print{.indice,.volver-indice,.abrir-cerrar{display:none}}
+  @media (prefers-reduced-motion:reduce){summary::before{transition:none}}
+  .fuente{background:#fff;border:2px solid var(--gris-claro);border-left:8px solid var(--cp-oscuro);border-radius:8px;padding:12px 18px;margin:14px 0}
+  .fuente .cab-f{display:block;font-weight:700;color:var(--cp-oscuro);margin-bottom:6px}
+  .fuente blockquote{margin:0;font-family:Georgia,serif;font-size:1.08rem;line-height:1.8}
+  .grafica svg{width:100%;height:auto;display:block}
+  .grafica .barra{fill:#b91c1c}
+  .grafica .barra:hover,.grafica .barra:focus{fill:#7f1d1d;outline:none}
+  .grafica .eje{stroke:#555;stroke-width:1}
+  .grafica .rejilla{stroke:#d6dde4;stroke-width:1}
+  .grafica text{font-family:'Segoe UI',Arial,sans-serif;font-size:12px;fill:#333}
+  .grafica .tooltip{font-weight:700;fill:#1a2332}
+  .matriz td,.matriz th{font-size:.92rem}
+  .matriz textarea{width:100%;min-height:60px;font:inherit;font-size:.92rem;border:2px solid #9aa9b7;border-radius:6px;padding:6px}
+  .formula{background:#fff;border:2px dashed var(--cp);border-radius:10px;padding:10px 16px;margin:10px 0;font-family:Georgia,serif}
+</style>
+</head>
+<body>
+<h1>Lección 5.3 · Integrar fuentes de varios formatos</h1>
+<p class="subtitulo">Artes del Lenguaje · Nivel 4 · Tema 5: Evaluar argumentos y sintetizar fuentes · Unas 2 horas, a tu ritmo</p>
+
+<div class="caja-objetivos">
+  <h2>🎯 Objetivos de la lección</h2>
+  <ul class="lista-bonita" style="margin:0">
+    <li><strong>Integrar</strong> información de un texto, una gráfica y una tabla sobre un mismo asunto.</li>
+    <li>Reconocer en qué <strong>coinciden</strong>, en qué se <strong>contradicen</strong> y en qué se <strong>complementan</strong> las fuentes.</li>
+    <li>Evaluar la <strong>fiabilidad</strong> de cada fuente y construir una <strong>síntesis</strong> coherente y respaldada.</li>
+  </ul>
+  <p style="margin:8px 0 0;font-size:.92rem">Estándares: 5–6.R.CI.11 · RH.11-12.9</p>
+</div>
+
+<nav class="indice" id="indice" aria-labelledby="indice-titulo">
+  <h2 id="indice-titulo">Contenido de la lección</h2>
+  <ol>
+    <li><a href="#s-1-por-que">Por qué integrar fuentes</a></li>
+    <li><a href="#s-2-fuentes">Tres fuentes sobre el tren ligero</a></li>
+    <li><a href="#s-3-matriz">La matriz de síntesis</a></li>
+    <li><a href="#s-4-tensiones">Coincidencias, contradicciones y complementos</a></li>
+    <li><a href="#s-5-fiabilidad">¿Cuánto confiar en cada fuente?</a></li>
+    <li><a href="#s-6-sintesis">Construir la síntesis</a></li>
+    <li><a href="#s-7-taller">Taller: escribe tu síntesis</a></li>
+    <li><a href="#s-tarea">Tarea</a></li>
+    <li><a href="#s-quiz">Quiz de la lección</a></li>
+    <li><a href="#s-cierre">Cierre</a></li>
+  </ol>
+  <div class="abrir-cerrar">
+    <button type="button" class="btn btn-secundario" id="abrir-todo">Abrir todo</button>
+    <button type="button" class="btn btn-secundario" id="cerrar-todo">Cerrar todo</button>
+  </div>
+</nav>
+
+<h2>📚 Para empezar</h2>
+<p>En el Nivel 3 integraste dos textos. En el mundo real, la información llega de muchas maneras a la vez: un artículo, una gráfica en las noticias, una tabla en un informe. El GED también lo hace: en Ciencias, en Estudios Sociales y en Artes del Lenguaje te pide que combines lo que dicen un texto y unos datos. Esta lección te da una herramienta para hacerlo con orden —la <strong>matriz de síntesis</strong>— y una pregunta para no dejarte engañar: <strong>¿qué dicen los datos de lo que afirma el texto?</strong></p>
+<p class="aviso-voz" id="aviso-voz" role="status">Tu navegador no tiene una voz en español disponible, así que los botones 🔊 no sonarán.</p>
+
+<details open id="s-1-por-que">
+<summary>1. Por qué integrar fuentes <span class="caja-tiempo">10 min</span></summary>
+<div class="contenido-detalle">
+<p>Cada formato muestra algo que los otros no muestran bien:</p>
+<table class="tabla">
+  <caption class="sr-solo">Qué aporta cada formato de fuente</caption>
+  <thead><tr><th scope="col">Formato</th><th scope="col">Muestra bien…</th><th scope="col">Cuidado con…</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Texto</strong></td><td>Opiniones, razones, explicaciones, contexto.</td><td>Afirmaciones sin datos.</td></tr>
+    <tr><td><strong>Gráfica</strong></td><td>Tendencias y cambios a lo largo del tiempo, de un vistazo.</td><td>Escalas que exageran o esconden los cambios.</td></tr>
+    <tr><td><strong>Tabla</strong></td><td>Cifras exactas para comparar.</td><td>Datos sin fecha o sin fuente.</td></tr>
+  </tbody>
+</table>
+<p><span class="palabra-clave">Sintetizar</span> no es resumir cada fuente por separado: es <strong>combinarlas</strong> para llegar a una conclusión que ninguna de ellas da por sí sola.</p>
+<div class="tip"><strong>📘 ¿Necesitas repasar?</strong> Integrar dos textos está en la <a href="https://zhemaria.github.io/clases_leng3/clase_5-2.html" target="_blank" rel="noopener noreferrer" style="color:var(--cp-oscuro);font-weight:700">Lección 5.2 del Nivel 3</a>, y leer gráficas y tablas, en la <a href="https://zhemaria.github.io/clases_leng3/clase_6-1.html" target="_blank" rel="noopener noreferrer" style="color:var(--cp-oscuro);font-weight:700">Lección 6.1 del Nivel 3</a>. Se abren en una pestaña nueva.</div>
+</div>
+</details>
+
+<details id="s-2-fuentes">
+<summary>2. Tres fuentes sobre el tren ligero <span class="caja-tiempo">20 min</span></summary>
+<div class="contenido-detalle">
+<p>La ciudad de <strong>Villanueva</strong> discute si cerrar su tren ligero. La ciudad, las personas y los datos son inventados para esta lección.</p>
+<div class="fuente">
+  <span class="cab-f">Fuente A · Texto · Declaración del concejal Ramírez a un periódico local</span>
+  <blockquote>«El tren ligero es un fracaso: cada año lo usa menos gente y le cuesta una fortuna a la ciudad. Los autobuses hacen lo mismo por menos dinero. Hay que cerrarlo.»</blockquote>
+</div>
+<div class="fuente grafica">
+  <span class="cab-f">Fuente B · Gráfica · Agencia de Transporte de Villanueva</span>
+  <div id="graf-pasajeros"></div>
+  <p style="font-size:.88rem;margin:4px 0 0">En 2020 la línea estuvo cerrada seis meses por obras. Pasa el cursor o el dedo sobre cada barra para ver su valor; la tabla con los mismos datos está debajo.</p>
+  <details style="margin-top:8px"><summary style="padding:8px 12px;font-size:.95rem">Ver los datos de la gráfica en una tabla</summary>
+    <div class="contenido-detalle" style="padding:8px 12px"><table class="tabla" id="tabla-pasajeros"><caption class="sr-solo">Pasajeros diarios promedio del tren ligero por año</caption><thead><tr><th scope="col">Año</th><th scope="col">Pasajeros diarios</th></tr></thead><tbody></tbody></table></div>
+  </details>
+</div>
+<div class="fuente">
+  <span class="cab-f">Fuente C · Tabla · Estudio del Departamento de Planificación Urbana de la Universidad de Villanueva (2025)</span>
+  <table class="tabla">
+    <caption class="sr-solo">Comparación entre el tren ligero y el autobús en tres indicadores</caption>
+    <thead><tr><th scope="col">Indicador</th><th scope="col">Tren ligero</th><th scope="col">Autobús (misma ruta)</th></tr></thead>
+    <tbody>
+      <tr><td>Costo para la ciudad por viaje</td><td>3.10 dólares</td><td>2.40 dólares</td></tr>
+      <tr><td>Tiempo medio hasta el centro</td><td>25 minutos</td><td>41 minutos</td></tr>
+      <tr><td>Viajes que llegan a tiempo</td><td>94 %</td><td>78 %</td></tr>
+    </tbody>
+  </table>
+</div>
+<div class="clasificador apilado" id="clasif-fuentes"></div>
+<div class="puntaje" id="puntaje-fuentes" role="status" aria-live="polite"></div>
+<a class="enlace-practica" href="https://zhemaria.github.io/gramatica/n4-l5-3.html#de-que-fuente" target="_blank" rel="noopener noreferrer">📂 Practica más: ¿de qué fuente sale?
+  <span>Atribuye cada dato o idea a su fuente. Se abre en una pestaña nueva.</span></a>
+</div>
+</details>
+
+<details id="s-3-matriz">
+<summary>3. La matriz de síntesis <span class="caja-tiempo">15 min</span></summary>
+<div class="contenido-detalle">
+<p>Una <span class="palabra-clave">matriz de síntesis</span> organiza lo que aporta cada fuente sobre las mismas preguntas. Así se ven las coincidencias y las tensiones de un vistazo. Complétala: las celdas vacías son para ti (lo que escribas se queda en la página mientras la tengas abierta).</p>
+<table class="tabla matriz">
+  <caption class="sr-solo">Matriz de síntesis de las tres fuentes sobre el tren ligero</caption>
+  <thead><tr><th scope="col">Pregunta</th><th scope="col">A · Concejal</th><th scope="col">B · Gráfica</th><th scope="col">C · Tabla</th></tr></thead>
+  <tbody>
+    <tr><td><strong>¿Cuánta gente lo usa?</strong></td><td>«Cada año, menos gente».</td><td>Bajó en 2020 (obras) y subió cada año desde entonces, hasta casi el nivel de 2019.</td><td>No lo dice.</td></tr>
+    <tr><td><strong>¿Cuánto cuesta?</strong></td><td>«Una fortuna».</td><td>No lo dice.</td><td>3.10 dólares por viaje, 70 centavos más que el autobús.</td></tr>
+    <tr><td><strong>¿Es igual que el autobús?</strong></td><td>«Hacen lo mismo».</td><td>No lo dice.</td><td><label class="sr-solo" for="mz1">Tu respuesta: ¿es igual que el autobús según la tabla?</label><textarea id="mz1" placeholder="Escribe aquí lo que dice la tabla…"></textarea></td></tr>
+    <tr><td><strong>¿Quién lo dice y con qué datos?</strong></td><td><label class="sr-solo" for="mz2">Tu respuesta: fiabilidad de la fuente A</label><textarea id="mz2" placeholder="¿Da datos? ¿Cita fuentes?"></textarea></td><td>Agencia oficial de transporte, con datos de varios años.</td><td><label class="sr-solo" for="mz3">Tu respuesta: fiabilidad de la fuente C</label><textarea id="mz3" placeholder="¿Quién lo hizo? ¿Cuándo?"></textarea></td></tr>
+  </tbody>
+</table>
+<div class="botones" style="justify-content:flex-start">
+  <button type="button" class="btn btn-secundario" id="ver-matriz" aria-expanded="false" aria-controls="sol-matriz">Ver una respuesta posible</button>
+</div>
+<div id="sol-matriz" hidden>
+  <ul class="lista-bonita">
+    <li><strong>¿Es igual que el autobús? (C):</strong> no. El tren llega 16 minutos antes al centro y es más puntual (94 % frente a 78 %).</li>
+    <li><strong>Fiabilidad de A:</strong> es una opinión, sin cifras ni fuentes.</li>
+    <li><strong>Fiabilidad de C:</strong> un estudio universitario reciente (2025), con indicadores concretos.</li>
+  </ul>
+</div>
+</div>
+</details>
+
+<details id="s-4-tensiones">
+<summary>4. Coincidencias, contradicciones y complementos <span class="caja-tiempo">15 min</span></summary>
+<div class="contenido-detalle">
+<table class="tabla">
+  <caption class="sr-solo">Relaciones entre las afirmaciones del concejal y los datos</caption>
+  <thead><tr><th scope="col">Afirmación de A</th><th scope="col">Relación con los datos</th></tr></thead>
+  <tbody>
+    <tr><td>«Le cuesta una fortuna a la ciudad.»</td><td><strong>Coincide en parte con C:</strong> el tren cuesta más por viaje (3.10 frente a 2.40). «Una fortuna» exagera, pero la dirección es correcta.</td></tr>
+    <tr><td>«Cada año lo usa menos gente.»</td><td><strong>Se contradice con B:</strong> solo bajó en 2020, por obras; desde entonces sube cada año.</td></tr>
+    <tr><td>«Los autobuses hacen lo mismo.»</td><td><strong>Se contradice con C:</strong> el autobús tarda más y es menos puntual.</td></tr>
+    <tr><td>(B y C juntas)</td><td><strong>Se complementan:</strong> B dice cuánta gente lo usa; C, qué ventajas y qué costo tiene. Juntas permiten valorar si el costo extra vale la pena.</td></tr>
+  </tbody>
+</table>
+<div class="tip"><strong>⚠️ Ojo con la escala de la gráfica:</strong> el eje vertical de la Fuente B empieza en cero, así que las barras muestran los cambios con honestidad. Si empezara en 8,000, la caída de 2020 parecería mucho mayor. Revisa siempre dónde empieza el eje.</div>
+<div class="clasificador" id="clasif-tension"></div>
+<div class="puntaje" id="puntaje-tension" role="status" aria-live="polite"></div>
+<a class="enlace-practica" href="https://zhemaria.github.io/gramatica/n4-l5-3.html#tensiones" target="_blank" rel="noopener noreferrer">⚡ Practica más: coinciden, se contradicen o se complementan
+  <span>Pares de fuentes para decidir su relación. Se abre en una pestaña nueva.</span></a>
+</div>
+</details>
+
+<details id="s-5-fiabilidad">
+<summary>5. ¿Cuánto confiar en cada fuente? <span class="caja-tiempo">10 min</span></summary>
+<div class="contenido-detalle">
+<p>No todas las fuentes valen lo mismo. Para evaluar su <span class="palabra-clave">fiabilidad</span>, pregúntate:</p>
+<ul class="lista-bonita">
+  <li><strong>¿Quién la produce?</strong> ¿Un organismo oficial, una universidad, una empresa, una persona?</li>
+  <li><strong>¿Tiene algún interés?</strong> Una agencia de transporte puede querer defender su tren; un concejal, ganar votos. El interés no invalida la fuente, pero obliga a contrastarla.</li>
+  <li><strong>¿Muestra sus datos?</strong> ¿Dice de dónde salen y cómo se midieron?</li>
+  <li><strong>¿Es actual?</strong> Un estudio de 2025 dice más de hoy que uno de 2005.</li>
+</ul>
+<p>En nuestro caso, la Fuente C es la más fiable para comparar el tren y el autobús (independiente, reciente, con indicadores). La Fuente B es útil y oficial, aunque la agencia podría tener interés en el tren; por eso conviene que otra fuente la confirme. La Fuente A es una opinión sin datos.</p>
+</div>
+</details>
+
+<details id="s-6-sintesis">
+<summary>6. Construir la síntesis <span class="caja-tiempo">15 min</span></summary>
+<div class="contenido-detalle">
+<p>Una buena síntesis responde a la pregunta con las tres fuentes, señala las tensiones y dice qué queda por saber. Usa esta fórmula:</p>
+<p class="formula">Sobre <strong>[pregunta]</strong>, las fuentes muestran que <strong>[lo que establecen juntas]</strong>. <strong>[Fuente]</strong> afirma que <strong>[…]</strong>, pero <strong>[otra fuente]</strong> indica que <strong>[…]</strong>. Por eso, <strong>[conclusión integrada]</strong>. Faltaría saber <strong>[lo que ninguna dice]</strong>.</p>
+<p><strong>Ejemplo:</strong> <em>Sobre si conviene cerrar el tren ligero, las fuentes muestran que el tren cuesta más por viaje que el autobús, pero también es más rápido y puntual. El concejal afirma que cada año lo usa menos gente, pero la gráfica de la agencia indica que los pasajeros han subido cada año desde 2020 y están cerca del nivel de 2019. Por eso, la afirmación de que el tren es «un fracaso» no se sostiene con los datos disponibles: la decisión depende de si la ciudad valora los 16 minutos que ahorra cada pasajero más que los 70 centavos que cuesta cada viaje. Faltaría saber cuánto costaría dar el mismo servicio con autobuses.</em></p>
+<div class="clasificador apilado" id="clasif-sintesis"></div>
+<div class="puntaje" id="puntaje-sintesis" role="status" aria-live="polite"></div>
+<a class="enlace-practica" href="https://zhemaria.github.io/gramatica/n4-l5-3.html#sintesis" target="_blank" rel="noopener noreferrer">🧩 Practica más: la síntesis mejor respaldada
+  <span>Conjuntos de fuentes breves para elegir la conclusión que las integra. Se abre en una pestaña nueva.</span></a>
+<div class="tip"><strong>👨‍👩‍👧 Si tienes con quién practicar:</strong> «Une las fuentes». Uno hace de concejal Ramírez y defiende cerrar el tren; el otro solo puede responder con datos de la gráfica y de la tabla.</div>
+</div>
+</details>
+
+<details id="s-7-taller">
+<summary>7. Taller: escribe tu síntesis <span class="caja-tiempo">25 min</span></summary>
+<div class="contenido-detalle">
+<p>Escribe una síntesis de <strong>5 a 7 oraciones</strong> que responda: <strong>¿debería Villanueva cerrar el tren ligero?</strong> Usa las tres fuentes, señala al menos una contradicción, valora la fiabilidad de una fuente y termina con lo que faltaría saber. No copies el ejemplo de la sección 6.</p>
+<div class="taller" id="taller-53"></div>
+<h3>Rúbrica: así se evaluará tu síntesis</h3>
+<table class="tabla rubrica">
+  <caption class="sr-solo">Rúbrica de la síntesis de fuentes: cuatro criterios en cuatro niveles</caption>
+  <thead><tr><th scope="col">Criterio</th><th scope="col">4 · Excelente</th><th scope="col">3 · Bien</th><th scope="col">2 · En camino</th><th scope="col">1 · Inicial</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">Integra fuentes de diversos formatos</th><td>Usa el texto, la gráfica y la tabla, con datos concretos</td><td>Usa dos formatos</td><td>Usa una sola fuente</td><td>Sin fuentes</td></tr>
+    <tr><th scope="row">Reconoce coincidencias y tensiones</th><td>Señala una coincidencia y una contradicción con precisión</td><td>Señala solo una de las dos</td><td>Las menciona de forma vaga</td><td>No las ve</td></tr>
+    <tr><th scope="row">Evalúa la fiabilidad de cada fuente</th><td>Juzga quién produce la fuente, su interés y sus datos</td><td>Juzga un solo aspecto</td><td>Opina sin criterios</td><td>No la evalúa</td></tr>
+    <tr><th scope="row">Construye una síntesis coherente</th><td>Llega a una conclusión que ninguna fuente da sola, y dice qué falta</td><td>Conclusión integrada sin decir qué falta</td><td>Resume las fuentes por separado</td><td>Sin conclusión</td></tr>
+  </tbody>
+</table>
+<p style="font-size:.92rem">Total: 16 puntos.</p>
+</div>
+</details>
+
+<details id="s-tarea">
+<summary>8. Tarea <span class="caja-tiempo">30 min</span></summary>
+<div class="contenido-detalle">
+<ul class="lista-bonita">
+  <li><strong>Termina tu síntesis</strong> del taller y revísala con la rúbrica.</li>
+  <li><strong>Busca una noticia con gráfica:</strong> comprueba si lo que dice el texto coincide con lo que muestra la gráfica, y revisa dónde empieza el eje vertical.</li>
+  <li><strong>Haz tu propia matriz</strong> con dos fuentes sobre un tema de tu ciudad (el transporte, los alquileres, la seguridad), con tres preguntas en las filas.</li>
+</ul>
+</div>
+</details>
+
+<details id="s-quiz">
+<summary>9. Quiz de la lección <span class="caja-tiempo">20 min</span></summary>
+<div class="contenido-detalle">
+<div class="qz-intro">
+  <h4>✅ Quiz · 12 preguntas · puedes repetirlo las veces que quieras</h4>
+  <p style="margin:0">Las preguntas se refieren a las tres fuentes de la sección 2. Elige una respuesta en cada pregunta y, al final, pulsa <strong>Ver mi resultado</strong>. La meta es acertar al menos <strong>10 de 12</strong>.</p>
+</div>
+<div id="qz-cuerpo"></div>
+<div class="botones">
+  <button type="button" class="btn btn-primario" id="qz-calificar">Ver mi resultado</button>
+  <button type="button" class="btn btn-secundario" id="qz-reintentar" style="display:none">Intentar de nuevo</button>
+</div>
+<div class="qz-resultado" id="qz-resultado" role="status" aria-live="polite"></div>
+</div>
+</details>
+
+<details id="s-cierre">
+<summary>10. Cierre <span class="caja-tiempo">5 min</span></summary>
+<div class="contenido-detalle">
+<h3>Lo que aprendiste en esta lección</h3>
+<ul class="lista-bonita">
+  <li>Cada formato muestra algo distinto: el texto, razones; la gráfica, tendencias; la tabla, cifras exactas.</li>
+  <li>La matriz de síntesis organiza lo que cada fuente dice sobre las mismas preguntas.</li>
+  <li>Las fuentes pueden coincidir, contradecirse o complementarse; los datos sirven para comprobar las afirmaciones.</li>
+  <li>La fiabilidad depende de quién produce la fuente, de su interés, de sus datos y de su fecha; la síntesis llega a una conclusión que ninguna fuente da sola.</li>
+</ul>
+<div class="caja-objetivos" style="background:#fff3e0;border-left-color:var(--acento)">
+  <h2 style="color:#8a3d0c;border:none;padding:0;margin-top:0;font-size:1.2rem">✅ Antes de irte, revísate</h2>
+  <ul class="lista-bonita">
+    <li>¿Qué afirmación del concejal contradice la gráfica?</li>
+    <li>¿Qué afirmación del concejal confirma, en parte, la tabla?</li>
+    <li>¿Por qué la Fuente C es la más fiable para comparar tren y autobús?</li>
+  </ul>
+</div>
+<div class="tip"><strong>🎉 Terminaste el Tema 5.</strong> Ya evalúas argumentos, analizas documentos fundacionales y sintetizas fuentes de varios formatos: las tres bases de la Respuesta Extendida.</div>
+<div class="tip"><strong>➡️ Sigue con la próxima lección:</strong> <a href="https://zhemaria.github.io/clases_leng4/clase_6-1.html" style="color:var(--cp-oscuro);font-weight:700">Lección 6.1 · Del texto a la gráfica y de la gráfica al texto</a>.</div>
+</div>
+</details>
+
+<footer class="pie">
+  <p><strong>GEDparaHispanos · Artes del Lenguaje · Nivel 4: Dominio del GED y Escritura Argumentativa · Tema 5 · Lección 5.3</strong></p>
+  <p>José M. Fernández, ABE/ASE Math Master Teacher, Harry S. Truman College — City Colleges of Chicago</p>
+  <p>© 2026. Esta obra está licenciada bajo <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es" rel="license noopener noreferrer" target="_blank">Creative Commons Reconocimiento-NoComercial-CompartirIgual 4.0 Internacional (CC BY-NC-SA 4.0)</a>.</p>
+</footer>
+<a class="volver-indice" href="#indice" aria-label="Volver al contenido de la lección"><span aria-hidden="true">↑</span> Índice</a>
+
+<script>
+
+/* ===== Voz: todas las lecturas pasan por hablar(), para poder cambiarla después por audio grabado ===== */
+(function(){
+  var voz=null, hay=('speechSynthesis' in window);
+  function elegir(){
+    if(!hay)return;
+    var vs=speechSynthesis.getVoices().filter(function(v){return /^es/i.test(v.lang);});
+    var pref=['es-US','es-MX','es-419','es-CO','es-AR','es-CL','es-PE'];
+    voz=null;
+    for(var i=0;i<pref.length&&!voz;i++){voz=vs.find(function(v){return v.lang.replace('_','-').toLowerCase()===pref[i].toLowerCase();})||null;}
+    if(!voz)voz=vs.find(function(v){return !/es[-_]ES/i.test(v.lang);})||vs[0]||null;
+  }
+  function aviso(){var a=document.getElementById('aviso-voz');if(a)a.classList.add('visible');}
+  function frase(t,vel){var u=new SpeechSynthesisUtterance(t);u.lang=voz?voz.lang:'es-US';if(voz)u.voice=voz;u.rate=vel||0.9;return u;}
+  if(hay){elegir(); speechSynthesis.onvoiceschanged=elegir;}
+  window.hablar=function(texto,vel,fin){
+    if(!hay||!texto){aviso();return;}
+    speechSynthesis.cancel();
+    /* Se lee por oraciones: algunos navegadores cortan las lecturas largas */
+    var partes=texto.replace(/\s+/g,' ').match(/[^.!?…]+[.!?…]+[»"”)]*\s*|[^.!?…]+$/g)||[texto];
+    partes.forEach(function(t,i){var u=frase(t.trim(),vel); if(fin&&i===partes.length-1)u.onend=fin; speechSynthesis.speak(u);});
+  };
+  window.callar=function(){if(hay)speechSynthesis.cancel();};
+  if(!hay)document.addEventListener('DOMContentLoaded',aviso);
+})();
+
+/* ===== Clasificador: cada elemento con sus botones; al acertar muestra una nota =====
+   Las opciones propias de cada elemento se barajan; las opciones comunes conservan su orden */
+function orden(it,ops){
+  var o=ops.map(function(_,j){return j;});
+  if(it.ops&&!it.fijo){for(var k=o.length-1;k>0;k--){var r=Math.floor(Math.random()*(k+1)),t=o[k];o[k]=o[r];o[r]=t;}}
+  return o;
+}
+function clasificador(idCaja,idPuntaje,items,opciones,conAudio){
+  var caja=document.getElementById(idCaja), pun=document.getElementById(idPuntaje), bien=0, hechas={};
+  function marcador(){pun.textContent=bien===items.length?(items.length===1?'🎉 ¡Muy bien!':'🎉 ¡Muy bien! Acertaste las '+bien+'.'):(items.length===1?'':'Aciertos: '+bien+' / '+items.length);}
+  items.forEach(function(it,i){
+    var d=document.createElement('div'); d.className='item'; d.setAttribute('role','group'); d.setAttribute('aria-label',it.p.replace(/<[^>]+>/g,''));
+    var ops=it.ops||opciones;
+    d.innerHTML='<span class="item-pal">'+it.p+(conAudio?' <button type="button" class="oir" aria-label="Escuchar">🔊</button>':'')+'</span>'+
+      '<span class="item-ops">'+orden(it,ops).map(function(j){return '<button type="button" class="btn-op" data-j="'+j+'">'+ops[j]+'</button>';}).join('')+'</span>'+
+      '<span class="item-fb" aria-live="polite"></span>';
+    caja.appendChild(d);
+    if(conAudio)d.querySelector('.oir').addEventListener('click',function(){hablar(it.a||it.p.replace(/<[^>]+>/g,''),0.85);});
+    var fb=d.querySelector('.item-fb');
+    d.querySelectorAll('.btn-op').forEach(function(b){
+      b.addEventListener('click',function(){
+        if(hechas[i])return;
+        if(+b.getAttribute('data-j')===it.c){
+          b.classList.add('correcta'); hechas[i]=true; bien++;
+          d.querySelectorAll('.btn-op').forEach(function(x){x.disabled=true;});
+          fb.innerHTML='✓ '+(it.n||'Correcto.'); marcador();
+        }else{
+          b.classList.add('incorrecta'); b.disabled=true;
+          fb.innerHTML='Todavía no. '+(it.pista||'Vuelve a mirar la regla e intenta otra vez.');
+        }
+      });
+    });
+  });
+  marcador();
+}
+
+/* ===== Quiz de la lección ===== */
+function iniciarQuiz(P,cfg){
+  var META=cfg.meta, N=P.length, cuerpo=document.getElementById('qz-cuerpo'), elegidas={};
+  P.forEach(function(p,i){
+    var d=document.createElement('div');
+    d.className='qz-preg'; d.setAttribute('role','group'); d.setAttribute('aria-labelledby','qz-e'+i);
+    var h='<p class="qz-enun" id="qz-e'+i+'"><span class="qz-num">'+(i+1)+'</span>'+p.t+'</p><div class="qz-ops">';
+    var orden=p.o.map(function(_,j){return j;});
+    if(!p.fijo){for(var k=orden.length-1;k>0;k--){var r=Math.floor(Math.random()*(k+1)),t=orden[k];orden[k]=orden[r];orden[r]=t;}}
+    orden.forEach(function(j){h+='<button type="button" class="qz-op" data-i="'+i+'" data-j="'+j+'" aria-pressed="false">'+p.o[j]+'</button>';});
+    d.innerHTML=h+'</div>'; cuerpo.appendChild(d);
+  });
+  cuerpo.addEventListener('click',function(ev){
+    var b=ev.target.closest('.qz-op'); if(!b||b.disabled)return;
+    var i=b.getAttribute('data-i');
+    cuerpo.querySelectorAll('.qz-op[data-i="'+i+'"]').forEach(function(x){x.classList.remove('elegida');x.setAttribute('aria-pressed','false');});
+    b.classList.add('elegida'); b.setAttribute('aria-pressed','true'); elegidas[i]=+b.getAttribute('data-j');
+  });
+  var res=document.getElementById('qz-resultado');
+  document.getElementById('qz-calificar').addEventListener('click',function(){
+    var bien=0;
+    P.forEach(function(p,i){
+      cuerpo.querySelectorAll('.qz-op[data-i="'+i+'"]').forEach(function(x){
+        var j=+x.getAttribute('data-j'); x.disabled=true; x.classList.remove('elegida');
+        if(j===p.c)x.classList.add('correcta'); else if(elegidas[i]===j)x.classList.add('incorrecta');
+      });
+      if(elegidas[i]===p.c)bien++;
+      else if(p.r){var nota=document.createElement('p');nota.className='qz-repaso';nota.innerHTML='📘 Para repasar: '+p.r;cuerpo.children[i].appendChild(nota);}
+    });
+    var msg,fondo,color;
+    if(bien>=META){msg='¡Excelente! '+bien+' de '+N+'. '+cfg.bien;fondo='#d4edda';color='#155724';}
+    else if(bien>=Math.ceil(N*0.6)){msg='Buen trabajo: '+bien+' de '+N+'. Repasa las preguntas marcadas con ✗ y vuelve a intentarlo.';fondo='#fff3cd';color='#5c3900';}
+    else{msg='Llevas '+bien+' de '+N+'. '+cfg.repaso;fondo='#f8d7da';color='#721c24';}
+    res.textContent=msg; res.style.background=fondo; res.style.color=color; res.classList.add('visible');
+    this.style.display='none'; document.getElementById('qz-reintentar').style.display='inline-block';
+    res.scrollIntoView({behavior:'smooth',block:'center'});
+  });
+  document.getElementById('qz-reintentar').addEventListener('click',function(){
+    cuerpo.querySelectorAll('.qz-op').forEach(function(x){x.disabled=false;x.classList.remove('correcta','incorrecta','elegida');x.setAttribute('aria-pressed','false');});
+    cuerpo.querySelectorAll('.qz-repaso').forEach(function(n){n.remove();});
+    elegidas={}; res.classList.remove('visible'); res.textContent='';
+    this.style.display='none'; document.getElementById('qz-calificar').style.display='inline-block';
+    cuerpo.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+}
+
+/* ===== Navegación: el índice y la dirección (#ancla) abren su sección ===== */
+document.addEventListener('DOMContentLoaded',function(){
+  function abrir(id){
+    var el=id&&document.getElementById(id); if(!el)return;
+    var d=el.tagName==='DETAILS'?el:el.closest('details');
+    if(d){d.open=true; el.scrollIntoView({behavior:'smooth',block:'start'});}
+  }
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(){abrir(a.getAttribute('href').slice(1));});});
+  document.getElementById('abrir-todo').addEventListener('click',function(){document.querySelectorAll('details').forEach(function(d){d.open=true;});});
+  document.getElementById('cerrar-todo').addEventListener('click',function(){document.querySelectorAll('details').forEach(function(d){d.open=false;});});
+  window.addEventListener('hashchange',function(){abrir(decodeURIComponent(location.hash.slice(1)));});
+  abrir(decodeURIComponent(location.hash.slice(1)));
+});
+
+/* ===== Taller de escritura =====
+   El borrador se guarda en este navegador (si el navegador lo permite). */
+function tallerEscritura(id,o){
+  var caja=document.getElementById(id), k='gph-borrador-'+o.clave;
+  var h='<label class="tl-etq" for="'+id+'-txt">'+(o.etiqueta||'Escribe aquí tu texto')+'</label>'+
+    '<textarea class="tl-txt" id="'+id+'-txt" rows="10" spellcheck="true" lang="es"'+(o.guia?' placeholder="'+o.guia.replace(/"/g,'&quot;')+'"':'')+'></textarea>'+
+    '<div class="tl-cuenta" id="'+id+'-cuenta" aria-live="polite"></div>';
+  if(o.conectores)h+='<div class="tl-conect" id="'+id+'-con" aria-live="polite"></div>';
+  h+='<div class="botones" style="justify-content:flex-start">'+
+    '<button type="button" class="btn btn-secundario" id="'+id+'-oir">🔊 Escuchar mi texto</button>'+
+    '<button type="button" class="btn btn-secundario" id="'+id+'-copiar">📋 Copiar mi texto</button>'+
+    '<button type="button" class="btn btn-secundario" id="'+id+'-borrar">🗑️ Borrar</button></div>'+
+    '<div class="tl-aviso" id="'+id+'-aviso" role="status" aria-live="polite"></div>';
+  if(o.lista){
+    h+='<fieldset class="tl-lista"><legend>✅ Revisa tu texto antes de darlo por terminado</legend>'+
+      o.lista.map(function(t,i){return '<label><input type="checkbox" id="'+id+'-c'+i+'"> '+t+'</label>';}).join('')+
+      '<p class="tl-listo" id="'+id+'-listo" aria-live="polite"></p></fieldset>';
+  }
+  caja.innerHTML=h;
+  var ta=document.getElementById(id+'-txt'), cu=document.getElementById(id+'-cuenta'), co=document.getElementById(id+'-con'), av=document.getElementById(id+'-aviso');
+  try{var g=localStorage.getItem(k); if(g)ta.value=g;}catch(e){}
+  function avisar(t){av.textContent=t; clearTimeout(avisar.t); avisar.t=setTimeout(function(){av.textContent='';},4000);}
+  function medir(){var t=ta.value.trim();return {t:t,pal:t?t.split(/\s+/).length:0,ora:(t.match(/[^.!?…]+[.!?…]+/g)||[]).length};}
+  function contar(){
+    var x=medir(), m=o.meta||{}, s='Palabras: '+x.pal+(m.palabras?' (meta: '+m.palabras+' o más)':'')+' · Oraciones: '+x.ora+(m.oraciones?' (meta: '+m.oraciones+' o más)':'');
+    if(m.oraciones&&x.ora>=m.oraciones&&(!m.palabras||x.pal>=m.palabras))s+=' · 🎯 ¡Llegaste a la meta de extensión!';
+    cu.textContent=s;
+    if(co){
+      var low=' '+x.t.toLowerCase().replace(/[.,;:¡!¿?«»"()—]/g,' ')+' ', us=o.conectores.filter(function(c){return low.indexOf(' '+c.toLowerCase()+' ')>=0;});
+      co.innerHTML=us.length?(o.titLista||'Conectores que usaste')+': '+us.map(function(c){return '<span class="tl-chip">'+c+'</span>';}).join(' '):(o.vacioLista||'Todavía no aparece ningún conector de la lista.');
+    }
+    try{localStorage.setItem(k,ta.value);}catch(e){}
+  }
+  ta.addEventListener('input',contar); contar();
+  document.getElementById(id+'-oir').addEventListener('click',function(){
+    if(!ta.value.trim()){avisar('Primero escribe algo para poder escucharlo.');return;}
+    hablar(ta.value,0.9);
+  });
+  document.getElementById(id+'-copiar').addEventListener('click',function(){
+    if(!ta.value.trim()){avisar('Todavía no hay texto para copiar.');return;}
+    function ok(){avisar('✓ Texto copiado. Ya puedes pegarlo en un correo o en un documento.');}
+    if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(ta.value).then(ok,function(){ta.select();document.execCommand('copy');ok();});
+    else{ta.select();document.execCommand('copy');ok();}
+  });
+  var borrarListo=false;
+  document.getElementById(id+'-borrar').addEventListener('click',function(){
+    if(!borrarListo){borrarListo=true;avisar('¿Seguro? Pulsa «Borrar» otra vez para borrar todo el texto.');setTimeout(function(){borrarListo=false;},4000);return;}
+    borrarListo=false; ta.value=''; contar(); avisar('Texto borrado.'); ta.focus();
+  });
+  if(o.lista){
+    var cbs=caja.querySelectorAll('.tl-lista input'), li=document.getElementById(id+'-listo');
+    function rev(){var n=Array.prototype.filter.call(cbs,function(c){return c.checked;}).length, x=medir(), m=o.meta||{}, corto=(m.oraciones&&x.ora<m.oraciones)||(m.palabras&&x.pal<m.palabras);
+      li.textContent=n<cbs.length?'Revisado: '+n+' de '+cbs.length:(corto?'Marcaste toda la lista, pero tu texto todavía no llega a la meta de extensión. Añade algo más.':'🎉 ¡Todo revisado! Tu párrafo está listo.');}
+    ta.addEventListener('input',rev);
+    cbs.forEach(function(c){c.addEventListener('change',rev);}); rev();
+  }
+}
+/* Rúbricas: cada celda recibe el nombre de su nivel para mostrarlo en el celular */
+document.querySelectorAll('table.rubrica').forEach(function(t){
+  var cab=Array.prototype.map.call(t.querySelectorAll('thead th'),function(th){return th.textContent;});
+  t.querySelectorAll('tbody tr').forEach(function(tr){Array.prototype.forEach.call(tr.children,function(c,i){if(c.tagName==='TD')c.setAttribute('data-et',cab[i]);});});
+});
+
+
+/* ===== Gráfica de barras accesible (una sola serie, eje desde cero) ===== */
+(function(){
+  var D=[['2019',18000],['2020',9000],['2021',11000],['2022',13500],['2023',15000],['2024',16500],['2025',17200]];
+  var W=640,H=330,x0=78,x1=624,y0=280,y1=30,max=20000,slot=(x1-x0)/D.length,bw=46;
+  function fmt(n){return n.toLocaleString('en-US');}
+  function y(v){return y0-(v/max)*(y0-y1);}
+  var s='<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-labelledby="g-t g-d"><title id="g-t">Pasajeros diarios promedio del tren ligero de Villanueva, 2019 a 2025</title><desc id="g-d">Gráfica de barras. 2019: 18,000; 2020: 9,000; 2021: 11,000; 2022: 13,500; 2023: 15,000; 2024: 16,500; 2025: 17,200. Baja a la mitad en 2020 y sube cada año desde entonces.</desc>';
+  for(var g=0;g<=max;g+=5000){s+='<line class="rejilla" x1="'+x0+'" x2="'+x1+'" y1="'+y(g)+'" y2="'+y(g)+'"/><text x="'+(x0-8)+'" y="'+(y(g)+4)+'" text-anchor="end">'+fmt(g)+'</text>';}
+  s+='<line class="eje" x1="'+x0+'" x2="'+x1+'" y1="'+y0+'" y2="'+y0+'"/>';
+  s+='<text x="12" y="'+((y0+y1)/2)+'" transform="rotate(-90 12 '+((y0+y1)/2)+')" text-anchor="middle">Pasajeros por día</text>';
+  D.forEach(function(d,i){
+    var cx=x0+slot*i+slot/2, top=y(d[1]), h=y0-top;
+    s+='<path class="barra" tabindex="0" aria-label="'+d[0]+': '+fmt(d[1])+' pasajeros por día" d="M'+(cx-bw/2)+','+y0+' V'+(top+4)+' Q'+(cx-bw/2)+','+top+' '+(cx-bw/2+4)+','+top+' H'+(cx+bw/2-4)+' Q'+(cx+bw/2)+','+top+' '+(cx+bw/2)+','+(top+4)+' V'+y0+' Z"><title>'+d[0]+': '+fmt(d[1])+' pasajeros por día</title></path>';
+    s+='<text x="'+cx+'" y="'+(y0+18)+'" text-anchor="middle">'+d[0]+'</text>';
+    if(i===0||i===1||i===D.length-1)s+='<text class="tooltip" x="'+cx+'" y="'+(top-6)+'" text-anchor="middle">'+fmt(d[1])+'</text>';
+  });
+  s+='</svg>';
+  document.getElementById('graf-pasajeros').innerHTML=s;
+  document.querySelector('#tabla-pasajeros tbody').innerHTML=D.map(function(d){return '<tr><td>'+d[0]+'</td><td>'+fmt(d[1])+'</td></tr>';}).join('');
+})();
+
+/* ===== Respuesta posible de la matriz ===== */
+(function(){
+  var b=document.getElementById('ver-matriz'), s=document.getElementById('sol-matriz');
+  b.addEventListener('click',function(){var a=s.hidden; s.hidden=!a; b.setAttribute('aria-expanded',a?'true':'false'); b.textContent=a?'Ocultar la respuesta posible':'Ver una respuesta posible';});
+})();
+
+/* ===== Ejercicios de la lección ===== */
+clasificador('clasif-fuentes','puntaje-fuentes',[
+  {p:'¿Cuántos pasajeros diarios tuvo el tren en 2025?',ops:['17,200','18,000','9,000'],c:0,n:'Fuente B, última barra.'},
+  {p:'¿Por qué bajaron los pasajeros en 2020?',ops:['La línea estuvo cerrada seis meses por obras','La gente prefirió el autobús ese año','El concejal pidió cerrar el tren'],c:0,n:'Lo dice la nota de la Fuente B.'},
+  {p:'¿Cuánto tarda el autobús hasta el centro?',ops:['41 minutos','25 minutos','16 minutos'],c:0,n:'Fuente C. Los 16 minutos son la diferencia.'},
+  {p:'¿Qué fuente da su opinión sin cifras?',ops:['La Fuente A, el concejal','La Fuente B, la agencia','La Fuente C, la universidad'],c:0,n:'«Una fortuna», «un fracaso»: sin datos.'}
+],null,false);
+
+clasificador('clasif-tension','puntaje-tension',[
+  {p:'A: «cada año lo usa menos gente» · B: los pasajeros suben cada año desde 2020.',c:1,n:'Los datos desmienten la afirmación.'},
+  {p:'A: «le cuesta una fortuna a la ciudad» · C: el tren cuesta 3.10 dólares por viaje y el autobús 2.40.',c:0,n:'Coinciden en que cuesta más (aunque «fortuna» exagera).'},
+  {p:'B: cuántos pasajeros usan el tren · C: cuánto tarda y cuánto cuesta.',c:2,n:'Cada una aporta una parte distinta.'},
+  {p:'A: «los autobuses hacen lo mismo» · C: el autobús tarda 16 minutos más y es menos puntual.',c:1,n:'C contradice a A.'}
+],['Coinciden','Se contradicen','Se complementan'],false);
+
+clasificador('clasif-sintesis','puntaje-sintesis',[
+  {p:'¿Qué síntesis integra mejor las tres fuentes?',ops:['El tren cuesta más por viaje que el autobús, pero es más rápido y su uso se ha recuperado; llamarlo «fracaso» no se sostiene','El tren es un fracaso porque cada año lo usa menos gente, como dice el concejal','El tren es mejor que el autobús en todo y no se debe discutir más'],c:0,n:'Combina B y C, y corrige a A.'},
+  {p:'¿Qué le falta a la síntesis «La gráfica muestra que en 2025 hubo 17,200 pasajeros»?',ops:['Relacionar ese dato con las otras fuentes','Escribir la cifra con letras','Decir el nombre de la agencia'],c:0,n:'Es un dato aislado, no una síntesis.'},
+  {p:'¿Qué falta saber para decidir si cerrar el tren?',ops:['Cuánto costaría dar el mismo servicio con autobuses','En qué año se construyó la primera estación','Cómo se llama el concejal'],c:0,n:'Ninguna fuente lo dice, y es clave para decidir.'}
+],null,false);
+
+tallerEscritura('taller-53',{clave:'n4-5-3',etiqueta:'Tu síntesis de las tres fuentes (5 a 7 oraciones)',
+  guia:'Sobre si Villanueva debería cerrar el tren ligero, las fuentes muestran que … El concejal afirma que …, pero la gráfica … La tabla indica que … La fuente más fiable es … porque … Por eso, … Faltaría saber …',
+  meta:{oraciones:5,palabras:110},
+  conectores:['fuente','gráfica','tabla','según','pero','sin embargo','coincide','contradice','complementa','fiable','por eso','faltaría saber'],
+  titLista:'Expresiones de síntesis que usaste',
+  vacioLista:'Todavía no aparecen expresiones de síntesis (según, la gráfica, contradice, faltaría saber…).',
+  lista:['Uso datos concretos del texto, de la gráfica y de la tabla.','Señalo al menos una coincidencia y una contradicción.','Valoro la fiabilidad de al menos una fuente.','Llego a una conclusión que ninguna fuente da por sí sola.','Termino diciendo qué faltaría saber.','Escuché mi síntesis en voz alta y la revisé.']});
+
+iniciarQuiz([
+  {t:'¿Qué muestra mejor una gráfica de barras a lo largo de los años?',o:['La tendencia: si algo sube o baja','Las razones de una decisión','La opinión de quien la hizo'],c:0,r:'<a href="#s-1-por-que">Sección 1</a>'},
+  {t:'¿Qué es <strong>sintetizar</strong> varias fuentes?',o:['Combinarlas para llegar a una conclusión que ninguna da sola','Resumir cada fuente por separado','Elegir la fuente que más te guste'],c:0,r:'<a href="#s-1-por-que">Sección 1</a>'},
+  {t:'Según la gráfica, ¿cuántos pasajeros diarios hubo en 2019?',o:['18,000','17,200','9,000'],c:0,r:'<a href="#s-2-fuentes">Sección 2</a>'},
+  {t:'Según la tabla, ¿qué porcentaje de viajes en tren llega a tiempo?',o:['94 %','78 %','25 %'],c:0,r:'<a href="#s-2-fuentes">Sección 2</a>'},
+  {t:'¿Cuánto más cuesta a la ciudad cada viaje en tren que en autobús?',o:['70 centavos','3.10 dólares','16 dólares'],c:0,r:'<a href="#s-2-fuentes">Sección 2</a>'},
+  {t:'¿Para qué sirve una matriz de síntesis?',o:['Para ver qué dice cada fuente sobre las mismas preguntas','Para dibujar la gráfica a partir de la tabla','Para corregir la ortografía de las fuentes'],c:0,r:'<a href="#s-3-matriz">Sección 3</a>'},
+  {t:'¿Qué relación hay entre «cada año lo usa menos gente» y la gráfica?',o:['Se contradicen','Coinciden','Se complementan'],c:0,r:'<a href="#s-4-tensiones">Sección 4</a>'},
+  {t:'¿Por qué es importante revisar dónde empieza el eje vertical de una gráfica?',o:['Porque una escala que no empieza en cero puede exagerar los cambios','Porque los ejes siempre deben empezar en mil','Porque así se sabe quién hizo la gráfica'],c:0,r:'<a href="#s-4-tensiones">Sección 4</a>'},
+  {t:'Una agencia de transporte que publica datos sobre su propio tren…',o:['puede tener interés, así que conviene contrastar sus datos','no es fiable y hay que descartarla','es siempre la fuente más fiable de todas'],c:0,r:'<a href="#s-5-fiabilidad">Sección 5</a>'},
+  {t:'¿Cuál NO es una pregunta para evaluar la fiabilidad?',o:['¿Me gusta lo que dice?','¿Quién la produce?','¿Muestra sus datos?'],c:0,r:'<a href="#s-5-fiabilidad">Sección 5</a>'},
+  {t:'¿Cómo termina la fórmula de la síntesis?',o:['Con lo que faltaría saber','Con la opinión del concejal','Con la cifra más alta de la gráfica'],c:0,r:'<a href="#s-6-sintesis">Sección 6</a>'},
+  {t:'Según la síntesis de ejemplo, ¿de qué depende la decisión?',o:['De si la ciudad valora más el tiempo ahorrado que el costo extra','De si el concejal gana las próximas elecciones','De si la universidad publica otro estudio'],c:0,r:'<a href="#s-6-sintesis">Sección 6</a>'}
+],{meta:10,
+   bien:'Ya sabes integrar un texto, una gráfica y una tabla en una síntesis respaldada. Terminaste el Tema 5: sigue con la Lección 6.1.',
+   repaso:'Vuelve a las secciones 2, 4 y 6 y repite el quiz: con práctica sale.'});
+</script>
+</body>
+</html>

@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<!-- Lección 8.3 · Artes del Lenguaje Nivel 4 · GEDparaHispanos
+     José M. Fernández, ABE/ASE Math Master Teacher, Harry S. Truman College — City Colleges of Chicago
+     Licencia CC BY-NC-SA 4.0 · https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es -->
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lección 8.3 · Respuesta Extendida, proyecto final y evaluación del nivel</title>
+<meta name="author" content="José M. Fernández, ABE/ASE Math Master Teacher, Harry S. Truman College — City Colleges of Chicago">
+<meta name="license" content="CC BY-NC-SA 4.0">
+<link rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es">
+<style>
+  :root{
+    --cp:#b91c1c;--cp-claro:#fee2e2;--cp-oscuro:#7f1d1d;
+    --acento:#ff8c42;--texto:#1a2332;--fondo:#fafbfc;
+    --gris:#555;--gris-claro:#eef1f4;
+    --exito:#2e7d32;--error:#c62828;
+  }
+  *{box-sizing:border-box}
+  body{font-family:'Poppins','Segoe UI',Arial,sans-serif;line-height:1.7;color:var(--texto);background:var(--fondo);max-width:960px;margin:0 auto;padding:24px 18px}
+  h1{color:var(--cp-oscuro);border-bottom:4px solid var(--cp);padding-bottom:14px;font-size:1.85rem;margin-bottom:8px}
+  .subtitulo{color:var(--gris);font-style:italic;margin-top:0;margin-bottom:24px;font-size:1.05rem}
+  h2{color:var(--cp-oscuro);border-left:6px solid var(--cp);padding-left:14px;margin-top:32px;font-size:1.4rem}
+  h3{color:var(--cp-oscuro);margin-top:24px;font-size:1.15rem}
+  .caja-objetivos{background:var(--cp-claro);border-left:6px solid var(--cp);padding:18px 22px;border-radius:8px;margin:18px 0 28px 0}
+  .caja-objetivos h2{margin-top:0;color:var(--cp-oscuro);border-left:none;padding-left:0;font-size:1.2rem}
+  .caja-tiempo{display:inline-block;background:var(--acento);color:#1a2332;padding:4px 12px;border-radius:14px;font-size:0.85rem;font-weight:600;margin-left:10px;vertical-align:middle}
+  details{background:#fff;border:1px solid #d6dde4;border-radius:10px;margin:14px 0;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,0.04)}
+  details[open]{border-color:var(--cp);box-shadow:0 3px 10px rgba(185,28,28,0.12)}
+  summary{cursor:pointer;padding:16px 20px;font-weight:600;color:var(--cp-oscuro);background:var(--gris-claro);list-style:none;user-select:none;font-size:1.05rem}
+  summary::-webkit-details-marker{display:none}
+  summary::before{content:'▶';display:inline-block;margin-right:10px;color:var(--cp);transition:transform 0.25s;font-size:0.85rem}
+  details[open] summary::before{transform:rotate(90deg)}
+  details[open] summary{background:var(--cp-claro);border-bottom:2px solid var(--cp)}
+  .contenido-detalle{padding:18px 22px}
+  .tip{background:#fffbe6;border-left:5px solid #f4c430;padding:12px 18px;border-radius:6px;margin:14px 0}
+  .tip strong{color:#6b5400}
+  .botones{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:14px 0}
+  .btn{padding:10px 22px;border:none;border-radius:8px;font-weight:600;cursor:pointer;font-family:inherit;font-size:0.95rem;transition:background 0.2s}
+  .btn-primario{background:var(--cp);color:#fff}
+  .btn-primario:hover{background:var(--cp-oscuro)}
+  .btn-secundario{background:var(--gris-claro);color:var(--texto)}
+  .btn-secundario:hover{background:#d6dde4}
+  .btn[aria-pressed="true"]{background:var(--cp-oscuro);color:#fff}
+  ul.lista-bonita{list-style:none;padding-left:0}
+  ul.lista-bonita li{padding:8px 0 8px 30px;position:relative}
+  ul.lista-bonita li::before{content:'➜';position:absolute;left:0;color:var(--cp);font-weight:700}
+  .palabra-clave{background:linear-gradient(transparent 60%,#ffeb3b 60%);padding:0 4px;font-weight:600}
+  .ej{font-family:Georgia,serif;font-size:1.08rem}
+  .sub{font-weight:700;border-bottom:3px solid var(--cp-oscuro)}
+  table.tabla{width:100%;border-collapse:collapse;margin:16px 0;background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,0.06)}
+  table.tabla th{background:var(--cp-oscuro);color:#fff;padding:10px 12px;text-align:left}
+  table.tabla td{padding:10px 12px;border-bottom:1px solid var(--gris-claro);vertical-align:top}
+  table.tabla tr:last-child td{border-bottom:none}
+  .actividad{background:#fff;border:2px solid var(--acento);border-radius:10px;padding:16px 20px;margin:14px 0}
+  .actividad h4{color:#8a3d0c;margin-top:0}
+  .badge{display:inline-block;padding:3px 10px;border-radius:12px;font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-right:6px}
+  .badge-lectura{background:#e3f2fd;color:#0d47a1}
+  /* Clasificadores */
+  .clasificador{background:#fff;border:2px solid var(--cp);border-radius:12px;padding:14px 18px;margin:18px 0}
+  .item{border:2px solid var(--gris-claro);border-radius:8px;padding:10px 14px;margin:8px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+  .item-pal{font-family:Georgia,serif;font-size:1.12rem;color:var(--texto);display:flex;align-items:center;gap:10px}
+  .item-ops{display:flex;gap:8px;flex-wrap:wrap}
+  .item-fb{flex-basis:100%;font-size:.95rem}
+  .item-fb:empty{display:none}
+  .btn-op{padding:7px 14px;border:2px solid var(--cp-oscuro);background:#fff;color:var(--cp-oscuro);border-radius:8px;cursor:pointer;font-weight:600;font-family:inherit;font-size:.92rem}
+  .btn-op:hover:not(:disabled){background:var(--cp-claro)}
+  .btn-op.correcta{background:#d4edda;border-color:var(--exito);color:#155724}
+  .btn-op.correcta::before{content:'✓ '}
+  .btn-op.incorrecta{background:#f8d7da;border-color:var(--error);color:#721c24;text-decoration:line-through}
+  .btn-op.incorrecta::before{content:'✗ '}
+  .btn-op:disabled{cursor:default}
+  .apilado .item{flex-direction:column;align-items:stretch}
+  .apilado .item-ops{flex-direction:column}
+  .apilado .btn-op{text-align:left;font-weight:400}
+  .apilado .item-pal{font-family:'Segoe UI',Arial,sans-serif;font-size:1rem;font-weight:600;display:block}
+  .puntaje{text-align:center;margin-top:12px;font-weight:600;color:var(--cp-oscuro)}
+  /* Lectura con marcas: color + borde distinto + etiqueta escrita */
+  .texto-lectura{background:#fff;border:2px solid var(--gris-claro);border-radius:8px;padding:18px 22px;margin:14px 0;font-family:Georgia,serif;font-size:1.12rem;line-height:2.1}
+  .texto-lectura p{margin:0 0 10px}
+  .num-p{display:inline-block;background:var(--cp-oscuro);color:#fff;border-radius:50%;width:1.6em;height:1.6em;text-align:center;line-height:1.6em;font-size:.8rem;font-family:'Segoe UI',Arial,sans-serif;margin-right:6px;vertical-align:middle}
+  .m-sus{background:#e3f2fd;color:#0d3c78;border-bottom:3px solid #0d3c78}
+  .m-adj{background:#fff3e0;color:#6b3300;border-bottom:3px dashed #8a4b00}
+  .m-adv{background:#e8f5e9;color:#1b5e20;border-bottom:3px dotted #1b5e20}
+  .etq{font-weight:700;font-size:.78em;font-family:'Segoe UI',Arial,sans-serif;white-space:nowrap}
+  .oculta-marcas .m-sus,.oculta-marcas .m-adj,.oculta-marcas .m-adv{background:none;color:inherit;border:none}
+  .oculta-marcas .etq{display:none}
+  .leyenda-marcas{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0;font-size:.92rem}
+  .leyenda-marcas span{padding:2px 8px}
+  /* Índice */
+  .indice{background:#fff;border:1px solid #d6dde4;border-left:6px solid var(--cp);border-radius:10px;padding:16px 20px;margin:22px 0}
+  .indice h2{font-size:1.1rem;margin:0 0 8px;border:none;padding:0}
+  .indice ol{margin:0;padding-left:1.4em}
+  .indice li{margin:4px 0}
+  .indice a{color:var(--cp-oscuro)}
+  .abrir-cerrar{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0 0}
+  .volver-indice{position:fixed;right:18px;bottom:18px;z-index:60;background:var(--cp-oscuro);color:#fff;border-radius:999px;padding:10px 16px;font-weight:700;font-size:.92rem;text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,.28)}
+  .volver-indice:hover{background:var(--cp);color:#fff}
+  a:focus-visible,summary:focus-visible,button:focus-visible,textarea:focus-visible{outline:3px solid #b35316;outline-offset:2px}
+  .sr-solo{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+  .enlace-practica{display:block;background:#fff;border:2px solid var(--cp);border-radius:10px;padding:14px 18px;margin:16px 0;text-decoration:none;color:var(--cp-oscuro);font-weight:600}
+  .enlace-practica:hover{background:var(--cp-claro)}
+  .enlace-practica span{display:block;font-weight:400;color:var(--texto);font-size:.95rem}
+  .aviso-voz{font-size:.9rem;color:#5c3900;background:#fff3cd;border-radius:6px;padding:6px 10px;display:none}
+  .aviso-voz.visible{display:block}
+  /* Quiz */
+  .qz-intro{background:var(--cp-claro);border-radius:10px;padding:14px 18px;margin:0 0 14px}
+  .qz-intro h4{margin:0 0 6px;color:var(--cp-oscuro)}
+  .qz-preg{background:#fff;border:2px solid var(--gris-claro);border-radius:10px;padding:14px 18px;margin:12px 0}
+  .qz-enun{font-weight:600;margin:0 0 10px}
+  .qz-num{display:inline-block;background:var(--cp-oscuro);color:#fff;border-radius:12px;padding:1px 10px;font-size:.8rem;margin-right:8px}
+  .qz-ops{display:flex;flex-direction:column;gap:8px}
+  .qz-op{text-align:left;background:#fff;border:2px solid #c9d2db;border-radius:8px;padding:10px 14px;font-family:inherit;font-size:1rem;cursor:pointer;color:var(--texto)}
+  .qz-op:hover:not(:disabled){border-color:var(--cp)}
+  .qz-op.elegida{background:var(--cp-claro);border-color:var(--cp-oscuro);color:var(--cp-oscuro);box-shadow:0 0 0 3px #fff,0 0 0 5px var(--cp)}
+  .qz-op.correcta{background:#d4edda;border-color:#2e7d32;color:#155724}
+  .qz-op.correcta::before{content:'✓ '}
+  .qz-op.incorrecta{background:#f8d7da;border-color:#c62828;color:#721c24}
+  .qz-op.incorrecta::before{content:'✗ '}
+  .qz-op:disabled{cursor:default}
+  .qz-resultado{display:none;margin:16px 0;padding:16px;border-radius:10px;text-align:center;font-weight:600}
+  .qz-resultado.visible{display:block}
+  .qz-repaso{margin:10px 0 0;padding:8px 12px;background:#fff3cd;border-radius:6px;color:#3d2600;font-size:.95rem}
+  .qz-repaso a{color:var(--cp-oscuro);font-weight:700}
+  /* Taller de escritura */
+  .taller{background:#fff;border:2px solid var(--cp);border-radius:12px;padding:14px;margin:14px 0}
+  .tl-etq{display:block;font-weight:700;color:var(--cp-oscuro);margin-bottom:6px}
+  .tl-txt{width:100%;box-sizing:border-box;font:inherit;font-size:1.05rem;line-height:1.7;padding:10px 12px;border:2px solid #9aa9b7;border-radius:8px;resize:vertical;min-height:200px}
+  .tl-txt:focus{outline:3px solid var(--cp);outline-offset:1px;border-color:var(--cp-oscuro)}
+  .tl-cuenta{font-size:.92rem;color:#333;margin:6px 0}
+  .tl-conect{font-size:.95rem;margin:4px 0 8px}
+  .tl-chip{display:inline-block;background:var(--cp-claro);color:var(--cp-oscuro);border:1px solid var(--cp);border-radius:12px;padding:1px 10px;margin:2px 2px;font-weight:700}
+  .tl-aviso{min-height:1.4em;font-weight:700;color:var(--cp-oscuro)}
+  .tl-lista{border:2px dashed var(--cp);border-radius:10px;padding:8px 14px;margin-top:10px}
+  .tl-lista legend{font-weight:700;color:var(--cp-oscuro);padding:0 6px}
+  .tl-lista label{display:flex;gap:10px;align-items:flex-start;padding:6px 0;cursor:pointer}
+  .tl-lista input{width:22px;height:22px;flex-shrink:0;margin-top:2px;accent-color:var(--cp-oscuro)}
+  .tl-listo{font-weight:700;color:var(--cp-oscuro);margin:6px 0 0}
+  .rubrica{font-size:.92rem}
+  .rubrica td,.rubrica th{vertical-align:top}
+  @media(max-width:640px){
+    .rubrica thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+    .rubrica,.rubrica tbody,.rubrica tr,.rubrica th,.rubrica td{display:block;width:auto}
+    .rubrica tr{border:2px solid var(--cp);border-radius:10px;margin:0 0 10px;overflow:hidden}
+    .rubrica tbody th{background:var(--cp-oscuro);color:#fff;border:none}
+    .rubrica td{border:none;border-top:1px solid #d5dde3}
+    .rubrica td::before{content:attr(data-et);display:block;font-weight:700;color:var(--cp-oscuro)}
+  }
+  footer.pie{margin-top:40px;padding-top:18px;border-top:2px solid var(--gris-claro);text-align:center;color:#555;font-size:.9rem}
+  footer.pie p{margin:4px 0}
+  footer.pie a{color:var(--cp-oscuro)}
+  @media print{.indice,.volver-indice,.abrir-cerrar{display:none}}
+  @media (prefers-reduced-motion:reduce){summary::before{transition:none}}
+  .crono{background:#fff;border:2px solid var(--cp-oscuro);border-radius:12px;padding:12px 16px;margin:14px 0}
+  .crono-t,.crono-plan{margin:0 0 8px}
+  .crono-plan{font-size:.93rem;color:#333}
+  .crono-fila{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+  .crono-reloj{font-family:'Courier New',monospace;font-size:2rem;font-weight:700;color:var(--cp-oscuro);background:var(--cp-claro);border-radius:8px;padding:2px 14px;min-width:6ch;text-align:center}
+  .crono-reloj.crono-poco{background:#fff3cd;color:#5c3900;outline:3px dashed #8a5a00}
+  .crono-reloj.crono-fin{background:#1a2332;color:#fff}
+  .crono-barra{height:8px;background:var(--gris-claro);border-radius:4px;margin:10px 0 4px;overflow:hidden}
+  .crono-barra span{display:block;height:100%;width:0;background:var(--cp)}
+  .crono-aviso{min-height:1.4em;font-weight:700;color:var(--cp-oscuro);margin:4px 0 0}
+
+  .m-af{background:#e3f2fd;color:#0d3c78;border-bottom:3px solid #0d3c78}
+  .m-ev{background:#e8f5e9;color:#1b5e20;border-bottom:3px dotted #1b5e20}
+  .m-de{background:#fff3e0;color:#7a3300;border-bottom:3px dashed #7a3300}
+  .m-co{background:#f3e5f5;color:#5b1a6e;border-bottom:3px double #5b1a6e}
+  .oculta-marcas .m-af,.oculta-marcas .m-ev,.oculta-marcas .m-de,.oculta-marcas .m-co{background:none;color:inherit;border:none}
+  .leyenda{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0;font-size:.92rem}
+  .leyenda span{padding:2px 8px;border-radius:4px}
+  .prompt{background:var(--cp-claro);border:2px solid var(--cp-oscuro);border-radius:10px;padding:12px 16px;margin:12px 0}
+  .prompt p{margin:6px 0}
+  .dos-textos{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+  .dos-textos .texto-lectura{margin:0}
+  .dos-textos h3{font-size:1.05rem}
+  .autoeval fieldset{border:2px solid var(--gris-claro);border-radius:10px;padding:10px 14px;margin:10px 0}
+  .autoeval legend{font-weight:700;color:var(--cp-oscuro);padding:0 6px}
+  .autoeval label{display:flex;gap:8px;align-items:flex-start;margin:6px 0;cursor:pointer}
+  .autoeval input{width:20px;height:20px;flex:none;margin-top:3px;accent-color:var(--cp-oscuro)}
+  .lista-cotejo{list-style:none;padding:0;margin:10px 0}
+  .lista-cotejo li{padding:8px 0;border-bottom:1px solid var(--gris-claro)}
+  .lista-cotejo label{display:flex;gap:10px;align-items:flex-start;cursor:pointer}
+  .lista-cotejo input{width:22px;height:22px;flex:none;margin-top:2px;accent-color:var(--cp-oscuro)}
+  .grab{background:#fff;border:2px solid var(--cp-oscuro);border-radius:12px;padding:12px 16px;margin:14px 0}
+  .grab-fila{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+  .grab-tiempo{font-family:'Courier New',monospace;font-size:1.6rem;font-weight:700;color:var(--cp-oscuro);background:var(--cp-claro);border-radius:8px;padding:2px 12px}
+  .grab-tiempo.grabando{background:#1a2332;color:#fff}
+  .grab audio{width:100%;margin-top:10px}
+  .grab-aviso{min-height:1.4em;font-weight:600;color:var(--cp-oscuro);margin:8px 0 0}
+  .ev-bloque{background:#fff;border:2px solid var(--cp);border-radius:12px;padding:12px 16px;margin:16px 0}
+  .ev-bloque h3{margin-top:0}
+  .ev-nombre{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:10px 0}
+  .ev-nombre input{font-family:inherit;font-size:1rem;padding:6px 10px;border:2px solid #c9d2db;border-radius:8px;min-width:220px}
+  .ev-areas{width:100%;border-collapse:collapse;margin:10px 0}
+  .ev-areas th,.ev-areas td{border:1px solid #c9d2db;padding:6px 10px;text-align:left}
+  .ev-areas th{background:var(--cp-oscuro);color:#fff}
+  .ev-fallos li{margin:6px 0}
+  .ev-fallos a{color:var(--cp-oscuro);font-weight:700}
+  #ev-resumen{display:none}
+  @media print{
+    body.imprime > *:not(#ev-resumen){display:none !important}
+    body.imprime #ev-resumen{display:block !important;font-size:12pt;color:#000}
+    #ev-resumen a{color:#000;text-decoration:none}
+    #ev-resumen a::after{content:' (' attr(href) ')';font-size:9pt}
+  }
+</style>
+</head>
+<body>
+<h1>Lección 8.3 · Respuesta Extendida, proyecto final y evaluación del nivel</h1>
+<p class="subtitulo">Artes del Lenguaje · Nivel 4 · Tema 8: Investigación extensa, oralidad y preparación GED · Unas 3 horas, a tu ritmo</p>
+
+<div class="caja-objetivos">
+  <h2>🎯 Objetivos de la lección</h2>
+  <ul class="lista-bonita" style="margin:0">
+    <li><strong>Analizar el prompt</strong> y las dos fuentes de la Respuesta Extendida del GED.</li>
+    <li><strong>Planificar, redactar y revisar</strong> en 45 minutos un ensayo que evalúa argumentos con evidencia de los textos.</li>
+    <li><strong>Presentar en voz alta</strong> un proyecto final que integra lo aprendido y <strong>evaluar tu dominio del nivel</strong>.</li>
+  </ul>
+  <p style="margin:8px 0 0;font-size:.92rem">Estándares: 5–6.W.RB.1 · 5–6.S.CC.1–4 · 5–6.S.PK.1, 2 y 4 · GED RLA</p>
+</div>
+
+<nav class="indice" id="indice" aria-labelledby="indice-titulo">
+  <h2 id="indice-titulo">Contenido de la lección</h2>
+  <ol>
+    <li><a href="#s-1-que-pide">Qué pide la Respuesta Extendida</a></li>
+    <li><a href="#s-2-prompt">El prompt y los dos textos</a></li>
+    <li><a href="#s-3-analiza">Analizar los textos</a></li>
+    <li><a href="#s-4-planifica">Planificar en 10 minutos</a></li>
+    <li><a href="#s-5-modelo">Ensayo modelo puntuado</a></li>
+    <li><a href="#s-6-taller">Taller: tu Respuesta Extendida en 45 minutos</a></li>
+    <li><a href="#s-7-oral">Proyecto final: preséntalo en voz alta</a></li>
+    <li><a href="#s-8-evaluacion">Evaluación final del nivel</a></li>
+    <li><a href="#s-cierre">Cierre del nivel y próximos pasos</a></li>
+  </ol>
+  <div class="abrir-cerrar">
+    <button type="button" class="btn btn-secundario" id="abrir-todo">Abrir todo</button>
+    <button type="button" class="btn btn-secundario" id="cerrar-todo">Cerrar todo</button>
+  </div>
+</nav>
+
+<h2>📚 Para empezar</h2>
+<p>Esta es la última lección del nivel. En ella juntas todo lo que has practicado: leer con espíritu crítico (temas 3 y 5), escribir un argumento con evidencia (Tema 7), investigar y citar (Lección 8.1) y manejar el tiempo del examen (Lección 8.2). Al final, una evaluación de 20 preguntas te dirá qué dominas y qué conviene repasar antes del GED.</p>
+<p class="aviso-voz" id="aviso-voz" role="status">Tu navegador no tiene una voz en español disponible, así que los botones 🔊 no sonarán.</p>
+
+<details open id="s-1-que-pide">
+<summary>1. Qué pide la Respuesta Extendida <span class="caja-tiempo">15 min</span></summary>
+<div class="contenido-detalle">
+<p>En la Respuesta Extendida lees <strong>dos textos con posturas opuestas</strong> sobre un mismo tema y escribes un ensayo en <strong>45 minutos</strong>. La clave está en lo que se pide:</p>
+<div class="tip"><strong>⚠️ No se pide tu opinión sobre el tema.</strong> Se pide que <strong>analices los argumentos</strong> de los dos autores y expliques <strong>cuál está mejor apoyado</strong>, con evidencia de los textos. Puedes estar de acuerdo con el autor peor argumentado; en el ensayo debes defender al que argumenta mejor.</div>
+<p>El ensayo se puntúa con tres rasgos, de 0 a 2 puntos cada uno (6 en total):</p>
+<table class="tabla rubrica">
+  <caption class="sr-solo">Rúbrica de la Respuesta Extendida del GED: tres rasgos y lo que se pide para 2, 1 y 0 puntos</caption>
+  <thead><tr><th scope="col">Rasgo</th><th scope="col">2 puntos</th><th scope="col">1 punto</th><th scope="col">0 puntos</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">1 · Creación de argumentos y uso de la evidencia</th><td>Afirmación clara basada en los textos; evidencia específica y pertinente de ambos; evalúa la validez de los argumentos</td><td>Afirmación presente pero general; evidencia escasa o poco explicada; evaluación superficial</td><td>Sin afirmación, sin evidencia o sin relación con el prompt</td></tr>
+    <tr><th scope="row">2 · Desarrollo de las ideas y estructura</th><td>Ideas desarrolladas con lógica; introducción, párrafos de desarrollo y conclusión; transiciones; tono formal</td><td>Desarrollo desigual; estructura reconocible pero con saltos</td><td>Ideas sueltas o sin organización</td></tr>
+    <tr><th scope="row">3 · Claridad y dominio de las convenciones</th><td>Oraciones variadas y claras; pocos errores, que no dificultan la lectura</td><td>Errores frecuentes que a veces dificultan la lectura</td><td>Errores graves que impiden entender el texto</td></tr>
+  </tbody>
+</table>
+<p style="font-size:.92rem">Rúbrica resumida y traducida a partir de la rúbrica oficial de GED Testing Service. La extensión que suele dar buenos resultados está entre 4 y 7 párrafos.</p>
+<div class="clasificador apilado" id="clasif-pide"></div>
+<div class="puntaje" id="puntaje-pide" role="status" aria-live="polite"></div>
+</div>
+</details>
+
+<details id="s-2-prompt">
+<summary>2. El prompt y los dos textos <span class="caja-tiempo">15 min</span></summary>
+<div class="contenido-detalle">
+<div class="prompt">
+  <p><strong>Prompt</strong></p>
+  <p>Los textos siguientes presentan dos posturas sobre la hora de entrada en las escuelas secundarias.</p>
+  <p>En tu respuesta, <strong>analiza ambos textos</strong> para determinar <strong>cuál de las dos posturas está mejor fundamentada</strong>. Usa evidencia relevante y específica de los dos textos para apoyar tu respuesta.</p>
+  <p>Escribe tu respuesta en unos 45 minutos.</p>
+</div>
+<p style="font-size:.92rem"><em>Los dos autores y sus textos son inventados para esta lección. Los datos y las fuentes que cita el Texto 1 son reales.</em></p>
+<div class="dos-textos">
+<div class="texto-lectura" id="texto-1">
+  <h3 style="margin-top:0">Texto 1 · «La campana suena demasiado temprano»</h3>
+  <p style="font-family:'Segoe UI',Arial,sans-serif;font-size:.88rem;margin-top:-6px">Dra. Laura Méndez, pediatra</p>
+  <p><span class="num-p" aria-hidden="true">1</span>Cada mañana veo en mi consulta a adolescentes agotados. No es pereza: durante la adolescencia, el reloj biológico se retrasa, y a muchos jóvenes les cuesta dormirse temprano. Si las clases empiezan a las 7:30, es casi imposible que duerman lo que necesitan.</p>
+  <p><span class="num-p" aria-hidden="true">2</span>Según los Centros para el Control y la Prevención de Enfermedades (CDC), los adolescentes necesitan entre 8.5 y 9.5 horas de sueño en las noches de escuela, y dos de cada tres estudiantes de secundaria no las duermen. Los CDC relacionan la falta de sueño con el sobrepeso, el consumo de alcohol y tabaco, y un peor rendimiento escolar.</p>
+  <p><span class="num-p" aria-hidden="true">3</span>Por eso, la Academia Estadounidense de Pediatría recomendó en 2014 que las escuelas intermedias y secundarias no empiecen antes de las 8:30 de la mañana. Sin embargo, en el curso 2011-2012, menos de una de cada cinco empezaba a esa hora o más tarde.</p>
+  <p><span class="num-p" aria-hidden="true">4</span>Cambiar es posible. En 2019, California aprobó una ley que, desde 2022, impide que sus secundarias empiecen antes de las 8:30. Si un estado de 39 millones de habitantes puede hacerlo, nuestro distrito también puede.</p>
+  <p><span class="num-p" aria-hidden="true">5</span>Retrasar la entrada una hora no es un capricho: es una medida de salud pública.</p>
+</div>
+<div class="texto-lectura" id="texto-2">
+  <h3 style="margin-top:0">Texto 2 · «Dejemos el horario como está»</h3>
+  <p style="font-family:'Segoe UI',Arial,sans-serif;font-size:.88rem;margin-top:-6px">Ramón Ortiz, director de transporte escolar del distrito</p>
+  <p><span class="num-p" aria-hidden="true">1</span>Llevo veinte años organizando los autobuses del distrito y les aseguro que el horario actual funciona. Las secundarias empiezan a las 7:30, y así ha sido siempre.</p>
+  <p><span class="num-p" aria-hidden="true">2</span>Mi propio hijo se levantaba a las seis todos los días y sacaba buenas notas. Si él pudo, cualquier estudiante puede. Lo que hace falta es disciplina, no más horas en la cama.</p>
+  <p><span class="num-p" aria-hidden="true">3</span>Además, cambiar el horario saldría caro. Los mismos autobuses que llevan a los alumnos de secundaria hacen después la ruta de primaria; si la secundaria empieza más tarde, habría que comprar más autobuses o contratar más conductores.</p>
+  <p><span class="num-p" aria-hidden="true">4</span>Y no olvidemos lo que vendría después: si hoy retrasamos la entrada a las 8:30, mañana los estudiantes pedirán empezar a las diez, y pronto querrán empezar a mediodía.</p>
+  <p><span class="num-p" aria-hidden="true">5</span>Los padres que trabajan temprano también necesitan que sus hijos salgan de casa a su hora. No arreglemos lo que no está roto.</p>
+</div>
+</div>
+<div class="botones" style="justify-content:flex-start">
+  <button type="button" class="btn btn-secundario" id="leer-t1">🔊 Escuchar el Texto 1</button>
+  <button type="button" class="btn btn-secundario" id="leer-t2">🔊 Escuchar el Texto 2</button>
+</div>
+</div>
+</details>
+
+<details id="s-3-analiza">
+<summary>3. Analizar los textos <span class="caja-tiempo">20 min</span></summary>
+<div class="contenido-detalle">
+<p>Antes de escribir, haz una tabla en tu hoja con lo que ofrece cada texto. Es la aplicación directa de la Lección 5.1: validez, relevancia y suficiencia.</p>
+<table class="tabla">
+  <caption class="sr-solo">Comparación de la evidencia y el razonamiento de los dos textos</caption>
+  <thead><tr><th scope="col">Aspecto</th><th scope="col">Texto 1 · Méndez</th><th scope="col">Texto 2 · Ortiz</th></tr></thead>
+  <tbody>
+    <tr><td>Afirmación</td><td>Las secundarias deberían empezar a las 8:30 o más tarde</td><td>Hay que mantener la entrada a las 7:30</td></tr>
+    <tr><td>Tipo de evidencia</td><td>Datos de los CDC, recomendación de la Academia de Pediatría, ley de California</td><td>Su experiencia y la de su hijo</td></tr>
+    <tr><td>Razonamiento</td><td>Válido: cada conclusión se apoya en datos</td><td>Generalización (un caso), pendiente resbaladiza, apelación a la tradición</td></tr>
+    <tr><td>Objeciones</td><td>Anticipa que «no se puede»: responde con California</td><td>Plantea un problema real (el costo de los autobuses), pero sin cifras</td></tr>
+  </tbody>
+</table>
+<div class="clasificador apilado" id="clasif-analiza"></div>
+<div class="puntaje" id="puntaje-analiza" role="status" aria-live="polite"></div>
+<div class="tip"><strong>💡 Sé justo con el texto más débil.</strong> Reconocer lo que tiene de razonable (el costo del transporte) y explicar por qué no basta demuestra que evalúas, no que repites. Los correctores lo valoran en el Rasgo 1.</div>
+</div>
+</details>
+
+<details id="s-4-planifica">
+<summary>4. Planificar en 10 minutos <span class="caja-tiempo">10 min</span></summary>
+<div class="contenido-detalle">
+<table class="tabla">
+  <caption class="sr-solo">Esquema de cinco párrafos para la Respuesta Extendida</caption>
+  <thead><tr><th scope="col">Párrafo</th><th scope="col">Qué va</th><th scope="col">En el ejemplo</th></tr></thead>
+  <tbody>
+    <tr><td>1 · Introducción</td><td>Presenta el tema y las dos posturas; afirmación: qué texto está mejor apoyado y por qué</td><td>Méndez está mejor fundamentada: datos, fuentes, ejemplo real; Ortiz, anécdotas</td></tr>
+    <tr><td>2 · Desarrollo</td><td>Primera fortaleza del texto mejor apoyado, con cita y explicación</td><td>CDC y Academia de Pediatría</td></tr>
+    <tr><td>3 · Desarrollo</td><td>Segunda fortaleza</td><td>El ejemplo de California</td></tr>
+    <tr><td>4 · Desarrollo</td><td>Debilidades del otro texto, con cita</td><td>Un solo caso, pendiente resbaladiza, «así ha sido siempre»</td></tr>
+    <tr><td>5 · Concesión y conclusión</td><td>Lo que tiene de razonable el texto débil y por qué no basta; cierre</td><td>El costo de los autobuses, sin cifras</td></tr>
+  </tbody>
+</table>
+<p>Recuerda el reparto de la Lección 7.1: de 5 a 10 minutos para planificar, de 25 a 30 para escribir y de 5 a 10 para revisar.</p>
+</div>
+</details>
+
+<details id="s-5-modelo">
+<summary>5. Ensayo modelo puntuado <span class="caja-tiempo">20 min</span></summary>
+<div class="contenido-detalle">
+<div class="actividad">
+  <h4><span class="badge badge-lectura">Lectura de ensayo modelo</span> Individual · fíjate en las partes</h4>
+  <p style="margin:0">Pulsa «Marcar las partes» para ver la afirmación, la evidencia, la evaluación de los argumentos y la concesión.</p>
+</div>
+<div class="leyenda" aria-hidden="true"><span class="m-af">Afirmación</span><span class="m-ev">Evidencia de los textos</span><span class="m-de">Evaluación de un argumento</span><span class="m-co">Concesión y refutación</span></div>
+<div class="texto-lectura oculta-marcas" id="lectura">
+  <p><span class="num-p" aria-hidden="true">1</span>¿A qué hora deberían empezar las clases en la secundaria? Los dos textos responden de forma opuesta: la doctora Méndez defiende retrasar la entrada a las 8:30 o más tarde, y el señor Ortiz prefiere mantenerla a las 7:30. <span class="m-af">Aunque Ortiz plantea un problema real, el argumento de Méndez está mucho mejor fundamentado, porque se apoya en datos oficiales, en una recomendación médica y en un ejemplo real, mientras que Ortiz se basa en anécdotas y en razonamientos débiles.</span></p>
+  <p><span class="num-p" aria-hidden="true">2</span>En primer lugar, Méndez respalda cada afirmación con fuentes reconocidas. <span class="m-ev">Cita a los CDC, según los cuales los adolescentes necesitan «entre 8.5 y 9.5 horas de sueño», y a la Academia Estadounidense de Pediatría, que en 2014 recomendó no empezar antes de las 8:30.</span> Además, explica por qué importa: la falta de sueño se relaciona con un peor rendimiento escolar. Son pruebas específicas que cualquier lector puede comprobar.</p>
+  <p><span class="num-p" aria-hidden="true">3</span>En segundo lugar, Méndez demuestra que su propuesta se puede aplicar. <span class="m-ev">California aprobó en 2019 una ley que, desde 2022, impide que sus secundarias empiecen antes de las 8:30.</span> Este ejemplo responde por adelantado a quien piense que el cambio es imposible.</p>
+  <p><span class="num-p" aria-hidden="true">4</span>Por el contrario, Ortiz no ofrece datos. <span class="m-de">Su principal prueba es que su hijo «se levantaba a las seis todos los días y sacaba buenas notas», pero un solo caso no demuestra lo que conviene a todos los estudiantes.</span> <span class="m-de">También afirma que, si se retrasa la entrada, los estudiantes «pronto querrán empezar a mediodía», una pendiente resbaladiza sin ninguna prueba.</span> <span class="m-de">Y defiende el horario porque «así ha sido siempre», lo cual describe una costumbre, pero no da una razón.</span></p>
+  <p><span class="num-p" aria-hidden="true">5</span><span class="m-co">Es cierto que Ortiz señala un problema práctico: reorganizar las rutas de autobús puede costar dinero. Sin embargo, no da ninguna cifra, y el caso de California muestra que los distritos pueden adaptarse.</span> En conclusión, el texto de Méndez es más convincente porque presenta evidencia sólida y verificable y anticipa las objeciones, mientras que el de Ortiz depende de anécdotas y falacias. Su preocupación por los costos merece atención, pero no basta para rebatir los datos sobre la salud de los adolescentes.</p>
+</div>
+<div class="botones" style="justify-content:flex-start">
+  <button type="button" class="btn btn-secundario" id="leer-lectura">🔊 Escuchar el ensayo</button>
+  <button type="button" class="btn btn-secundario" id="ver-partes" aria-pressed="false">Marcar las partes</button>
+</div>
+<h3>Puntuación del ensayo modelo: 6 de 6</h3>
+<table class="tabla rubrica">
+  <caption class="sr-solo">Puntuación del ensayo modelo en cada rasgo y su justificación</caption>
+  <thead><tr><th scope="col">Rasgo</th><th scope="col">Puntos</th><th scope="col">Por qué</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">1 · Argumentos y evidencia</th><td>2</td><td>Afirmación clara desde el primer párrafo; cita los dos textos con datos y frases exactas; evalúa la validez (generalización, pendiente resbaladiza, tradición).</td></tr>
+    <tr><th scope="row">2 · Desarrollo y estructura</th><td>2</td><td>Introducción, tres párrafos de desarrollo y concesión con conclusión; transiciones («En primer lugar», «Por el contrario», «Sin embargo», «En conclusión»); tono formal.</td></tr>
+    <tr><th scope="row">3 · Claridad y convenciones</th><td>2</td><td>Oraciones variadas, con subordinadas y punto y coma bien usado; sin errores que dificulten la lectura.</td></tr>
+  </tbody>
+</table>
+<div class="clasificador apilado" id="clasif-modelo"></div>
+<div class="puntaje" id="puntaje-modelo" role="status" aria-live="polite"></div>
+</div>
+</details>
+
+<details id="s-6-taller">
+<summary>6. Taller: tu Respuesta Extendida en 45 minutos <span class="caja-tiempo">60 min</span></summary>
+<div class="contenido-detalle">
+<p>Ahora te toca a ti. Usa el mismo prompt y los mismos textos (sección 2) y escribe <strong>con tus propias palabras</strong>; no copies el ensayo modelo. Si quieres un reto mayor, defiende la misma conclusión con otras evidencias y otro orden.</p>
+<div class="crono" id="crono-83"></div>
+<div class="taller" id="taller-83"></div>
+<h3>Autoevaluación con la rúbrica</h3>
+<p>Cuando termines, relee tu ensayo y puntúalo con honestidad en cada rasgo.</p>
+<div class="autoeval" id="autoeval">
+  <fieldset><legend>Rasgo 1 · Argumentos y evidencia</legend>
+    <label><input type="radio" name="r1" value="2"> <span>2 · Afirmación clara; evidencia específica de los dos textos; evalúo la validez de los argumentos.</span></label>
+    <label><input type="radio" name="r1" value="1"> <span>1 · Hay afirmación, pero la evidencia es escasa o no la explico.</span></label>
+    <label><input type="radio" name="r1" value="0"> <span>0 · No hay afirmación o no uso los textos.</span></label></fieldset>
+  <fieldset><legend>Rasgo 2 · Desarrollo y estructura</legend>
+    <label><input type="radio" name="r2" value="2"> <span>2 · Introducción, desarrollo y conclusión; transiciones; tono formal.</span></label>
+    <label><input type="radio" name="r2" value="1"> <span>1 · La estructura se reconoce, pero hay saltos o ideas sin desarrollar.</span></label>
+    <label><input type="radio" name="r2" value="0"> <span>0 · Ideas sueltas, sin orden.</span></label></fieldset>
+  <fieldset><legend>Rasgo 3 · Claridad y convenciones</legend>
+    <label><input type="radio" name="r3" value="2"> <span>2 · Oraciones claras y variadas; pocos errores.</span></label>
+    <label><input type="radio" name="r3" value="1"> <span>1 · Errores frecuentes que a veces dificultan la lectura.</span></label>
+    <label><input type="radio" name="r3" value="0"> <span>0 · Los errores impiden entender el texto.</span></label></fieldset>
+  <p class="puntaje" id="autoeval-total" role="status" aria-live="polite">Elige un nivel en cada rasgo para ver tu puntuación.</p>
+</div>
+<a class="enlace-practica" href="https://zhemaria.github.io/examen/lenguaje_escritura" target="_blank" rel="noopener noreferrer">✍️ Evaluador de Respuesta Extendida
+  <span>Un segundo prompt, con las instrucciones y el tiempo del examen, y una evaluación de tu ensayo por los tres rasgos. Se abre en una pestaña nueva.</span></a>
+</div>
+</details>
+
+<details id="s-7-oral">
+<summary>7. Proyecto final: preséntalo en voz alta <span class="caja-tiempo">40 min</span></summary>
+<div class="contenido-detalle">
+<p>El proyecto final integra el nivel: tomas tu <strong>mini investigación de la Lección 8.1</strong> o tu <strong>Respuesta Extendida</strong> y la conviertes en una <strong>presentación oral de 3 minutos</strong>. Hablar en público es una destreza que el college y el trabajo te van a pedir, y explicar en voz alta también te ayuda a descubrir los huecos de tu razonamiento.</p>
+<h3>Cómo prepararla</h3>
+<ul class="lista-bonita">
+  <li><strong>Inicio (30 segundos):</strong> una pregunta o un dato que despierte interés, y tu afirmación en una oración.</li>
+  <li><strong>Desarrollo (2 minutos):</strong> dos o tres razones, cada una con su evidencia y su fuente («según los CDC…»).</li>
+  <li><strong>Cierre (30 segundos):</strong> resume y deja una idea final.</li>
+  <li><strong>Apoyos:</strong> una tarjeta con palabras clave, no el texto completo. Si usas una gráfica o una imagen, explícala en voz alta.</li>
+  <li><strong>Registro:</strong> adapta el lenguaje al público: formal ante un jurado o en una entrevista; claro y cercano ante tu familia.</li>
+</ul>
+<h3>Grábate y escúchate</h3>
+<p>La grabación se queda en tu equipo: no se envía a ningún sitio. Al pulsar «Grabar», el navegador te pedirá permiso para usar el micrófono.</p>
+<div class="grab" id="grab"></div>
+<h3>Lista de cotejo de la presentación</h3>
+<ul class="lista-cotejo" id="cotejo">
+  <li><label><input type="checkbox"> <span><strong>Afirmación clara</strong> al principio, en una oración.</span></label></li>
+  <li><label><input type="checkbox"> <span><strong>Evidencia con su fuente</strong> para cada razón.</span></label></li>
+  <li><label><input type="checkbox"> <span><strong>Orden lógico</strong>: inicio, desarrollo y cierre, con transiciones.</span></label></li>
+  <li><label><input type="checkbox"> <span><strong>Registro adecuado</strong> al público y al propósito.</span></label></li>
+  <li><label><input type="checkbox"> <span><strong>Voz clara</strong>, a buen ritmo, con pausas; miro al público, no al papel.</span></label></li>
+  <li><label><input type="checkbox"> <span><strong>Explico los apoyos visuales</strong> (gráfica, imagen o datos) si los uso.</span></label></li>
+  <li><label><input type="checkbox"> <span><strong>Me ajusto al tiempo</strong>: unos 3 minutos.</span></label></li>
+  <li><label><input type="checkbox"> <span><strong>Puedo responder preguntas</strong> sobre mis fuentes y mi razonamiento.</span></label></li>
+</ul>
+<p class="puntaje" id="cotejo-total" role="status" aria-live="polite">Criterios cumplidos: 0 de 8.</p>
+<div class="tip"><strong>👨‍👩‍👧 Si tienes con quién practicar:</strong> presenta ante alguien de tu familia o de tu grupo de estudio. Pídele que te haga una pregunta al final y que te diga qué criterio de la lista cumpliste mejor y cuál puedes mejorar.</div>
+</div>
+</details>
+
+<details id="s-8-evaluacion">
+<summary>8. Evaluación final del nivel <span class="caja-tiempo">40 min</span></summary>
+<div class="contenido-detalle">
+<div class="qz-intro">
+  <h4>🏁 Evaluación final · 20 preguntas · cinco áreas</h4>
+  <p style="margin:0">Cuatro preguntas por área: convenciones, vocabulario, lectura literaria, argumentos y datos. Al terminar verás tu resultado por áreas, las lecciones que conviene repasar y un resumen para imprimir o guardar en PDF. Puedes repetirla.</p>
+</div>
+<div class="ev-nombre"><label for="ev-nom"><strong>Tu nombre</strong> (opcional, solo para el resumen impreso):</label> <input type="text" id="ev-nom" autocomplete="name"></div>
+<div id="ev-cuerpo"></div>
+<div class="botones">
+  <button type="button" class="btn btn-primario" id="ev-calificar">Ver mi resultado</button>
+  <button type="button" class="btn btn-secundario" id="ev-imprimir" style="display:none">🖨️ Imprimir o guardar el resumen</button>
+  <button type="button" class="btn btn-secundario" id="ev-reintentar" style="display:none">Intentar de nuevo</button>
+</div>
+<div class="qz-resultado" id="ev-resultado" role="status" aria-live="polite"></div>
+<div id="ev-detalle"></div>
+</div>
+</details>
+
+<details id="s-cierre">
+<summary>9. Cierre del nivel y próximos pasos <span class="caja-tiempo">10 min</span></summary>
+<div class="contenido-detalle">
+<h3>🎓 ¡Terminaste el Nivel 4!</h3>
+<p>En este nivel aprendiste a manejar la sintaxis compleja y las convenciones con precisión, a leer el lenguaje figurado y la retórica, a evaluar argumentos y documentos, a interpretar datos científicos, a escribir ensayos argumentativos y explicativos, a investigar con fuentes confiables y a presentar tus ideas en voz alta. Son exactamente las destrezas que mide el examen de Artes del Lenguaje del GED.</p>
+<h3>Próximos pasos hacia el examen</h3>
+<ol class="lista-bonita">
+  <li><strong>Repasa</strong> las lecciones que te señaló la evaluación final.</li>
+  <li><strong>Haz el simulador completo</strong> de Artes del Lenguaje con sus tiempos y guarda el informe: cada tema que falles te lleva a su lección. Si estudias por tu cuenta, escribe <strong>9999</strong> como código de grupo.</li>
+  <li><strong>Escribe al menos dos Respuestas Extendidas más</strong> con el evaluador, con el cronómetro de 45 minutos.</li>
+  <li><strong>Haz el examen de práctica oficial GED Ready</strong> y, cuando el resultado te indique que estás listo, <strong>programa tu examen</strong> en <a href="https://ged.com" target="_blank" rel="noopener noreferrer" style="color:var(--cp-oscuro);font-weight:700">ged.com</a>.</li>
+</ol>
+<div class="botones" style="justify-content:flex-start;flex-wrap:wrap">
+  <a class="enlace-practica" style="flex:1 1 260px" href="https://zhemaria.github.io/examen/lenguaje_lectura" target="_blank" rel="noopener noreferrer">📝 Simulador de Artes del Lenguaje<span>45 preguntas en dos partes cronometradas. Se abre en una pestaña nueva.</span></a>
+  <a class="enlace-practica" style="flex:1 1 260px" href="https://zhemaria.github.io/examen/lenguaje_escritura" target="_blank" rel="noopener noreferrer">✍️ Evaluador de Respuesta Extendida<span>45 minutos y evaluación por rasgos. Se abre en una pestaña nueva.</span></a>
+</div>
+<div class="caja-objetivos" style="background:#fff3e0;border-left-color:var(--acento)">
+  <h2 style="color:#8a3d0c;border:none;padding:0;margin-top:0;font-size:1.2rem">✅ Antes de irte, revísate</h2>
+  <ul class="lista-bonita">
+    <li>¿Qué pide exactamente el prompt de la Respuesta Extendida: tu opinión o tu análisis?</li>
+    <li>¿Qué tres rasgos se puntúan, y cuál es el que más te cuesta?</li>
+    <li>¿Qué área de la evaluación final vas a repasar primero?</li>
+  </ul>
+</div>
+<p style="font-size:.9rem"><strong>Fuentes de los datos del Texto 1:</strong> Centros para el Control y la Prevención de Enfermedades, comunicado «Most US middle and high schools start the school day too early» (6 de agosto de 2015), que recoge la recomendación de la Academia Estadounidense de Pediatría (2014); Atkinson, Andelson, Loya, Ruud &amp; Romo, «New California Law Requires Later Start Times for Middle Schools and High Schools» (ley SB 328, firmada el 13 de octubre de 2019, en vigor desde el 1 de julio de 2022). Rúbrica: GED Testing Service. Consultadas en octubre de 2026. Los autores de los textos, el relato «El último turno» y la carta de la evaluación son inventados; los datos del experimento son los de la bitácora del profesor.</p>
+</div>
+</details>
+
+<footer class="pie">
+  <p><strong>GEDparaHispanos · Artes del Lenguaje · Nivel 4: Dominio del GED y Escritura Argumentativa · Tema 8 · Lección 8.3</strong></p>
+  <p>José M. Fernández, ABE/ASE Math Master Teacher, Harry S. Truman College — City Colleges of Chicago</p>
+  <p>© 2026. Esta obra está licenciada bajo <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es" rel="license noopener noreferrer" target="_blank">Creative Commons Reconocimiento-NoComercial-CompartirIgual 4.0 Internacional (CC BY-NC-SA 4.0)</a>.</p>
+</footer>
+<a class="volver-indice" href="#indice" aria-label="Volver al contenido de la lección"><span aria-hidden="true">↑</span> Índice</a>
+<div id="ev-resumen" aria-hidden="true"></div>
+
+<script>
+
+/* ===== Voz: todas las lecturas pasan por hablar(), para poder cambiarla después por audio grabado ===== */
+(function(){
+  var voz=null, hay=('speechSynthesis' in window);
+  function elegir(){
+    if(!hay)return;
+    var vs=speechSynthesis.getVoices().filter(function(v){return /^es/i.test(v.lang);});
+    var pref=['es-US','es-MX','es-419','es-CO','es-AR','es-CL','es-PE'];
+    voz=null;
+    for(var i=0;i<pref.length&&!voz;i++){voz=vs.find(function(v){return v.lang.replace('_','-').toLowerCase()===pref[i].toLowerCase();})||null;}
+    if(!voz)voz=vs.find(function(v){return !/es[-_]ES/i.test(v.lang);})||vs[0]||null;
+  }
+  function aviso(){var a=document.getElementById('aviso-voz');if(a)a.classList.add('visible');}
+  function frase(t,vel){var u=new SpeechSynthesisUtterance(t);u.lang=voz?voz.lang:'es-US';if(voz)u.voice=voz;u.rate=vel||0.9;return u;}
+  if(hay){elegir(); speechSynthesis.onvoiceschanged=elegir;}
+  window.hablar=function(texto,vel,fin){
+    if(!hay||!texto){aviso();return;}
+    speechSynthesis.cancel();
+    /* Se lee por oraciones: algunos navegadores cortan las lecturas largas */
+    var partes=texto.replace(/\s+/g,' ').match(/[^.!?…]+[.!?…]+[»"”)]*\s*|[^.!?…]+$/g)||[texto];
+    partes.forEach(function(t,i){var u=frase(t.trim(),vel); if(fin&&i===partes.length-1)u.onend=fin; speechSynthesis.speak(u);});
+  };
+  window.callar=function(){if(hay)speechSynthesis.cancel();};
+  if(!hay)document.addEventListener('DOMContentLoaded',aviso);
+})();
+
+/* ===== Clasificador: cada elemento con sus botones; al acertar muestra una nota =====
+   Las opciones propias de cada elemento se barajan; las opciones comunes conservan su orden */
+function orden(it,ops){
+  var o=ops.map(function(_,j){return j;});
+  if(it.ops&&!it.fijo){for(var k=o.length-1;k>0;k--){var r=Math.floor(Math.random()*(k+1)),t=o[k];o[k]=o[r];o[r]=t;}}
+  return o;
+}
+function clasificador(idCaja,idPuntaje,items,opciones,conAudio){
+  var caja=document.getElementById(idCaja), pun=document.getElementById(idPuntaje), bien=0, hechas={};
+  function marcador(){pun.textContent=bien===items.length?(items.length===1?'🎉 ¡Muy bien!':'🎉 ¡Muy bien! Acertaste las '+bien+'.'):(items.length===1?'':'Aciertos: '+bien+' / '+items.length);}
+  items.forEach(function(it,i){
+    var d=document.createElement('div'); d.className='item'; d.setAttribute('role','group'); d.setAttribute('aria-label',it.p.replace(/<[^>]+>/g,''));
+    var ops=it.ops||opciones;
+    d.innerHTML='<span class="item-pal">'+it.p+(conAudio?' <button type="button" class="oir" aria-label="Escuchar">🔊</button>':'')+'</span>'+
+      '<span class="item-ops">'+orden(it,ops).map(function(j){return '<button type="button" class="btn-op" data-j="'+j+'">'+ops[j]+'</button>';}).join('')+'</span>'+
+      '<span class="item-fb" aria-live="polite"></span>';
+    caja.appendChild(d);
+    if(conAudio)d.querySelector('.oir').addEventListener('click',function(){hablar(it.a||it.p.replace(/<[^>]+>/g,''),0.85);});
+    var fb=d.querySelector('.item-fb');
+    d.querySelectorAll('.btn-op').forEach(function(b){
+      b.addEventListener('click',function(){
+        if(hechas[i])return;
+        if(+b.getAttribute('data-j')===it.c){
+          b.classList.add('correcta'); hechas[i]=true; bien++;
+          d.querySelectorAll('.btn-op').forEach(function(x){x.disabled=true;});
+          fb.innerHTML='✓ '+(it.n||'Correcto.'); marcador();
+        }else{
+          b.classList.add('incorrecta'); b.disabled=true;
+          fb.innerHTML='Todavía no. '+(it.pista||'Vuelve a mirar la regla e intenta otra vez.');
+        }
+      });
+    });
+  });
+  marcador();
+}
+
+/* ===== Quiz de la lección ===== */
+function iniciarQuiz(P,cfg){
+  var META=cfg.meta, N=P.length, cuerpo=document.getElementById('qz-cuerpo'), elegidas={};
+  P.forEach(function(p,i){
+    var d=document.createElement('div');
+    d.className='qz-preg'; d.setAttribute('role','group'); d.setAttribute('aria-labelledby','qz-e'+i);
+    var h='<p class="qz-enun" id="qz-e'+i+'"><span class="qz-num">'+(i+1)+'</span>'+p.t+'</p><div class="qz-ops">';
+    var orden=p.o.map(function(_,j){return j;});
+    if(!p.fijo){for(var k=orden.length-1;k>0;k--){var r=Math.floor(Math.random()*(k+1)),t=orden[k];orden[k]=orden[r];orden[r]=t;}}
+    orden.forEach(function(j){h+='<button type="button" class="qz-op" data-i="'+i+'" data-j="'+j+'" aria-pressed="false">'+p.o[j]+'</button>';});
+    d.innerHTML=h+'</div>'; cuerpo.appendChild(d);
+  });
+  cuerpo.addEventListener('click',function(ev){
+    var b=ev.target.closest('.qz-op'); if(!b||b.disabled)return;
+    var i=b.getAttribute('data-i');
+    cuerpo.querySelectorAll('.qz-op[data-i="'+i+'"]').forEach(function(x){x.classList.remove('elegida');x.setAttribute('aria-pressed','false');});
+    b.classList.add('elegida'); b.setAttribute('aria-pressed','true'); elegidas[i]=+b.getAttribute('data-j');
+  });
+  var res=document.getElementById('qz-resultado');
+  document.getElementById('qz-calificar').addEventListener('click',function(){
+    var bien=0;
+    P.forEach(function(p,i){
+      cuerpo.querySelectorAll('.qz-op[data-i="'+i+'"]').forEach(function(x){
+        var j=+x.getAttribute('data-j'); x.disabled=true; x.classList.remove('elegida');
+        if(j===p.c)x.classList.add('correcta'); else if(elegidas[i]===j)x.classList.add('incorrecta');
+      });
+      if(elegidas[i]===p.c)bien++;
+      else if(p.r){var nota=document.createElement('p');nota.className='qz-repaso';nota.innerHTML='📘 Para repasar: '+p.r;cuerpo.children[i].appendChild(nota);}
+    });
+    var msg,fondo,color;
+    if(bien>=META){msg='¡Excelente! '+bien+' de '+N+'. '+cfg.bien;fondo='#d4edda';color='#155724';}
+    else if(bien>=Math.ceil(N*0.6)){msg='Buen trabajo: '+bien+' de '+N+'. Repasa las preguntas marcadas con ✗ y vuelve a intentarlo.';fondo='#fff3cd';color='#5c3900';}
+    else{msg='Llevas '+bien+' de '+N+'. '+cfg.repaso;fondo='#f8d7da';color='#721c24';}
+    res.textContent=msg; res.style.background=fondo; res.style.color=color; res.classList.add('visible');
+    this.style.display='none'; document.getElementById('qz-reintentar').style.display='inline-block';
+    res.scrollIntoView({behavior:'smooth',block:'center'});
+  });
+  document.getElementById('qz-reintentar').addEventListener('click',function(){
+    cuerpo.querySelectorAll('.qz-op').forEach(function(x){x.disabled=false;x.classList.remove('correcta','incorrecta','elegida');x.setAttribute('aria-pressed','false');});
+    cuerpo.querySelectorAll('.qz-repaso').forEach(function(n){n.remove();});
+    elegidas={}; res.classList.remove('visible'); res.textContent='';
+    this.style.display='none'; document.getElementById('qz-calificar').style.display='inline-block';
+    cuerpo.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+}
+
+/* ===== Navegación: el índice y la dirección (#ancla) abren su sección ===== */
+document.addEventListener('DOMContentLoaded',function(){
+  function abrir(id){
+    var el=id&&document.getElementById(id); if(!el)return;
+    var d=el.tagName==='DETAILS'?el:el.closest('details');
+    if(d){d.open=true; el.scrollIntoView({behavior:'smooth',block:'start'});}
+  }
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(){abrir(a.getAttribute('href').slice(1));});});
+  document.getElementById('abrir-todo').addEventListener('click',function(){document.querySelectorAll('details').forEach(function(d){d.open=true;});});
+  document.getElementById('cerrar-todo').addEventListener('click',function(){document.querySelectorAll('details').forEach(function(d){d.open=false;});});
+  window.addEventListener('hashchange',function(){abrir(decodeURIComponent(location.hash.slice(1)));});
+  abrir(decodeURIComponent(location.hash.slice(1)));
+});
+
+/* ===== Taller de escritura =====
+   El borrador se guarda en este navegador (si el navegador lo permite). */
+function tallerEscritura(id,o){
+  var caja=document.getElementById(id), k='gph-borrador-'+o.clave;
+  var h='<label class="tl-etq" for="'+id+'-txt">'+(o.etiqueta||'Escribe aquí tu texto')+'</label>'+
+    '<textarea class="tl-txt" id="'+id+'-txt" rows="10" spellcheck="true" lang="es"'+(o.guia?' placeholder="'+o.guia.replace(/"/g,'&quot;')+'"':'')+'></textarea>'+
+    '<div class="tl-cuenta" id="'+id+'-cuenta" aria-live="polite"></div>';
+  if(o.conectores)h+='<div class="tl-conect" id="'+id+'-con" aria-live="polite"></div>';
+  h+='<div class="botones" style="justify-content:flex-start">'+
+    '<button type="button" class="btn btn-secundario" id="'+id+'-oir">🔊 Escuchar mi texto</button>'+
+    '<button type="button" class="btn btn-secundario" id="'+id+'-copiar">📋 Copiar mi texto</button>'+
+    '<button type="button" class="btn btn-secundario" id="'+id+'-borrar">🗑️ Borrar</button></div>'+
+    '<div class="tl-aviso" id="'+id+'-aviso" role="status" aria-live="polite"></div>';
+  if(o.lista){
+    h+='<fieldset class="tl-lista"><legend>✅ Revisa tu texto antes de darlo por terminado</legend>'+
+      o.lista.map(function(t,i){return '<label><input type="checkbox" id="'+id+'-c'+i+'"> '+t+'</label>';}).join('')+
+      '<p class="tl-listo" id="'+id+'-listo" aria-live="polite"></p></fieldset>';
+  }
+  caja.innerHTML=h;
+  var ta=document.getElementById(id+'-txt'), cu=document.getElementById(id+'-cuenta'), co=document.getElementById(id+'-con'), av=document.getElementById(id+'-aviso');
+  try{var g=localStorage.getItem(k); if(g)ta.value=g;}catch(e){}
+  function avisar(t){av.textContent=t; clearTimeout(avisar.t); avisar.t=setTimeout(function(){av.textContent='';},4000);}
+  function medir(){var t=ta.value.trim();return {t:t,pal:t?t.split(/\s+/).length:0,ora:(t.match(/[^.!?…]+[.!?…]+/g)||[]).length};}
+  function contar(){
+    var x=medir(), m=o.meta||{}, s='Palabras: '+x.pal+(m.palabras?' (meta: '+m.palabras+' o más)':'')+' · Oraciones: '+x.ora+(m.oraciones?' (meta: '+m.oraciones+' o más)':'');
+    if(m.oraciones&&x.ora>=m.oraciones&&(!m.palabras||x.pal>=m.palabras))s+=' · 🎯 ¡Llegaste a la meta de extensión!';
+    cu.textContent=s;
+    if(co){
+      var low=' '+x.t.toLowerCase().replace(/[.,;:¡!¿?«»"()—]/g,' ')+' ', us=o.conectores.filter(function(c){return low.indexOf(' '+c.toLowerCase()+' ')>=0;});
+      co.innerHTML=us.length?(o.titLista||'Conectores que usaste')+': '+us.map(function(c){return '<span class="tl-chip">'+c+'</span>';}).join(' '):(o.vacioLista||'Todavía no aparece ningún conector de la lista.');
+    }
+    try{localStorage.setItem(k,ta.value);}catch(e){}
+  }
+  ta.addEventListener('input',contar); contar();
+  document.getElementById(id+'-oir').addEventListener('click',function(){
+    if(!ta.value.trim()){avisar('Primero escribe algo para poder escucharlo.');return;}
+    hablar(ta.value,0.9);
+  });
+  document.getElementById(id+'-copiar').addEventListener('click',function(){
+    if(!ta.value.trim()){avisar('Todavía no hay texto para copiar.');return;}
+    function ok(){avisar('✓ Texto copiado. Ya puedes pegarlo en un correo o en un documento.');}
+    if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(ta.value).then(ok,function(){ta.select();document.execCommand('copy');ok();});
+    else{ta.select();document.execCommand('copy');ok();}
+  });
+  var borrarListo=false;
+  document.getElementById(id+'-borrar').addEventListener('click',function(){
+    if(!borrarListo){borrarListo=true;avisar('¿Seguro? Pulsa «Borrar» otra vez para borrar todo el texto.');setTimeout(function(){borrarListo=false;},4000);return;}
+    borrarListo=false; ta.value=''; contar(); avisar('Texto borrado.'); ta.focus();
+  });
+  if(o.lista){
+    var cbs=caja.querySelectorAll('.tl-lista input'), li=document.getElementById(id+'-listo');
+    function rev(){var n=Array.prototype.filter.call(cbs,function(c){return c.checked;}).length, x=medir(), m=o.meta||{}, corto=(m.oraciones&&x.ora<m.oraciones)||(m.palabras&&x.pal<m.palabras);
+      li.textContent=n<cbs.length?'Revisado: '+n+' de '+cbs.length:(corto?'Marcaste toda la lista, pero tu texto todavía no llega a la meta de extensión. Añade algo más.':'🎉 ¡Todo revisado! Tu párrafo está listo.');}
+    ta.addEventListener('input',rev);
+    cbs.forEach(function(c){c.addEventListener('change',rev);}); rev();
+  }
+}
+/* Rúbricas: cada celda recibe el nombre de su nivel para mostrarlo en el celular */
+document.querySelectorAll('table.rubrica').forEach(function(t){
+  var cab=Array.prototype.map.call(t.querySelectorAll('thead th'),function(th){return th.textContent;});
+  t.querySelectorAll('tbody tr').forEach(function(tr){Array.prototype.forEach.call(tr.children,function(c,i){if(c.tagName==='TD')c.setAttribute('data-et',cab[i]);});});
+});
+
+
+/* ===== Cronómetro opcional para ensayar con el tiempo del examen =====
+   Los avisos los da la página (nunca cuadros del navegador). La cuenta visible no se anuncia cada segundo;
+   solo se anuncian los momentos clave en una zona de estado. */
+function cronometro(id,minutos,etapas,opc){
+  opc=opc||{};
+  var caja=document.getElementById(id); if(!caja)return;
+  var total=minutos*60, resta=total, t=null;
+  caja.innerHTML='<p class="crono-t">⏱️ <strong>Cronómetro opcional:</strong> '+(opc.titulo||minutos+' minutos, como la Respuesta Extendida del GED. Úsalo si quieres practicar con el tiempo del examen.')+'</p>'+
+    (etapas?'<p class="crono-plan">'+etapas+'</p>':'')+
+    '<div class="crono-fila"><span class="crono-reloj" role="timer" aria-live="off" aria-label="Tiempo restante">'+fmt(resta)+'</span>'+
+    '<button type="button" class="btn btn-primario crono-ini">▶ Empezar</button>'+
+    '<button type="button" class="btn btn-secundario crono-rei">↺ Reiniciar</button></div>'+
+    '<div class="crono-barra" aria-hidden="true"><span></span></div>'+
+    '<p class="crono-aviso" role="status" aria-live="polite"></p>';
+  var reloj=caja.querySelector('.crono-reloj'), ini=caja.querySelector('.crono-ini'), rei=caja.querySelector('.crono-rei'),
+      barra=caja.querySelector('.crono-barra span'), aviso=caja.querySelector('.crono-aviso'), rei2=false;
+  function fmt(s){var m=Math.floor(s/60), x=s%60; return (m<10?'0':'')+m+':'+(x<10?'0':'')+x;}
+  function pinta(){reloj.textContent=fmt(resta); barra.style.width=(100*(total-resta)/total)+'%';
+    reloj.classList.toggle('crono-poco',resta<=300&&resta>0); reloj.classList.toggle('crono-fin',resta===0);}
+  var hitos={};
+  if(opc.hitos){for(var hm in opc.hitos)hitos[Math.round(hm*60)]=opc.hitos[hm];}
+  else{hitos[Math.round(total*2/3)]='Quedan '+Math.round(minutos*2/3)+' minutos. Si todavía estás planificando, empieza a escribir ya.';
+  hitos[Math.round(total/3)]='Quedan '+Math.round(minutos/3)+' minutos. Asegúrate de tener ya el contrargumento y empieza a cerrar.';}
+  if(!opc.hitos)hitos[300]='Quedan 5 minutos: termina la conclusión y deja tiempo para revisar.';
+  function tic(){
+    resta--; pinta();
+    if(hitos[resta])aviso.textContent=hitos[resta];
+    if(resta<=0){clearInterval(t); t=null; ini.textContent='▶ Empezar'; ini.disabled=true;
+      aviso.textContent=opc.fin||'⏰ Se acabó el tiempo. En el examen tendrías que entregar ahora. Puedes seguir escribiendo para terminar tu práctica.';}
+  }
+  ini.addEventListener('click',function(){
+    if(t){clearInterval(t); t=null; ini.textContent='▶ Seguir'; aviso.textContent='Cronómetro en pausa.';}
+    else{t=setInterval(tic,1000); ini.textContent='⏸ Pausar'; aviso.textContent='Cronómetro en marcha. ¡Adelante!';}
+  });
+  rei.addEventListener('click',function(){
+    if(resta<total&&resta>0&&!rei2){rei2=true; aviso.textContent='¿Seguro? Pulsa «Reiniciar» otra vez para volver a '+minutos+' minutos.'; setTimeout(function(){rei2=false;},4000); return;}
+    rei2=false; if(t){clearInterval(t); t=null;} resta=total; ini.disabled=false; ini.textContent='▶ Empezar'; aviso.textContent='Cronómetro en '+minutos+' minutos.'; pinta();
+  });
+  pinta();
+}
+
+
+/* ===== Lectura en voz alta y marcas ===== */
+(function(){
+  function leer(id){var c=document.getElementById(id).cloneNode(true); c.querySelectorAll('.num-p').forEach(function(e){e.remove();}); hablar(c.textContent.trim(),0.9);}
+  document.getElementById('leer-t1').addEventListener('click',function(){leer('texto-1');});
+  document.getElementById('leer-t2').addEventListener('click',function(){leer('texto-2');});
+  document.getElementById('leer-lectura').addEventListener('click',function(){leer('lectura');});
+  var t=document.getElementById('lectura'), v=document.getElementById('ver-partes');
+  v.addEventListener('click',function(){var on=!t.classList.toggle('oculta-marcas');v.setAttribute('aria-pressed',on?'true':'false');v.textContent=on?'Quitar las marcas':'Marcar las partes';});
+})();
+
+/* ===== Ejercicios ===== */
+clasificador('clasif-pide','puntaje-pide',[
+  {p:'¿Qué debe defender tu ensayo?',ops:['Qué texto argumenta mejor, con evidencia de ambos','Tu opinión personal sobre el tema del prompt','Un resumen neutral de lo que dicen los dos'],c:0,n:'Se evalúa tu análisis de los argumentos.'},
+  {p:'Estás de acuerdo con el autor que argumenta peor. ¿Qué haces?',ops:['Defiendo al que argumenta mejor, aunque no comparta su postura','Defiendo mi postura personal, porque es lo más sincero','Escribo sobre otro tema que conozca mejor que este'],c:0,n:'Se juzga la calidad de los argumentos, no el tema.'},
+  {p:'¿Qué rasgo mide los errores de ortografía y de puntuación?',ops:['El Rasgo 3: claridad y convenciones','El Rasgo 1: argumentos y evidencia','El Rasgo 2: desarrollo y estructura'],c:0,n:'Convenciones.'},
+  {p:'¿Cuántos puntos vale como máximo la Respuesta Extendida?',ops:['6 puntos: 2 por cada rasgo','10 puntos: uno por párrafo','3 puntos: uno por rasgo'],c:0,n:'Tres rasgos de 0 a 2.'}
+],null,false);
+
+clasificador('clasif-analiza','puntaje-analiza',[
+  {p:'«Mi propio hijo se levantaba a las seis… Si él pudo, cualquier estudiante puede.» ¿Qué problema tiene?',ops:['Generalización: de un solo caso a todos','Dato con fuente, bien explicado y suficiente','Ataque a la persona que piensa distinto'],c:0,n:'Un caso no basta.'},
+  {p:'«Si hoy retrasamos la entrada, pronto querrán empezar a mediodía.»',ops:['Pendiente resbaladiza','Evidencia estadística','Concesión razonable'],c:0,n:'Una cadena de consecuencias sin pruebas.'},
+  {p:'¿Qué evidencia del Texto 1 responde a la objeción de que el cambio es imposible?',ops:['La ley de California, en vigor desde 2022','Que muchos adolescentes llegan agotados','Que el reloj biológico se retrasa'],c:0,n:'Muestra que se puede aplicar.'},
+  {p:'¿Qué argumento del Texto 2 es razonable, aunque débil?',ops:['El costo de reorganizar los autobuses','Que así ha sido siempre en el distrito','Que su hijo sacaba buenas notas'],c:0,n:'Es un problema real, pero no da cifras.'}
+],null,false);
+
+clasificador('clasif-modelo','puntaje-modelo',[
+  {p:'¿Dónde está la afirmación del ensayo modelo?',ops:['Al final del primer párrafo','En la última oración del ensayo','No aparece: se deduce del texto'],c:0,n:'El lector sabe pronto qué se defiende.'},
+  {p:'¿Qué hace el párrafo 5 antes de concluir?',ops:['Concede un punto a Ortiz y lo refuta','Repite la evidencia del párrafo 2','Da la opinión personal del autor'],c:0,n:'Concesión y refutación.'},
+  {p:'¿Por qué el ensayo cita frases exactas de Ortiz?',ops:['Para mostrar con precisión qué argumento evalúa','Para alargar el ensayo hasta las 500 palabras','Para burlarse de la forma de escribir de Ortiz'],c:0,n:'La evidencia específica sube el Rasgo 1.'}
+],null,false);
+
+cronometro('crono-83',45,'<strong>Reparto sugerido:</strong> 5 a 10 minutos para planificar, 25 a 30 para escribir y 5 a 10 para revisar.');
+
+tallerEscritura('taller-83',{clave:'n4-8-3',etiqueta:'Tu Respuesta Extendida',
+  guia:'Introducción: tema, las dos posturas y tu afirmación (qué texto está mejor apoyado). // Desarrollo: fortalezas del texto mejor apoyado, con citas; debilidades del otro. // Concesión y conclusión.',
+  meta:{oraciones:15,palabras:300},
+  conectores:['En primer lugar','Además','Por el contrario','Sin embargo','Es cierto que','En conclusión','según','«'],
+  titLista:'Transiciones y citas que aparecen',
+  vacioLista:'Todavía no aparecen transiciones ni citas («En primer lugar», «Sin embargo», «según», comillas…).',
+  lista:['Mi afirmación dice qué texto está mejor apoyado y por qué.','Uso evidencia específica de los dos textos, con comillas cuando cito.','Explico por qué cada evidencia es fuerte o débil.','Señalo al menos un error de razonamiento del texto más débil.','Reconozco algo razonable del otro texto y explico por qué no basta.','Tengo introducción, desarrollo y conclusión, con transiciones.','Revisé la ortografía, la puntuación y la concordancia.']});
+
+/* ===== Autoevaluación ===== */
+(function(){var c=document.getElementById('autoeval'), o=document.getElementById('autoeval-total');
+  c.addEventListener('change',function(){var s=0,n=0;['r1','r2','r3'].forEach(function(r){var x=c.querySelector('input[name="'+r+'"]:checked'); if(x){n++; s+=+x.value;}});
+    if(n<3){o.textContent='Llevas '+n+' de 3 rasgos puntuados.'; return;}
+    o.textContent='Tu puntuación: '+s+' de 6. '+(s>=5?'¡Muy bien! Prueba ahora con el evaluador y otro prompt.':s>=3?'Vas en camino: mejora el rasgo más bajo y vuelve a escribir.':'Repasa el ensayo modelo y el esquema de la sección 4 antes de intentarlo de nuevo.');});})();
+
+/* ===== Lista de cotejo oral ===== */
+(function(){var c=document.getElementById('cotejo'), o=document.getElementById('cotejo-total');
+  c.addEventListener('change',function(){var n=c.querySelectorAll('input:checked').length; o.textContent='Criterios cumplidos: '+n+' de 8.'+(n===8?' ¡Lista para presentar!':'');});})();
+
+/* ===== Grabadora: la grabación no sale del equipo ===== */
+(function(){
+  var caja=document.getElementById('grab'); if(!caja)return;
+  caja.innerHTML='<div class="grab-fila"><span class="grab-tiempo" aria-label="Tiempo grabado">00:00</span>'+
+    '<button type="button" class="btn btn-primario" id="grab-ini">⏺ Grabar</button>'+
+    '<button type="button" class="btn btn-secundario" id="grab-fin" disabled>⏹ Detener</button>'+
+    '<a class="btn btn-secundario" id="grab-bajar" style="display:none" download="mi-presentacion.webm">⬇ Descargar</a></div>'+
+    '<audio id="grab-audio" controls style="display:none"></audio><p class="grab-aviso" role="status" aria-live="polite"></p>';
+  var ini=caja.querySelector('#grab-ini'), fin=caja.querySelector('#grab-fin'), bajar=caja.querySelector('#grab-bajar'),
+      au=caja.querySelector('#grab-audio'), av=caja.querySelector('.grab-aviso'), reloj=caja.querySelector('.grab-tiempo'),
+      rec=null, trozos=[], t=null, seg=0, url=null, flujo=null;
+  function fmt(s){var m=Math.floor(s/60),x=s%60;return (m<10?'0':'')+m+':'+(x<10?'0':'')+x;}
+  if(!(navigator.mediaDevices&&navigator.mediaDevices.getUserMedia&&window.MediaRecorder)){
+    ini.disabled=true; av.textContent='Este navegador no permite grabar desde la página. Puedes usar la grabadora de voz de tu teléfono y revisar la presentación con la lista de cotejo.'; return;}
+  ini.addEventListener('click',function(){
+    av.textContent='Pidiendo permiso para usar el micrófono…';
+    navigator.mediaDevices.getUserMedia({audio:true}).then(function(s){
+      flujo=s; trozos=[]; rec=new MediaRecorder(s);
+      rec.ondataavailable=function(e){if(e.data&&e.data.size)trozos.push(e.data);};
+      rec.onstop=function(){
+        var tipo=rec.mimeType||'audio/webm', b=new Blob(trozos,{type:tipo}); if(url)URL.revokeObjectURL(url); url=URL.createObjectURL(b);
+        au.src=url; au.style.display='block'; bajar.href=url; bajar.download='mi-presentacion.'+(tipo.indexOf('mp4')>-1?'m4a':tipo.indexOf('ogg')>-1?'ogg':'webm'); bajar.style.display='inline-block';
+        flujo.getTracks().forEach(function(k){k.stop();});
+        av.textContent='Grabación lista: '+fmt(seg)+'. Escúchala con el reproductor y revisa la lista de cotejo.'+(seg<150?' Te quedó corta: el objetivo son unos 3 minutos.':seg>210?' Te pasaste de los 3 minutos: busca qué puedes acortar.':' ¡Buen tiempo!');
+      };
+      rec.start(); seg=0; reloj.textContent='00:00'; reloj.classList.add('grabando');
+      t=setInterval(function(){seg++; reloj.textContent=fmt(seg);},1000);
+      ini.disabled=true; fin.disabled=false; au.style.display='none'; bajar.style.display='none';
+      av.textContent='Grabando… Pulsa «Detener» al terminar.'; fin.focus();
+    }).catch(function(){av.textContent='No se pudo usar el micrófono: el permiso fue denegado o no hay micrófono conectado. Revisa el permiso del sitio en la barra de direcciones y vuelve a intentarlo.';});
+  });
+  fin.addEventListener('click',function(){if(rec&&rec.state!=='inactive')rec.stop(); clearInterval(t); reloj.classList.remove('grabando'); ini.disabled=false; ini.textContent='⏺ Grabar de nuevo'; fin.disabled=true;});
+})();
+
+/* ===== Evaluación final del nivel ===== */
+(function(){
+  var L='https://zhemaria.github.io/clases_leng4/clase_';
+  function lk(x,t){return '<a href="'+L+x+'.html" target="_blank" rel="noopener noreferrer">Lección '+x.replace('-','.')+' · '+t+'</a>';}
+  var AREAS=['Convenciones y sintaxis','Vocabulario y lenguaje figurado','Lectura literaria','Argumentos y fuentes','Datos y ciencia'];
+  var TX={
+    2:'<div class="texto-lectura"><h3 style="margin-top:0">«El último turno» <span style="font-weight:400;font-size:.9rem">(relato escrito para esta evaluación)</span></h3>'+
+      '<p><span class="num-p" aria-hidden="true">1</span>A las once de la noche, cuando Rosa terminó de limpiar la última oficina del piso doce, la ciudad entera era un tablero de luces que alguien había olvidado apagar. Guardó los guantes en el carrito y, antes de llamar al ascensor, se detuvo frente a la ventana.</p>'+
+      '<p><span class="num-p" aria-hidden="true">2</span>Allí abajo, en algún edificio igual a ese, su hija estudiaba para el examen del sábado. Rosa pensó en los años en que ella misma había querido estudiar enfermería, y en el sobre de matrícula que nunca llegó a abrir.</p>'+
+      '<p><span class="num-p" aria-hidden="true">3</span>—Este es mi último turno de los viernes —le dijo al guardia al salir—. A partir de la semana que viene, los viernes estudio yo.</p>'+
+      '<p><span class="num-p" aria-hidden="true">4</span>El guardia sonrió sin entender, y Rosa salió a la calle con el sobre, por fin abierto, doblado en el bolsillo del delantal.</p></div>',
+    3:'<div class="texto-lectura"><h3 style="margin-top:0">Carta al periódico del barrio <span style="font-weight:400;font-size:.9rem">(escrita para esta evaluación)</span></h3>'+
+      '<p><span class="num-p" aria-hidden="true">1</span>Propongo cerrar al tráfico la calle Maple los domingos, de 10 de la mañana a 4 de la tarde. En otras ciudades, abrir calles a los peatones los fines de semana aumentó las ventas de los comercios cercanos. Además, los niños tendrían un lugar seguro para jugar.</p>'+
+      '<p><span class="num-p" aria-hidden="true">2</span>Quienes se oponen dicen que habrá atascos. Sin embargo, las calles paralelas pueden absorber el tráfico de un domingo. Si no hacemos esto, nuestro barrio morirá.</p></div>',
+    4:'<div class="texto-lectura"><h3 style="margin-top:0">Experimento: altura de las plantas de frijol (cm)</h3>'+
+      '<table class="tabla"><caption class="sr-solo">Altura promedio de las plantas de cada maceta el día 0 y el día 21</caption><thead><tr><th scope="col">Maceta</th><th scope="col">Condición</th><th scope="col">Día 0</th><th scope="col">Día 21</th></tr></thead>'+
+      '<tbody><tr><td>A</td><td>Luz plena</td><td>1.2</td><td>10.2</td></tr><tr><td>B</td><td>Poca luz</td><td>1.1</td><td>14.5</td></tr><tr><td>C</td><td>Oscuridad</td><td>1.3</td><td>18.8</td></tr></tbody></table>'+
+      '<p style="margin:0">Las tres macetas recibieron la misma agua y el mismo tipo de semilla. El día 21, la planta C estaba pálida y amarilla, con hojas pequeñas, y no se sostenía derecha; la planta A tenía hojas verdes y grandes.</p></div>'
+  };
+  var EV=[
+    {a:0,t:'¿Qué oración está escrita correctamente?',o:['Pienso que la reunión será útil para todos.','Pienso de que la reunión será útil para todos.','Pienso de que, la reunión será útil para todos.'],c:0,r:lk('1-1','dequeísmo')},
+    {a:0,t:'¿Qué oración tiene estructura paralela?',o:['En el taller aprendimos a planificar, a escribir y a revisar.','En el taller aprendimos a planificar, la escritura y revisando.','En el taller aprendimos planificar, a escribir y la revisión.'],c:0,r:lk('1-2','estructura paralela')},
+    {a:0,t:'¿Qué oración usa bien el punto y coma?',o:['Llegó tarde; sin embargo, terminó todo el trabajo.','Llegó; tarde sin embargo, terminó todo el trabajo.','Llegó tarde sin embargo; terminó todo el trabajo.'],c:0,r:lk('1-3','punto y coma')},
+    {a:0,t:'¿Qué oración está bien escrita?',o:['¿Por qué no viniste ayer a la reunión?','¿Porqué no viniste ayer a la reunión?','¿Porque no viniste ayer a la reunión?'],c:0,r:lk('1-3','ortografía académica')},
+    {a:1,t:'«La alegría del equipo fue efímera: al día siguiente llegaron las malas noticias.» ¿Qué significa «efímera»?',o:['Que duró muy poco','Que fue muy intensa','Que fue compartida'],c:0,r:lk('2-1','el contexto')},
+    {a:1,t:'Llueve, perdió el autobús y se le mojaron los papeles. Dice: «¡Qué día tan maravilloso!». ¿Qué recurso usa?',o:['Ironía verbal','Un eufemismo','Una paradoja'],c:0,r:lk('2-2','ironía')},
+    {a:1,t:'«Don Julián pasó a mejor vida el martes.» ¿Qué recurso es «pasó a mejor vida»?',o:['Un eufemismo de «murió»','Una ironía sobre su vida','Una hipérbole de su salud'],c:0,r:lk('2-2','eufemismo')},
+    {a:1,t:'¿Qué palabra tiene una connotación positiva para describir a alguien que no se rinde?',o:['Perseverante','Terco como una mula','Cabezota'],c:0,r:lk('2-3','connotación')},
+    {a:2,x:2,t:'¿Qué recurso es «la ciudad entera era un tablero de luces»?',o:['Una metáfora','Un símil','Una onomatopeya'],c:0,r:lk('2-2','lenguaje figurado')},
+    {a:2,x:2,t:'¿Qué técnica narrativa aparece en el párrafo 2, cuando Rosa recuerda sus deseos de estudiar?',o:['Retrospección: se evoca el pasado','Anticipación: se adelanta el futuro','Diálogo directo entre personajes'],c:0,r:lk('4-1','retrospección')},
+    {a:2,x:2,t:'¿Qué decidió Rosa?',o:['Dedicar los viernes a estudiar, como siempre quiso','Dejar su trabajo de limpieza ese mismo día','Ayudar a su hija a estudiar los sábados'],c:0,r:lk('3-2','inferencias')},
+    {a:2,x:2,t:'¿Qué sugiere el detalle del sobre «por fin abierto»?',o:['Que Rosa ya dio el paso que había aplazado durante años','Que el guardia le entregó una carta que había llegado','Que Rosa perdió el sobre y lo encontró en el delantal'],c:0,r:lk('3-1','temas en interacción')},
+    {a:3,x:3,t:'¿Cuál es la afirmación principal de la carta?',o:['Hay que cerrar la calle Maple al tráfico los domingos','Los niños del barrio no tienen ningún lugar donde jugar','Las calles paralelas tienen muy poco tráfico los domingos'],c:0,r:lk('5-1','argumentos')},
+    {a:3,x:3,t:'¿Qué afirmación de la carta necesita más evidencia?',o:['Que las calles paralelas pueden absorber el tráfico','Que la propuesta es para los domingos de 10 a 4','Que la calle afectada es la calle Maple'],c:0,r:lk('5-1','suficiencia de la evidencia')},
+    {a:3,x:3,t:'«Si no hacemos esto, nuestro barrio morirá.» ¿Qué problema tiene?',o:['Exagera y plantea un falso dilema','Es un dato con su fuente citada','Es una concesión razonable al lector'],c:0,r:lk('7-1','razonamiento válido')},
+    {a:3,x:3,t:'¿Qué hace el autor en el párrafo 2?',o:['Presenta una objeción y la refuta','Resume las razones del párrafo 1','Cuenta una experiencia personal'],c:0,r:lk('7-1','contrargumento y refutación')},
+    {a:4,x:4,t:'¿Cuánto creció la planta A del día 0 al día 21?',o:['9.0 cm','10.2 cm','11.4 cm'],c:0,r:lk('6-1','leer datos')},
+    {a:4,x:4,t:'¿Cuál es la variable independiente del experimento?',o:['La cantidad de luz','La altura de las plantas','El tipo de semilla'],c:0,r:lk('6-2','hipótesis y variables')},
+    {a:4,x:4,t:'¿Qué conclusión apoyan los datos?',o:['Sin luz, la planta crece más alta, pero eso no indica que esté más sana','Sin luz, la planta crece más alta y por eso es la más sana de las tres','La luz no influye en el crecimiento de las plantas de frijol'],c:0,r:lk('6-2','conclusiones')},
+    {a:4,x:4,t:'¿Qué dato muestra que la altura no basta para juzgar la salud de la planta?',o:['La planta C era la más alta, pero estaba pálida y no se sostenía','Las tres macetas recibieron la misma agua y la misma semilla','La planta B midió 14.5 cm el día 21 del experimento'],c:0,r:lk('6-3','sintetizar fuentes')}
+  ];
+  var cuerpo=document.getElementById('ev-cuerpo'), el={}, h='', xa=-1, ar=-1;
+  EV.forEach(function(q,i){
+    if(q.a!==ar){ar=q.a; if(i)h+='</div>'; h+='<div class="ev-bloque"><h3>Área '+(q.a+1)+' · '+AREAS[q.a]+'</h3>';}
+    if(q.x!==undefined&&q.x!==xa){xa=q.x; h+=TX[q.x];}
+    var orden=q.o.map(function(_,j){return j;}); for(var k=orden.length-1;k>0;k--){var r=Math.floor(Math.random()*(k+1)),t=orden[k];orden[k]=orden[r];orden[r]=t;}
+    h+='<div class="qz-preg" role="group" aria-labelledby="ev-e'+i+'"><p class="qz-enun" id="ev-e'+i+'"><span class="qz-num">'+(i+1)+'</span>'+q.t+'</p><div class="qz-ops">'+
+      orden.map(function(j){return '<button type="button" class="qz-op" data-i="'+i+'" data-j="'+j+'" aria-pressed="false">'+q.o[j]+'</button>';}).join('')+'</div></div>';
+  });
+  cuerpo.innerHTML=h+'</div>';
+  cuerpo.addEventListener('click',function(ev){
+    var b=ev.target.closest('.qz-op'); if(!b||b.disabled)return; var i=b.getAttribute('data-i');
+    cuerpo.querySelectorAll('.qz-op[data-i="'+i+'"]').forEach(function(x){x.classList.remove('elegida');x.setAttribute('aria-pressed','false');});
+    b.classList.add('elegida'); b.setAttribute('aria-pressed','true'); el[i]=+b.getAttribute('data-j');
+  });
+  var res=document.getElementById('ev-resultado'), det=document.getElementById('ev-detalle'), cal=document.getElementById('ev-calificar'),
+      imp=document.getElementById('ev-imprimir'), rei=document.getElementById('ev-reintentar'), resu=document.getElementById('ev-resumen'), aviso=false;
+  cal.addEventListener('click',function(){
+    var faltan=EV.length-Object.keys(el).length;
+    if(faltan&&!aviso){aviso=true; res.textContent='Te faltan '+faltan+' pregunta(s). Respóndelas o pulsa otra vez «Ver mi resultado» para calificar así.'; res.style.background='#fff3cd'; res.style.color='#5c3900'; res.classList.add('visible'); return;}
+    var bien=0, pa=[0,0,0,0,0], fallos=[];
+    EV.forEach(function(q,i){
+      cuerpo.querySelectorAll('.qz-op[data-i="'+i+'"]').forEach(function(x){var j=+x.getAttribute('data-j'); x.disabled=true; x.classList.remove('elegida');
+        if(j===q.c)x.classList.add('correcta'); else if(el[i]===j)x.classList.add('incorrecta');});
+      if(el[i]===q.c){bien++; pa[q.a]++;}
+      else{fallos.push(i); var n=document.createElement('p'); n.className='qz-repaso'; n.innerHTML='📘 Para repasar: '+q.r; cuerpo.querySelectorAll('.qz-preg')[i].appendChild(n);}
+    });
+    var nivel=bien>=16?'Dominas el nivel':bien>=12?'Vas bien encaminado':'Necesitas repasar';
+    res.textContent=nivel+': '+bien+' de 20. '+(bien>=16?'¡Felicidades! Estás preparado para practicar con el simulador completo.':bien>=12?'Repasa las áreas con menos aciertos antes del simulador.':'Repasa las lecciones señaladas y vuelve a intentarlo: con práctica se consigue.');
+    res.style.background=bien>=16?'#d4edda':bien>=12?'#fff3cd':'#f8d7da'; res.style.color=bien>=16?'#155724':bien>=12?'#5c3900':'#721c24'; res.classList.add('visible');
+    var tabla='<table class="ev-areas"><caption class="sr-solo">Aciertos por área</caption><thead><tr><th scope="col">Área</th><th scope="col">Aciertos</th><th scope="col">Estado</th></tr></thead><tbody>'+
+      AREAS.map(function(a,k){return '<tr><td>'+a+'</td><td>'+pa[k]+' de 4</td><td>'+(pa[k]===4?'✓ Dominada':pa[k]>=3?'● Bien':'▲ Repasar')+'</td></tr>';}).join('')+'</tbody></table>';
+    var lista=fallos.length?'<h4>Preguntas falladas y qué repasar</h4><ul class="ev-fallos">'+fallos.map(function(i){return '<li>Pregunta '+(i+1)+' ('+AREAS[EV[i].a]+'): '+EV[i].r+'</li>';}).join('')+'</ul>':'<p>¡No fallaste ninguna pregunta!</p>';
+    det.innerHTML='<h3>Tu resultado por áreas</h3>'+tabla+lista;
+    var nom=document.getElementById('ev-nom').value.trim(), f=new Date();
+    resu.innerHTML='<h2>Resumen de la evaluación final · Artes del Lenguaje, Nivel 4</h2><p>GEDparaHispanos · Lección 8.3</p>'+
+      '<p><strong>Nombre:</strong> '+(nom?nom.replace(/[<>&]/g,''):'____________________')+' &nbsp; <strong>Fecha:</strong> '+f.toLocaleDateString('es')+'</p>'+
+      '<p><strong>Resultado:</strong> '+bien+' de 20 · '+nivel+'</p>'+tabla+lista+
+      '<p style="font-size:10pt">José M. Fernández, ABE/ASE Math Master Teacher, Harry S. Truman College — City Colleges of Chicago · CC BY-NC-SA 4.0</p>';
+    cal.style.display='none'; imp.style.display='inline-block'; rei.style.display='inline-block';
+    res.scrollIntoView({behavior:'smooth',block:'center'});
+  });
+  imp.addEventListener('click',function(){document.body.classList.add('imprime'); window.print();});
+  window.addEventListener('afterprint',function(){document.body.classList.remove('imprime');});
+  rei.addEventListener('click',function(){
+    cuerpo.querySelectorAll('.qz-op').forEach(function(x){x.disabled=false;x.classList.remove('correcta','incorrecta','elegida');x.setAttribute('aria-pressed','false');});
+    cuerpo.querySelectorAll('.qz-repaso').forEach(function(n){n.remove();});
+    el={}; aviso=false; res.classList.remove('visible'); res.textContent=''; det.innerHTML=''; resu.innerHTML='';
+    this.style.display='none'; imp.style.display='none'; cal.style.display='inline-block';
+    document.getElementById('s-8-evaluacion').scrollIntoView({block:'start'});
+  });
+})();
+</script>
+</body>
+</html>

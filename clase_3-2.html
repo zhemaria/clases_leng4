@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<!-- Lección 3.2 · Artes del Lenguaje Nivel 4 · GEDparaHispanos
+     José M. Fernández, ABE/ASE Math Master Teacher, Harry S. Truman College — City Colleges of Chicago
+     Licencia CC BY-NC-SA 4.0 · https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es -->
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lección 3.2 · Evidencia sólida e inferencias complejas</title>
+<meta name="author" content="José M. Fernández, ABE/ASE Math Master Teacher, Harry S. Truman College — City Colleges of Chicago">
+<meta name="license" content="CC BY-NC-SA 4.0">
+<link rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es">
+<style>
+  :root{
+    --cp:#b91c1c;--cp-claro:#fee2e2;--cp-oscuro:#7f1d1d;
+    --acento:#ff8c42;--texto:#1a2332;--fondo:#fafbfc;
+    --gris:#555;--gris-claro:#eef1f4;
+    --exito:#2e7d32;--error:#c62828;
+  }
+  *{box-sizing:border-box}
+  body{font-family:'Poppins','Segoe UI',Arial,sans-serif;line-height:1.7;color:var(--texto);background:var(--fondo);max-width:960px;margin:0 auto;padding:24px 18px}
+  h1{color:var(--cp-oscuro);border-bottom:4px solid var(--cp);padding-bottom:14px;font-size:1.85rem;margin-bottom:8px}
+  .subtitulo{color:var(--gris);font-style:italic;margin-top:0;margin-bottom:24px;font-size:1.05rem}
+  h2{color:var(--cp-oscuro);border-left:6px solid var(--cp);padding-left:14px;margin-top:32px;font-size:1.4rem}
+  h3{color:var(--cp-oscuro);margin-top:24px;font-size:1.15rem}
+  .caja-objetivos{background:var(--cp-claro);border-left:6px solid var(--cp);padding:18px 22px;border-radius:8px;margin:18px 0 28px 0}
+  .caja-objetivos h2{margin-top:0;color:var(--cp-oscuro);border-left:none;padding-left:0;font-size:1.2rem}
+  .caja-tiempo{display:inline-block;background:var(--acento);color:#1a2332;padding:4px 12px;border-radius:14px;font-size:0.85rem;font-weight:600;margin-left:10px;vertical-align:middle}
+  details{background:#fff;border:1px solid #d6dde4;border-radius:10px;margin:14px 0;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,0.04)}
+  details[open]{border-color:var(--cp);box-shadow:0 3px 10px rgba(185,28,28,0.12)}
+  summary{cursor:pointer;padding:16px 20px;font-weight:600;color:var(--cp-oscuro);background:var(--gris-claro);list-style:none;user-select:none;font-size:1.05rem}
+  summary::-webkit-details-marker{display:none}
+  summary::before{content:'▶';display:inline-block;margin-right:10px;color:var(--cp);transition:transform 0.25s;font-size:0.85rem}
+  details[open] summary::before{transform:rotate(90deg)}
+  details[open] summary{background:var(--cp-claro);border-bottom:2px solid var(--cp)}
+  .contenido-detalle{padding:18px 22px}
+  .tip{background:#fffbe6;border-left:5px solid #f4c430;padding:12px 18px;border-radius:6px;margin:14px 0}
+  .tip strong{color:#6b5400}
+  .botones{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:14px 0}
+  .btn{padding:10px 22px;border:none;border-radius:8px;font-weight:600;cursor:pointer;font-family:inherit;font-size:0.95rem;transition:background 0.2s}
+  .btn-primario{background:var(--cp);color:#fff}
+  .btn-primario:hover{background:var(--cp-oscuro)}
+  .btn-secundario{background:var(--gris-claro);color:var(--texto)}
+  .btn-secundario:hover{background:#d6dde4}
+  .btn[aria-pressed="true"]{background:var(--cp-oscuro);color:#fff}
+  ul.lista-bonita{list-style:none;padding-left:0}
+  ul.lista-bonita li{padding:8px 0 8px 30px;position:relative}
+  ul.lista-bonita li::before{content:'➜';position:absolute;left:0;color:var(--cp);font-weight:700}
+  .palabra-clave{background:linear-gradient(transparent 60%,#ffeb3b 60%);padding:0 4px;font-weight:600}
+  .ej{font-family:Georgia,serif;font-size:1.08rem}
+  .sub{font-weight:700;border-bottom:3px solid var(--cp-oscuro)}
+  table.tabla{width:100%;border-collapse:collapse;margin:16px 0;background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,0.06)}
+  table.tabla th{background:var(--cp-oscuro);color:#fff;padding:10px 12px;text-align:left}
+  table.tabla td{padding:10px 12px;border-bottom:1px solid var(--gris-claro);vertical-align:top}
+  table.tabla tr:last-child td{border-bottom:none}
+  .actividad{background:#fff;border:2px solid var(--acento);border-radius:10px;padding:16px 20px;margin:14px 0}
+  .actividad h4{color:#8a3d0c;margin-top:0}
+  .badge{display:inline-block;padding:3px 10px;border-radius:12px;font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-right:6px}
+  .badge-lectura{background:#e3f2fd;color:#0d47a1}
+  /* Clasificadores */
+  .clasificador{background:#fff;border:2px solid var(--cp);border-radius:12px;padding:14px 18px;margin:18px 0}
+  .item{border:2px solid var(--gris-claro);border-radius:8px;padding:10px 14px;margin:8px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+  .item-pal{font-family:Georgia,serif;font-size:1.12rem;color:var(--texto);display:flex;align-items:center;gap:10px}
+  .item-ops{display:flex;gap:8px;flex-wrap:wrap}
+  .item-fb{flex-basis:100%;font-size:.95rem}
+  .item-fb:empty{display:none}
+  .btn-op{padding:7px 14px;border:2px solid var(--cp-oscuro);background:#fff;color:var(--cp-oscuro);border-radius:8px;cursor:pointer;font-weight:600;font-family:inherit;font-size:.92rem}
+  .btn-op:hover:not(:disabled){background:var(--cp-claro)}
+  .btn-op.correcta{background:#d4edda;border-color:var(--exito);color:#155724}
+  .btn-op.correcta::before{content:'✓ '}
+  .btn-op.incorrecta{background:#f8d7da;border-color:var(--error);color:#721c24;text-decoration:line-through}
+  .btn-op.incorrecta::before{content:'✗ '}
+  .btn-op:disabled{cursor:default}
+  .apilado .item{flex-direction:column;align-items:stretch}
+  .apilado .item-ops{flex-direction:column}
+  .apilado .btn-op{text-align:left;font-weight:400}
+  .apilado .item-pal{font-family:'Segoe UI',Arial,sans-serif;font-size:1rem;font-weight:600;display:block}
+  .puntaje{text-align:center;margin-top:12px;font-weight:600;color:var(--cp-oscuro)}
+  /* Lectura con marcas: color + borde distinto + etiqueta escrita */
+  .texto-lectura{background:#fff;border:2px solid var(--gris-claro);border-radius:8px;padding:18px 22px;margin:14px 0;font-family:Georgia,serif;font-size:1.12rem;line-height:2.1}
+  .texto-lectura p{margin:0 0 10px}
+  .num-p{display:inline-block;background:var(--cp-oscuro);color:#fff;border-radius:50%;width:1.6em;height:1.6em;text-align:center;line-height:1.6em;font-size:.8rem;font-family:'Segoe UI',Arial,sans-serif;margin-right:6px;vertical-align:middle}
+  .m-sus{background:#e3f2fd;color:#0d3c78;border-bottom:3px solid #0d3c78}
+  .m-adj{background:#fff3e0;color:#6b3300;border-bottom:3px dashed #8a4b00}
+  .m-adv{background:#e8f5e9;color:#1b5e20;border-bottom:3px dotted #1b5e20}
+  .etq{font-weight:700;font-size:.78em;font-family:'Segoe UI',Arial,sans-serif;white-space:nowrap}
+  .oculta-marcas .m-sus,.oculta-marcas .m-adj,.oculta-marcas .m-adv{background:none;color:inherit;border:none}
+  .oculta-marcas .etq{display:none}
+  .leyenda-marcas{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0;font-size:.92rem}
+  .leyenda-marcas span{padding:2px 8px}
+  /* Índice */
+  .indice{background:#fff;border:1px solid #d6dde4;border-left:6px solid var(--cp);border-radius:10px;padding:16px 20px;margin:22px 0}
+  .indice h2{font-size:1.1rem;margin:0 0 8px;border:none;padding:0}
+  .indice ol{margin:0;padding-left:1.4em}
+  .indice li{margin:4px 0}
+  .indice a{color:var(--cp-oscuro)}
+  .abrir-cerrar{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0 0}
+  .volver-indice{position:fixed;right:18px;bottom:18px;z-index:60;background:var(--cp-oscuro);color:#fff;border-radius:999px;padding:10px 16px;font-weight:700;font-size:.92rem;text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,.28)}
+  .volver-indice:hover{background:var(--cp);color:#fff}
+  a:focus-visible,summary:focus-visible,button:focus-visible,textarea:focus-visible{outline:3px solid #b35316;outline-offset:2px}
+  .sr-solo{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+  .enlace-practica{display:block;background:#fff;border:2px solid var(--cp);border-radius:10px;padding:14px 18px;margin:16px 0;text-decoration:none;color:var(--cp-oscuro);font-weight:600}
+  .enlace-practica:hover{background:var(--cp-claro)}
+  .enlace-practica span{display:block;font-weight:400;color:var(--texto);font-size:.95rem}
+  .aviso-voz{font-size:.9rem;color:#5c3900;background:#fff3cd;border-radius:6px;padding:6px 10px;display:none}
+  .aviso-voz.visible{display:block}
+  /* Quiz */
+  .qz-intro{background:var(--cp-claro);border-radius:10px;padding:14px 18px;margin:0 0 14px}
+  .qz-intro h4{margin:0 0 6px;color:var(--cp-oscuro)}
+  .qz-preg{background:#fff;border:2px solid var(--gris-claro);border-radius:10px;padding:14px 18px;margin:12px 0}
+  .qz-enun{font-weight:600;margin:0 0 10px}
+  .qz-num{display:inline-block;background:var(--cp-oscuro);color:#fff;border-radius:12px;padding:1px 10px;font-size:.8rem;margin-right:8px}
+  .qz-ops{display:flex;flex-direction:column;gap:8px}
+  .qz-op{text-align:left;background:#fff;border:2px solid #c9d2db;border-radius:8px;padding:10px 14px;font-family:inherit;font-size:1rem;cursor:pointer;color:var(--texto)}
+  .qz-op:hover:not(:disabled){border-color:var(--cp)}
+  .qz-op.elegida{background:var(--cp-claro);border-color:var(--cp-oscuro);color:var(--cp-oscuro);box-shadow:0 0 0 3px #fff,0 0 0 5px var(--cp)}
+  .qz-op.correcta{background:#d4edda;border-color:#2e7d32;color:#155724}
+  .qz-op.correcta::before{content:'✓ '}
+  .qz-op.incorrecta{background:#f8d7da;border-color:#c62828;color:#721c24}
+  .qz-op.incorrecta::before{content:'✗ '}
+  .qz-op:disabled{cursor:default}
+  .qz-resultado{display:none;margin:16px 0;padding:16px;border-radius:10px;text-align:center;font-weight:600}
+  .qz-resultado.visible{display:block}
+  .qz-repaso{margin:10px 0 0;padding:8px 12px;background:#fff3cd;border-radius:6px;color:#3d2600;font-size:.95rem}
+  .qz-repaso a{color:var(--cp-oscuro);font-weight:700}
+  /* Taller de escritura */
+  .taller{background:#fff;border:2px solid var(--cp);border-radius:12px;padding:14px;margin:14px 0}
+  .tl-etq{display:block;font-weight:700;color:var(--cp-oscuro);margin-bottom:6px}
+  .tl-txt{width:100%;box-sizing:border-box;font:inherit;font-size:1.05rem;line-height:1.7;padding:10px 12px;border:2px solid #9aa9b7;border-radius:8px;resize:vertical;min-height:200px}
+  .tl-txt:focus{outline:3px solid var(--cp);outline-offset:1px;border-color:var(--cp-oscuro)}
+  .tl-cuenta{font-size:.92rem;color:#333;margin:6px 0}
+  .tl-conect{font-size:.95rem;margin:4px 0 8px}
+  .tl-chip{display:inline-block;background:var(--cp-claro);color:var(--cp-oscuro);border:1px solid var(--cp);border-radius:12px;padding:1px 10px;margin:2px 2px;font-weight:700}
+  .tl-aviso{min-height:1.4em;font-weight:700;color:var(--cp-oscuro)}
+  .tl-lista{border:2px dashed var(--cp);border-radius:10px;padding:8px 14px;margin-top:10px}
+  .tl-lista legend{font-weight:700;color:var(--cp-oscuro);padding:0 6px}
+  .tl-lista label{display:flex;gap:10px;align-items:flex-start;padding:6px 0;cursor:pointer}
+  .tl-lista input{width:22px;height:22px;flex-shrink:0;margin-top:2px;accent-color:var(--cp-oscuro)}
+  .tl-listo{font-weight:700;color:var(--cp-oscuro);margin:6px 0 0}
+  .rubrica{font-size:.92rem}
+  .rubrica td,.rubrica th{vertical-align:top}
+  @media(max-width:640px){
+    .rubrica thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+    .rubrica,.rubrica tbody,.rubrica tr,.rubrica th,.rubrica td{display:block;width:auto}
+    .rubrica tr{border:2px solid var(--cp);border-radius:10px;margin:0 0 10px;overflow:hidden}
+    .rubrica tbody th{background:var(--cp-oscuro);color:#fff;border:none}
+    .rubrica td{border:none;border-top:1px solid #d5dde3}
+    .rubrica td::before{content:attr(data-et);display:block;font-weight:700;color:var(--cp-oscuro)}
+  }
+  footer.pie{margin-top:40px;padding-top:18px;border-top:2px solid var(--gris-claro);text-align:center;color:#555;font-size:.9rem}
+  footer.pie p{margin:4px 0}
+  footer.pie a{color:var(--cp-oscuro)}
+  @media print{.indice,.volver-indice,.abrir-cerrar{display:none}}
+  @media (prefers-reduced-motion:reduce){summary::before{transition:none}}
+  .m-di{background:#e3f2fd;color:#0d3c78;border-bottom:3px solid #0d3c78}
+  .m-ed{background:#e8f5e9;color:#1b5e20;border-bottom:3px dotted #1b5e20}
+  .m-ne{background:#fff3e0;color:#6b3300;border-bottom:3px dashed #8a4b00}
+  .oculta-marcas .m-di,.oculta-marcas .m-ed,.oculta-marcas .m-ne{background:none;color:inherit;border:none}
+  .formula{background:#fff;border:2px dashed var(--cp);border-radius:10px;padding:10px 16px;margin:10px 0;font-family:Georgia,serif}
+  .pista-sel{display:inline-block;margin:2px 0}
+</style>
+</head>
+<body>
+<h1>Lección 3.2 · Evidencia sólida e inferencias complejas</h1>
+<p class="subtitulo">Artes del Lenguaje · Nivel 4 · Tema 3: Comprensión crítica: temas en interacción e inferencia compleja · Unas 2 horas, a tu ritmo</p>
+
+<div class="caja-objetivos">
+  <h2>🎯 Objetivos de la lección</h2>
+  <ul class="lista-bonita" style="margin:0">
+    <li>Formular <strong>inferencias complejas</strong> que integran varias pistas, a veces de párrafos distintos.</li>
+    <li>Elegir la <strong>evidencia más sólida</strong>: pertinente, específica y suficiente, sin pasar por alto la que va en contra.</li>
+    <li><strong>Descartar</strong> la evidencia irrelevante o insuficiente y las inferencias que el texto no sostiene.</li>
+  </ul>
+  <p style="margin:8px 0 0;font-size:.92rem">Estándares: 5–6.R.CL.1 · 5–6.R.CI.1 · 5–6.R.CI.2</p>
+</div>
+
+<nav class="indice" id="indice" aria-labelledby="indice-titulo">
+  <h2 id="indice-titulo">Contenido de la lección</h2>
+  <ol>
+    <li><a href="#s-1-compleja">De una pista a varias</a></li>
+    <li><a href="#s-2-modelo">Texto modelo: la entrevista</a></li>
+    <li><a href="#s-3-solida">Qué hace sólida una evidencia</a></li>
+    <li><a href="#s-4-integrar">Integrar las pistas</a></li>
+    <li><a href="#s-5-descartar">Descartar lo que no sirve</a></li>
+    <li><a href="#s-6-taller">Taller: tu inferencia con toda la evidencia</a></li>
+    <li><a href="#s-tarea">Tarea</a></li>
+    <li><a href="#s-quiz">Quiz de la lección</a></li>
+    <li><a href="#s-cierre">Cierre</a></li>
+  </ol>
+  <div class="abrir-cerrar">
+    <button type="button" class="btn btn-secundario" id="abrir-todo">Abrir todo</button>
+    <button type="button" class="btn btn-secundario" id="cerrar-todo">Cerrar todo</button>
+  </div>
+</nav>
+
+<h2>📚 Para empezar</h2>
+<p>En el Nivel 3 aprendiste que una inferencia se apoya en pistas del texto. En el GED, las preguntas más difíciles piden algo más: <strong>juntar varias pistas</strong> que están separadas y llegar a una conclusión que ninguna dice por sí sola. Y después, elegir entre cuatro citas la que mejor la demuestra. Esta lección te enseña a hacer las dos cosas, como un buen investigador: reuniendo <em>toda</em> la evidencia antes de concluir.</p>
+<p class="aviso-voz" id="aviso-voz" role="status">Tu navegador no tiene una voz en español disponible, así que los botones 🔊 no sonarán.</p>
+
+<details open id="s-1-compleja">
+<summary>1. De una pista a varias <span class="caja-tiempo">10 min</span></summary>
+<div class="contenido-detalle">
+<table class="tabla">
+  <caption class="sr-solo">Diferencia entre una inferencia simple y una inferencia compleja</caption>
+  <thead><tr><th scope="col">Inferencia simple (Nivel 3)</th><th scope="col">Inferencia compleja (Nivel 4)</th></tr></thead>
+  <tbody>
+    <tr><td>Se apoya en <strong>una</strong> pista.</td><td>Integra <strong>varias</strong> pistas, a menudo de párrafos distintos.</td></tr>
+    <tr><td>«Llevaba paraguas» → probablemente llovía.</td><td>«Carta del banco sin abrir» + «dinero justo para el tren» + «Esta vez sí» → lleva tiempo sin trabajo y con problemas de dinero.</td></tr>
+    <tr><td>La conclusión está cerca de la pista.</td><td>Ninguna pista sola basta: la conclusión sale de su <strong>combinación</strong>.</td></tr>
+  </tbody>
+</table>
+<div class="tip"><strong>📘 ¿Necesitas repasar?</strong> Lo explícito y lo inferido están en la <a href="https://zhemaria.github.io/clases_leng3/clase_3-2.html" target="_blank" rel="noopener noreferrer" style="color:var(--cp-oscuro);font-weight:700">Lección 3.2 del Nivel 3</a>, y las inferencias con evidencia en la <a href="https://zhemaria.github.io/clases_leng3/clase_3-3.html" target="_blank" rel="noopener noreferrer" style="color:var(--cp-oscuro);font-weight:700">Lección 3.3</a>. Se abren en una pestaña nueva.</div>
+</div>
+</details>
+
+<details id="s-2-modelo">
+<summary>2. Texto modelo: la entrevista <span class="caja-tiempo">20 min</span></summary>
+<div class="contenido-detalle">
+<div class="actividad">
+  <h4><span class="badge badge-lectura">Lectura de análisis profundo</span> Individual · junta las pistas</h4>
+  <p style="margin:0">El relato nunca dice directamente qué le pasa a Ernesto. Léelo y anota tres cosas que puedes inferir de él. Para cada una, apunta las pistas y el párrafo. Después pulsa el botón y compara.</p>
+</div>
+<div class="leyenda-marcas" aria-label="Leyenda de las marcas">
+  <span class="m-di">Pistas sobre su situación económica (continuo)</span><span class="m-ed">Pistas sobre el edificio (puntos)</span><span class="m-ne">Pistas sobre su estado de ánimo (rayas)</span>
+</div>
+<div class="texto-lectura oculta-marcas" id="lectura">
+  <h3 style="margin-top:0">La entrevista</h3>
+  <p><span class="num-p" aria-hidden="true">1</span>Ernesto puso el despertador a las cinco, aunque la entrevista era a las diez. <span class="m-ne">A las cuatro y media ya estaba despierto. Planchó la camisa blanca dos veces</span> y se probó el traje gris, el único que tenía; <span class="m-di">le quedaba un poco ancho de la cintura</span>, así que lo ajustó con el cinturón en el último agujero.</p>
+  <p><span class="num-p" aria-hidden="true">2</span><span class="m-di">Sobre la mesa de la cocina seguía la carta del banco, sin abrir, debajo del frutero.</span> Ernesto la miró un momento y la empujó un poco más adentro. Revisó la cartera: <span class="m-di">un billete de veinte dólares y la tarjeta del tren, recargada con lo justo para ir y volver.</span></p>
+  <p><span class="num-p" aria-hidden="true">3</span>Antes de salir encontró en la puerta un dibujo de su hija: un hombre con corbata y un sol enorme. Debajo, con letras torcidas, decía: <span class="m-di">«Suerte, papá. Esta vez sí».</span> Ernesto lo dobló con cuidado y se lo guardó en el bolsillo de dentro del saco.</p>
+  <p><span class="num-p" aria-hidden="true">4</span><span class="m-ed">El edificio de la avenida Michigan no había cambiado.</span> En la entrada, el guardia levantó la vista del periódico. <span class="m-ed">—¡Ernesto! Cuánto tiempo —dijo, y le dio la mano.</span> Ernesto sonrió, <span class="m-ed">se dirigió sin dudar hacia el ascensor de la derecha —el de la izquierda siempre tardaba—</span> y marcó el piso doce.</p>
+  <p><span class="num-p" aria-hidden="true">5</span>Frente a la puerta de Recursos Humanos sacó el teléfono. <span class="m-di">Había sonado tres veces esa mañana, siempre el mismo número, y no había contestado.</span> Lo apagó, <span class="m-ne">respiró hondo, tocó el bolsillo donde llevaba el dibujo</span> y entró.</p>
+  <p style="font-size:.9rem;margin-bottom:0"><em>Relato escrito para esta lección; los personajes son inventados.</em></p>
+</div>
+<div class="botones" style="justify-content:flex-start">
+  <button type="button" class="btn btn-secundario" id="leer-lectura">🔊 Escuchar el relato</button>
+  <button type="button" class="btn btn-secundario" id="ver-partes" aria-pressed="false">Mostrar las pistas</button>
+</div>
+<table class="tabla">
+  <caption class="sr-solo">Tres inferencias complejas sobre el relato con las pistas que las sostienen</caption>
+  <thead><tr><th scope="col">Inferencia</th><th scope="col">Pistas que se combinan</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Lleva tiempo sin trabajo y tiene problemas de dinero.</strong></td><td>Carta del banco sin abrir que esconde (2) · dinero justo para el tren (2) · «Esta vez sí»: hubo otras entrevistas que fallaron (3) · las llamadas del mismo número que no contesta (5).</td></tr>
+    <tr><td><strong>Conoce bien el edificio: probablemente trabajó allí.</strong></td><td>«No había cambiado» (4) · el guardia lo saluda por su nombre: «Cuánto tiempo» (4) · sabe qué ascensor tarda (4).</td></tr>
+    <tr><td><strong>Está muy nervioso, pero decidido.</strong></td><td>Despierto antes del despertador (1) · plancha la camisa dos veces (1) · respira hondo y toca el dibujo antes de entrar (5).</td></tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details id="s-3-solida">
+<summary>3. Qué hace sólida una evidencia <span class="caja-tiempo">20 min</span></summary>
+<div class="contenido-detalle">
+<p>No toda cita sirve igual. Una evidencia es <span class="palabra-clave">sólida</span> cuando cumple tres condiciones; y un análisis es <span class="palabra-clave">exhaustivo</span> cuando tiene en cuenta toda la evidencia, también la que podría ir en contra.</p>
+<table class="tabla">
+  <caption class="sr-solo">Condiciones de la evidencia sólida con ejemplos del relato</caption>
+  <thead><tr><th scope="col">Condición</th><th scope="col">Pregunta</th><th scope="col">✔️ Sólida</th><th scope="col">✖️ Débil</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Pertinente</strong></td><td>¿Habla de lo que afirmo?</td><td>«La carta del banco, sin abrir» → para los problemas de dinero.</td><td>«Planchó la camisa blanca» → para los problemas de dinero.</td></tr>
+    <tr><td><strong>Específica</strong></td><td>¿Es un detalle concreto del texto?</td><td>«Recargada con lo justo para ir y volver».</td><td>«En el relato se nota que está mal».</td></tr>
+    <tr><td><strong>Suficiente</strong></td><td>¿Alcanza para la conclusión?</td><td>Tres pistas que apuntan a lo mismo.</td><td>Una sola pista ambigua: «el traje le quedaba ancho».</td></tr>
+  </tbody>
+</table>
+<div class="tip"><strong>💡 Mira también lo que va en contra:</strong> ¿podría Ernesto conocer el edificio porque fue cliente, no empleado? Es posible. Pero que sepa qué ascensor tarda sugiere que lo usó a diario. Un análisis exhaustivo nombra la otra posibilidad y explica por qué la evidencia favorece una de las dos.</div>
+<div class="clasificador apilado" id="clasif-solida"></div>
+<div class="puntaje" id="puntaje-solida" role="status" aria-live="polite"></div>
+<a class="enlace-practica" href="https://zhemaria.github.io/gramatica/n4-l3-2.html#evidencia-solida" target="_blank" rel="noopener noreferrer">💪 Practica más: la evidencia más sólida
+  <span>Pasajes breves con una afirmación: elige la cita que mejor la demuestra. Se abre en una pestaña nueva.</span></a>
+</div>
+</details>
+
+<details id="s-4-integrar">
+<summary>4. Integrar las pistas <span class="caja-tiempo">15 min</span></summary>
+<div class="contenido-detalle">
+<p>Para escribir una inferencia compleja, sigue estos pasos:</p>
+<ol>
+  <li><strong>Reúne</strong> todas las pistas sobre una misma pregunta, aunque estén en párrafos distintos.</li>
+  <li><strong>Busca qué tienen en común:</strong> ¿a qué conclusión apuntan juntas?</li>
+  <li><strong>Prueba la conclusión:</strong> ¿la contradice alguna parte del texto? ¿Hay otra explicación igual de probable?</li>
+  <li><strong>Escríbela</strong> con su evidencia:</li>
+</ol>
+<p class="formula">Se puede inferir que <strong>[conclusión]</strong>. El texto dice que <strong>[pista 1]</strong> (párrafo __) y que <strong>[pista 2]</strong> (párrafo __). Juntas, estas pistas muestran que <strong>[explicación]</strong>.</p>
+<div class="clasificador apilado" id="clasif-integrar"></div>
+<div class="puntaje" id="puntaje-integrar" role="status" aria-live="polite"></div>
+<a class="enlace-practica" href="https://zhemaria.github.io/gramatica/n4-l3-2.html#inferencia" target="_blank" rel="noopener noreferrer">🧩 Practica más: la inferencia mejor apoyada
+  <span>Varias pistas en cada pasaje: elige la conclusión que las integra. Se abre en una pestaña nueva.</span></a>
+</div>
+</details>
+
+<details id="s-5-descartar">
+<summary>5. Descartar lo que no sirve <span class="caja-tiempo">15 min</span></summary>
+<div class="contenido-detalle">
+<p>En el GED, las opciones equivocadas suelen ser de cuatro tipos. Reconocerlas te ahorra tiempo:</p>
+<table class="tabla">
+  <caption class="sr-solo">Tipos de opciones incorrectas en preguntas de inferencia</caption>
+  <thead><tr><th scope="col">Trampa</th><th scope="col">Qué hace</th><th scope="col">Ejemplo con el relato</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Va demasiado lejos</strong></td><td>Afirma más de lo que el texto permite.</td><td>«Lo despidieron por ser mal trabajador.» (Nada lo indica.)</td></tr>
+    <tr><td><strong>Es irrelevante</strong></td><td>Es verdad en el texto, pero no responde a la pregunta.</td><td>«Marcó el piso doce.» (Cierto, pero no prueba nada sobre su situación.)</td></tr>
+    <tr><td><strong>Lo contradice el texto</strong></td><td>Choca con algún detalle.</td><td>«Ernesto no está interesado en el puesto.» (Se levanta antes de las cinco y plancha dos veces la camisa.)</td></tr>
+    <tr><td><strong>Se basa en una sola pista ambigua</strong></td><td>Una pista que admite varias explicaciones.</td><td>«Está enfermo, porque el traje le queda ancho.»</td></tr>
+  </tbody>
+</table>
+<div class="clasificador apilado" id="clasif-descarta"></div>
+<div class="puntaje" id="puntaje-descarta" role="status" aria-live="polite"></div>
+<a class="enlace-practica" href="https://zhemaria.github.io/gramatica/n4-l3-2.html#descarta" target="_blank" rel="noopener noreferrer">🗑️ Practica más: descarta la evidencia que no sirve
+  <span>Identifica la evidencia irrelevante, insuficiente o la inferencia que va demasiado lejos. Se abre en una pestaña nueva.</span></a>
+<div class="tip"><strong>👨‍👩‍👧 Si tienes con quién practicar:</strong> «Toda la evidencia». Uno lee el relato en voz alta; el otro propone una inferencia. El primero tiene que encontrar en el texto una pista a favor y, si la hay, una en contra.</div>
+</div>
+</details>
+
+<details id="s-6-taller">
+<summary>6. Taller: tu inferencia con toda la evidencia <span class="caja-tiempo">25 min</span></summary>
+<div class="contenido-detalle">
+<p>Responde con un párrafo de <strong>5 a 7 oraciones</strong> a esta pregunta sobre el relato:</p>
+<p class="formula" style="font-weight:700">¿Por qué Ernesto apaga el teléfono antes de entrar, y qué relación tiene eso con la carta del banco?</p>
+<p>Usa la fórmula de la sección 4, apoya tu inferencia con <strong>al menos dos pistas de párrafos distintos</strong> y, para que tu análisis sea exhaustivo, menciona <strong>otra explicación posible</strong> y di por qué la evidencia favorece la tuya.</p>
+<div class="taller" id="taller-32"></div>
+<h3>Rúbrica: así se evaluará tu párrafo</h3>
+<table class="tabla rubrica">
+  <caption class="sr-solo">Rúbrica de la inferencia compleja: tres criterios en cuatro niveles</caption>
+  <thead><tr><th scope="col">Criterio</th><th scope="col">4 · Excelente</th><th scope="col">3 · Bien</th><th scope="col">2 · En camino</th><th scope="col">1 · Inicial</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">Evidencia sólida y exhaustiva</th><td>Dos o más citas pertinentes y específicas; considera otra explicación</td><td>Dos citas pertinentes, sin otra explicación</td><td>Una sola cita o citas poco pertinentes</td><td>Sin citas</td></tr>
+    <tr><th scope="row">Inferencia compleja</th><td>La conclusión combina pistas de párrafos distintos</td><td>Combina pistas del mismo párrafo</td><td>Se apoya en una sola pista</td><td>Repite lo que dice el texto</td></tr>
+    <tr><th scope="row">Integra varias pistas en una interpretación</th><td>Explica cómo las pistas juntas llevan a la conclusión</td><td>Enumera las pistas sin explicarlas</td><td>Las pistas no apoyan del todo la conclusión</td><td>Conclusión sin relación con las pistas</td></tr>
+  </tbody>
+</table>
+<p style="font-size:.92rem">Total: 12 puntos.</p>
+</div>
+</details>
+
+<details id="s-tarea">
+<summary>7. Tarea <span class="caja-tiempo">30 min</span></summary>
+<div class="contenido-detalle">
+<ul class="lista-bonita">
+  <li><strong>Termina tu párrafo</strong> del taller y revísalo con la rúbrica.</li>
+  <li><strong>Escribe un final</strong> de tres o cuatro oraciones para «La entrevista» que sea coherente con todas las pistas del relato.</li>
+  <li><strong>Investiga como detective:</strong> elige un cuento corto o un capítulo de una novela. Escribe una inferencia sobre un personaje que el texto no diga, con dos pistas de partes distintas.</li>
+</ul>
+</div>
+</details>
+
+<details id="s-quiz">
+<summary>8. Quiz de la lección <span class="caja-tiempo">20 min</span></summary>
+<div class="contenido-detalle">
+<div class="qz-intro">
+  <h4>✅ Quiz · 12 preguntas · puedes repetirlo las veces que quieras</h4>
+  <p style="margin:0">Varias preguntas se refieren al relato de la sección 2. Elige una respuesta en cada pregunta y, al final, pulsa <strong>Ver mi resultado</strong>. La meta es acertar al menos <strong>10 de 12</strong>.</p>
+</div>
+<div id="qz-cuerpo"></div>
+<div class="botones">
+  <button type="button" class="btn btn-primario" id="qz-calificar">Ver mi resultado</button>
+  <button type="button" class="btn btn-secundario" id="qz-reintentar" style="display:none">Intentar de nuevo</button>
+</div>
+<div class="qz-resultado" id="qz-resultado" role="status" aria-live="polite"></div>
+</div>
+</details>
+
+<details id="s-cierre">
+<summary>9. Cierre <span class="caja-tiempo">5 min</span></summary>
+<div class="contenido-detalle">
+<h3>Lo que aprendiste en esta lección</h3>
+<ul class="lista-bonita">
+  <li>Una inferencia compleja combina varias pistas que, por separado, no bastan.</li>
+  <li>La evidencia sólida es pertinente, específica y suficiente; el análisis exhaustivo considera también la que va en contra.</li>
+  <li>Para concluir: reúne, busca lo común, prueba la conclusión y escríbela con su evidencia.</li>
+  <li>Descarta las opciones que van demasiado lejos, las irrelevantes, las que contradice el texto y las que dependen de una sola pista ambigua.</li>
+</ul>
+<div class="caja-objetivos" style="background:#fff3e0;border-left-color:var(--acento)">
+  <h2 style="color:#8a3d0c;border:none;padding:0;margin-top:0;font-size:1.2rem">✅ Antes de irte, revísate</h2>
+  <ul class="lista-bonita">
+    <li>¿Qué tres pistas sostienen que Ernesto tiene problemas de dinero?</li>
+    <li>¿Por qué «planchó la camisa blanca» no sirve como evidencia de esos problemas?</li>
+    <li>¿Qué significa que un análisis sea exhaustivo?</li>
+  </ul>
+</div>
+<div class="tip"><strong>➡️ Sigue con la próxima lección:</strong> <a href="https://zhemaria.github.io/clases_leng4/clase_3-3.html" style="color:var(--cp-oscuro);font-weight:700">Lección 3.3 · Resumen objetivo e incertidumbre del texto</a>.</div>
+</div>
+</details>
+
+<footer class="pie">
+  <p><strong>GEDparaHispanos · Artes del Lenguaje · Nivel 4: Dominio del GED y Escritura Argumentativa · Tema 3 · Lección 3.2</strong></p>
+  <p>José M. Fernández, ABE/ASE Math Master Teacher, Harry S. Truman College — City Colleges of Chicago</p>
+  <p>© 2026. Esta obra está licenciada bajo <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es" rel="license noopener noreferrer" target="_blank">Creative Commons Reconocimiento-NoComercial-CompartirIgual 4.0 Internacional (CC BY-NC-SA 4.0)</a>.</p>
+</footer>
+<a class="volver-indice" href="#indice" aria-label="Volver al contenido de la lección"><span aria-hidden="true">↑</span> Índice</a>
+
+<script>
+
+/* ===== Voz: todas las lecturas pasan por hablar(), para poder cambiarla después por audio grabado ===== */
+(function(){
+  var voz=null, hay=('speechSynthesis' in window);
+  function elegir(){
+    if(!hay)return;
+    var vs=speechSynthesis.getVoices().filter(function(v){return /^es/i.test(v.lang);});
+    var pref=['es-US','es-MX','es-419','es-CO','es-AR','es-CL','es-PE'];
+    voz=null;
+    for(var i=0;i<pref.length&&!voz;i++){voz=vs.find(function(v){return v.lang.replace('_','-').toLowerCase()===pref[i].toLowerCase();})||null;}
+    if(!voz)voz=vs.find(function(v){return !/es[-_]ES/i.test(v.lang);})||vs[0]||null;
+  }
+  function aviso(){var a=document.getElementById('aviso-voz');if(a)a.classList.add('visible');}
+  function frase(t,vel){var u=new SpeechSynthesisUtterance(t);u.lang=voz?voz.lang:'es-US';if(voz)u.voice=voz;u.rate=vel||0.9;return u;}
+  if(hay){elegir(); speechSynthesis.onvoiceschanged=elegir;}
+  window.hablar=function(texto,vel,fin){
+    if(!hay||!texto){aviso();return;}
+    speechSynthesis.cancel();
+    /* Se lee por oraciones: algunos navegadores cortan las lecturas largas */
+    var partes=texto.replace(/\s+/g,' ').match(/[^.!?…]+[.!?…]+[»"”)]*\s*|[^.!?…]+$/g)||[texto];
+    partes.forEach(function(t,i){var u=frase(t.trim(),vel); if(fin&&i===partes.length-1)u.onend=fin; speechSynthesis.speak(u);});
+  };
+  window.callar=function(){if(hay)speechSynthesis.cancel();};
+  if(!hay)document.addEventListener('DOMContentLoaded',aviso);
+})();
+
+/* ===== Clasificador: cada elemento con sus botones; al acertar muestra una nota =====
+   Las opciones propias de cada elemento se barajan; las opciones comunes conservan su orden */
+function orden(it,ops){
+  var o=ops.map(function(_,j){return j;});
+  if(it.ops&&!it.fijo){for(var k=o.length-1;k>0;k--){var r=Math.floor(Math.random()*(k+1)),t=o[k];o[k]=o[r];o[r]=t;}}
+  return o;
+}
+function clasificador(idCaja,idPuntaje,items,opciones,conAudio){
+  var caja=document.getElementById(idCaja), pun=document.getElementById(idPuntaje), bien=0, hechas={};
+  function marcador(){pun.textContent=bien===items.length?(items.length===1?'🎉 ¡Muy bien!':'🎉 ¡Muy bien! Acertaste las '+bien+'.'):(items.length===1?'':'Aciertos: '+bien+' / '+items.length);}
+  items.forEach(function(it,i){
+    var d=document.createElement('div'); d.className='item'; d.setAttribute('role','group'); d.setAttribute('aria-label',it.p.replace(/<[^>]+>/g,''));
+    var ops=it.ops||opciones;
+    d.innerHTML='<span class="item-pal">'+it.p+(conAudio?' <button type="button" class="oir" aria-label="Escuchar">🔊</button>':'')+'</span>'+
+      '<span class="item-ops">'+orden(it,ops).map(function(j){return '<button type="button" class="btn-op" data-j="'+j+'">'+ops[j]+'</button>';}).join('')+'</span>'+
+      '<span class="item-fb" aria-live="polite"></span>';
+    caja.appendChild(d);
+    if(conAudio)d.querySelector('.oir').addEventListener('click',function(){hablar(it.a||it.p.replace(/<[^>]+>/g,''),0.85);});
+    var fb=d.querySelector('.item-fb');
+    d.querySelectorAll('.btn-op').forEach(function(b){
+      b.addEventListener('click',function(){
+        if(hechas[i])return;
+        if(+b.getAttribute('data-j')===it.c){
+          b.classList.add('correcta'); hechas[i]=true; bien++;
+          d.querySelectorAll('.btn-op').forEach(function(x){x.disabled=true;});
+          fb.innerHTML='✓ '+(it.n||'Correcto.'); marcador();
+        }else{
+          b.classList.add('incorrecta'); b.disabled=true;
+          fb.innerHTML='Todavía no. '+(it.pista||'Vuelve a mirar la regla e intenta otra vez.');
+        }
+      });
+    });
+  });
+  marcador();
+}
+
+/* ===== Quiz de la lección ===== */
+function iniciarQuiz(P,cfg){
+  var META=cfg.meta, N=P.length, cuerpo=document.getElementById('qz-cuerpo'), elegidas={};
+  P.forEach(function(p,i){
+    var d=document.createElement('div');
+    d.className='qz-preg'; d.setAttribute('role','group'); d.setAttribute('aria-labelledby','qz-e'+i);
+    var h='<p class="qz-enun" id="qz-e'+i+'"><span class="qz-num">'+(i+1)+'</span>'+p.t+'</p><div class="qz-ops">';
+    var orden=p.o.map(function(_,j){return j;});
+    if(!p.fijo){for(var k=orden.length-1;k>0;k--){var r=Math.floor(Math.random()*(k+1)),t=orden[k];orden[k]=orden[r];orden[r]=t;}}
+    orden.forEach(function(j){h+='<button type="button" class="qz-op" data-i="'+i+'" data-j="'+j+'" aria-pressed="false">'+p.o[j]+'</button>';});
+    d.innerHTML=h+'</div>'; cuerpo.appendChild(d);
+  });
+  cuerpo.addEventListener('click',function(ev){
+    var b=ev.target.closest('.qz-op'); if(!b||b.disabled)return;
+    var i=b.getAttribute('data-i');
+    cuerpo.querySelectorAll('.qz-op[data-i="'+i+'"]').forEach(function(x){x.classList.remove('elegida');x.setAttribute('aria-pressed','false');});
+    b.classList.add('elegida'); b.setAttribute('aria-pressed','true'); elegidas[i]=+b.getAttribute('data-j');
+  });
+  var res=document.getElementById('qz-resultado');
+  document.getElementById('qz-calificar').addEventListener('click',function(){
+    var bien=0;
+    P.forEach(function(p,i){
+      cuerpo.querySelectorAll('.qz-op[data-i="'+i+'"]').forEach(function(x){
+        var j=+x.getAttribute('data-j'); x.disabled=true; x.classList.remove('elegida');
+        if(j===p.c)x.classList.add('correcta'); else if(elegidas[i]===j)x.classList.add('incorrecta');
+      });
+      if(elegidas[i]===p.c)bien++;
+      else if(p.r){var nota=document.createElement('p');nota.className='qz-repaso';nota.innerHTML='📘 Para repasar: '+p.r;cuerpo.children[i].appendChild(nota);}
+    });
+    var msg,fondo,color;
+    if(bien>=META){msg='¡Excelente! '+bien+' de '+N+'. '+cfg.bien;fondo='#d4edda';color='#155724';}
+    else if(bien>=Math.ceil(N*0.6)){msg='Buen trabajo: '+bien+' de '+N+'. Repasa las preguntas marcadas con ✗ y vuelve a intentarlo.';fondo='#fff3cd';color='#5c3900';}
+    else{msg='Llevas '+bien+' de '+N+'. '+cfg.repaso;fondo='#f8d7da';color='#721c24';}
+    res.textContent=msg; res.style.background=fondo; res.style.color=color; res.classList.add('visible');
+    this.style.display='none'; document.getElementById('qz-reintentar').style.display='inline-block';
+    res.scrollIntoView({behavior:'smooth',block:'center'});
+  });
+  document.getElementById('qz-reintentar').addEventListener('click',function(){
+    cuerpo.querySelectorAll('.qz-op').forEach(function(x){x.disabled=false;x.classList.remove('correcta','incorrecta','elegida');x.setAttribute('aria-pressed','false');});
+    cuerpo.querySelectorAll('.qz-repaso').forEach(function(n){n.remove();});
+    elegidas={}; res.classList.remove('visible'); res.textContent='';
+    this.style.display='none'; document.getElementById('qz-calificar').style.display='inline-block';
+    cuerpo.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+}
+
+/* ===== Navegación: el índice y la dirección (#ancla) abren su sección ===== */
+document.addEventListener('DOMContentLoaded',function(){
+  function abrir(id){
+    var el=id&&document.getElementById(id); if(!el)return;
+    var d=el.tagName==='DETAILS'?el:el.closest('details');
+    if(d){d.open=true; el.scrollIntoView({behavior:'smooth',block:'start'});}
+  }
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(){abrir(a.getAttribute('href').slice(1));});});
+  document.getElementById('abrir-todo').addEventListener('click',function(){document.querySelectorAll('details').forEach(function(d){d.open=true;});});
+  document.getElementById('cerrar-todo').addEventListener('click',function(){document.querySelectorAll('details').forEach(function(d){d.open=false;});});
+  window.addEventListener('hashchange',function(){abrir(decodeURIComponent(location.hash.slice(1)));});
+  abrir(decodeURIComponent(location.hash.slice(1)));
+});
+
+/* ===== Taller de escritura =====
+   El borrador se guarda en este navegador (si el navegador lo permite). */
+function tallerEscritura(id,o){
+  var caja=document.getElementById(id), k='gph-borrador-'+o.clave;
+  var h='<label class="tl-etq" for="'+id+'-txt">'+(o.etiqueta||'Escribe aquí tu texto')+'</label>'+
+    '<textarea class="tl-txt" id="'+id+'-txt" rows="10" spellcheck="true" lang="es"'+(o.guia?' placeholder="'+o.guia.replace(/"/g,'&quot;')+'"':'')+'></textarea>'+
+    '<div class="tl-cuenta" id="'+id+'-cuenta" aria-live="polite"></div>';
+  if(o.conectores)h+='<div class="tl-conect" id="'+id+'-con" aria-live="polite"></div>';
+  h+='<div class="botones" style="justify-content:flex-start">'+
+    '<button type="button" class="btn btn-secundario" id="'+id+'-oir">🔊 Escuchar mi texto</button>'+
+    '<button type="button" class="btn btn-secundario" id="'+id+'-copiar">📋 Copiar mi texto</button>'+
+    '<button type="button" class="btn btn-secundario" id="'+id+'-borrar">🗑️ Borrar</button></div>'+
+    '<div class="tl-aviso" id="'+id+'-aviso" role="status" aria-live="polite"></div>';
+  if(o.lista){
+    h+='<fieldset class="tl-lista"><legend>✅ Revisa tu texto antes de darlo por terminado</legend>'+
+      o.lista.map(function(t,i){return '<label><input type="checkbox" id="'+id+'-c'+i+'"> '+t+'</label>';}).join('')+
+      '<p class="tl-listo" id="'+id+'-listo" aria-live="polite"></p></fieldset>';
+  }
+  caja.innerHTML=h;
+  var ta=document.getElementById(id+'-txt'), cu=document.getElementById(id+'-cuenta'), co=document.getElementById(id+'-con'), av=document.getElementById(id+'-aviso');
+  try{var g=localStorage.getItem(k); if(g)ta.value=g;}catch(e){}
+  function avisar(t){av.textContent=t; clearTimeout(avisar.t); avisar.t=setTimeout(function(){av.textContent='';},4000);}
+  function medir(){var t=ta.value.trim();return {t:t,pal:t?t.split(/\s+/).length:0,ora:(t.match(/[^.!?…]+[.!?…]+/g)||[]).length};}
+  function contar(){
+    var x=medir(), m=o.meta||{}, s='Palabras: '+x.pal+(m.palabras?' (meta: '+m.palabras+' o más)':'')+' · Oraciones: '+x.ora+(m.oraciones?' (meta: '+m.oraciones+' o más)':'');
+    if(m.oraciones&&x.ora>=m.oraciones&&(!m.palabras||x.pal>=m.palabras))s+=' · 🎯 ¡Llegaste a la meta de extensión!';
+    cu.textContent=s;
+    if(co){
+      var low=' '+x.t.toLowerCase().replace(/[.,;:¡!¿?«»"()—]/g,' ')+' ', us=o.conectores.filter(function(c){return low.indexOf(' '+c.toLowerCase()+' ')>=0;});
+      co.innerHTML=us.length?(o.titLista||'Conectores que usaste')+': '+us.map(function(c){return '<span class="tl-chip">'+c+'</span>';}).join(' '):(o.vacioLista||'Todavía no aparece ningún conector de la lista.');
+    }
+    try{localStorage.setItem(k,ta.value);}catch(e){}
+  }
+  ta.addEventListener('input',contar); contar();
+  document.getElementById(id+'-oir').addEventListener('click',function(){
+    if(!ta.value.trim()){avisar('Primero escribe algo para poder escucharlo.');return;}
+    hablar(ta.value,0.9);
+  });
+  document.getElementById(id+'-copiar').addEventListener('click',function(){
+    if(!ta.value.trim()){avisar('Todavía no hay texto para copiar.');return;}
+    function ok(){avisar('✓ Texto copiado. Ya puedes pegarlo en un correo o en un documento.');}
+    if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(ta.value).then(ok,function(){ta.select();document.execCommand('copy');ok();});
+    else{ta.select();document.execCommand('copy');ok();}
+  });
+  var borrarListo=false;
+  document.getElementById(id+'-borrar').addEventListener('click',function(){
+    if(!borrarListo){borrarListo=true;avisar('¿Seguro? Pulsa «Borrar» otra vez para borrar todo el texto.');setTimeout(function(){borrarListo=false;},4000);return;}
+    borrarListo=false; ta.value=''; contar(); avisar('Texto borrado.'); ta.focus();
+  });
+  if(o.lista){
+    var cbs=caja.querySelectorAll('.tl-lista input'), li=document.getElementById(id+'-listo');
+    function rev(){var n=Array.prototype.filter.call(cbs,function(c){return c.checked;}).length, x=medir(), m=o.meta||{}, corto=(m.oraciones&&x.ora<m.oraciones)||(m.palabras&&x.pal<m.palabras);
+      li.textContent=n<cbs.length?'Revisado: '+n+' de '+cbs.length:(corto?'Marcaste toda la lista, pero tu texto todavía no llega a la meta de extensión. Añade algo más.':'🎉 ¡Todo revisado! Tu párrafo está listo.');}
+    ta.addEventListener('input',rev);
+    cbs.forEach(function(c){c.addEventListener('change',rev);}); rev();
+  }
+}
+/* Rúbricas: cada celda recibe el nombre de su nivel para mostrarlo en el celular */
+document.querySelectorAll('table.rubrica').forEach(function(t){
+  var cab=Array.prototype.map.call(t.querySelectorAll('thead th'),function(th){return th.textContent;});
+  t.querySelectorAll('tbody tr').forEach(function(tr){Array.prototype.forEach.call(tr.children,function(c,i){if(c.tagName==='TD')c.setAttribute('data-et',cab[i]);});});
+});
+
+
+/* ===== Texto modelo ===== */
+(function(){
+  var t=document.getElementById('lectura'), v=document.getElementById('ver-partes');
+  document.getElementById('leer-lectura').addEventListener('click',function(){
+    var c=t.cloneNode(true); c.querySelectorAll('.num-p').forEach(function(e){e.remove();}); hablar(c.textContent.trim(),0.9);});
+  v.addEventListener('click',function(){var on=!t.classList.toggle('oculta-marcas');v.setAttribute('aria-pressed',on?'true':'false');v.textContent=on?'Ocultar las pistas':'Mostrar las pistas';});
+})();
+
+/* ===== Ejercicios de la lección ===== */
+clasificador('clasif-solida','puntaje-solida',[
+  {p:'Afirmación: «Ernesto tiene problemas de dinero». ¿Qué evidencia es más sólida?',ops:['«La tarjeta del tren, recargada con lo justo para ir y volver»','«Planchó la camisa blanca dos veces»','«Marcó el piso doce»'],c:0,n:'Pertinente y específica.'},
+  {p:'Afirmación: «Ernesto ya conocía el edificio». ¿Qué evidencia es más sólida?',ops:['«Se dirigió sin dudar hacia el ascensor de la derecha —el de la izquierda siempre tardaba—»','«El edificio de la avenida Michigan»','«Frente a la puerta de Recursos Humanos sacó el teléfono»'],c:0,n:'Saber qué ascensor tarda solo se aprende usándolo a menudo.'},
+  {p:'Afirmación: «Ernesto está nervioso». ¿Qué evidencia es más sólida?',ops:['«A las cuatro y media ya estaba despierto»','«Se probó el traje gris»','«El guardia levantó la vista del periódico»'],c:0,n:'Despertarse antes de la alarma muestra nervios.'},
+  {p:'¿Por qué «el traje le quedaba ancho» es una evidencia <strong>insuficiente</strong> por sí sola?',ops:['Admite varias explicaciones: estrés, enfermedad, dieta…','No aparece en el texto del relato','Habla del guardia y no de Ernesto'],c:0,n:'Es una pista ambigua: sirve junto a otras, no sola.'}
+],null,false);
+
+clasificador('clasif-integrar','puntaje-integrar',[
+  {p:'«Esta vez sí» (3) + «la carta del banco sin abrir» (2). ¿Qué inferencia integra las dos?',ops:['Ha buscado trabajo sin éxito y eso le está causando deudas','Su hija quiere que él trabaje en un banco','Ernesto nunca había hecho una entrevista de trabajo'],c:0,n:'«Esta vez sí» supone intentos anteriores; la carta, consecuencias.'},
+  {p:'«Cuánto tiempo» (4) + «el ascensor de la izquierda siempre tardaba» (4) + «no había cambiado» (4). ¿Qué se infiere?',ops:['Que trabajó o estuvo a diario en ese edificio hace tiempo','Que es la primera vez que entra en ese edificio','Que el guardia es un pariente de Ernesto'],c:0,n:'Tres pistas que apuntan a una rutina pasada.'},
+  {p:'¿Por qué guarda el dibujo y lo toca antes de entrar?',ops:['Le da ánimo: piensa en su hija para ser valiente','Quiere enseñárselo al entrevistador','Teme que alguien se lo robe en el tren'],c:0,n:'Lo guarda «con cuidado» y lo toca tras respirar hondo.'}
+],null,false);
+
+clasificador('clasif-descarta','puntaje-descarta',[
+  {p:'«A Ernesto lo despidieron por ser mal trabajador.» ¿Qué trampa es?',ops:['Va demasiado lejos','Es irrelevante','Es una inferencia sólida'],c:0,n:'El texto no dice nada sobre por qué dejó el trabajo.'},
+  {p:'Pregunta: ¿qué muestra su situación económica? Opción: «Marcó el piso doce». ¿Qué trampa es?',ops:['Es irrelevante','La contradice el texto','Va demasiado lejos'],c:0,n:'Es cierto, pero no responde a la pregunta.'},
+  {p:'«Ernesto no tiene interés en conseguir ese puesto.» ¿Qué trampa es?',ops:['La contradice el texto','Es irrelevante','Es una inferencia sólida'],c:0,n:'Madruga, plancha dos veces, respira hondo: le importa mucho.'},
+  {p:'«Ernesto está enfermo, porque el traje le queda ancho.» ¿Qué trampa es?',ops:['Se basa en una sola pista ambigua','Es irrelevante','La contradice el texto'],c:0,n:'Una sola pista con varias explicaciones posibles.'}
+],null,false);
+
+tallerEscritura('taller-32',{clave:'n4-3-2',etiqueta:'Tu inferencia con toda la evidencia (5 a 7 oraciones)',
+  guia:'Se puede inferir que Ernesto apaga el teléfono porque … El texto dice que … (párrafo 5) y que … (párrafo 2). Juntas, estas pistas muestran que … Otra explicación posible sería …, pero …',
+  meta:{oraciones:5,palabras:100},
+  conectores:['se puede inferir','el texto dice','párrafo','juntas','otra explicación','sin embargo','pero','por eso'],
+  titLista:'Expresiones de análisis que usaste',
+  vacioLista:'Todavía no aparecen expresiones de análisis («se puede inferir», «el texto dice», «párrafo»…).',
+  lista:['Mi inferencia responde a las dos partes de la pregunta (el teléfono y la carta).','Cito al menos dos pistas de párrafos distintos, con su número.','Explico cómo las pistas juntas llevan a la conclusión.','Menciono otra explicación posible y digo por qué la evidencia favorece la mía.','No afirmo nada que el texto no permita.','Escuché mi párrafo en voz alta y lo revisé.']});
+
+iniciarQuiz([
+  {t:'¿Qué distingue una inferencia <strong>compleja</strong>?',o:['Combina varias pistas que por separado no bastan','Se apoya en una frase que lo dice directamente','Usa palabras difíciles para explicar el texto'],c:0,r:'<a href="#s-1-compleja">Sección 1</a>'},
+  {t:'En el relato, ¿qué sugiere la frase de la hija «Esta vez sí»?',o:['Que antes hubo intentos que no salieron bien','Que es la primera entrevista de su padre','Que ella también busca trabajo'],c:0,r:'<a href="#s-2-modelo">Sección 2, párrafo 3</a>'},
+  {t:'¿Qué hace Ernesto con la carta del banco?',o:['La deja sin abrir y la empuja debajo del frutero','La abre y la guarda en el saco','La lleva a la entrevista para enseñarla'],c:0,r:'<a href="#s-2-modelo">Sección 2, párrafo 2</a>'},
+  {t:'¿Qué pista indica que Ernesto conoce bien el edificio?',o:['Sabe que el ascensor de la izquierda siempre tarda','Sube al piso doce en el ascensor','Lleva un traje gris para la entrevista'],c:0,r:'<a href="#s-2-modelo">Sección 2, párrafo 4</a>'},
+  {t:'Una evidencia es <strong>pertinente</strong> cuando…',o:['habla de lo que se quiere demostrar','es la cita más larga del texto','aparece en el primer párrafo'],c:0,r:'<a href="#s-3-solida">Sección 3</a>'},
+  {t:'¿Cuál es una evidencia <strong>específica</strong>?',o:['«Recargada con lo justo para ir y volver»','«En el relato se ve que le va mal»','«El autor quiere que pensemos en el dinero»'],c:0,r:'<a href="#s-3-solida">Sección 3</a>'},
+  {t:'Un análisis <strong>exhaustivo</strong>…',o:['tiene en cuenta toda la evidencia, también la que va en contra','repite la misma cita varias veces','usa solo la primera pista que encuentra'],c:0,r:'<a href="#s-3-solida">Sección 3</a>'},
+  {t:'¿Cuál es el tercer paso para escribir una inferencia compleja?',o:['Probar la conclusión contra el resto del texto','Escribir un resumen de toda la historia','Buscar la palabra más difícil del texto'],c:0,r:'<a href="#s-4-integrar">Sección 4</a>'},
+  {t:'¿Qué inferencia integra mejor las pistas sobre el estado de ánimo de Ernesto?',o:['Está muy nervioso, pero decidido a intentarlo','Está tranquilo porque sabe que lo van a contratar','Está enojado con su hija por el dibujo'],c:0,r:'<a href="#s-4-integrar">Sección 4</a>'},
+  {t:'«Ernesto es el dueño de la empresa.» ¿Qué trampa es?',o:['Va demasiado lejos','Es irrelevante','Es una inferencia sólida'],c:0,r:'<a href="#s-5-descartar">Sección 5</a>'},
+  {t:'Una opción que es cierta en el texto pero no responde a la pregunta es…',o:['irrelevante','contradictoria','exagerada'],c:0,r:'<a href="#s-5-descartar">Sección 5</a>'},
+  {t:'¿Por qué una sola pista ambigua no basta para concluir?',o:['Porque admite varias explicaciones distintas','Porque las pistas solo valen si son largas','Porque el GED nunca pregunta por una sola pista'],c:0,r:'<a href="#s-5-descartar">Sección 5</a>'}
+],{meta:10,
+   bien:'Ya sabes reunir evidencia sólida e integrar pistas en una inferencia compleja. Sigue con la Lección 3.3.',
+   repaso:'Vuelve a las secciones 3, 4 y 5 y repite el quiz: con práctica sale.'});
+</script>
+</body>
+</html>

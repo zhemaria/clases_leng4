@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<!-- Lección 8.2 · Artes del Lenguaje Nivel 4 · GEDparaHispanos
+     José M. Fernández, ABE/ASE Math Master Teacher, Harry S. Truman College — City Colleges of Chicago
+     Licencia CC BY-NC-SA 4.0 · https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es -->
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lección 8.2 · Estrategias y formatos de preguntas del GED</title>
+<meta name="author" content="José M. Fernández, ABE/ASE Math Master Teacher, Harry S. Truman College — City Colleges of Chicago">
+<meta name="license" content="CC BY-NC-SA 4.0">
+<link rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es">
+<style>
+  :root{
+    --cp:#b91c1c;--cp-claro:#fee2e2;--cp-oscuro:#7f1d1d;
+    --acento:#ff8c42;--texto:#1a2332;--fondo:#fafbfc;
+    --gris:#555;--gris-claro:#eef1f4;
+    --exito:#2e7d32;--error:#c62828;
+  }
+  *{box-sizing:border-box}
+  body{font-family:'Poppins','Segoe UI',Arial,sans-serif;line-height:1.7;color:var(--texto);background:var(--fondo);max-width:960px;margin:0 auto;padding:24px 18px}
+  h1{color:var(--cp-oscuro);border-bottom:4px solid var(--cp);padding-bottom:14px;font-size:1.85rem;margin-bottom:8px}
+  .subtitulo{color:var(--gris);font-style:italic;margin-top:0;margin-bottom:24px;font-size:1.05rem}
+  h2{color:var(--cp-oscuro);border-left:6px solid var(--cp);padding-left:14px;margin-top:32px;font-size:1.4rem}
+  h3{color:var(--cp-oscuro);margin-top:24px;font-size:1.15rem}
+  .caja-objetivos{background:var(--cp-claro);border-left:6px solid var(--cp);padding:18px 22px;border-radius:8px;margin:18px 0 28px 0}
+  .caja-objetivos h2{margin-top:0;color:var(--cp-oscuro);border-left:none;padding-left:0;font-size:1.2rem}
+  .caja-tiempo{display:inline-block;background:var(--acento);color:#1a2332;padding:4px 12px;border-radius:14px;font-size:0.85rem;font-weight:600;margin-left:10px;vertical-align:middle}
+  details{background:#fff;border:1px solid #d6dde4;border-radius:10px;margin:14px 0;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,0.04)}
+  details[open]{border-color:var(--cp);box-shadow:0 3px 10px rgba(185,28,28,0.12)}
+  summary{cursor:pointer;padding:16px 20px;font-weight:600;color:var(--cp-oscuro);background:var(--gris-claro);list-style:none;user-select:none;font-size:1.05rem}
+  summary::-webkit-details-marker{display:none}
+  summary::before{content:'▶';display:inline-block;margin-right:10px;color:var(--cp);transition:transform 0.25s;font-size:0.85rem}
+  details[open] summary::before{transform:rotate(90deg)}
+  details[open] summary{background:var(--cp-claro);border-bottom:2px solid var(--cp)}
+  .contenido-detalle{padding:18px 22px}
+  .tip{background:#fffbe6;border-left:5px solid #f4c430;padding:12px 18px;border-radius:6px;margin:14px 0}
+  .tip strong{color:#6b5400}
+  .botones{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:14px 0}
+  .btn{padding:10px 22px;border:none;border-radius:8px;font-weight:600;cursor:pointer;font-family:inherit;font-size:0.95rem;transition:background 0.2s}
+  .btn-primario{background:var(--cp);color:#fff}
+  .btn-primario:hover{background:var(--cp-oscuro)}
+  .btn-secundario{background:var(--gris-claro);color:var(--texto)}
+  .btn-secundario:hover{background:#d6dde4}
+  .btn[aria-pressed="true"]{background:var(--cp-oscuro);color:#fff}
+  ul.lista-bonita{list-style:none;padding-left:0}
+  ul.lista-bonita li{padding:8px 0 8px 30px;position:relative}
+  ul.lista-bonita li::before{content:'➜';position:absolute;left:0;color:var(--cp);font-weight:700}
+  .palabra-clave{background:linear-gradient(transparent 60%,#ffeb3b 60%);padding:0 4px;font-weight:600}
+  .ej{font-family:Georgia,serif;font-size:1.08rem}
+  .sub{font-weight:700;border-bottom:3px solid var(--cp-oscuro)}
+  table.tabla{width:100%;border-collapse:collapse;margin:16px 0;background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,0.06)}
+  table.tabla th{background:var(--cp-oscuro);color:#fff;padding:10px 12px;text-align:left}
+  table.tabla td{padding:10px 12px;border-bottom:1px solid var(--gris-claro);vertical-align:top}
+  table.tabla tr:last-child td{border-bottom:none}
+  .actividad{background:#fff;border:2px solid var(--acento);border-radius:10px;padding:16px 20px;margin:14px 0}
+  .actividad h4{color:#8a3d0c;margin-top:0}
+  .badge{display:inline-block;padding:3px 10px;border-radius:12px;font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-right:6px}
+  .badge-lectura{background:#e3f2fd;color:#0d47a1}
+  /* Clasificadores */
+  .clasificador{background:#fff;border:2px solid var(--cp);border-radius:12px;padding:14px 18px;margin:18px 0}
+  .item{border:2px solid var(--gris-claro);border-radius:8px;padding:10px 14px;margin:8px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+  .item-pal{font-family:Georgia,serif;font-size:1.12rem;color:var(--texto);display:flex;align-items:center;gap:10px}
+  .item-ops{display:flex;gap:8px;flex-wrap:wrap}
+  .item-fb{flex-basis:100%;font-size:.95rem}
+  .item-fb:empty{display:none}
+  .btn-op{padding:7px 14px;border:2px solid var(--cp-oscuro);background:#fff;color:var(--cp-oscuro);border-radius:8px;cursor:pointer;font-weight:600;font-family:inherit;font-size:.92rem}
+  .btn-op:hover:not(:disabled){background:var(--cp-claro)}
+  .btn-op.correcta{background:#d4edda;border-color:var(--exito);color:#155724}
+  .btn-op.correcta::before{content:'✓ '}
+  .btn-op.incorrecta{background:#f8d7da;border-color:var(--error);color:#721c24;text-decoration:line-through}
+  .btn-op.incorrecta::before{content:'✗ '}
+  .btn-op:disabled{cursor:default}
+  .apilado .item{flex-direction:column;align-items:stretch}
+  .apilado .item-ops{flex-direction:column}
+  .apilado .btn-op{text-align:left;font-weight:400}
+  .apilado .item-pal{font-family:'Segoe UI',Arial,sans-serif;font-size:1rem;font-weight:600;display:block}
+  .puntaje{text-align:center;margin-top:12px;font-weight:600;color:var(--cp-oscuro)}
+  /* Lectura con marcas: color + borde distinto + etiqueta escrita */
+  .texto-lectura{background:#fff;border:2px solid var(--gris-claro);border-radius:8px;padding:18px 22px;margin:14px 0;font-family:Georgia,serif;font-size:1.12rem;line-height:2.1}
+  .texto-lectura p{margin:0 0 10px}
+  .num-p{display:inline-block;background:var(--cp-oscuro);color:#fff;border-radius:50%;width:1.6em;height:1.6em;text-align:center;line-height:1.6em;font-size:.8rem;font-family:'Segoe UI',Arial,sans-serif;margin-right:6px;vertical-align:middle}
+  .m-sus{background:#e3f2fd;color:#0d3c78;border-bottom:3px solid #0d3c78}
+  .m-adj{background:#fff3e0;color:#6b3300;border-bottom:3px dashed #8a4b00}
+  .m-adv{background:#e8f5e9;color:#1b5e20;border-bottom:3px dotted #1b5e20}
+  .etq{font-weight:700;font-size:.78em;font-family:'Segoe UI',Arial,sans-serif;white-space:nowrap}
+  .oculta-marcas .m-sus,.oculta-marcas .m-adj,.oculta-marcas .m-adv{background:none;color:inherit;border:none}
+  .oculta-marcas .etq{display:none}
+  .leyenda-marcas{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0;font-size:.92rem}
+  .leyenda-marcas span{padding:2px 8px}
+  /* Índice */
+  .indice{background:#fff;border:1px solid #d6dde4;border-left:6px solid var(--cp);border-radius:10px;padding:16px 20px;margin:22px 0}
+  .indice h2{font-size:1.1rem;margin:0 0 8px;border:none;padding:0}
+  .indice ol{margin:0;padding-left:1.4em}
+  .indice li{margin:4px 0}
+  .indice a{color:var(--cp-oscuro)}
+  .abrir-cerrar{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0 0}
+  .volver-indice{position:fixed;right:18px;bottom:18px;z-index:60;background:var(--cp-oscuro);color:#fff;border-radius:999px;padding:10px 16px;font-weight:700;font-size:.92rem;text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,.28)}
+  .volver-indice:hover{background:var(--cp);color:#fff}
+  a:focus-visible,summary:focus-visible,button:focus-visible,textarea:focus-visible{outline:3px solid #b35316;outline-offset:2px}
+  .sr-solo{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+  .enlace-practica{display:block;background:#fff;border:2px solid var(--cp);border-radius:10px;padding:14px 18px;margin:16px 0;text-decoration:none;color:var(--cp-oscuro);font-weight:600}
+  .enlace-practica:hover{background:var(--cp-claro)}
+  .enlace-practica span{display:block;font-weight:400;color:var(--texto);font-size:.95rem}
+  .aviso-voz{font-size:.9rem;color:#5c3900;background:#fff3cd;border-radius:6px;padding:6px 10px;display:none}
+  .aviso-voz.visible{display:block}
+  /* Quiz */
+  .qz-intro{background:var(--cp-claro);border-radius:10px;padding:14px 18px;margin:0 0 14px}
+  .qz-intro h4{margin:0 0 6px;color:var(--cp-oscuro)}
+  .qz-preg{background:#fff;border:2px solid var(--gris-claro);border-radius:10px;padding:14px 18px;margin:12px 0}
+  .qz-enun{font-weight:600;margin:0 0 10px}
+  .qz-num{display:inline-block;background:var(--cp-oscuro);color:#fff;border-radius:12px;padding:1px 10px;font-size:.8rem;margin-right:8px}
+  .qz-ops{display:flex;flex-direction:column;gap:8px}
+  .qz-op{text-align:left;background:#fff;border:2px solid #c9d2db;border-radius:8px;padding:10px 14px;font-family:inherit;font-size:1rem;cursor:pointer;color:var(--texto)}
+  .qz-op:hover:not(:disabled){border-color:var(--cp)}
+  .qz-op.elegida{background:var(--cp-claro);border-color:var(--cp-oscuro);color:var(--cp-oscuro);box-shadow:0 0 0 3px #fff,0 0 0 5px var(--cp)}
+  .qz-op.correcta{background:#d4edda;border-color:#2e7d32;color:#155724}
+  .qz-op.correcta::before{content:'✓ '}
+  .qz-op.incorrecta{background:#f8d7da;border-color:#c62828;color:#721c24}
+  .qz-op.incorrecta::before{content:'✗ '}
+  .qz-op:disabled{cursor:default}
+  .qz-resultado{display:none;margin:16px 0;padding:16px;border-radius:10px;text-align:center;font-weight:600}
+  .qz-resultado.visible{display:block}
+  .qz-repaso{margin:10px 0 0;padding:8px 12px;background:#fff3cd;border-radius:6px;color:#3d2600;font-size:.95rem}
+  .qz-repaso a{color:var(--cp-oscuro);font-weight:700}
+  /* Taller de escritura */
+  .taller{background:#fff;border:2px solid var(--cp);border-radius:12px;padding:14px;margin:14px 0}
+  .tl-etq{display:block;font-weight:700;color:var(--cp-oscuro);margin-bottom:6px}
+  .tl-txt{width:100%;box-sizing:border-box;font:inherit;font-size:1.05rem;line-height:1.7;padding:10px 12px;border:2px solid #9aa9b7;border-radius:8px;resize:vertical;min-height:200px}
+  .tl-txt:focus{outline:3px solid var(--cp);outline-offset:1px;border-color:var(--cp-oscuro)}
+  .tl-cuenta{font-size:.92rem;color:#333;margin:6px 0}
+  .tl-conect{font-size:.95rem;margin:4px 0 8px}
+  .tl-chip{display:inline-block;background:var(--cp-claro);color:var(--cp-oscuro);border:1px solid var(--cp);border-radius:12px;padding:1px 10px;margin:2px 2px;font-weight:700}
+  .tl-aviso{min-height:1.4em;font-weight:700;color:var(--cp-oscuro)}
+  .tl-lista{border:2px dashed var(--cp);border-radius:10px;padding:8px 14px;margin-top:10px}
+  .tl-lista legend{font-weight:700;color:var(--cp-oscuro);padding:0 6px}
+  .tl-lista label{display:flex;gap:10px;align-items:flex-start;padding:6px 0;cursor:pointer}
+  .tl-lista input{width:22px;height:22px;flex-shrink:0;margin-top:2px;accent-color:var(--cp-oscuro)}
+  .tl-listo{font-weight:700;color:var(--cp-oscuro);margin:6px 0 0}
+  .rubrica{font-size:.92rem}
+  .rubrica td,.rubrica th{vertical-align:top}
+  @media(max-width:640px){
+    .rubrica thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+    .rubrica,.rubrica tbody,.rubrica tr,.rubrica th,.rubrica td{display:block;width:auto}
+    .rubrica tr{border:2px solid var(--cp);border-radius:10px;margin:0 0 10px;overflow:hidden}
+    .rubrica tbody th{background:var(--cp-oscuro);color:#fff;border:none}
+    .rubrica td{border:none;border-top:1px solid #d5dde3}
+    .rubrica td::before{content:attr(data-et);display:block;font-weight:700;color:var(--cp-oscuro)}
+  }
+  footer.pie{margin-top:40px;padding-top:18px;border-top:2px solid var(--gris-claro);text-align:center;color:#555;font-size:.9rem}
+  footer.pie p{margin:4px 0}
+  footer.pie a{color:var(--cp-oscuro)}
+  @media print{.indice,.volver-indice,.abrir-cerrar{display:none}}
+  @media (prefers-reduced-motion:reduce){summary::before{transition:none}}
+  .fx{background:#fff;border:2px solid var(--gris-claro);border-radius:12px;padding:14px 16px;margin:14px 0}
+  .fx-tit{font-weight:700;color:var(--cp-oscuro);margin:0 0 8px}
+  .fx-ayuda{font-size:.92rem;color:#444;margin:0 0 10px}
+  .fx-preg{font-weight:600;margin:0 0 10px}
+  .fx-texto{font-family:Georgia,serif;font-size:1.05rem;line-height:2.1;background:#fff8ee;border-left:5px solid #ff8c42;border-radius:6px;padding:10px 14px}
+  .fx-sel{font-family:'Segoe UI',Arial,sans-serif;font-size:.98rem;padding:4px 6px;border:2px solid var(--cp-oscuro);border-radius:6px;background:#fff;color:var(--texto);max-width:100%}
+  .fx-sel.fx-ok{border-color:#2e7d32;border-style:solid;background:#e8f5e9}
+  .fx-sel.fx-mal{border-color:#c62828;border-style:dashed;background:#fdecea}
+  .fx-ok-t{color:#155724;font-weight:700}
+  .fx-mal-t{color:#721c24;font-weight:700}
+  .fx-barra{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0 0}
+  .fx-btn{cursor:pointer;font-family:inherit;font-weight:600;border:2px solid var(--cp);border-radius:8px;padding:8px 16px;font-size:.95rem;background:var(--cp);color:#fff}
+  .fx-btn:hover{background:var(--cp-oscuro)}
+  .fx-btn.fx-sec{background:#fff;color:var(--cp-oscuro)}
+  .fx-btn.fx-sec:hover{background:var(--cp-claro)}
+  .fx-fb{min-height:1.4em;margin:8px 0 0}
+  .fx-notas{margin:6px 0 0;padding-left:1.2em;font-size:.95rem;color:#3d2600}
+  .fx-nota{margin:6px 0 0;font-size:.95rem}
+  .fx-cajas{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px;margin-top:10px}
+  .fx-zona{border:2px dashed #8a97a6;border-radius:10px;padding:8px;min-height:90px;background:#fafbfc}
+  .fx-zona.fx-origen{background:var(--gris-claro);border-style:solid}
+  .fx-zona.fx-sobre{border-color:var(--cp);background:var(--cp-claro)}
+  .fx-dest{display:block;width:100%;cursor:pointer;font-family:inherit;font-weight:700;font-size:.95rem;background:var(--cp-oscuro);color:#fff;border:none;border-radius:6px;padding:6px 10px;margin-bottom:6px;text-align:left}
+  .fx-dest::after{content:' ⬇';opacity:.8}
+  .fx-origen .fx-dest{background:#4a5563}
+  .fx-lista{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+  .fx-ficha{width:100%;text-align:left;cursor:grab;font-family:inherit;font-size:.95rem;background:#fff;border:2px solid #c9d2db;border-radius:8px;padding:7px 10px;color:var(--texto)}
+  .fx-ficha.fx-elegida{border-color:var(--cp-oscuro);background:var(--cp-claro);box-shadow:0 0 0 3px #fff,0 0 0 5px var(--cp)}
+  .fx-ficha.fx-ok,.fx-frase.fx-ok{border-color:#2e7d32;border-style:solid;background:#e8f5e9}
+  .fx-ficha.fx-ok::before,.fx-frase.fx-ok::before{content:'✓ ';color:#155724;font-weight:700}
+  .fx-ficha.fx-mal,.fx-frase.fx-mal{border-color:#c62828;border-style:dashed;background:#fdecea}
+  .fx-ficha.fx-mal::before,.fx-frase.fx-mal::before{content:'✗ ';color:#721c24;font-weight:700}
+  .fx-area{line-height:1.9}
+  .fx-frase{display:inline;font-family:Georgia,serif;font-size:1.03rem;line-height:1.9;text-align:left;background:transparent;border:2px solid transparent;border-radius:4px;padding:1px 3px;color:var(--texto);cursor:pointer;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+  .fx-frase:hover:not(:disabled),.fx-frase:focus-visible{border-color:var(--cp);background:var(--cp-claro)}
+  .fx-frase:disabled{cursor:default}
+
+  .m-ip{display:none;font-family:'Segoe UI',Arial,sans-serif;font-size:.85rem;font-weight:700;color:#0d3c78;background:#e3f2fd;border:2px solid #0d3c78;border-radius:6px;padding:1px 8px;margin-left:6px}
+  .con-notas .m-ip{display:inline-block}
+  .trampa{font-weight:700;color:var(--cp-oscuro)}
+  .lista-cotejo{list-style:none;padding:0;margin:10px 0}
+  .lista-cotejo li{padding:8px 0;border-bottom:1px solid var(--gris-claro)}
+  .lista-cotejo label{display:flex;gap:10px;align-items:flex-start;cursor:pointer}
+  .lista-cotejo input{width:22px;height:22px;flex:none;margin-top:2px;accent-color:var(--cp-oscuro)}
+</style>
+</head>
+<body>
+<h1>Lección 8.2 · Estrategias y formatos de preguntas del GED</h1>
+<p class="subtitulo">Artes del Lenguaje · Nivel 4 · Tema 8: Investigación extensa, oralidad y preparación GED · Unas 2 horas, a tu ritmo</p>
+
+<div class="caja-objetivos">
+  <h2>🎯 Objetivos de la lección</h2>
+  <ul class="lista-bonita" style="margin:0">
+    <li>Conocer cómo está organizado el examen de <strong>Razonamiento a través de las Artes del Lenguaje</strong> (RLA) del GED.</li>
+    <li>Aplicar tres estrategias: <strong>lectura activa</strong>, <strong>manejo del tiempo</strong> y <strong>descarte de opciones</strong>.</li>
+    <li>Reconocer y practicar los <strong>formatos de preguntas</strong>: opción múltiple, menú desplegable, arrastrar y soltar, y seleccionar un área.</li>
+  </ul>
+  <p style="margin:8px 0 0;font-size:.92rem">Preparación para el examen GED RLA</p>
+</div>
+
+<nav class="indice" id="indice" aria-labelledby="indice-titulo">
+  <h2 id="indice-titulo">Contenido de la lección</h2>
+  <ol>
+    <li><a href="#s-1-examen">Cómo es el examen</a></li>
+    <li><a href="#s-2-lectura">Estrategia 1: la lectura activa</a></li>
+    <li><a href="#s-3-descarte">Estrategia 2: descartar opciones</a></li>
+    <li><a href="#s-4-tiempo">Estrategia 3: manejar el tiempo</a></li>
+    <li><a href="#s-5-formatos">Los formatos de preguntas</a></li>
+    <li><a href="#s-6-cotejo">Tu lista de estrategias</a></li>
+    <li><a href="#s-7-simulador">Practica con el simulador</a></li>
+    <li><a href="#s-tarea">Tarea</a></li>
+    <li><a href="#s-quiz">Quiz de la lección</a></li>
+    <li><a href="#s-cierre">Cierre</a></li>
+  </ol>
+  <div class="abrir-cerrar">
+    <button type="button" class="btn btn-secundario" id="abrir-todo">Abrir todo</button>
+    <button type="button" class="btn btn-secundario" id="cerrar-todo">Cerrar todo</button>
+  </div>
+</nav>
+
+<h2>📚 Para empezar</h2>
+<p>Durante cuatro niveles has aprendido a leer con atención, a analizar argumentos y a escribir con evidencia. Esta lección no añade contenido nuevo: te enseña a <strong>usar lo que ya sabes</strong> en las condiciones del examen, con el reloj en marcha y con preguntas en la pantalla que no siempre son de opción múltiple. Saber cómo funciona el examen quita nervios y ahorra minutos.</p>
+<p class="aviso-voz" id="aviso-voz" role="status">Tu navegador no tiene una voz en español disponible, así que los botones 🔊 no sonarán.</p>
+
+<details open id="s-1-examen">
+<summary>1. Cómo es el examen <span class="caja-tiempo">10 min</span></summary>
+<div class="contenido-detalle">
+<p>El examen RLA dura <strong>150 minutos</strong> en total, con un <strong>descanso de 10 minutos</strong>, y se hace en computadora. Así se organiza en el simulador de GEDparaHispanos, que sigue la estructura del examen:</p>
+<table class="tabla">
+  <caption class="sr-solo">Partes del examen de Artes del Lenguaje y su tiempo en el simulador</caption>
+  <thead><tr><th scope="col">Parte</th><th scope="col">Qué hay</th><th scope="col">Tiempo</th></tr></thead>
+  <tbody>
+    <tr><td>1</td><td>Preguntas de lectura y de lenguaje (18 en el simulador)</td><td>35 min</td></tr>
+    <tr><td>2</td><td>Respuesta Extendida: un ensayo a partir de dos textos (Lección 8.3)</td><td>45 min</td></tr>
+    <tr><td>—</td><td>Descanso</td><td>10 min</td></tr>
+    <tr><td>3</td><td>Preguntas de lectura y de lenguaje (27 en el simulador)</td><td>60 min</td></tr>
+  </tbody>
+</table>
+<ul class="lista-bonita">
+  <li><strong>Los textos:</strong> la mayoría son informativos (artículos, documentos de trabajo, textos de ciencias y de estudios sociales, discursos históricos); una cuarta parte, más o menos, son literarios.</li>
+  <li><strong>La nota:</strong> para aprobar hace falta al menos <strong>145</strong> en cada materia del GED. Con 165 o más, el resultado indica que estás preparado para el college.</li>
+  <li><strong>Las respuestas incorrectas no restan puntos.</strong> Por eso nunca debes dejar una pregunta en blanco.</li>
+</ul>
+<div class="tip"><strong>💡 Lo importante:</strong> el examen no pregunta datos de memoria. Toda la información está en los textos. Lo que se evalúa es <strong>cómo lees, razonas y escribes</strong>, justo lo que has practicado en este nivel.</div>
+</div>
+</details>
+
+<details id="s-2-lectura">
+<summary>2. Estrategia 1: la lectura activa <span class="caja-tiempo">20 min</span></summary>
+<div class="contenido-detalle">
+<p>Leer de forma activa es leer con un propósito y dejando huella. En el examen no puedes subrayar el texto, pero sí puedes usar la hoja o la pizarra borrable que te den para anotar.</p>
+<table class="tabla">
+  <caption class="sr-solo">Qué hacer antes, durante y después de leer un texto del examen</caption>
+  <thead><tr><th scope="col">Momento</th><th scope="col">Qué haces</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Antes</strong></td><td>Lee el título y la fuente: ¿qué tipo de texto es? Echa un vistazo a las preguntas para saber qué buscar.</td></tr>
+    <tr><td><strong>Durante</strong></td><td>Al terminar cada párrafo, resume su idea en tres o cuatro palabras. Fíjate en cifras, fechas, causas y cambios de dirección («sin embargo», «además»).</td></tr>
+    <tr><td><strong>Después</strong></td><td>Antes de responder, <strong>vuelve al texto</strong> y busca la oración que lo prueba. La respuesta correcta siempre se apoya en el texto, no en lo que tú opinas.</td></tr>
+  </tbody>
+</table>
+<div class="actividad">
+  <h4><span class="badge badge-lectura">Texto modelo tipo GED</span> Individual · lectura activa</h4>
+  <p style="margin:0">Lee el aviso. Después pulsa «Ver las notas al margen» y compara tus resúmenes de cada párrafo con los de la lección. Este texto se usa en toda la lección.</p>
+</div>
+<div class="texto-lectura" id="lectura">
+  <h3 style="margin-top:0">Aviso a los vecinos: huertos comunitarios en el Parque Ríos</h3>
+  <p style="font-family:'Segoe UI',Arial,sans-serif;font-size:.9rem;margin-top:-6px"><em>Distrito de Parques · texto inventado para esta lección</em></p>
+  <p><span class="num-p" aria-hidden="true">1</span>El Distrito de Parques abrirá en marzo 40 parcelas de huerto en el Parque Ríos. Cada parcela mide 10 por 10 pies y se asigna por un año. <span class="m-ip">Qué ofrecen</span></p>
+  <p><span class="num-p" aria-hidden="true">2</span>Pueden solicitar una parcela las personas mayores de 18 años que vivan en el barrio. La cuota es de $25 al año; las familias que reciben ayuda alimentaria pagan $10. <span class="m-ip">Quién y cuánto</span></p>
+  <p><span class="num-p" aria-hidden="true">3</span>Las solicitudes se reciben del 1 al 31 de enero. Si hay más solicitudes que parcelas, se hará un sorteo público el 10 de febrero. <span class="m-ip">Cuándo y cómo se reparte</span></p>
+  <p><span class="num-p" aria-hidden="true">4</span>Quienes reciban una parcela deberán asistir a un taller de dos horas sobre cultivo sin pesticidas. Además, se comprometen a cuidarla: una parcela abandonada durante más de tres semanas se asignará a la siguiente persona de la lista de espera. <span class="m-ip">Obligaciones</span></p>
+  <p><span class="num-p" aria-hidden="true">5</span>El año pasado, en el programa del Parque Norte, 9 de cada 10 participantes dijeron en una encuesta que comían más verduras. «El huerto me devolvió el contacto con la tierra de mi pueblo», contó una participante. <span class="m-ip">Resultados</span></p>
+</div>
+<div class="botones" style="justify-content:flex-start">
+  <button type="button" class="btn btn-secundario" id="leer-lectura">🔊 Escuchar el aviso</button>
+  <button type="button" class="btn btn-secundario" id="ver-partes" aria-pressed="false">Ver las notas al margen</button>
+</div>
+<div class="clasificador apilado" id="clasif-lectura"></div>
+<div class="puntaje" id="puntaje-lectura" role="status" aria-live="polite"></div>
+</div>
+</details>
+
+<details id="s-3-descarte">
+<summary>3. Estrategia 2: descartar opciones <span class="caja-tiempo">20 min</span></summary>
+<div class="contenido-detalle">
+<p>Las opciones incorrectas no son al azar: están pensadas para parecer correctas. Si reconoces las trampas, puedes descartarlas aunque dudes de la respuesta.</p>
+<table class="tabla">
+  <caption class="sr-solo">Cuatro tipos de opciones trampa y cómo reconocerlas</caption>
+  <thead><tr><th scope="col">Trampa</th><th scope="col">Cómo reconocerla</th></tr></thead>
+  <tbody>
+    <tr><td class="trampa">Extremo</td><td>Usa «siempre», «nunca», «todos», «ninguno» o exagera lo que dice el texto.</td></tr>
+    <tr><td class="trampa">Dato mal usado</td><td>Toma palabras o cifras del texto, pero las junta con otra idea.</td></tr>
+    <tr><td class="trampa">No está en el texto</td><td>Suena razonable, pero el texto no lo dice: viene de lo que «sabemos» o suponemos.</td></tr>
+    <tr><td class="trampa">Cierto, pero no responde</td><td>Es verdad según el texto, pero no contesta la pregunta que se hace.</td></tr>
+  </tbody>
+</table>
+<div class="actividad">
+  <h4><span class="badge badge-lectura">Ejemplo resuelto</span> Así se descarta</h4>
+  <p style="margin:0 0 8px"><strong>Según el aviso, ¿qué ocurre si una persona no cuida su parcela?</strong></p>
+  <ul class="lista-bonita" style="margin:0">
+    <li><strong>A.</strong> Debe pagar una multa de $25. → <span class="trampa">Dato mal usado:</span> $25 es la cuota, no una multa.</li>
+    <li><strong>B.</strong> El distrito cerrará todos los huertos del parque. → <span class="trampa">Extremo:</span> el texto no dice nada parecido.</li>
+    <li><strong>C.</strong> La parcela pasa a otra persona de la lista de espera. → <strong>Correcta:</strong> párrafo 4.</li>
+    <li><strong>D.</strong> Los vecinos la cuidan entre todos. → <span class="trampa">No está en el texto.</span></li>
+  </ul>
+</div>
+<div class="tip"><strong>💡 Si dudas entre dos opciones:</strong> vuelve a la pregunta, subraya mentalmente su palabra clave («qué ocurre», «por qué», «qué propósito») y busca en el texto la oración que la responde. La opción que se puede señalar con el dedo en el texto es la buena.</div>
+<div class="clasificador apilado" id="clasif-trampas"></div>
+<div class="puntaje" id="puntaje-trampas" role="status" aria-live="polite"></div>
+<div class="tip"><strong>👨‍👩‍👧 Si tienes con quién practicar:</strong> «Explica tu descarte». Respondan juntos una pregunta del simulador, pero en voz alta: por qué descartaron cada opción. Decir el porqué en voz alta fija la estrategia.</div>
+</div>
+</details>
+
+<details id="s-4-tiempo">
+<summary>4. Estrategia 3: manejar el tiempo <span class="caja-tiempo">10 min</span></summary>
+<div class="contenido-detalle">
+<p>Haz la cuenta con los tiempos del simulador:</p>
+<ul class="lista-bonita">
+  <li><strong>Parte 1:</strong> 35 minutos ÷ 18 preguntas ≈ <strong>2 minutos por pregunta</strong>, incluido el tiempo de lectura.</li>
+  <li><strong>Parte 3:</strong> 60 minutos ÷ 27 preguntas ≈ <strong>2 minutos por pregunta</strong>.</li>
+  <li><strong>Respuesta Extendida:</strong> 45 minutos: de 5 a 10 para planificar, de 25 a 30 para escribir y de 5 a 10 para revisar (Lección 7.1).</li>
+</ul>
+<table class="tabla">
+  <caption class="sr-solo">Reglas para manejar el tiempo durante el examen</caption>
+  <thead><tr><th scope="col">Regla</th><th scope="col">Por qué</th></tr></thead>
+  <tbody>
+    <tr><td>No te quedes atascado más de 3 minutos en una pregunta.</td><td>Cada pregunta vale lo mismo; las fáciles del final también cuentan.</td></tr>
+    <tr><td>Si dudas, elige la mejor opción, anótala en tu hoja y sigue.</td><td>Si te sobra tiempo, vuelves a ella antes de terminar la parte.</td></tr>
+    <tr><td>Mira el reloj de la pantalla cada cinco o seis preguntas.</td><td>A mitad del tiempo deberías ir por la mitad de las preguntas.</td></tr>
+    <tr><td>En los últimos minutos, responde todo lo que falte.</td><td>Las respuestas incorrectas no restan: una pregunta en blanco es un punto perdido seguro.</td></tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details id="s-5-formatos">
+<summary>5. Los formatos de preguntas <span class="caja-tiempo">30 min</span></summary>
+<div class="contenido-detalle">
+<table class="tabla">
+  <caption class="sr-solo">Los formatos de preguntas del examen RLA y qué hacer en cada uno</caption>
+  <thead><tr><th scope="col">Formato</th><th scope="col">Cómo es</th><th scope="col">Consejo</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Opción múltiple</strong></td><td>Cuatro opciones; una es correcta.</td><td>Descarta las trampas y busca la prueba en el texto.</td></tr>
+    <tr><td><strong>Menú desplegable</strong></td><td>Un texto con espacios; en cada uno eliges la palabra o la frase correcta. Se usa sobre todo para las convenciones del idioma.</td><td>Lee la oración completa con cada opción, en voz baja.</td></tr>
+    <tr><td><strong>Arrastrar y soltar</strong></td><td>Llevas tarjetas a cajas o a un orden: clasificar datos, ordenar hechos, completar un esquema.</td><td>Empieza por las tarjetas que tienes claras; las dudosas, al final.</td></tr>
+    <tr><td><strong>Seleccionar un área</strong></td><td>Haces clic en una parte del texto o de una imagen.</td><td>Lee la pregunta dos veces: suele pedir una oración muy concreta.</td></tr>
+  </tbody>
+</table>
+<h3>Pruébalos con el aviso de los huertos</h3>
+<p><strong>a) Menú desplegable.</strong> Una vecina escribe al Distrito de Parques. Elige la opción correcta en cada espacio y pulsa «Comprobar».</p>
+<div class="fx" id="demo-desp"></div>
+<p><strong>b) Arrastrar y soltar.</strong> Clasifica cada tarjeta según el aviso.</p>
+<div class="fx" id="demo-arr"></div>
+<p><strong>c) Seleccionar un área.</strong></p>
+<div class="fx" id="demo-area"></div>
+<a class="enlace-practica" href="https://zhemaria.github.io/gramatica/n4-l8-2.html" target="_blank" rel="noopener noreferrer">🧩 Practica más: los formatos del GED
+  <span>Opción múltiple, menú desplegable, arrastrar y soltar, y un simulacro de 15 preguntas con cronómetro. Se abre en una pestaña nueva.</span></a>
+</div>
+</details>
+
+<details id="s-6-cotejo">
+<summary>6. Tu lista de estrategias <span class="caja-tiempo">5 min</span></summary>
+<div class="contenido-detalle">
+<p>Usa esta lista cada vez que practiques con el simulador o con el interactivo. Marca lo que hiciste. Las marcas se borran al recargar la página.</p>
+<ul class="lista-cotejo" id="cotejo">
+  <li><label><input type="checkbox"> <span><strong>Aplico la lectura activa:</strong> resumo cada párrafo y vuelvo al texto antes de responder.</span></label></li>
+  <li><label><input type="checkbox"> <span><strong>Gestiono el tiempo:</strong> unos 2 minutos por pregunta; no me atasco ni dejo preguntas en blanco.</span></label></li>
+  <li><label><input type="checkbox"> <span><strong>Descarto distractores con criterio:</strong> sé decir por qué una opción es una trampa.</span></label></li>
+  <li><label><input type="checkbox"> <span><strong>Reconozco el formato de cada pregunta</strong> y sé cómo responderlo.</span></label></li>
+</ul>
+<p class="puntaje" id="cotejo-total" role="status" aria-live="polite">Estrategias marcadas: 0 de 4.</p>
+</div>
+</details>
+
+<details id="s-7-simulador">
+<summary>7. Practica con el simulador <span class="caja-tiempo">variable</span></summary>
+<div class="contenido-detalle">
+<p>Cuando hayas practicado los formatos, haz el examen completo de práctica. Tiene 45 preguntas en dos partes cronometradas, con el descanso entre ellas, y al final te da un informe que enlaza cada tema que fallaste con su lección y su interactivo de GEDparaHispanos. Puedes recibirlo por correo, descargarlo o imprimirlo.</p>
+<div class="tip"><strong>🔑 Antes de empezar:</strong> el simulador te pide tu nombre y un <strong>código de grupo</strong> de 4 caracteres. Si estás en una clase, usa el que te dio tu profesor; <strong>si estudias por tu cuenta, escribe 9999</strong>.</div>
+<a class="enlace-practica" href="https://zhemaria.github.io/examen/lenguaje_lectura" target="_blank" rel="noopener noreferrer">📝 Simulador de Artes del Lenguaje
+  <span>45 preguntas con los formatos del examen y los tiempos reales. Se abre en una pestaña nueva.</span></a>
+<div class="tip"><strong>💡 Prepárate como el día del examen:</strong> busca un lugar sin ruido, apaga el teléfono, ten a mano una hoja para anotar y respeta el descanso. Después, revisa el informe: ¿en qué áreas fallaste más? Vuelve a esas lecciones antes de repetirlo. GED Testing Service ofrece además un examen de práctica oficial, <strong>GED Ready</strong>, en <a href="https://ged.com" target="_blank" rel="noopener noreferrer" style="color:var(--cp-oscuro);font-weight:700">ged.com</a>.</div>
+</div>
+</details>
+
+<details id="s-tarea">
+<summary>8. Tarea <span class="caja-tiempo">variable</span></summary>
+<div class="contenido-detalle">
+<ul class="lista-bonita">
+  <li><strong>Haz el simulacro de 15 preguntas</strong> del interactivo con el cronómetro de 30 minutos.</li>
+  <li><strong>Escribe en tu cuaderno</strong> tres preguntas que fallaste y, para cada una, qué tipo de trampa era la opción que elegiste.</li>
+  <li><strong>Haz el simulador completo</strong> cuando te sientas listo, y guarda el informe para comparar con el próximo intento.</li>
+</ul>
+</div>
+</details>
+
+<details id="s-quiz">
+<summary>9. Quiz de la lección <span class="caja-tiempo">20 min</span></summary>
+<div class="contenido-detalle">
+<div class="qz-intro">
+  <h4>✅ Quiz · 12 preguntas · puedes repetirlo las veces que quieras</h4>
+  <p style="margin:0">Las preguntas 7 a 12 son sobre el aviso de los huertos: vuelve a él cuando lo necesites, como harías en el examen. La meta es acertar al menos <strong>10 de 12</strong>.</p>
+</div>
+<div id="qz-cuerpo"></div>
+<div class="botones">
+  <button type="button" class="btn btn-primario" id="qz-calificar">Ver mi resultado</button>
+  <button type="button" class="btn btn-secundario" id="qz-reintentar" style="display:none">Intentar de nuevo</button>
+</div>
+<div class="qz-resultado" id="qz-resultado" role="status" aria-live="polite"></div>
+</div>
+</details>
+
+<details id="s-cierre">
+<summary>10. Cierre <span class="caja-tiempo">5 min</span></summary>
+<div class="contenido-detalle">
+<h3>Lo que aprendiste en esta lección</h3>
+<ul class="lista-bonita">
+  <li>El examen RLA dura 150 minutos: preguntas, Respuesta Extendida de 45 minutos, descanso y más preguntas.</li>
+  <li>La lectura activa resume cada párrafo y vuelve al texto antes de responder.</li>
+  <li>Las trampas más comunes son el extremo, el dato mal usado, lo que no está en el texto y lo cierto que no responde.</li>
+  <li>Unos 2 minutos por pregunta, sin atascarse y sin dejar nada en blanco: los errores no restan.</li>
+  <li>Hay cuatro formatos: opción múltiple, menú desplegable, arrastrar y soltar, y seleccionar un área.</li>
+</ul>
+<div class="caja-objetivos" style="background:#fff3e0;border-left-color:var(--acento)">
+  <h2 style="color:#8a3d0c;border:none;padding:0;margin-top:0;font-size:1.2rem">✅ Antes de irte, revísate</h2>
+  <ul class="lista-bonita">
+    <li>¿Por qué nunca hay que dejar una pregunta en blanco?</li>
+    <li>¿Qué trampa usa una opción que dice «todos los vecinos»?</li>
+    <li>¿Cómo respondes una pregunta de menú desplegable?</li>
+  </ul>
+</div>
+<div class="tip"><strong>➡️ Sigue con la próxima lección:</strong> <a href="https://zhemaria.github.io/clases_leng4/clase_8-3.html" style="color:var(--cp-oscuro);font-weight:700">Lección 8.3 · Respuesta Extendida, proyecto final y evaluación del nivel</a>.</div>
+<p style="font-size:.9rem"><strong>Fuentes:</strong> GED Testing Service, «Reasoning Through Language Arts: What You Need to Know» y «Understanding GED Scores» (ged.com); Calhoun Community College, preguntas frecuentes sobre el GED (respuestas incorrectas sin penalización); Kaplan, «What’s tested on GED Reasoning through Language Arts» (proporción de textos informativos y literarios). Consultadas en octubre de 2026. El aviso de los huertos es inventado.</p>
+</div>
+</details>
+
+<footer class="pie">
+  <p><strong>GEDparaHispanos · Artes del Lenguaje · Nivel 4: Dominio del GED y Escritura Argumentativa · Tema 8 · Lección 8.2</strong></p>
+  <p>José M. Fernández, ABE/ASE Math Master Teacher, Harry S. Truman College — City Colleges of Chicago</p>
+  <p>© 2026. Esta obra está licenciada bajo <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es" rel="license noopener noreferrer" target="_blank">Creative Commons Reconocimiento-NoComercial-CompartirIgual 4.0 Internacional (CC BY-NC-SA 4.0)</a>.</p>
+</footer>
+<a class="volver-indice" href="#indice" aria-label="Volver al contenido de la lección"><span aria-hidden="true">↑</span> Índice</a>
+
+<script>
+
+/* ===== Voz: todas las lecturas pasan por hablar(), para poder cambiarla después por audio grabado ===== */
+(function(){
+  var voz=null, hay=('speechSynthesis' in window);
+  function elegir(){
+    if(!hay)return;
+    var vs=speechSynthesis.getVoices().filter(function(v){return /^es/i.test(v.lang);});
+    var pref=['es-US','es-MX','es-419','es-CO','es-AR','es-CL','es-PE'];
+    voz=null;
+    for(var i=0;i<pref.length&&!voz;i++){voz=vs.find(function(v){return v.lang.replace('_','-').toLowerCase()===pref[i].toLowerCase();})||null;}
+    if(!voz)voz=vs.find(function(v){return !/es[-_]ES/i.test(v.lang);})||vs[0]||null;
+  }
+  function aviso(){var a=document.getElementById('aviso-voz');if(a)a.classList.add('visible');}
+  function frase(t,vel){var u=new SpeechSynthesisUtterance(t);u.lang=voz?voz.lang:'es-US';if(voz)u.voice=voz;u.rate=vel||0.9;return u;}
+  if(hay){elegir(); speechSynthesis.onvoiceschanged=elegir;}
+  window.hablar=function(texto,vel,fin){
+    if(!hay||!texto){aviso();return;}
+    speechSynthesis.cancel();
+    /* Se lee por oraciones: algunos navegadores cortan las lecturas largas */
+    var partes=texto.replace(/\s+/g,' ').match(/[^.!?…]+[.!?…]+[»"”)]*\s*|[^.!?…]+$/g)||[texto];
+    partes.forEach(function(t,i){var u=frase(t.trim(),vel); if(fin&&i===partes.length-1)u.onend=fin; speechSynthesis.speak(u);});
+  };
+  window.callar=function(){if(hay)speechSynthesis.cancel();};
+  if(!hay)document.addEventListener('DOMContentLoaded',aviso);
+})();
+
+/* ===== Clasificador: cada elemento con sus botones; al acertar muestra una nota =====
+   Las opciones propias de cada elemento se barajan; las opciones comunes conservan su orden */
+function orden(it,ops){
+  var o=ops.map(function(_,j){return j;});
+  if(it.ops&&!it.fijo){for(var k=o.length-1;k>0;k--){var r=Math.floor(Math.random()*(k+1)),t=o[k];o[k]=o[r];o[r]=t;}}
+  return o;
+}
+function clasificador(idCaja,idPuntaje,items,opciones,conAudio){
+  var caja=document.getElementById(idCaja), pun=document.getElementById(idPuntaje), bien=0, hechas={};
+  function marcador(){pun.textContent=bien===items.length?(items.length===1?'🎉 ¡Muy bien!':'🎉 ¡Muy bien! Acertaste las '+bien+'.'):(items.length===1?'':'Aciertos: '+bien+' / '+items.length);}
+  items.forEach(function(it,i){
+    var d=document.createElement('div'); d.className='item'; d.setAttribute('role','group'); d.setAttribute('aria-label',it.p.replace(/<[^>]+>/g,''));
+    var ops=it.ops||opciones;
+    d.innerHTML='<span class="item-pal">'+it.p+(conAudio?' <button type="button" class="oir" aria-label="Escuchar">🔊</button>':'')+'</span>'+
+      '<span class="item-ops">'+orden(it,ops).map(function(j){return '<button type="button" class="btn-op" data-j="'+j+'">'+ops[j]+'</button>';}).join('')+'</span>'+
+      '<span class="item-fb" aria-live="polite"></span>';
+    caja.appendChild(d);
+    if(conAudio)d.querySelector('.oir').addEventListener('click',function(){hablar(it.a||it.p.replace(/<[^>]+>/g,''),0.85);});
+    var fb=d.querySelector('.item-fb');
+    d.querySelectorAll('.btn-op').forEach(function(b){
+      b.addEventListener('click',function(){
+        if(hechas[i])return;
+        if(+b.getAttribute('data-j')===it.c){
+          b.classList.add('correcta'); hechas[i]=true; bien++;
+          d.querySelectorAll('.btn-op').forEach(function(x){x.disabled=true;});
+          fb.innerHTML='✓ '+(it.n||'Correcto.'); marcador();
+        }else{
+          b.classList.add('incorrecta'); b.disabled=true;
+          fb.innerHTML='Todavía no. '+(it.pista||'Vuelve a mirar la regla e intenta otra vez.');
+        }
+      });
+    });
+  });
+  marcador();
+}
+
+/* ===== Quiz de la lección ===== */
+function iniciarQuiz(P,cfg){
+  var META=cfg.meta, N=P.length, cuerpo=document.getElementById('qz-cuerpo'), elegidas={};
+  P.forEach(function(p,i){
+    var d=document.createElement('div');
+    d.className='qz-preg'; d.setAttribute('role','group'); d.setAttribute('aria-labelledby','qz-e'+i);
+    var h='<p class="qz-enun" id="qz-e'+i+'"><span class="qz-num">'+(i+1)+'</span>'+p.t+'</p><div class="qz-ops">';
+    var orden=p.o.map(function(_,j){return j;});
+    if(!p.fijo){for(var k=orden.length-1;k>0;k--){var r=Math.floor(Math.random()*(k+1)),t=orden[k];orden[k]=orden[r];orden[r]=t;}}
+    orden.forEach(function(j){h+='<button type="button" class="qz-op" data-i="'+i+'" data-j="'+j+'" aria-pressed="false">'+p.o[j]+'</button>';});
+    d.innerHTML=h+'</div>'; cuerpo.appendChild(d);
+  });
+  cuerpo.addEventListener('click',function(ev){
+    var b=ev.target.closest('.qz-op'); if(!b||b.disabled)return;
+    var i=b.getAttribute('data-i');
+    cuerpo.querySelectorAll('.qz-op[data-i="'+i+'"]').forEach(function(x){x.classList.remove('elegida');x.setAttribute('aria-pressed','false');});
+    b.classList.add('elegida'); b.setAttribute('aria-pressed','true'); elegidas[i]=+b.getAttribute('data-j');
+  });
+  var res=document.getElementById('qz-resultado');
+  document.getElementById('qz-calificar').addEventListener('click',function(){
+    var bien=0;
+    P.forEach(function(p,i){
+      cuerpo.querySelectorAll('.qz-op[data-i="'+i+'"]').forEach(function(x){
+        var j=+x.getAttribute('data-j'); x.disabled=true; x.classList.remove('elegida');
+        if(j===p.c)x.classList.add('correcta'); else if(elegidas[i]===j)x.classList.add('incorrecta');
+      });
+      if(elegidas[i]===p.c)bien++;
+      else if(p.r){var nota=document.createElement('p');nota.className='qz-repaso';nota.innerHTML='📘 Para repasar: '+p.r;cuerpo.children[i].appendChild(nota);}
+    });
+    var msg,fondo,color;
+    if(bien>=META){msg='¡Excelente! '+bien+' de '+N+'. '+cfg.bien;fondo='#d4edda';color='#155724';}
+    else if(bien>=Math.ceil(N*0.6)){msg='Buen trabajo: '+bien+' de '+N+'. Repasa las preguntas marcadas con ✗ y vuelve a intentarlo.';fondo='#fff3cd';color='#5c3900';}
+    else{msg='Llevas '+bien+' de '+N+'. '+cfg.repaso;fondo='#f8d7da';color='#721c24';}
+    res.textContent=msg; res.style.background=fondo; res.style.color=color; res.classList.add('visible');
+    this.style.display='none'; document.getElementById('qz-reintentar').style.display='inline-block';
+    res.scrollIntoView({behavior:'smooth',block:'center'});
+  });
+  document.getElementById('qz-reintentar').addEventListener('click',function(){
+    cuerpo.querySelectorAll('.qz-op').forEach(function(x){x.disabled=false;x.classList.remove('correcta','incorrecta','elegida');x.setAttribute('aria-pressed','false');});
+    cuerpo.querySelectorAll('.qz-repaso').forEach(function(n){n.remove();});
+    elegidas={}; res.classList.remove('visible'); res.textContent='';
+    this.style.display='none'; document.getElementById('qz-calificar').style.display='inline-block';
+    cuerpo.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+}
+
+/* ===== Navegación: el índice y la dirección (#ancla) abren su sección ===== */
+document.addEventListener('DOMContentLoaded',function(){
+  function abrir(id){
+    var el=id&&document.getElementById(id); if(!el)return;
+    var d=el.tagName==='DETAILS'?el:el.closest('details');
+    if(d){d.open=true; el.scrollIntoView({behavior:'smooth',block:'start'});}
+  }
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(){abrir(a.getAttribute('href').slice(1));});});
+  document.getElementById('abrir-todo').addEventListener('click',function(){document.querySelectorAll('details').forEach(function(d){d.open=true;});});
+  document.getElementById('cerrar-todo').addEventListener('click',function(){document.querySelectorAll('details').forEach(function(d){d.open=false;});});
+  window.addEventListener('hashchange',function(){abrir(decodeURIComponent(location.hash.slice(1)));});
+  abrir(decodeURIComponent(location.hash.slice(1)));
+});
+
+/* ===== Taller de escritura =====
+   El borrador se guarda en este navegador (si el navegador lo permite). */
+function tallerEscritura(id,o){
+  var caja=document.getElementById(id), k='gph-borrador-'+o.clave;
+  var h='<label class="tl-etq" for="'+id+'-txt">'+(o.etiqueta||'Escribe aquí tu texto')+'</label>'+
+    '<textarea class="tl-txt" id="'+id+'-txt" rows="10" spellcheck="true" lang="es"'+(o.guia?' placeholder="'+o.guia.replace(/"/g,'&quot;')+'"':'')+'></textarea>'+
+    '<div class="tl-cuenta" id="'+id+'-cuenta" aria-live="polite"></div>';
+  if(o.conectores)h+='<div class="tl-conect" id="'+id+'-con" aria-live="polite"></div>';
+  h+='<div class="botones" style="justify-content:flex-start">'+
+    '<button type="button" class="btn btn-secundario" id="'+id+'-oir">🔊 Escuchar mi texto</button>'+
+    '<button type="button" class="btn btn-secundario" id="'+id+'-copiar">📋 Copiar mi texto</button>'+
+    '<button type="button" class="btn btn-secundario" id="'+id+'-borrar">🗑️ Borrar</button></div>'+
+    '<div class="tl-aviso" id="'+id+'-aviso" role="status" aria-live="polite"></div>';
+  if(o.lista){
+    h+='<fieldset class="tl-lista"><legend>✅ Revisa tu texto antes de darlo por terminado</legend>'+
+      o.lista.map(function(t,i){return '<label><input type="checkbox" id="'+id+'-c'+i+'"> '+t+'</label>';}).join('')+
+      '<p class="tl-listo" id="'+id+'-listo" aria-live="polite"></p></fieldset>';
+  }
+  caja.innerHTML=h;
+  var ta=document.getElementById(id+'-txt'), cu=document.getElementById(id+'-cuenta'), co=document.getElementById(id+'-con'), av=document.getElementById(id+'-aviso');
+  try{var g=localStorage.getItem(k); if(g)ta.value=g;}catch(e){}
+  function avisar(t){av.textContent=t; clearTimeout(avisar.t); avisar.t=setTimeout(function(){av.textContent='';},4000);}
+  function medir(){var t=ta.value.trim();return {t:t,pal:t?t.split(/\s+/).length:0,ora:(t.match(/[^.!?…]+[.!?…]+/g)||[]).length};}
+  function contar(){
+    var x=medir(), m=o.meta||{}, s='Palabras: '+x.pal+(m.palabras?' (meta: '+m.palabras+' o más)':'')+' · Oraciones: '+x.ora+(m.oraciones?' (meta: '+m.oraciones+' o más)':'');
+    if(m.oraciones&&x.ora>=m.oraciones&&(!m.palabras||x.pal>=m.palabras))s+=' · 🎯 ¡Llegaste a la meta de extensión!';
+    cu.textContent=s;
+    if(co){
+      var low=' '+x.t.toLowerCase().replace(/[.,;:¡!¿?«»"()—]/g,' ')+' ', us=o.conectores.filter(function(c){return low.indexOf(' '+c.toLowerCase()+' ')>=0;});
+      co.innerHTML=us.length?(o.titLista||'Conectores que usaste')+': '+us.map(function(c){return '<span class="tl-chip">'+c+'</span>';}).join(' '):(o.vacioLista||'Todavía no aparece ningún conector de la lista.');
+    }
+    try{localStorage.setItem(k,ta.value);}catch(e){}
+  }
+  ta.addEventListener('input',contar); contar();
+  document.getElementById(id+'-oir').addEventListener('click',function(){
+    if(!ta.value.trim()){avisar('Primero escribe algo para poder escucharlo.');return;}
+    hablar(ta.value,0.9);
+  });
+  document.getElementById(id+'-copiar').addEventListener('click',function(){
+    if(!ta.value.trim()){avisar('Todavía no hay texto para copiar.');return;}
+    function ok(){avisar('✓ Texto copiado. Ya puedes pegarlo en un correo o en un documento.');}
+    if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(ta.value).then(ok,function(){ta.select();document.execCommand('copy');ok();});
+    else{ta.select();document.execCommand('copy');ok();}
+  });
+  var borrarListo=false;
+  document.getElementById(id+'-borrar').addEventListener('click',function(){
+    if(!borrarListo){borrarListo=true;avisar('¿Seguro? Pulsa «Borrar» otra vez para borrar todo el texto.');setTimeout(function(){borrarListo=false;},4000);return;}
+    borrarListo=false; ta.value=''; contar(); avisar('Texto borrado.'); ta.focus();
+  });
+  if(o.lista){
+    var cbs=caja.querySelectorAll('.tl-lista input'), li=document.getElementById(id+'-listo');
+    function rev(){var n=Array.prototype.filter.call(cbs,function(c){return c.checked;}).length, x=medir(), m=o.meta||{}, corto=(m.oraciones&&x.ora<m.oraciones)||(m.palabras&&x.pal<m.palabras);
+      li.textContent=n<cbs.length?'Revisado: '+n+' de '+cbs.length:(corto?'Marcaste toda la lista, pero tu texto todavía no llega a la meta de extensión. Añade algo más.':'🎉 ¡Todo revisado! Tu párrafo está listo.');}
+    ta.addEventListener('input',rev);
+    cbs.forEach(function(c){c.addEventListener('change',rev);}); rev();
+  }
+}
+/* Rúbricas: cada celda recibe el nombre de su nivel para mostrarlo en el celular */
+document.querySelectorAll('table.rubrica').forEach(function(t){
+  var cab=Array.prototype.map.call(t.querySelectorAll('thead th'),function(th){return th.textContent;});
+  t.querySelectorAll('tbody tr').forEach(function(tr){Array.prototype.forEach.call(tr.children,function(c,i){if(c.tagName==='TD')c.setAttribute('data-et',cab[i]);});});
+});
+
+
+/* ===== Formatos de preguntas del GED: menú desplegable, arrastrar y soltar, seleccionar un área =====
+   Cada componente recibe un banco de ejercicios; con más de uno, aparece «Otro ejercicio».
+   Todos se usan con teclado y lector de pantalla; los avisos aparecen dentro de la página. */
+function fxBaraja(a){a=a.slice();for(var k=a.length-1;k>0;k--){var r=Math.floor(Math.random()*(k+1)),t=a[k];a[k]=a[r];a[r]=t;}return a;}
+function fxRotador(banco){var p=[];return function(){if(!p.length)p=fxBaraja(banco.map(function(_,i){return i;}));return banco[p.pop()];};}
+function fxBarra(n){return '<div class="fx-barra"><button type="button" class="fx-btn fx-comp">Comprobar</button>'+
+  (n>1?'<button type="button" class="fx-btn fx-sec fx-otro">Otro ejercicio</button>':'<button type="button" class="fx-btn fx-sec fx-otro">Volver a empezar</button>')+'</div>'+
+  '<p class="fx-fb" role="status" aria-live="polite"></p>';}
+
+/* Menú desplegable: e = {t:'Texto con [[0]] y [[1]]', h:[{o:[...],c:0,n:'nota'}], titulo} */
+function desplegable(id,banco){
+  var caja=document.getElementById(id); if(!caja)return; var sig=fxRotador(banco), e;
+  function nuevo(){
+    e=sig();
+    var t=e.t.replace(/\[\[(\d+)\]\]/g,function(_,k){k=+k; var h=e.h[k];
+      return '<select class="fx-sel" data-k="'+k+'" aria-label="Espacio '+(k+1)+' del texto: elige una opción"><option value="">Seleccionar…</option>'+
+        h.o.map(function(x,j){return '<option value="'+j+'">'+x+'</option>';}).join('')+'</select><span class="fx-marca" data-k="'+k+'"></span>';});
+    caja.innerHTML=(e.titulo?'<p class="fx-tit">'+e.titulo+'</p>':'')+'<div class="fx-texto">'+t+'</div>'+fxBarra(banco.length)+'<ul class="fx-notas"></ul>';
+    caja.querySelector('.fx-comp').addEventListener('click',comprobar);
+    caja.querySelector('.fx-otro').addEventListener('click',function(){nuevo(); caja.querySelector('.fx-sel').focus();});
+  }
+  function comprobar(){
+    var sels=caja.querySelectorAll('.fx-sel'), bien=0, vacios=0, notas=caja.querySelector('.fx-notas'); notas.innerHTML='';
+    sels.forEach(function(s){var k=+s.getAttribute('data-k'), m=caja.querySelector('.fx-marca[data-k="'+k+'"]'), h=e.h[k];
+      s.classList.remove('fx-ok','fx-mal');
+      if(s.value===''){vacios++; m.textContent=''; return;}
+      if(+s.value===h.c){bien++; s.classList.add('fx-ok'); m.textContent=' ✓'; m.className='fx-marca fx-ok-t';}
+      else{s.classList.add('fx-mal'); m.textContent=' ✗'; m.className='fx-marca fx-mal-t';
+        notas.insertAdjacentHTML('beforeend','<li>Espacio '+(k+1)+': '+h.n+'</li>');}
+      m.setAttribute('data-k',k);
+    });
+    var fb=caja.querySelector('.fx-fb');
+    if(vacios){fb.className='fx-fb fx-mal-t'; fb.textContent='Te faltan '+vacios+' espacio(s) por elegir.'; return;}
+    fb.className='fx-fb '+(bien===sels.length?'fx-ok-t':'fx-mal-t');
+    fb.textContent=bien===sels.length?'✓ ¡Todo correcto! '+bien+' de '+sels.length+'.':'Llevas '+bien+' de '+sels.length+'. Lee las pistas, cambia lo marcado con ✗ y vuelve a comprobar.';
+  }
+  nuevo();
+}
+
+/* Arrastrar y soltar: e = {titulo, cajas:['A','B'], fichas:[{t:'...',c:0}], nota} */
+function arrastra(id,banco){
+  var caja=document.getElementById(id); if(!caja)return; var sig=fxRotador(banco), e, elegida=null;
+  function nuevo(){
+    e=sig(); elegida=null;
+    var fichas=fxBaraja(e.fichas.map(function(f,i){return i;}));
+    caja.innerHTML=(e.titulo?'<p class="fx-tit">'+e.titulo+'</p>':'')+
+      '<p class="fx-ayuda">Arrastra cada tarjeta a su caja. Sin ratón: pulsa una tarjeta (o Enter) y después el botón de la caja.</p>'+
+      '<div class="fx-zona fx-origen" data-z="-1"><button type="button" class="fx-dest" data-z="-1">Tarjetas sin colocar</button><ul class="fx-lista">'+
+      fichas.map(function(i){return '<li><button type="button" class="fx-ficha" draggable="true" data-i="'+i+'" aria-pressed="false">'+e.fichas[i].t+'</button></li>';}).join('')+'</ul></div>'+
+      '<div class="fx-cajas">'+e.cajas.map(function(c,z){return '<div class="fx-zona" data-z="'+z+'"><button type="button" class="fx-dest" data-z="'+z+'">'+c+'</button><ul class="fx-lista"></ul></div>';}).join('')+'</div>'+
+      fxBarra(banco.length)+'<p class="fx-nota"></p>';
+    caja.querySelector('.fx-comp').addEventListener('click',comprobar);
+    caja.querySelector('.fx-otro').addEventListener('click',function(){nuevo(); caja.querySelector('.fx-ficha').focus();});
+  }
+  function fb(t,cl){var f=caja.querySelector('.fx-fb'); f.className='fx-fb '+(cl||''); f.textContent=t;}
+  function mover(i,z){
+    var b=caja.querySelector('.fx-ficha[data-i="'+i+'"]'), lista=caja.querySelector('.fx-zona[data-z="'+z+'"] .fx-lista');
+    if(!b||!lista)return; b.classList.remove('fx-ok','fx-mal','fx-elegida'); b.setAttribute('aria-pressed','false');
+    lista.appendChild(b.parentNode); elegida=null; caja.querySelector('.fx-nota').textContent='';
+    fb('«'+b.textContent+'» → '+(z<0?'sin colocar':e.cajas[z])+'.'); b.focus();
+  }
+  caja.addEventListener('click',function(ev){
+    var f=ev.target.closest('.fx-ficha'), d=ev.target.closest('.fx-dest');
+    if(f){caja.querySelectorAll('.fx-ficha').forEach(function(x){x.classList.remove('fx-elegida');x.setAttribute('aria-pressed','false');});
+      if(elegida===f.getAttribute('data-i')){elegida=null; fb('Tarjeta soltada.'); return;}
+      elegida=f.getAttribute('data-i'); f.classList.add('fx-elegida'); f.setAttribute('aria-pressed','true');
+      fb('Elegiste «'+f.textContent+'». Ahora pulsa el botón de la caja a la que va.'); return;}
+    if(d){if(elegida===null){fb('Primero elige una tarjeta.'); return;} mover(elegida,+d.getAttribute('data-z'));}
+  });
+  caja.addEventListener('dragstart',function(ev){var f=ev.target.closest&&ev.target.closest('.fx-ficha'); if(!f)return;
+    ev.dataTransfer.setData('text/plain',f.getAttribute('data-i')); ev.dataTransfer.effectAllowed='move';});
+  caja.addEventListener('dragover',function(ev){var z=ev.target.closest&&ev.target.closest('.fx-zona'); if(z){ev.preventDefault(); z.classList.add('fx-sobre');}});
+  caja.addEventListener('dragleave',function(ev){var z=ev.target.closest&&ev.target.closest('.fx-zona'); if(z)z.classList.remove('fx-sobre');});
+  caja.addEventListener('drop',function(ev){var z=ev.target.closest&&ev.target.closest('.fx-zona'); if(!z)return; ev.preventDefault(); z.classList.remove('fx-sobre');
+    mover(ev.dataTransfer.getData('text/plain'),+z.getAttribute('data-z'));});
+  function comprobar(){
+    var sueltas=caja.querySelectorAll('.fx-origen .fx-ficha').length;
+    if(sueltas){fb('Te quedan '+sueltas+' tarjeta(s) sin colocar.','fx-mal-t'); return;}
+    var bien=0, n=e.fichas.length;
+    caja.querySelectorAll('.fx-cajas .fx-zona').forEach(function(zn){var z=+zn.getAttribute('data-z');
+      zn.querySelectorAll('.fx-ficha').forEach(function(b){var ok=e.fichas[+b.getAttribute('data-i')].c===z; if(ok)bien++;
+        b.classList.toggle('fx-ok',ok); b.classList.toggle('fx-mal',!ok);});});
+    fb(bien===n?'✓ ¡Todo correcto! '+bien+' de '+n+'.':'Llevas '+bien+' de '+n+'. Las tarjetas marcadas con ✗ están en la caja equivocada: muévelas y vuelve a comprobar.',bien===n?'fx-ok-t':'fx-mal-t');
+    caja.querySelector('.fx-nota').textContent=bien===n&&e.nota?e.nota:'';
+  }
+  nuevo();
+}
+
+/* Seleccionar un área: e = {titulo, preg, partes:['oración 1','oración 2',...], c:índice, n:'nota'} */
+function zonaSeleccion(id,banco){
+  var caja=document.getElementById(id); if(!caja)return; var sig=fxRotador(banco), e, intentos=0;
+  function nuevo(){
+    e=sig(); intentos=0;
+    caja.innerHTML=(e.titulo?'<p class="fx-tit">'+e.titulo+'</p>':'')+'<p class="fx-preg">'+e.preg+'</p>'+
+      '<div class="fx-texto fx-area" role="group" aria-label="Texto: cada oración es un botón">'+e.partes.map(function(p,j){return '<button type="button" class="fx-frase" data-j="'+j+'">'+p+'</button>';}).join(' ')+'</div>'+
+      '<div class="fx-barra"><button type="button" class="fx-btn fx-sec fx-otro">'+(banco.length>1?'Otro ejercicio':'Volver a empezar')+'</button></div><p class="fx-fb" role="status" aria-live="polite"></p>';
+    caja.querySelector('.fx-otro').addEventListener('click',function(){nuevo(); caja.querySelector('.fx-frase').focus();});
+  }
+  caja.addEventListener('click',function(ev){
+    var b=ev.target.closest('.fx-frase'); if(!b||b.disabled)return; intentos++;
+    var f=caja.querySelector('.fx-fb'), ok=+b.getAttribute('data-j')===e.c;
+    if(ok){b.classList.add('fx-ok'); caja.querySelectorAll('.fx-frase').forEach(function(x){x.disabled=true;}); f.className='fx-fb fx-ok-t'; f.textContent='✓ ¡Correcto! '+e.n;}
+    else if(intentos<2){b.classList.add('fx-mal'); b.disabled=true; f.className='fx-fb fx-mal-t'; f.textContent='Todavía no. Te queda un intento: vuelve a leer la pregunta.';}
+    else{b.classList.add('fx-mal'); caja.querySelectorAll('.fx-frase').forEach(function(x){x.disabled=true; if(+x.getAttribute('data-j')===e.c)x.classList.add('fx-ok');});
+      f.className='fx-fb fx-mal-t'; f.textContent='La oración correcta está marcada con ✓. '+e.n;}
+  });
+  nuevo();
+}
+
+
+/* ===== Texto modelo ===== */
+(function(){
+  var t=document.getElementById('lectura'), v=document.getElementById('ver-partes');
+  document.getElementById('leer-lectura').addEventListener('click',function(){
+    var c=t.cloneNode(true); c.querySelectorAll('.num-p,.m-ip').forEach(function(e){e.remove();}); hablar(c.textContent.trim(),0.9);});
+  v.addEventListener('click',function(){var on=t.classList.toggle('con-notas');v.setAttribute('aria-pressed',on?'true':'false');v.textContent=on?'Ocultar las notas al margen':'Ver las notas al margen';});
+})();
+
+/* ===== Lista de cotejo ===== */
+(function(){var c=document.getElementById('cotejo'), o=document.getElementById('cotejo-total');
+  c.addEventListener('change',function(){var n=c.querySelectorAll('input:checked').length; o.textContent='Estrategias marcadas: '+n+' de 4.'+(n===4?' ¡Listo para el simulador!':'');});})();
+
+/* ===== Ejercicios de la lección ===== */
+clasificador('clasif-lectura','puntaje-lectura',[
+  {p:'¿Qué resumen corresponde al párrafo 3?',ops:['Cuándo se solicita y cómo se reparte','Quién puede solicitar y cuánto cuesta','Qué resultados tuvo el programa anterior'],c:0,n:'Fechas y sorteo.'},
+  {p:'¿Qué tipo de texto es el aviso?',ops:['Un documento informativo de la comunidad','Un relato literario con personajes y trama','Un ensayo que defiende una opinión polémica'],c:0,n:'Informa sobre un programa.'},
+  {p:'¿En qué párrafo buscarías cuánto paga una familia con ayuda alimentaria?',ops:['En el 2','En el 4','En el 5'],c:0,n:'«Quién y cuánto».'},
+  {p:'Antes de responder una pregunta, ¿qué haces?',ops:['Vuelvo al texto y busco la oración que lo prueba','Respondo con lo que yo haría en esa situación','Elijo la opción más larga, que suele ser la buena'],c:0,n:'La prueba está en el texto.'}
+],null,false);
+
+clasificador('clasif-trampas','puntaje-trampas',[
+  {p:'Pregunta: ¿Quién puede solicitar una parcela? Opción: «Todas las personas de la ciudad, sin excepción».',ops:['Trampa: extremo','Cierto, pero no responde','Respuesta correcta'],c:0,n:'Solo las mayores de 18 años que viven en el barrio.'},
+  {p:'Pregunta: ¿Cuándo es el sorteo? Opción: «Las solicitudes se reciben del 1 al 31 de enero».',ops:['Cierto, pero no responde','Trampa: es un extremo','Es la respuesta correcta'],c:0,n:'Es verdad, pero el sorteo es el 10 de febrero.'},
+  {p:'Pregunta: ¿Por qué se incluye la cita de la participante? Opción: «Porque los huertos mejoran la salud de todos los vecinos del país».',ops:['Trampa: extremo','Respuesta correcta','Cierto, pero no responde'],c:0,n:'Exagera y generaliza.'},
+  {p:'Pregunta: ¿Qué deben hacer quienes reciben una parcela? Opción: «Comprar las semillas en la tienda del parque».',ops:['Trampa: no está en el texto','Respuesta correcta','Cierto, pero no responde'],c:0,n:'El aviso no dice nada de semillas.'},
+  {p:'Pregunta: ¿Cuánto mide cada parcela? Opción: «40 por 40 pies».',ops:['Trampa: dato mal usado','Respuesta correcta','Trampa: no está en el texto'],c:0,n:'40 es el número de parcelas; miden 10 por 10 pies.'}
+],null,false);
+
+desplegable('demo-desp',[{titulo:'Correo de una vecina al Distrito de Parques',
+  t:'Estimada directora:<br>Le escribo para [[0]] una parcela del huerto del Parque Ríos. [[1]] en el barrio desde 2015 y me gustaría cultivar verduras con mis hijos. [[2]], el sábado del taller trabajo; ¿habría otra fecha?',
+  h:[{o:['solicitar','solisitar','que solicite'],c:0,n:'Después de «para» va el infinitivo, y «solicitar» se escribe con c.'},
+     {o:['Vivo','Viví','Vive'],c:0,n:'Sigue viviendo allí (presente) y habla de sí misma (primera persona).'},
+     {o:['Sin embargo','Por lo tanto','Por ejemplo'],c:0,n:'Presenta un problema que contrasta con su deseo de participar: contraste.'}]}]);
+
+arrastra('demo-arr',[{titulo:'¿Qué dice el aviso?',cajas:['Requisito para solicitar','Obligación al recibir la parcela','El aviso no lo dice'],
+  fichas:[{t:'Tener 18 años o más',c:0},{t:'Vivir en el barrio',c:0},{t:'Asistir a un taller de dos horas',c:1},{t:'Cuidar la parcela',c:1},{t:'Tener experiencia en jardinería',c:2},{t:'Vender lo que se cosecha',c:2}],
+  nota:'Las tarjetas de la tercera caja son trampas de tipo «no está en el texto».'}]);
+
+zonaSeleccion('demo-area',[{titulo:'Párrafos 3 y 4 del aviso',preg:'Haz clic en la oración que explica qué pasa si alguien no cuida su parcela.',
+  partes:['Las solicitudes se reciben del 1 al 31 de enero.','Si hay más solicitudes que parcelas, se hará un sorteo público el 10 de febrero.','Quienes reciban una parcela deberán asistir a un taller de dos horas sobre cultivo sin pesticidas.','Además, se comprometen a cuidarla: una parcela abandonada durante más de tres semanas se asignará a la siguiente persona de la lista de espera.'],
+  c:3,n:'La parcela abandonada pasa a la lista de espera.'}]);
+
+iniciarQuiz([
+  {t:'¿Cuánto dura en total el examen RLA del GED?',o:['150 minutos, con un descanso de 10','45 minutos, sin descanso','Cuatro horas, con dos descansos'],c:0,r:'<a href="#s-1-examen">Sección 1</a>'},
+  {t:'¿Qué nota mínima hace falta para aprobar cada materia del GED?',o:['145','100','165'],c:0,r:'<a href="#s-1-examen">Sección 1</a>'},
+  {t:'¿Por qué no hay que dejar preguntas en blanco?',o:['Porque las respuestas incorrectas no restan puntos','Porque el examen no deja pasar a la siguiente','Porque cada pregunta en blanco resta dos puntos'],c:0,r:'<a href="#s-4-tiempo">Sección 4</a>'},
+  {t:'¿Cuánto tiempo, más o menos, hay para cada pregunta de las partes 1 y 3?',o:['Unos 2 minutos','Unos 30 segundos','Unos 5 minutos'],c:0,r:'<a href="#s-4-tiempo">Sección 4</a>'},
+  {t:'Una opción usa la palabra «nunca» y el texto no es tan tajante. ¿Qué trampa es?',o:['Una trampa de tipo extremo','Cierto, pero no responde','Un dato del texto mal usado'],c:0,r:'<a href="#s-3-descarte">Sección 3</a>'},
+  {t:'¿Para qué se usa sobre todo el menú desplegable en el examen RLA?',o:['Para las convenciones del idioma','Para escribir la Respuesta Extendida','Para elegir el tema del examen'],c:0,r:'<a href="#s-5-formatos">Sección 5</a>'},
+  {t:'Según el aviso, ¿cuántas parcelas abrirá el Distrito de Parques?',o:['40','10','25'],c:0,r:'<a href="#s-2-lectura">El aviso</a>'},
+  {t:'Según el aviso, ¿cuánto pagan al año las familias que reciben ayuda alimentaria?',o:['$10','$25','Nada'],c:0,r:'<a href="#s-2-lectura">El aviso, párrafo 2</a>'},
+  {t:'¿Qué pasa si hay más solicitudes que parcelas?',o:['Se hace un sorteo público el 10 de febrero','Se asignan por orden de llegada en enero','Se abren más parcelas en el Parque Norte'],c:0,r:'<a href="#s-2-lectura">El aviso, párrafo 3</a>'},
+  {t:'¿Cuál es el propósito principal del aviso?',o:['Informar a los vecinos sobre el programa y cómo participar','Convencer al distrito de que abra más parques en la ciudad','Contar la historia de una participante del Parque Norte'],c:0,r:'<a href="#s-2-lectura">El aviso</a>'},
+  {t:'¿Para qué sirve el dato de los 9 de cada 10 participantes del párrafo 5?',o:['Para mostrar un beneficio del programa','Para explicar cómo se hace el sorteo','Para indicar cuánto mide cada parcela'],c:0,r:'<a href="#s-2-lectura">El aviso, párrafo 5</a>'},
+  {t:'¿Qué opción es una trampa de tipo «no está en el texto»?',o:['Las parcelas tienen agua gratis','La cuota anual es de $25 al año','El taller dura dos horas en total'],c:0,r:'<a href="#s-3-descarte">Sección 3</a>'}
+],{meta:10,
+   bien:'Ya conoces el examen y tienes estrategias para cada formato. Pruébalas en el simulador y sigue con la Lección 8.3.',
+   repaso:'Vuelve a las secciones 3, 4 y 5 y repite el quiz.'});
+</script>
+</body>
+</html>
